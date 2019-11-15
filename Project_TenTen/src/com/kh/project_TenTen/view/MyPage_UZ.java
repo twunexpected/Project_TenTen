@@ -1,6 +1,6 @@
 package com.kh.project_TenTen.view;
 
- 
+  
 import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Dimension;

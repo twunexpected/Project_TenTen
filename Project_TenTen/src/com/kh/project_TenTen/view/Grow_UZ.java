@@ -1,7 +1,7 @@
 package com.kh.project_TenTen.view;
 
 
-import java.awt.Color; 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 public class Grow_UZ extends JFrame{
 
 	public Grow_UZ() {
-		super("성장과정"); 
- 
+		super("성장과정");
+
 
 		this.setBounds(650, 100, 400, 700);
 		this.setLayout(null);

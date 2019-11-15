@@ -1,8 +1,6 @@
 package com.kh.project_TenTen.view;
 
-
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -10,16 +8,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Grow_UZ extends JPanel{
+public class Grow2_UZ extends JPanel{
 
 	private MainFrame mf;
 	private JPanel Grow_UZ;
 	
-	public Grow_UZ(MainFrame mf) {
+	public Grow2_UZ(MainFrame mf) {
 		this.mf = mf;
 		Grow_UZ = this;
 		
@@ -105,6 +102,12 @@ public class Grow_UZ extends JPanel{
 		rewordImg.setLocation(130,540);
 		this.add(rewordImg);
 
+		//진열장 위에 상장추가이미지
+		Image reword2 = new ImageIcon("/Users/uzdev/Documents/Dev/images/sangjang.PNG").getImage().getScaledInstance(50, 70, 0);
+		JLabel rewordImg2 = new JLabel(new ImageIcon(reword2));
+		rewordImg2.setSize(50, 75);
+		rewordImg2.setLocation(105,140);
+		this.add(rewordImg2);
 
 		//진열장 이미지 
 		Image backGround = new ImageIcon("/Users/uzdev/Documents/Dev/images/Pan.PNG").getImage().getScaledInstance(390, 370, 0);
@@ -203,14 +206,7 @@ public class Grow_UZ extends JPanel{
 			
 		});
 
-		ttChangeB.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Grow_UZ, new Grow2_UZ(mf));
-			}
-			
-		});
+	
 
 
 //		this.setVisible(true);

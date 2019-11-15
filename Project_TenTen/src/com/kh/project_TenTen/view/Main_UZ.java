@@ -1,5 +1,5 @@
 package com.kh.project_TenTen.view;
-  
+   
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;

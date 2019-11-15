@@ -16,7 +16,7 @@ public class Grow_UZ extends JFrame{
 
 	public Grow_UZ() {
 		super("성장과정"); 
-
+ 
 
 		this.setBounds(650, 100, 400, 700);
 		this.setLayout(null);

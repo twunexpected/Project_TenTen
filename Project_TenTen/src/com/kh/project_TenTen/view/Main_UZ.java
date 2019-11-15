@@ -1,4 +1,4 @@
-package mini_Gui.view;
+package com.kh.project_TenTen.view;
 
 import java.awt.Color;
 import java.awt.Dimension;

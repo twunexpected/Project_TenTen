@@ -1,8 +1,8 @@
-package mini_Gui.run;
+package com.kh.project_TenTen.view;
 
-import mini_Gui.view.Grow_UZ;
-import mini_Gui.view.Main_UZ;
-import mini_Gui.view.MyPage_UZ;
+import com.kh.project_TenTen.view.Grow_UZ;
+import com.kh.project_TenTen.view.Main_UZ;
+import com.kh.project_TenTen.view.MyPage_UZ;
 
 
 public class Run_UZ {

@@ -15,24 +15,24 @@ import javax.swing.JTable;
 
 public class MyWord2_DJ extends JPanel{
 	private MainFrame mf;
+	private JPanel MyWord2_DJ;
 	public MyWord2_DJ(MainFrame mf) {
 		this.mf = mf;
+		MyWord2_DJ = this;
 		
 		//프레임
 		this.setSize(400, 700);
-		this.setLocation(650,100);
-		//기본패널
-		JPanel myWord2 = new JPanel();
-		myWord2.setLayout(null);
-		myWord2.setBackground(new Color(123, 185, 237));
-		myWord2.setSize(400,700);
+		this.setBackground(new Color(123, 185, 237));
+		this.setLayout(null);
+		
 		//표올릴 패널
 		JPanel p = new JPanel();
 		p.setSize(210,490);
 		p.setLocation(130, 100);
 		//표
 		String[] headings = new String[] {"번호","단어","뜻"};
-		Object data[][] ={
+		
+		Object data[][] ={  
 				{"1","apple","사과"},
 				{"2","banana","바나나"},
 				{"3","orange","오렌지"},
@@ -86,7 +86,7 @@ public class MyWord2_DJ extends JPanel{
 		b1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, myWord2, new MyWord1_DJ(mf));
+				ChangePanel.changePanel(mf, MyWord2_DJ, new MyWord1_DJ(mf));
 			}
 
 		});
@@ -106,51 +106,51 @@ public class MyWord2_DJ extends JPanel{
 		b3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, myWord2, new MyWord3_DJ(mf));
+				ChangePanel.changePanel(mf, MyWord2_DJ, new MyWord3_DJ(mf));
 			}
 
 		});
-		myWord2.add(b1);
-		myWord2.add(b2);
-		myWord2.add(b3);
-		myWord2.add(p);
+		this.add(b1);
+		this.add(b2);
+		this.add(b3);
+		this.add(p);
 		//좌측 고정
 		final JButton btnLeft1 = new JButton("<html>메인<br/>화면</html>");
 		btnLeft1.setBounds(0, 0, 80, 120);
 		btnLeft1.setForeground(new Color(255, 255, 225));
 		btnLeft1.setBackground(new Color(36, 107, 220));
 		btnLeft1.setFont(new Font("고딕", Font.BOLD, 20));
-		myWord2.add(btnLeft1);
+		this.add(btnLeft1);
 		JPanel panelLeft1 = new JPanel();
 		panelLeft1.setBounds(0,120, 80, 10);
 		panelLeft1.setBackground(new Color(255, 255, 255));
-		myWord2.add(panelLeft1);
+		this.add(panelLeft1);
 
 		final JButton btnLeft2 = new JButton("<html>나의<br/>단어</html>");
 		btnLeft2.setBounds(0, 130, 80, 120);
 		btnLeft2.setForeground(new Color(255, 255, 225));
 		btnLeft2.setBackground(new Color(36, 107, 220));
 		btnLeft2.setFont(new Font("고딕", Font.BOLD, 20));
-		myWord2.add(btnLeft2);
+		this.add(btnLeft2);
 		JPanel panelLeft2= new JPanel();
 		panelLeft2.setBounds(0, 250, 80, 10);
 		panelLeft2.setBackground(new Color(255, 255, 255));
-		myWord2.add(panelLeft2);
+		this.add(panelLeft2);
 
 		final JButton btnLeft3 = new JButton("<html>단어<br/>추가</html>");
 		btnLeft3.setBounds(0, 260, 80, 120);
 		btnLeft3.setForeground(new Color(255, 255, 225));
 		btnLeft3.setBackground(new Color(36, 107, 220));
 		btnLeft3.setFont(new Font("고딕", Font.BOLD, 20));
-		myWord2.add(btnLeft3);
+		this.add(btnLeft3);
 		JPanel panelLeft3 = new JPanel();
 		panelLeft3.setBounds(0, 380, 80, 10);
 		panelLeft3.setBackground(new Color(255, 255, 255));
-		myWord2.add(panelLeft3);
+		this.add(panelLeft3);
 		btnLeft3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, myWord2, new AddWord_DJ(mf));
+				ChangePanel.changePanel(mf, MyWord2_DJ, new AddWord_DJ(mf));
 			}
 
 		});
@@ -160,18 +160,18 @@ public class MyWord2_DJ extends JPanel{
 		btnLeft4.setForeground(new Color(255, 255, 225));
 		btnLeft4.setBackground(new Color(36, 107, 220));
 		btnLeft4.setFont(new Font("고딕", Font.BOLD, 20));
-		myWord2.add(btnLeft4);
+		this.add(btnLeft4);
 		JPanel panelLeft4  = new JPanel();
 		panelLeft4.setBounds(0, 510, 80, 10);
 		panelLeft4.setBackground(new Color(255, 255, 255));
-		myWord2.add(panelLeft4);
+		this.add(panelLeft4);
 
 		final JButton btnLeft5 = new JButton("<html>성장<br/>과정</html>");
 		btnLeft5.setBounds(0, 520, 80, 135);
 		btnLeft5.setForeground(new Color(255, 255, 225));
 		btnLeft5.setBackground(new Color(36, 107, 220));
 		btnLeft5.setFont(new Font("고딕", Font.BOLD, 20));
-		myWord2.add(btnLeft5);
+		this.add(btnLeft5);
 
 
 		//카피라이터
@@ -180,7 +180,7 @@ public class MyWord2_DJ extends JPanel{
 		//naming.setForeground(new Color(255, 255, 225));
 		naming.setFont(new Font("고딕", Font.BOLD, 12));
 		this.add(naming);
-		mf.add(myWord2);
+		mf.add(this);
 		//this.setVisible(true);
 		/*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
 		

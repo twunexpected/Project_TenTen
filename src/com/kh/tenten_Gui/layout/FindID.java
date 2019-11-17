@@ -42,6 +42,8 @@ public class FindID extends JFrame{
 				copyRights.setFont(new Font("고딕", Font.BOLD, 13));
 				this.setLayout(null);
 				
+				
+				
 		//본문
 		
 		JLabel mesege1 = new JLabel("이메일 : ");

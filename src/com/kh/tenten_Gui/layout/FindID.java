@@ -20,6 +20,8 @@ public class FindID extends JFrame{
 	public FindID() {
 		super("NULL");
 
+		
+		
 		this.setBounds(650, 100, 400, 700);
 		this.setLayout(null);
 

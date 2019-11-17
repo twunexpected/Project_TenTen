@@ -1,10 +1,14 @@
-package com.kh.project_TenTen.view;
+package mini;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,26 +17,25 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class MyWord2_DJ extends JPanel{
+public class MyWord1 extends JPanel{
 	private MainFrame mf;
-	private JPanel MyWord2_DJ;
-	public MyWord2_DJ(MainFrame mf) {
+	private JPanel MyWord1;
+
+	public MyWord1(MainFrame mf) {
 		this.mf = mf;
-		MyWord2_DJ = this;
-		
-		//프레임
+		MyWord1 = this;
+
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
-		
+
 		//표올릴 패널
 		JPanel p = new JPanel();
 		p.setSize(210,490);
 		p.setLocation(130, 100);
 		//표
 		String[] headings = new String[] {"번호","단어","뜻"};
-		
-		Object data[][] ={  
+		Object data[][] ={
 				{"1","apple","사과"},
 				{"2","banana","바나나"},
 				{"3","orange","오렌지"},
@@ -82,19 +85,19 @@ public class MyWord2_DJ extends JPanel{
 		b1.setHorizontalAlignment(JLabel.CENTER);
 		b1.setForeground(Color.white);
 		b1.setFont(new Font("고딕",Font.BOLD,17));
-		b1.setBackground(new Color(36, 107, 220));
-		b1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord2_DJ, new MyWord1_DJ(mf));
-			}
-
-		});
+		b1.setBackground(new Color(225, 91, 91));
 		JButton b2 = new JButton("비암기");
 		b2.setHorizontalAlignment(JLabel.CENTER);
 		b2.setForeground(Color.white);
 		b2.setFont(new Font("고딕",Font.BOLD,14));
-		b2.setBackground(new Color(225, 91, 91));
+		b2.setBackground(new Color(36, 107, 220));
+		b2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord1, new MyWord2(mf));
+			}
+
+		});
 		JButton b3 = new JButton("즐겨찾기");
 		b3.setHorizontalAlignment(JLabel.CENTER);
 		b3.setForeground(Color.white);
@@ -106,7 +109,7 @@ public class MyWord2_DJ extends JPanel{
 		b3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord2_DJ, new MyWord3_DJ(mf));
+				ChangePanel.changePanel(mf, MyWord1, new MyWord3(mf));
 			}
 
 		});
@@ -150,7 +153,7 @@ public class MyWord2_DJ extends JPanel{
 		btnLeft3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord2_DJ, new AddWord_DJ(mf));
+				ChangePanel.changePanel(mf, MyWord1, new AddWord(mf));
 			}
 
 		});
@@ -181,20 +184,11 @@ public class MyWord2_DJ extends JPanel{
 		naming.setFont(new Font("고딕", Font.BOLD, 12));
 		this.add(naming);
 		mf.add(this);
-		//this.setVisible(true);
-		/*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
-		
-	
-	}
 
 
-
-
-
-
-
-
+	}	
 
 }
+
 
 

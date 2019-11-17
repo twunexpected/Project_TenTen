@@ -1,4 +1,4 @@
-package com.kh.project_TenTen.view;
+package mini;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AddWord_DJ extends JPanel{
+public class AddWord extends JPanel{
 	private MainFrame mf;
-	private JPanel addWord_DJ;
+	private JPanel addWord;
 
-	public AddWord_DJ(MainFrame mf) {
+	public AddWord(MainFrame mf) {
 		this.mf = mf;
-		addWord_DJ = this;
+		addWord = this;
 	//«¡∑π¿”
 	/*	
 			this.setBounds(650, 100, 400, 700);
@@ -137,7 +137,7 @@ public class AddWord_DJ extends JPanel{
 		      btnLeft2.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					ChangePanel.changePanel(mf, addWord_DJ, new MyWord1_DJ(mf));
+					ChangePanel.changePanel(mf, addWord, new MyWord1(mf));
 				}
 
 			});

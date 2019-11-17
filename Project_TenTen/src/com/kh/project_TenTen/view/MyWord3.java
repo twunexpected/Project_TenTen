@@ -1,4 +1,4 @@
-package com.kh.project_TenTen.view;
+package mini;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,13 +13,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class MyWord3_DJ extends JPanel {
+public class MyWord3 extends JPanel {
 	private MainFrame mf;	
-	private JPanel MyWord3_DJ;
+	private JPanel MyWord3;
 
-	public MyWord3_DJ(MainFrame mf) {
+	public MyWord3(MainFrame mf) {
 		this.mf = mf;
-		MyWord3_DJ = this;
+		MyWord3 = this;
 
 	
 		this.setSize(400, 700);
@@ -86,7 +86,7 @@ public class MyWord3_DJ extends JPanel {
 		b1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord3_DJ, new MyWord1_DJ(mf));
+				ChangePanel.changePanel(mf, MyWord3, new MyWord1(mf));
 			}
 
 		});
@@ -98,7 +98,7 @@ public class MyWord3_DJ extends JPanel {
 		b2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord3_DJ, new MyWord2_DJ(mf));
+				ChangePanel.changePanel(mf, MyWord3, new MyWord2(mf));
 			}
 
 		});
@@ -150,7 +150,7 @@ public class MyWord3_DJ extends JPanel {
 		btnLeft3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord3_DJ, new AddWord_DJ(mf));
+				ChangePanel.changePanel(mf, MyWord3, new AddWord(mf));
 			}
 
 		});

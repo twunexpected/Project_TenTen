@@ -21,6 +21,7 @@ public class Test_gotTenTen extends JPanel{
 	private JPanel Test_gotTenTen;
 	
 
+	
 	public Test_gotTenTen(Login_MainFrame mf) {
 		
 		this.mf = mf;

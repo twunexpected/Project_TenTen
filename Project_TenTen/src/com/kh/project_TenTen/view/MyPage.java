@@ -19,10 +19,10 @@ import javax.swing.JTextField;
 
 public class MyPage extends JPanel {
 	
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel MyPage;
 	
-	public MyPage(MainFrame mf) {
+	public MyPage(Login_MainFrame mf) {
 		this.mf = mf;
 		MyPage = this;
 		
@@ -499,28 +499,43 @@ public class MyPage extends JPanel {
 			
 		});
 
-		
-		
-		
-//		btnLeft2.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				ChangePanel.changePanel(mf, MyPage, new MyWord1_DJ(mf));
-//			}
-//			
-//		});
+	
+		btnLeft2.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyPage, new MyWord1(mf));
+			}
+			
+		});
+		btnLeft3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyPage, new AddWord(mf));
+			}
+			
+		});
 		
-//		this.setSize(400, 700);
-//		this.setLayout(null);
-//		this.setBackground(new Color(123, 185, 237));
-//		mf.add(this);  
+		btnLeft4.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyPage, new Test_ChooseTest(mf));
+			}
+			
+		});
 
+		btnLeft5.addActionListener(new ActionListener() {
 
-	//	this.setVisible(true);
-	//	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyPage, new SeoungJang(mf));
+			}
+			
+		});
+		
+
 	}
 
 

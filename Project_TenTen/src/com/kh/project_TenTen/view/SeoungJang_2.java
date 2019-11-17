@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 
 public class SeoungJang_2 extends JPanel{
 
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel SeoungJang_2;
 	
-	public SeoungJang_2(MainFrame mf) {
+	public SeoungJang_2(Login_MainFrame mf) {
 		this.mf = mf;
 		SeoungJang_2 = this;
 		
@@ -207,10 +207,54 @@ public class SeoungJang_2 extends JPanel{
 		});
 
 	
+		
+		btnLeft1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, SeoungJang_2, new MainPage(mf));
+			}
+			
+		});
 
 
-//		this.setVisible(true);
-//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+		btnLeft2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, SeoungJang_2, new MyWord1(mf));
+			}
+			
+		});
+		btnLeft3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, SeoungJang_2, new AddWord(mf));
+			}
+			
+		});
+		
+		btnLeft4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, SeoungJang_2, new Test_ChooseTest(mf));
+			}
+			
+		});
+
+		btnLeft5.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, SeoungJang_2, new SeoungJang(mf));
+			}
+			
+		});
+		
+
 
 	}
 

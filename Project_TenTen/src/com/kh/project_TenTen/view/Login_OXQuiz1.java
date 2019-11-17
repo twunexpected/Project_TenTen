@@ -13,10 +13,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
  
 public class Login_OXQuiz1 extends JPanel {
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Login_OXQuiz1;
 
-	public Login_OXQuiz1(MainFrame mf) {
+	public Login_OXQuiz1(Login_MainFrame mf) {
 		this.mf = mf;
 		Login_OXQuiz1 = this;
 		//¹é È­¸é

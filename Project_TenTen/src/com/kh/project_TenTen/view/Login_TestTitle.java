@@ -11,9 +11,9 @@ import javax.swing.JPanel;
 import com.kh.project_TenTen.view.MainFrame;
  
 public class Login_TestTitle extends JPanel{
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Login_TestTitle;
-	public Login_TestTitle(MainFrame mf) {
+	public Login_TestTitle(Login_MainFrame mf) {
 		//¹é È­¸é
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));

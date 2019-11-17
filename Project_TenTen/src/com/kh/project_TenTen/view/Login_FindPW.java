@@ -16,10 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
  
 public class Login_FindPW extends JPanel {
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Login_FindPW;
 
-	public Login_FindPW(MainFrame mf) {
+	public Login_FindPW(Login_MainFrame mf) {
 		this.mf = mf;
 		Login_FindPW = this;
 		//¹é È­¸é

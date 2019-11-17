@@ -16,10 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
   
 public class Login_FindID extends JPanel{
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Login_FindID;
 
-	public Login_FindID(MainFrame mf) {
+	public Login_FindID(Login_MainFrame mf) {
 		this.mf = mf;
 		Login_FindID = this;
 		

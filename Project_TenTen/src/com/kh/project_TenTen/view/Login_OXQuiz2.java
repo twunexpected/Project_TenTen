@@ -4,22 +4,25 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
- 
-public class OXQuiz1 extends JPanel {
+
+public class Login_OXQuiz2 extends JPanel {
 	private MainFrame mf;
-	private JPanel OXQuiz1;
+	private JPanel Login_OXQuiz2;
 
-	public OXQuiz1(MainFrame mf) {
+	public Login_OXQuiz2(MainFrame mf) {
 		this.mf = mf;
-		OXQuiz1 = this;
-
+		Login_OXQuiz2 = this;
+		
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
@@ -149,19 +152,12 @@ public class OXQuiz1 extends JPanel {
 		mean10.setFont(new Font("고딕", Font.BOLD, 15));
 		mean10.setHorizontalAlignment(JTextField.LEFT);
 
-		//btnBack
-		JButton btnBack = new JButton("뒤로");
-		btnBack.setBounds(17, 20, 90, 40);
-		btnBack.setForeground(new Color(255, 255, 225));
-		btnBack.setBackground(new Color(36, 107, 220));
-		btnBack.setFont(new Font("고딕", Font.BOLD, 20));
-
-		//btnNext
-		JButton btnNext = new JButton("다음");
-		btnNext.setBounds(140, 550, 90, 40);
-		btnNext.setForeground(new Color(255, 255, 225));
-		btnNext.setBackground(new Color(36, 107, 220));
-		btnNext.setFont(new Font("고딕", Font.BOLD, 20));
+		//btnFinish
+		JButton btnFinish = new JButton("제출");
+		btnFinish.setBounds(140, 550, 90, 40);
+		btnFinish.setForeground(new Color(255, 255, 225));
+		btnFinish.setBackground(new Color(36, 107, 220));
+		btnFinish.setFont(new Font("고딕", Font.BOLD, 20));
 
 		//RadioButton 1~10
 		JRadioButton rb1_o = new JRadioButton();
@@ -254,7 +250,6 @@ public class OXQuiz1 extends JPanel {
 		rb10_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group10 = new ButtonGroup();
 
-
 		//ox RadioButton Group 1~10
 
 		group1.add(rb1_o);
@@ -332,8 +327,7 @@ public class OXQuiz1 extends JPanel {
 		this.add(mean10);
 
 		//여러가지
-		this.add(btnBack);
-		this.add(btnNext);
+		this.add(btnFinish);
 		this.add(word);
 		this.add(mean);
 		this.add(o);
@@ -341,12 +335,19 @@ public class OXQuiz1 extends JPanel {
 		this.add(copyRights);
 		mf.add(this);
 
-		btnNext.addActionListener(new ActionListener() {
+
+		btnFinish.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, OXQuiz1, new OXQuiz2(mf));
-			}
+				try{
+					BufferedWriter bo = new BufferedWriter(new FileWriter("단어추가.dat"));
+					bo.close();
+				} catch (Exception ex) { 
 
+				} 
+
+				JOptionPane.showMessageDialog(null, "초급입니다.."); 
+			}
 		});
 	}
 }

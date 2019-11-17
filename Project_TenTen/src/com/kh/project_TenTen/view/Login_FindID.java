@@ -23,25 +23,22 @@ public class Login_FindID extends JPanel{
 		this.mf = mf;
 		Login_FindID = this;
 		
-		
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 		
-	
 		//아이디 찾기
 		Image icon1 = new ImageIcon("Imege/아이디 찾기.PNG").getImage().getScaledInstance(150, 60, 0);
 		JLabel Id1 = new JLabel(new ImageIcon(icon1));
 		Id1.setBounds(100, 100, 170, 100);
 	
-		
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("고딕", Font.BOLD, 13));
+		
 		//본문
-
 		JLabel mesege1 = new JLabel("이메일 : ");
 		mesege1.setBounds(30, 270, 250, 200);
 		mesege1.setFont(new Font("고딕", Font.BOLD, 15));

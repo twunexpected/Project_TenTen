@@ -22,14 +22,17 @@ public class Login_OXQuiz2 extends JPanel {
 	public Login_OXQuiz2(Login_MainFrame mf) {
 		this.mf = mf;
 		Login_OXQuiz2 = this;
+		
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
+		
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("고딕", Font.BOLD, 13));
+		
 		//본문
 		JLabel word = new JLabel("단어");
 		word.setBounds(50, 110, 70, 50);
@@ -248,7 +251,6 @@ public class Login_OXQuiz2 extends JPanel {
 		ButtonGroup group10 = new ButtonGroup();
 
 		//ox RadioButton Group 1~10
-
 		group1.add(rb1_o);
 		group1.add(rb1_x);
 		this.add(rb1_o);

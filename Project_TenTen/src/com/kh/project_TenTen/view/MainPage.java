@@ -92,7 +92,6 @@ public class MainPage extends JPanel {
 		countMax.setSize(50, 40);
 		countMax.setLocation(225, 465);
 		countMax.setFont(new Font("고딕",Font.PLAIN,20));
-		//	�씪踰⑥� �궗�씠利덇컪 �뵲濡� �븞�뜥�룄 �뙣�꼸�뿉 �옄�룞 遺�李�.
 
 
 
@@ -105,7 +104,7 @@ public class MainPage extends JPanel {
 		this.add(countnum);
 
 
-		//移댄뵾�씪�엲
+		//카피라이트
 		JLabel naming = new JLabel("Copyrights ⓒ    비!뇨내과 All Rights reserved.");
 		naming.setBounds(90, 600, 400, 50);
 		//naming.setForeground(new Color(255, 255, 225));
@@ -113,14 +112,6 @@ public class MainPage extends JPanel {
 		this.setLayout(null);
 		this.add(naming);
 		
-		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//諛곌꼍
-//		JPanel jp = new JPanel();
-//		jp.setSize(400, 700);
-//		jp.setLayout(null);
-//		jp.setBackground(new Color(123, 185, 237));
-//		mf.add(this);   
-//		this.setBounds(600, 100, 400, 700);
 		
 		this.setSize(400, 700);
 		this.setLayout(null);

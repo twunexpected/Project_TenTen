@@ -16,9 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class OXQuiz2 extends JFrame {
+public class OXQuiz2 extends JPanel {
 	public OXQuiz2() {
-		super("NULL");
+		//super("NULL");
 
 		this.setBounds(650, 100, 400, 700);
 		this.setLayout(null);
@@ -377,7 +377,7 @@ public class OXQuiz2 extends JFrame {
 			}
 		});
 		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 }

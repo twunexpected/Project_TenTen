@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class FindPW extends JFrame {
+public class FindPW extends JPanel {
 	public FindPW() {
-		super("NULL");
+		//super("NULL");
 
 		this.setBounds(650, 100, 400, 700);
 		this.setLayout(null);
@@ -114,7 +114,7 @@ public class FindPW extends JFrame {
             }
          });
 
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 }

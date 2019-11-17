@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class FindID extends JFrame{
+public class FindID extends JPanel{
 	public FindID() {
-		super("NULL");
+	//	super("NULL");
 
 		
 		
@@ -41,7 +41,6 @@ public class FindID extends JFrame{
 				copyRights.setBounds(60, 600, 400, 50);
 				copyRights.setFont(new Font("°íµñ", Font.BOLD, 13));
 				this.setLayout(null);
-				System.out.println("Â¯Â¯¸Ç");
 				
 		//º»¹®
 		
@@ -104,7 +103,7 @@ public class FindID extends JFrame{
             }
          });
 
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 }

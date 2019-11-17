@@ -11,14 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class TestTitle extends JFrame{
-
-	private OXQuiz1 oq1;
-	private MainFrame mf;
-
+public class TestTitle extends JPanel{
 
 	public TestTitle() {
-		super("NULL");
+	//	super("NULL");
 
 		this.setBounds(650, 100, 400, 700);
 		this.setLayout(null);
@@ -33,13 +29,13 @@ public class TestTitle extends JFrame{
 		JLabel mesege1 = new JLabel("<html> 가입이 완료되었습니다..<br/> 레벨 테스트 주제를 선택하세요. <html/>");
 		mesege1.setBounds(80, 20, 250, 100);
 		mesege1.setFont(new Font("고딕", Font.BOLD, 15));
-		this.setLayout(null);
+	//	this.setLayout(null);
 
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("고딕", Font.BOLD, 13));
-		this.setLayout(null);
+	//	this.setLayout(null);
 
 
 		/*		btnSend.setBounds(280, 350, 85, 40);
@@ -86,7 +82,7 @@ public class TestTitle extends JFrame{
 		this.add(copyRights);
 		this.add(panelBack);
 
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	//	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	/*	Id1.addMouseListener(new MyMouseAdapter());
 

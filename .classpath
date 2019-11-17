@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="Project_TenTen/src"/>
+	<classpathentry kind="lib" path="mail-1.4.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

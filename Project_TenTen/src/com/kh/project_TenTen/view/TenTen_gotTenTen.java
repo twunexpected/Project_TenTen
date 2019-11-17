@@ -40,7 +40,7 @@ public class TenTen_gotTenTen extends JFrame{
 		lbTop.setFont(lbTop.getFont().deriveFont(22f));
 		lbTop.setHorizontalAlignment(JTextField.CENTER);
 		this.setLayout(null);
-		
+
 		// πˆ∆∞ª˝º∫
 		JButton tentenPoint = new JButton("≈Ÿ≈Ÿ »πµÊ");
 		tentenPoint.setBounds(120, 500, 160, 60);
@@ -49,7 +49,7 @@ public class TenTen_gotTenTen extends JFrame{
 		this.setLayout(null);
 		
 		
-		//		JButton buttonNext = new JButton("∫∏¿Ø ≈Ÿ≈Ÿ »Æ¿Œ");
+//		JButton buttonNext = new JButton("∫∏¿Ø ≈Ÿ≈Ÿ »Æ¿Œ");
 //		buttonNext.setBounds(100, 700, 200, 50);
 //		buttonNext.setBackground(new Color(36, 107, 220));
 //		buttonNext.setFont(buttonNext.getFont().deriveFont(25.0f));
@@ -101,5 +101,15 @@ public class TenTen_gotTenTen extends JFrame{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		new TenTen_gotTenTen();
+	}
+	
 }
 

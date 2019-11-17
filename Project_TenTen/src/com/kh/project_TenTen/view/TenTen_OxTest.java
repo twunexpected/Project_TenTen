@@ -36,15 +36,14 @@ public class TenTen_OxTest extends JFrame{
 
 		//상단 제목 "단어 TEST"
 		JLabel lbTop = new JLabel("단어 TEST");
-		lbTop.setBounds(150, 0, 200, 50);
-		lbTop.setSize(400, 45);
+		lbTop.setBounds(100, 0, 200, 50);
 		lbTop.setForeground(Color.WHITE);
 		lbTop.setFont(lbTop.getFont().deriveFont(22f));
 		lbTop.setHorizontalAlignment(JTextField.CENTER);
 		this.setLayout(null);
 
 		
-		// TEST 남은 단어 표시 -> JtextFiled 로 변경 !!!!!
+		// TEST 남은 단어 표시
 		JTextField tfWord = new JTextField("1");
 		tfWord.setBounds(175,165, 30, 30);
 		tfWord.setFont(new Font("Serif", Font.BOLD, 20));
@@ -60,13 +59,24 @@ public class TenTen_OxTest extends JFrame{
 		this.setLayout(null);
 
 
-		// TEST 노출단어 표시 -> JtextField 로 변경 !!!!! 
-		JTextField lbVoca = new JTextField("Explain");
+		// TEST 노출단어 표시 
+		JTextField lbVoca = new JTextField("Explain 노출");
 		lbVoca.setBounds(50, 220, 300, 100);
 		lbVoca.setFont(new Font(" ", Font.BOLD, 10)); // 굵은 폰트
 		lbVoca.setFont(lbVoca.getFont().deriveFont(45.0f));
+		lbVoca.setBackground(new Color(255, 255, 225));
 		lbVoca.setHorizontalAlignment(JTextField.CENTER);
 		this.setLayout(null);
+		
+		// TEST 노출단어 뜻
+		JTextField lbMeanning = new JTextField("v. 설명하다.");
+		lbMeanning.setBounds(105, 330, 200, 50);
+		lbMeanning.setBackground(new Color(255, 255, 225));
+		lbMeanning.setFont(new Font(" ", Font.BOLD, 10)); // 굵은 폰트
+		lbMeanning.setFont(lbVoca.getFont().deriveFont(16.0f));
+		lbMeanning.setHorizontalAlignment(JTextField.CENTER);
+		this.setLayout(null);
+		
 
 		// O, X 버튼생성
 		JButton buttonO = new JButton("O");
@@ -82,27 +92,30 @@ public class TenTen_OxTest extends JFrame{
 		this.setLayout(null);
 
 
-		//Copyrights ⓒ  비!뇨내과 All Rights reserved.
+		//Copyrightsⓒ  비!뇨내과 All Rights reserved.
 		JLabel buttomText = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		buttomText.setBounds(60, 600, 400, 50);
-		buttomText.setFont(new Font("Serif", Font.BOLD, 13));
 		this.setLayout(null);
 		
+		
+		this.add(lbMeanning);
 		this.add(buttomText);
 		this.add(lbVoca);
 		this.add(lbNumber);
-		this.add(tfWord);
 		this.add(lbTop);
+		this.add(tfWord);
 		this.add(panelTitle);
 		this.add(buttonO);
 		this.add(buttonX);
 		this.add(panelBackground);
 
+		
+		
 		buttonO.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TenTen_TestPopup tp = new TenTen_TestPopup();
-			}
+		}
 
 		});
 		
@@ -121,6 +134,12 @@ public class TenTen_OxTest extends JFrame{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	
+	public static void main(String[] args) {
+		new TenTen_OxTest();
+	}
+	
 }
 
 

@@ -99,7 +99,7 @@ public class TenTen_TestPopup extends JFrame {
 	public static void main(String[] args) {
 		new TenTen_TestPopup();
 	}
-
+	
 
 }
 

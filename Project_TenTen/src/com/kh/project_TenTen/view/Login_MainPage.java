@@ -85,7 +85,7 @@ public class Login_MainPage extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				ChangePanel.changePanel(mf, mainPage, new Main_UZ(mf));
+				ChangePanel.changePanel(mf, mainPage, new MainPage(mf));
 				
 			}
 		});

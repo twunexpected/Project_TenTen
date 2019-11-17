@@ -18,6 +18,7 @@ public class Test_ChooseTest extends JPanel {
 
 	public Test_ChooseTest(Login_MainFrame mf) {
 
+		
 		this.mf = mf;
 		Test_ChooseTest = this;
 

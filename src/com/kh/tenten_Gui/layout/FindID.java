@@ -41,8 +41,7 @@ public class FindID extends JFrame{
 				copyRights.setBounds(60, 600, 400, 50);
 				copyRights.setFont(new Font("°íµñ", Font.BOLD, 13));
 				this.setLayout(null);
-				this.setLayout(null);
-
+				System.out.println("Â¯Â¯¸Ç");
 				
 		//º»¹®
 		

@@ -16,17 +16,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TenTen_SpellTest extends JFrame{
+public class Test_SpellTest extends JPanel{
 
-	public TenTen_SpellTest() {
-		super("텐텐 TEST");
-		this.setBounds(650, 100, 400, 700);
+	private MainFrame mf;
+	private JPanel Test_SpellTest;
+	
+	
+	public Test_SpellTest(MainFrame mf) {
+
+		this.mf = mf;
+		this.Test_SpellTest = this;
+		
+		//배경
+		this.setSize(400, 700);
+		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 
-		//배경
-		JPanel panelBackground = new JPanel();
-		panelBackground.setSize(400, 700);
-		panelBackground.setBackground(new Color(123, 185, 237));
 
 		//상단제목 패널 "단어 TEST"
 		JPanel panelTitle = new JPanel();
@@ -94,13 +99,13 @@ public class TenTen_SpellTest extends JFrame{
 		this.add(lbTop);
 		this.add(panelTitle);
 		this.add(buttonNext);
-		this.add(panelBackground);
+		mf.add(this);
 
 		
 		buttonNext.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TenTen_TestPopup tp = new TenTen_TestPopup();
+				ChangePanel.changePanel(mf, Test_SpellTest, new Test_TestPopup(mf));
 			}
 
 		});
@@ -122,16 +127,8 @@ public class TenTen_SpellTest extends JFrame{
 
 
 
-
-		//사이즈 고정
-		this.setResizable(false);
-
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	public static void main(String[] args) {
-		new TenTen_SpellTest();
-	}
+
 }
 

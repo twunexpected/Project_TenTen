@@ -15,17 +15,22 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class TenTen_gotTenTen extends JFrame{
+public class Test_gotTenTen extends JPanel{
 
-	public TenTen_gotTenTen() {
-		super("≈Ÿ≈Ÿ TEST");
-		this.setBounds(650, 100, 400, 700);
-		this.setLayout(null);
-
+	private MainFrame mf;
+	private JPanel Test_gotTenTen;
+	
+	
+	public Test_gotTenTen(MainFrame mf) {
+		
+		this.mf = mf;
+		this.Test_gotTenTen = this;
+		
 		//πË∞Ê
-		JPanel panelBackground = new JPanel();
-		panelBackground.setSize(400, 700);
-		panelBackground.setBackground(new Color(123, 185, 237));
+		this.setSize(400, 700);
+		this.setBackground(new Color(123, 185, 237));
+		this.setLayout(null);
+		
 
 		//ªÛ¥‹¡¶∏Ò ∆–≥Œ "¥‹æÓ TEST"
 		JPanel panelTitle = new JPanel();
@@ -42,8 +47,8 @@ public class TenTen_gotTenTen extends JFrame{
 		this.setLayout(null);
 
 		// πˆ∆∞ª˝º∫
-		JButton tentenPoint = new JButton("≈Ÿ≈Ÿ »πµÊ");
-		tentenPoint.setBounds(120, 500, 160, 60);
+		JButton tentenPoint = new JButton("∫∏¿Ø≈Ÿ≈Ÿ »Æ¿Œ");
+		tentenPoint.setBounds(100, 500, 200, 60);
 		tentenPoint.setBackground(new Color(36, 107, 220));
 		tentenPoint.setFont(tentenPoint.getFont().deriveFont(25.0f));
 		this.setLayout(null);
@@ -77,39 +82,16 @@ public class TenTen_gotTenTen extends JFrame{
 		this.add(buttomText);
 		this.add(lbTop);
 		this.add(panelTitle);
-		this.add(panelBackground);
+		mf.add(this);
 
 
-
-		//∆–≥Œø° ¿Ã∫•∆Æ √ﬂ∞°
-		//		buttonO.addMouseListener(new MouseAdapter() {
-		//			@Override
-		//			public void mouseClicked(MouseEvent e) {
-		//				if(e.getButton() == 1) {
-		//					card.next(card1.getParent());
-		//				}
-		//				if(e.getButton() == 3) {
-		//					card.previous(card1.getParent());
-		//				}
-		//			}
-		//		});
-
-
-		//ªÁ¿Ã¡Ó ∞Ì¡§
-//		this.setResizable(false);
-
+		
+		
+		
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		new TenTen_gotTenTen();
-	}
 	
 }
 

@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.kh.project_TenTen.view.MainFrame;
-
+ 
 public class Login_TestTitle extends JPanel{
 	private MainFrame mf;
 	private JPanel Login_TestTitle;

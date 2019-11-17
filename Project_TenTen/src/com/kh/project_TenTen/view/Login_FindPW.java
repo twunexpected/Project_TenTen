@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+ 
 public class Login_FindPW extends JPanel {
 	private MainFrame mf;
 	private JPanel Login_FindPW;

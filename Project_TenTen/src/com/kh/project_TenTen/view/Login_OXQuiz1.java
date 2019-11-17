@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-
+ 
 public class Login_OXQuiz1 extends JPanel {
 	private MainFrame mf;
 	private JPanel Login_OXQuiz1;

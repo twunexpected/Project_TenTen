@@ -12,18 +12,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.Popup;
 
-public class TenTen_TestPopup extends JFrame {
+public class Test_TestPopup extends JPanel {
 
-	public TenTen_TestPopup() {
-		super("오늘의 테스트를 완료했습니다.");
-		this.setBounds(650, 100, 400, 700);
-		this.setLayout(null);
-
-
+	private MainFrame mf;
+	private JPanel Test_TestPopup;
+	
+	
+	public Test_TestPopup(MainFrame mf) {
+		
+		this.mf = mf;
+		this.Test_TestPopup = this;
+		
 		//배경
-		JPanel panelBackground = new JPanel();
-		panelBackground.setSize(400, 700);
-		panelBackground.setBackground(new Color(123, 185, 237));
+		this.setSize(400, 700);
+		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 
 		//상단제목 패널 "단어 TEST"
@@ -70,36 +72,29 @@ public class TenTen_TestPopup extends JFrame {
 		btpopup.setForeground(Color.WHITE);
 		this.setLayout(null);
 
-		btpopup.addActionListener(new ActionListener() {//익명
+		
+		btpopup.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TenTen_TestPopup tp = new TenTen_TestPopup();
+				ChangePanel.changePanel(mf, Test_TestPopup, new Test_gotTenTen(mf));
+
 			}
 		});
 
+		
 
-
+		mf.add(this);
 		this.add(tfWord);
 		this.add(labelCenter);
 		this.add(btpopup);
 		this.add(panelpopup);
 		this.add(lbTop);
 		this.add(panelTitle);
-		this.add(panelBackground);
 
-		//사이즈 고정
-		this.setResizable(false);
 
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 
 	}
-
-	public static void main(String[] args) {
-		new TenTen_TestPopup();
-	}
-	
 
 }
 

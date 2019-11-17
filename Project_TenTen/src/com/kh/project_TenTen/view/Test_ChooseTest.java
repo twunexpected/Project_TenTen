@@ -10,17 +10,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class TenTen_ChooseTest extends JFrame {
-	public TenTen_ChooseTest() {
-		super("NULL");
+public class Test_ChooseTest extends JPanel {
 
-		this.setBounds(650, 100, 400, 700);
-		this.setLayout(null);
-		
+	private MainFrame mf;
+	private JPanel Test_ChooseTest;
+
+
+	public Test_ChooseTest(MainFrame mf) {
+
+		this.mf = mf;
+		Test_ChooseTest = this;
+
+//		this.setBounds(650, 100, 400, 700);
+//		this.setLayout(null);
+
 		//백 화면
-		JPanel panelBack = new JPanel();
-		panelBack.setSize(400, 700);
-		panelBack.setBackground(new Color(123, 185, 237));
+		this.setSize(400, 700);
+		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 
 		//상단 패널
@@ -28,7 +34,7 @@ public class TenTen_ChooseTest extends JFrame {
 		panelTitle.setBounds(130, 0, 200, 50);
 		panelTitle.setBackground(new Color(36, 107, 220));
 		this.setLayout(null);
-		
+
 		//상단 박스
 		JLabel lableTitle = new JLabel("단어 Test");
 		lableTitle.setBounds(180, 0, 100, 50);
@@ -43,14 +49,14 @@ public class TenTen_ChooseTest extends JFrame {
 		btnTest1.setBackground(new Color(36, 107, 220));
 		btnTest1.setFont(new Font("Serif", Font.BOLD, 20));
 		this.setLayout(null);
-		
+
 		JButton btnTest2 = new JButton("O/X 퀴즈");
 		btnTest2.setBounds(150, 300, 180, 60);
 		btnTest2.setForeground(new Color(255, 255, 225));
 		btnTest2.setBackground(new Color(36, 107, 220));
 		btnTest2.setFont(new Font("Serif", Font.BOLD, 20));
 		this.setLayout(null);
-		
+
 		JButton btnTest3 = new JButton("스펠링 맞히기");
 		btnTest3.setBounds(150, 380, 180, 60);
 		btnTest3.setForeground(new Color(255, 255, 225));
@@ -115,22 +121,27 @@ public class TenTen_ChooseTest extends JFrame {
 		btnLeft5.setFont(new Font("Serif", Font.BOLD, 20));
 		this.setLayout(null);
 
-		
-		
-//		4지선다 버튼.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//					4지선다 = new 4지선다
-//					나중에 갖다붙이기		
-//			}
-//			
-//		}
-		
-	
+		//Copyrightsⓒ  비!뇨내과 All Rights reserved.
+		JLabel buttomText = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
+		buttomText.setBounds(110, 600, 400, 50);
+		this.setLayout(null);
+
+
+
+		//		4지선다 버튼.addActionListener(new ActionListener() {
+		//			@Override
+		//			public void actionPerformed(ActionEvent e) {
+		//					4지선다 = new 4지선다
+		//					나중에 갖다붙이기		
+		//			}
+		//			
+		//		}
+
+
 		btnTest2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TenTen_OxTest tp = new TenTen_OxTest();
+				ChangePanel.changePanel(mf, Test_ChooseTest, new Test_OxTest(mf));
 			}
 
 		});		
@@ -138,11 +149,20 @@ public class TenTen_ChooseTest extends JFrame {
 		btnTest3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TenTen_SpellTest tp = new TenTen_SpellTest();
+				ChangePanel.changePanel(mf, Test_ChooseTest, new Test_SpellTest(mf));
+
 			}
 
 		});		
 
+
+
+		this.add(buttomText);
+		
+		this.add(panelLeft1);
+		this.add(panelLeft2);
+		this.add(panelLeft3);
+		this.add(panelLeft4); 
 
 		this.add(btnLeft1);
 		this.add(btnLeft2);
@@ -150,26 +170,16 @@ public class TenTen_ChooseTest extends JFrame {
 		this.add(btnLeft4);
 		this.add(btnLeft5);
 
-		this.add(panelLeft1);
-		this.add(panelLeft2);
-		this.add(panelLeft3);
-		this.add(panelLeft4); 
-
 		this.add(btnTest1);
 		this.add(btnTest2);
 		this.add(btnTest3);
-		
+
 		this.add(lableTitle);
 		this.add(panelTitle);
-		this.add(panelBack);
+		mf.add(this);
 
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-	
-	public static void main(String[] args) {
-		new TenTen_ChooseTest();
-	}
-	
+
 }

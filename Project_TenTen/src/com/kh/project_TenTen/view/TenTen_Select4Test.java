@@ -12,25 +12,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class TenTen_Select4Test extends JFrame{
+public class TenTen_Select4Test extends JPanel{
 	
-//	 public Practice() {
-//	      super("NULL 레이아웃 연습");
-//	      this.setBounds(100, 100, 300, 300);
-//	      this.setLayout(null);
-//	  
-//	 }    
-	 
-	public TenTen_Select4Test() {
-		super("단어 TEST");
-		this.setBounds(650, 100, 400, 700);
-		this.setLayout(null);
+	private MainFrame mf;
+	private JPanel TenTen_Select4Test;
+	
+	public TenTen_Select4Test(MainFrame mf) {
+		this.mf = mf;
+		TenTen_Select4Test = this;
 		
-		
-		//배경
-		JPanel panelBackground = new JPanel();
-		panelBackground.setSize(400, 700);
-		panelBackground.setBackground(new Color(123, 185, 237));
+
+		this.setSize(400, 700);
+		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 		//상단제목 패널 "단어 TEST"
 		JPanel panelTitle = new JPanel();
@@ -149,8 +142,7 @@ public class TenTen_Select4Test extends JFrame{
 		btsouth1.addActionListener(new ActionListener() {//익명
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
-				TenTen_Popup2 a1 = new TenTen_Popup2();
+				ChangePanel.changePanel(mf, TenTen_Select4Test, new TenTen_Popup2(mf));
 			}
 		});
 		this.add(naming);
@@ -170,21 +162,9 @@ public class TenTen_Select4Test extends JFrame{
 		this.add(lbNumber);
 		this.add(lbTop);
 		this.add(panelTitle);
-		this.add(panelBackground);
-
+		mf.add(this);
 		
 		//사이즈 고정
-		this.setResizable(false);
-		
-		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-
-
-
-	public static void main(String[] args) {
-		new TenTen_Select4Test();
-
 	}
 
 }

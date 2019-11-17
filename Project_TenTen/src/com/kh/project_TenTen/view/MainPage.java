@@ -1,6 +1,6 @@
 package com.kh.project_TenTen.view;
 
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -226,7 +226,7 @@ public class MainPage extends JPanel {
 				ChangePanel.changePanel(mf, MainPage, new Test_ChooseTest(mf));
 			}
 			
-		});
+		}); 
 		
 		
 		

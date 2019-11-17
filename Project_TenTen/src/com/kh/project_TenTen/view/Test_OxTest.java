@@ -17,10 +17,10 @@ import javax.swing.JTextField;
 
 public class Test_OxTest extends JPanel {
 	
-	 
 	private Login_MainFrame mf;
 	private JPanel Test_OxTest;
 
+	
 	public Test_OxTest(Login_MainFrame mf) {
 
 		this.mf = mf;

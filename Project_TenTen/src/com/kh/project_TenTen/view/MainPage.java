@@ -22,14 +22,11 @@ public class MainPage extends JPanel {
 		this.mf = mf;
 		MainPage = this;
 		
-		// 프레임 
-//		super("텐텐 메인 페이지");
-//		this.setBounds(650, 100, 400, 700);
-//		this.setLayout(null);
 
 
 
-		//마이페이지 버튼
+
+		//마이페이지버튼
 		JButton btn = new JButton("마이페이지");
 		btn.setSize(120, 45);
 		btn.setLocation(260, 20);
@@ -41,7 +38,7 @@ public class MainPage extends JPanel {
 		
 		
 
-		//암기 버튼
+		//암기버튼
 		JButton arm = new JButton("암기");
 		arm.setSize(105, 60);
 		arm.setLocation(105,390);
@@ -60,7 +57,7 @@ public class MainPage extends JPanel {
 
 
 
-		//주제 여 텍스
+		//주제어텍스트
 		JTextField sectionText = new JTextField("  주제");
 		sectionText.setSize(80, 50);
 		sectionText.setLocation(185, 120);
@@ -71,7 +68,7 @@ public class MainPage extends JPanel {
 
 		//단어 텍스
 //		wordView.setBackground(new Color(123, 185, 237));
-		JTextField wordText = new JTextField(" 단 어");
+		JTextField wordText = new JTextField(" 단어");
 		wordText.setSize(240, 90);
 		wordText.setLocation(105, 180);
 		wordText.setBackground(new Color(123, 185, 237));
@@ -80,7 +77,7 @@ public class MainPage extends JPanel {
 
 
 
-		//카운 텍스
+		//카운텍스
 		JTextField countnum = new JTextField("입력값");
 		countnum.setBackground(new Color(123, 185, 237));
 		countnum.setSize(60, 50);
@@ -95,7 +92,7 @@ public class MainPage extends JPanel {
 		countMax.setSize(50, 40);
 		countMax.setLocation(225, 465);
 		countMax.setFont(new Font("고딕",Font.PLAIN,20));
-		//	라벨은 사이즈값 따로 안써도 패널에 자동 부착.
+		//	�씪踰⑥� �궗�씠利덇컪 �뵲濡� �븞�뜥�룄 �뙣�꼸�뿉 �옄�룞 遺�李�.
 
 
 
@@ -108,16 +105,16 @@ public class MainPage extends JPanel {
 		this.add(countnum);
 
 
-		//카피라잇
-		JLabel naming = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
+		//移댄뵾�씪�엲
+		JLabel naming = new JLabel("Copyrights ⓒ    비!뇨내과 All Rights reserved.");
 		naming.setBounds(90, 600, 400, 50);
 		//naming.setForeground(new Color(255, 255, 225));
-		naming.setFont(new Font("고", Font.BOLD, 13));
+		naming.setFont(new Font("고딕", Font.BOLD, 13));
 		this.setLayout(null);
 		this.add(naming);
 		
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//배경
+		//諛곌꼍
 //		JPanel jp = new JPanel();
 //		jp.setSize(400, 700);
 //		jp.setLayout(null);
@@ -131,7 +128,7 @@ public class MainPage extends JPanel {
 		mf.add(this);   
 		
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//좌측 메뉴
+		//좌측메뉴
 		final JButton btnLeft1 = new JButton("<html>메인<br/>화면</html>");
 		btnLeft1.setBounds(0, 0, 80, 120);
 		btnLeft1.setForeground(new Color(255, 255, 225));
@@ -241,8 +238,6 @@ public class MainPage extends JPanel {
 		
 		
 
-//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		this.setVisible(true);
 
 	}
 	

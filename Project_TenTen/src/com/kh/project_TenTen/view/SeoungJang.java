@@ -23,7 +23,7 @@ public class SeoungJang extends JPanel{
 		this.mf = mf;
 		SeoungJang = this;
 		
-//		super("성장과정");
+//		super("�꽦�옣怨쇱젙");
 //		this.setBounds(650, 100, 400, 700);
 //		this.setLayout(null);
 
@@ -35,7 +35,7 @@ public class SeoungJang extends JPanel{
 
 		//JOptionPane.showMessageDiaLog(null,"";)
 
-		//마이페이지 중앙상단 라벨
+		//留덉씠�럹�씠吏� 以묒븰�긽�떒 �씪踰�
 		JPanel Above = new JPanel();
 		Above.setBackground(new Color(36, 107, 220));
 		Above.setSize(220, 50);
@@ -50,15 +50,15 @@ public class SeoungJang extends JPanel{
 
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		// 보유텐텐 :
-		JLabel Gttnum = new JLabel("보유 텐텐: ");
+		// 蹂댁쑀�뀗�뀗 :
+		JLabel Gttnum = new JLabel("보유텐텐: ");
 		Gttnum.setBackground(new Color(123, 185, 237));
 		Gttnum.setSize(80, 40);
 		Gttnum.setLocation(110, 500);
 		Gttnum.setFont(new Font("고딕",Font.PLAIN,15));
 		this.add(Gttnum);
 
-		// 보유텐텐개수 보여주기
+		// 蹂댁쑀�뀗�뀗媛쒖닔 蹂댁뿬二쇨린
 		JLabel myttnum = new JLabel("20");
 		myttnum.setBackground(new Color(123, 185, 237));
 		myttnum.setSize(80, 40);
@@ -67,16 +67,16 @@ public class SeoungJang extends JPanel{
 		this.add(myttnum);
 
 
-		// 획득조건 :
-		JLabel getCd = new JLabel("획득 조건: ");
+		// �쉷�뱷議곌굔 :
+		JLabel getCd = new JLabel("획득조건: ");
 		getCd.setBackground(new Color(123, 185, 237));
 		getCd.setSize(80, 40);
 		getCd.setLocation(200, 540);
 		getCd.setFont(new Font("고딕",Font.PLAIN,15));
 		this.add(getCd);
 
-		// 상장교환조건 텐텐 개수
-		JLabel needTTNum = new JLabel("텐텐 10개");
+		// �긽�옣援먰솚議곌굔 �뀗�뀗 媛쒖닔
+		JLabel needTTNum = new JLabel("텐텐 10게");
 		needTTNum.setBackground(new Color(123, 185, 237));
 		needTTNum.setSize(80, 40);
 		needTTNum.setLocation(285, 540);
@@ -86,7 +86,7 @@ public class SeoungJang extends JPanel{
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-		// 교환 버튼
+		// 援먰솚 踰꾪듉
 		JButton ttChangeB = new JButton("교환") ;
 		ttChangeB.setSize(50, 40);
 		ttChangeB.setLocation(250,575);
@@ -98,7 +98,7 @@ public class SeoungJang extends JPanel{
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-		//하단 미리 보여주는 상장 이미지
+		//�븯�떒 誘몃━ 蹂댁뿬二쇰뒗 �긽�옣 �씠誘몄�
 		Image reword = new ImageIcon("/Users/uzdev/Documents/Dev/images/sangjang.PNG").getImage().getScaledInstance(50, 70, 0);
 		JLabel rewordImg = new JLabel(new ImageIcon(reword));
 		rewordImg.setSize(50, 75);
@@ -106,7 +106,7 @@ public class SeoungJang extends JPanel{
 		this.add(rewordImg);
 
 
-		//진열장 이미지 
+		//吏꾩뿴�옣 �씠誘몄� 
 		Image backGround = new ImageIcon("/Users/uzdev/Documents/Dev/images/Pan.PNG").getImage().getScaledInstance(390, 370, 0);
 		JLabel PanLabel = new JLabel(new ImageIcon(backGround));
 		PanLabel.setSize(320, 380);
@@ -116,17 +116,17 @@ public class SeoungJang extends JPanel{
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-		//카피라잇
-		JLabel naming = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
+		//移댄뵾�씪�엲
+		JLabel naming = new JLabel("Copyrights ⓒ    비!뇨내과 All Rights reserved.");
 		naming.setBounds(90, 600, 400, 50);
 		//naming.setForeground(new Color(255, 255, 225));
-		naming.setFont(new Font("고", Font.BOLD, 13));
+		naming.setFont(new Font("고딕", Font.BOLD, 13));
 		this.setLayout(null);
 		this.add(naming);
 
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//배경
+		//諛곌꼍
 //		JPanel jp = new JPanel();
 //		jp.setSize(400, 700);
 //		jp.setLayout(null);
@@ -136,7 +136,7 @@ public class SeoungJang extends JPanel{
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@	
 
-		//좌측 메뉴
+		//醫뚯륫 硫붾돱
 		final JButton btnLeft1 = new JButton("<html>메인<br/>화면</html>");
 		btnLeft1.setBounds(0, 0, 80, 120);
 		btnLeft1.setForeground(new Color(255, 255, 225));

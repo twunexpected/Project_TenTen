@@ -30,14 +30,9 @@ public class MyPage extends JPanel {
 		this.setLayout(null);
 		this.setBackground(new Color(123, 185, 237));
 		mf.add(this);  
-		
-		
-//		super("텐텐 마이페이지");
-//		this.setBounds(650, 100, 400, 700);
-//		this.setLayout(null);
 
 
-		//마이페이지 중앙상단 라벨
+		//마이페이지중앙상단라벨
 		JPanel Above = new JPanel();
 		Above.setBackground(new Color(36, 107, 220));
 		Above.setSize(220, 50);
@@ -62,7 +57,7 @@ public class MyPage extends JPanel {
 		ID.setLocation(110,155);
 		this.add(ID);
 
-		//입력받은 아이디
+		//�엯�젰諛쏆� �븘�씠�뵒
 		JTextField userID = new JTextField("syso");
 		userID.setBackground(new Color(123,185,237));
 		userID.setSize(115, 40);
@@ -72,7 +67,7 @@ public class MyPage extends JPanel {
 		//////////////////////////////
 
 
-		//닉네 :
+		//�땳�꽕 :
 		JLabel NicName = new JLabel("닉네임 :");
 		NicName.setBackground(new Color(123, 185, 237));
 		NicName.setSize(115, 40);
@@ -80,7 +75,7 @@ public class MyPage extends JPanel {
 		NicName.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(NicName);
 
-		//입력받은 닉네임
+		//�엯�젰諛쏆� �땳�꽕�엫
 		JTextField userNickName = new JTextField("비뇨내과");
 		userNickName.setBackground(new Color(123,185,237));
 		userNickName.setSize(115, 40);
@@ -91,7 +86,7 @@ public class MyPage extends JPanel {
 
 		//////////////////////////
 
-		//나의레벨 페널
+		//�굹�쓽�젅踰� �럹�꼸
 		JLabel myLevel = new JLabel("나의 레벨 :");
 		myLevel.setBackground(new Color(123, 185, 237));
 		myLevel.setSize(115, 40);
@@ -99,7 +94,7 @@ public class MyPage extends JPanel {
 		myLevel.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(myLevel);
 
-		//나의레벨카운
+		//�굹�쓽�젅踰⑥뭅�슫
 		JLabel userMyLevel = new JLabel("Lv.1");
 		userMyLevel.setBackground(new Color(123,185,237));
 		userMyLevel.setSize(110, 40);
@@ -111,7 +106,7 @@ public class MyPage extends JPanel {
 
 		//////////////////////////
 
-		//단어레벨 페널
+		//�떒�뼱�젅踰� �럹�꼸
 		JLabel wLevel = new JLabel("단어 레벨 :");
 		wLevel.setBackground(new Color(123, 185, 237));
 		wLevel.setSize(115, 40);
@@ -119,7 +114,7 @@ public class MyPage extends JPanel {
 		wLevel.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(wLevel);
 
-		//단어레벨카운
+		//�떒�뼱�젅踰⑥뭅�슫
 		JLabel userWdLevel = new JLabel("초급");
 		userWdLevel.setBackground(new Color(123,185,237));
 		userWdLevel.setSize(120, 40);
@@ -130,7 +125,7 @@ public class MyPage extends JPanel {
 
 		//////////////////////////
 
-		//보유텐텐 페널
+		//蹂댁쑀�뀗�뀗 �럹�꼸
 		JLabel ttCount = new JLabel("보유 텐텐 :");
 		ttCount.setBackground(new Color(123, 185, 237));
 		ttCount.setSize(115, 40);
@@ -138,7 +133,7 @@ public class MyPage extends JPanel {
 		ttCount.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(ttCount);
 
-		//나의보유텐텐
+		//�굹�쓽蹂댁쑀�뀗�뀗
 		JLabel myttNow = new JLabel("20");
 		myttNow.setBackground(new Color(123,185,237));
 		myttNow.setSize(110, 40);
@@ -149,15 +144,15 @@ public class MyPage extends JPanel {
 
 		//////////////////////////
 
-		//학습시작일 페널
-		JLabel ddCount = new JLabel("학습시작일 :") ;
+		//�븰�뒿�떆�옉�씪 �럹�꼸
+		JLabel ddCount = new JLabel("합습시작일 :") ;
 		ddCount.setSize(115, 40);
 		ddCount.setLocation(100,405);
 		ddCount.setBackground(new Color(123, 185, 237));
 		ddCount.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(ddCount);
 
-		//학습시작일 Date
+		//�븰�뒿�떆�옉�씪 Date
 		JLabel myddNow = new JLabel("yy.mm.dd");
 		myddNow.setBackground(new Color(123,185,237));
 		myddNow.setSize(110, 40);
@@ -168,7 +163,7 @@ public class MyPage extends JPanel {
 
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//닉네임 변경 버튼
+		//�땳�꽕�엫 蹂�寃� 踰꾪듉
 		JButton ncbButton = new JButton("변경") ;
 		ncbButton.setSize(50, 40);
 		ncbButton.setLocation(320,207);
@@ -180,19 +175,19 @@ public class MyPage extends JPanel {
 
 
 
-		//@@@@@@@@@@@@@@@@@@@@@ 닉네임변경 팝업창 @@@@@@@@@@@@@@@@@@@@@@@
-		//상단 닉네임변경 라벨 받쳐주는 패널
+		//@@@@@@@@@@@@@@@@@@@@@ �땳�꽕�엫蹂�寃� �뙘�뾽李� @@@@@@@@@@@@@@@@@@@@@@@
+		//�긽�떒 �땳�꽕�엫蹂�寃� �씪踰� 諛쏆퀜二쇰뒗 �뙣�꼸
 		JPanel pop = new JPanel();
 		pop.setBackground(new Color(36,107,220));
 		pop.setSize(200, 40);
 		pop.setLocation(100, 10);
 
-		//다이어로그
+		//�떎�씠�뼱濡쒓렇
 		Dialog sd = new Dialog(mf,"닉네임 변경");
 		sd.setBounds(300,500,400,400);
 		sd.setBackground(new Color(123, 185, 237));
 
-		//상단"닉네임변경" 라
+		//�긽�떒"�땳�꽕�엫蹂�寃�" �씪
 		JLabel nc = new JLabel("닉네임변경");
 		nc.setBounds(150,10,200,40);
 		nc.setForeground(Color.WHITE);
@@ -201,7 +196,7 @@ public class MyPage extends JPanel {
 		pop.add(nc);
 
 
-		//하단"변경완료"버튼
+		//�븯�떒"蹂�寃쎌셿猷�"踰꾪듉
 		JButton jb = new JButton("변경완료");
 		jb.setSize(100,50);
 		jb.setLocation(150,300);
@@ -225,7 +220,7 @@ public class MyPage extends JPanel {
 
 		lb.add(pop);
 
-		//기존닉네임 : 
+		//湲곗〈�땳�꽕�엫 : 
 		JPanel oldNickP = new JPanel();
 		oldNickP.setBounds(52, 100, 100, 30);
 		oldNickP.setBackground(new Color(123,185,237));
@@ -235,7 +230,7 @@ public class MyPage extends JPanel {
 		oldNick.setFont(new Font("고딕",Font.PLAIN,18));
 		oldNickP.add(oldNick);
 
-		// 현재 유저 닉네임
+		// �쁽�옱 �쑀�� �땳�꽕�엫
 		JPanel userOldNickP = new JPanel();
 		userOldNickP.setBounds(170, 100, 100, 30);
 		userOldNickP.setBackground(new Color(123,185,237));
@@ -245,7 +240,7 @@ public class MyPage extends JPanel {
 		userOldNick.setFont(new Font("고딕",Font.PLAIN,18));
 		userOldNickP.add(userOldNick);
 
-		//새 닉네임 : 
+		//�깉 �땳�꽕�엫 : 
 		JPanel	newNickP = new JPanel();
 		newNickP.setBounds(60, 150, 100, 30);
 		newNickP.setBackground(new Color(123,185,237));
@@ -255,7 +250,7 @@ public class MyPage extends JPanel {
 		newNick.setFont(new Font("고딕",Font.PLAIN,18));
 		newNickP.add(newNick);
 
-		// 입력받을 닉네임
+		// �엯�젰諛쏆쓣 �땳�꽕�엫
 		JPanel userNewNP = new JPanel();
 		userNewNP.setBounds(170, 145, 100, 40);
 		userNewNP.setBackground(new Color(123,185,237));
@@ -265,16 +260,16 @@ public class MyPage extends JPanel {
 		userNewNick.setFont(new Font("고딕",Font.PLAIN,15));
 		userNewNP.add(userNewNick);
 
-		JLabel naming1 = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
+		JLabel naming1 = new JLabel("Copyrights ⓒ    비!뇨내과� All Rights reserved.");
 		naming1.setBounds(60, 330, 400, 50);
 		//naming.setForeground(new Color(255, 255, 225));
-		naming1.setFont(new Font("고", Font.BOLD, 13));
+		naming1.setFont(new Font("고딕", Font.BOLD, 13));
 		this.setLayout(null);
 		lb.add(naming1);
 
 
 
-		//마이페이지 - 닉네임변경 버튼 누르면 위가 실행.
+		//留덉씠�럹�씠吏� - �땳�꽕�엫蹂�寃� 踰꾪듉 �늻瑜대㈃ �쐞媛� �떎�뻾.
 		ncbButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -289,8 +284,8 @@ public class MyPage extends JPanel {
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-		//회원 탈퇴 버튼
-		JButton mdlButton = new JButton("회원 탈퇴") ;
+		//�쉶�썝 �깉�눜 踰꾪듉
+		JButton mdlButton = new JButton("회원탈퇴") ;
 		mdlButton.setBackground(new Color(123, 185, 237));
 		mdlButton.setSize(115, 50);
 		mdlButton.setLocation(175,550);
@@ -301,8 +296,8 @@ public class MyPage extends JPanel {
 		this.add(mdlButton);
 
 
-		//회원탈퇴 재확인 팝업창
-		//다이어로그
+		//�쉶�썝�깉�눜 �옱�솗�씤 �뙘�뾽李�
+		//�떎�씠�뼱濡쒓렇
 		Dialog sd2 = new Dialog(mf,"회원탈퇴");
 		sd2.setBounds(300,500,400,700);
 		//		sd2.setBackground(new Color(123, 185, 237));
@@ -316,7 +311,7 @@ public class MyPage extends JPanel {
 		deletePop.add(deleteWarn);
 		sd2.add(deletePop);
 		
-		//회원탈퇴 재확인 "네" 버튼
+		//�쉶�썝�깉�눜 �옱�솗�씤 "�꽕" 踰꾪듉
 		JPanel	yesPanel = new JPanel();
 		yesPanel.setSize(80, 50);
 		yesPanel.setLocation(115,370);
@@ -329,7 +324,7 @@ public class MyPage extends JPanel {
 		deleteWarn.add(yesPanel);
 		
 		
-		//@@@@@@@@@@@@@@@@ 위에 회원탈퇴 재확인 "네" 눌르면 뜨는 "삭제되었습니다." 창 @@@@@@@@@@@@
+		//@@@@@@@@@@@@@@@@ �쐞�뿉 �쉶�썝�깉�눜 �옱�솗�씤 "�꽕" �닃瑜대㈃ �쑉�뒗 "�궘�젣�릺�뿀�뒿�땲�떎." 李� @@@@@@@@@@@@
 		Dialog sd3 = new Dialog(mf,"정보삭제확인창");
 		sd3.setBounds(300,500,400,700);
 		JPanel DConfirmPop = new JPanel();
@@ -355,7 +350,7 @@ public class MyPage extends JPanel {
 			
 		});
 		
-		// 탈퇴 재질문에 "네" 눌렀을 경우 뜨는 창 위에 "확인" 버튼
+		// �깉�눜 �옱吏덈Ц�뿉 "�꽕" �닃���쓣 寃쎌슦 �쑉�뒗 李� �쐞�뿉 "�솗�씤" 踰꾪듉
 		JPanel OkPanel = new JPanel();
 		OkPanel.setSize(80,50);
 		OkPanel.setLocation(160,370);
@@ -379,7 +374,7 @@ public class MyPage extends JPanel {
 		
 		
 		
-		//회원탈퇴 재확인 "아니오" 버튼 - 누르면 창 꺼져야해. 아래 이벤트있음
+		//�쉶�썝�깉�눜 �옱�솗�씤 "�븘�땲�삤" 踰꾪듉 - �늻瑜대㈃ 李� 爰쇱졇�빞�빐. �븘�옒 �씠踰ㅽ듃�엳�쓬
 		JPanel	NoPanel = new JPanel();
 		NoPanel.setSize(80, 50);
 		NoPanel.setLocation(200,370);
@@ -391,7 +386,7 @@ public class MyPage extends JPanel {
 		NoPanel.add(aniyoButton);
 		deleteWarn.add(NoPanel);
 		
-		//아니오 누르면 창 꺼지는이벤트
+		//�븘�땲�삤 �늻瑜대㈃ 李� 爰쇱��뒗�씠踰ㅽ듃
 		aniyoButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -399,7 +394,7 @@ public class MyPage extends JPanel {
 			}
 		});
 
-		//회원탈퇴 누를 시 팝업창이벤트
+		//�쉶�썝�깉�눜 �늻瑜� �떆 �뙘�뾽李쎌씠踰ㅽ듃
 		
 		mdlButton.addActionListener(new ActionListener() {
 
@@ -419,11 +414,11 @@ public class MyPage extends JPanel {
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-		//카피라잇
-		JLabel naming = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
+		//移댄뵾�씪�엲
+		JLabel naming = new JLabel("Copyrights ⓒ    비!뇨내과 All Rights reserved.");
 		naming.setBounds(90, 600, 400, 50);
 		//naming.setForeground(new Color(255, 255, 225));
-		naming.setFont(new Font("고", Font.BOLD, 13));
+		naming.setFont(new Font("고딕", Font.BOLD, 13));
 		this.setLayout(null);
 		this.add(naming);
 
@@ -432,7 +427,7 @@ public class MyPage extends JPanel {
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@		
 
 
-		//좌측 메뉴
+		//醫뚯륫 硫붾돱
 		final JButton btnLeft1 = new JButton("<html>메인<br/>화면</html>");
 		btnLeft1.setBounds(0, 0, 80, 120);
 		btnLeft1.setForeground(new Color(255, 255, 225));
@@ -488,7 +483,6 @@ public class MyPage extends JPanel {
 		btnLeft5.setBackground(new Color(36, 107, 220));
 		btnLeft5.setFont(new Font("고딕",Font.BOLD,20));
 		this.add(btnLeft5);
-
 		
 		btnLeft1.addActionListener(new ActionListener() {
 

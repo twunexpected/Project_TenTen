@@ -305,7 +305,7 @@ public class MyPage extends JPanel {
 		deletePop.setSize(400, 700);
 		
 
-		Image backGround = new ImageIcon("/Users/uzdev/Documents/Dev/images/delete1.PNG").getImage().getScaledInstance(400, 700, 0);
+		Image backGround = new ImageIcon("images/delete1.PNG").getImage().getScaledInstance(400, 700, 0);
 		JLabel deleteWarn = new JLabel(new ImageIcon(backGround));
 		deleteWarn.setSize(400,700);
 		deletePop.add(deleteWarn);
@@ -333,7 +333,7 @@ public class MyPage extends JPanel {
 	
 		
 		
-		Image backGround2 = new ImageIcon("/Users/uzdev/Documents/Dev/images/delete2.PNG").getImage().getScaledInstance(400, 700, 0);
+		Image backGround2 = new ImageIcon("images/delete2.PNG").getImage().getScaledInstance(400, 700, 0);
 		JLabel deletePopImg = new JLabel(new ImageIcon(backGround2));
 		deletePopImg.setSize(400,700);
 		DConfirmPop.add(deletePopImg);

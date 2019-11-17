@@ -1,4 +1,4 @@
-package mini;
+package com.kh.project_TenTen.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -14,10 +14,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class MyWord3 extends JPanel {
-	private MainFrame mf;	
+	private Login_MainFrame mf;	
 	private JPanel MyWord3;
 
-	public MyWord3(MainFrame mf) {
+	public MyWord3(Login_MainFrame mf) {
 		this.mf = mf;
 		MyWord3 = this;
 
@@ -121,6 +121,13 @@ public class MyWord3 extends JPanel {
 		btnLeft1.setBackground(new Color(36, 107, 220));
 		btnLeft1.setFont(new Font("고딕", Font.BOLD, 20));
 		this.add(btnLeft1);
+		btnLeft1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord3, new MainPage(mf));
+			}
+
+		});
 		JPanel panelLeft1 = new JPanel();
 		panelLeft1.setBounds(0,120, 80, 10);
 		panelLeft1.setBackground(new Color(255, 255, 255));
@@ -165,6 +172,13 @@ public class MyWord3 extends JPanel {
 		panelLeft4.setBounds(0, 510, 80, 10);
 		panelLeft4.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft4);
+		btnLeft4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord3, new Test_Main(mf));
+			}
+
+		});
 
 		final JButton btnLeft5 = new JButton("<html>성장<br/>과정</html>");
 		btnLeft5.setBounds(0, 520, 80, 135);
@@ -172,6 +186,13 @@ public class MyWord3 extends JPanel {
 		btnLeft5.setBackground(new Color(36, 107, 220));
 		btnLeft5.setFont(new Font("고딕", Font.BOLD, 20));
 		this.add(btnLeft5);
+		btnLeft5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord3, new SeoungJang(mf));
+			}
+
+		});
 
 
 		//카피라이터

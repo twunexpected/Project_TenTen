@@ -16,10 +16,10 @@ import javax.swing.JPanel;
 
 public class SeoungJang extends JPanel{
 
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel SeoungJang;
 	
-	public SeoungJang(MainFrame mf) {
+	public SeoungJang(Login_MainFrame mf) {
 		this.mf = mf;
 		SeoungJang = this;
 		
@@ -203,6 +203,34 @@ public class SeoungJang extends JPanel{
 			
 		});
 
+
+	
+		btnLeft2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, SeoungJang, new MyWord1(mf));
+			}
+			
+		});
+		btnLeft3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, SeoungJang, new AddWord(mf));
+			}
+			
+		});
+		
+		btnLeft4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, SeoungJang, new Test_ChooseTest(mf));
+			}
+			
+		});
+		
 		ttChangeB.addActionListener(new ActionListener() {
 
 			@Override
@@ -213,8 +241,6 @@ public class SeoungJang extends JPanel{
 		});
 
 
-//		this.setVisible(true);
-//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 

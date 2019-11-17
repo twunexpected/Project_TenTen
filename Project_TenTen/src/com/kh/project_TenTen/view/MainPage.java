@@ -15,10 +15,10 @@ import javax.swing.JTextField;
 
 public class MainPage extends JPanel {
 
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel MainPage;
 
-	public MainPage(MainFrame mf) {
+	public MainPage(Login_MainFrame mf) {
 		this.mf = mf;
 		MainPage = this;
 		
@@ -200,6 +200,35 @@ public class MainPage extends JPanel {
 			
 		});
 
+		
+		btnLeft2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MainPage, new MyWord1(mf));
+			}
+			
+		});
+		
+		btnLeft3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MainPage, new AddWord(mf));
+			}
+			
+		});
+		
+		btnLeft4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MainPage, new Test_ChooseTest(mf));
+			}
+			
+		});
+		
+		
 		
 		btnLeft5.addActionListener(new ActionListener() {
 

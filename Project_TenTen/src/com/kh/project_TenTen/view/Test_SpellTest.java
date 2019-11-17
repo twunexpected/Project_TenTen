@@ -18,11 +18,11 @@ import javax.swing.JTextField;
 
 public class Test_SpellTest extends JPanel{
 
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Test_SpellTest;
 	
 	
-	public Test_SpellTest(MainFrame mf) {
+	public Test_SpellTest(Login_MainFrame mf) {
 
 		this.mf = mf;
 		this.Test_SpellTest = this;

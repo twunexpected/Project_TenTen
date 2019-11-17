@@ -17,11 +17,11 @@ import javax.swing.JTextField;
 
 public class Test_gotTenTen extends JPanel{
 
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Test_gotTenTen;
 	
 	
-	public Test_gotTenTen(MainFrame mf) {
+	public Test_gotTenTen(Login_MainFrame mf) {
 		
 		this.mf = mf;
 		this.Test_gotTenTen = this;

@@ -2,9 +2,9 @@ package com.kh.project_TenTen.view;
 
 import javax.swing.JFrame;
 
-public class MainFrame extends JFrame{
+public class Login_MainFrame extends JFrame{
 	
-	public MainFrame() {
+	public Login_MainFrame() {
 		
 		this.setSize(400,700);
 		

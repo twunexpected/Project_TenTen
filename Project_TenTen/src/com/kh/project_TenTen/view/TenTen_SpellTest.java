@@ -129,5 +129,9 @@ public class TenTen_SpellTest extends JFrame{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	public static void main(String[] args) {
+		new TenTen_SpellTest();
+	}
 }
 

@@ -167,4 +167,9 @@ public class TenTen_ChooseTest extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
+	
+	public static void main(String[] args) {
+		new TenTen_ChooseTest();
+	}
+	
 }

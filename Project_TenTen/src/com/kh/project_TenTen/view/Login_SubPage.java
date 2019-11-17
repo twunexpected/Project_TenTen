@@ -1,17 +1,24 @@
 package com.kh.project_TenTen.view;
-
-
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import com.kh.project_TenTen.model.dao.MemberSignIn;
+import com.kh.project_TenTen.model.vo.Member;
+
 public class Login_SubPage extends JPanel {
+	public JTextField emailTxF;
+	
+	public Login_SubPage() {}
 	
 	public Login_SubPage(Login_MainFrame mf) {
 		
@@ -49,6 +56,26 @@ public class Login_SubPage extends JPanel {
 		idCheckBtn.setBackground(new Color(36, 107, 220));
 		idCheckBtn.setLocation(270,150);
 		
+		idCheckBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MemberSignIn ms = new MemberSignIn();
+				ArrayList<Member> list = new ArrayList<Member>();
+				list = ms.findMember();
+				
+				for(int i = 0; i < list.size(); i++) {
+					if(list.get(i).getId().equals(idTxF.getText())) {
+						 JOptionPane.showMessageDialog(null, "중복된 아이디 입니다.");
+						 idTxF.setText("");
+						 idTxF.requestFocus();
+					}else{
+						 JOptionPane.showMessageDialog(null, "사용가능한 아이디 입니다.");
+					}
+				}
+			}
+		});
+		
 		JLabel passChLab = new JLabel("비밀번호 확인 : ");
 		passChLab.setSize(150,40);
 		passChLab.setLocation(15,230);
@@ -68,6 +95,32 @@ public class Login_SubPage extends JPanel {
 		passChBtn.setLocation(270,235);
 		passChBtn.setFont(new Font("고딕",Font.BOLD,8));
 		passChBtn.setBackground(new Color(36, 107, 220));
+		
+		passChBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean check = true;
+				char[] pass1 = new char[20];
+				char[] pass2 = new char[20];
+				
+				pass1 = passTxF.getPassword();
+				pass2 = passChTxF.getPassword();
+				
+				for(int i = 0; i < pass1.length; i++) {
+					if(pass1[i] != pass2[i] && pass1.length != pass2.length) {
+						check = false;
+					}
+				}
+				
+				if(check == false) {
+					JOptionPane.showMessageDialog(null, "비밀번호를 다시 입력해주세요.");
+				}else {
+					JOptionPane.showMessageDialog(null, "비밀번호가 일치합니다. 다음 항목을 기입해주세요.");
+				}
+				
+			}
+		});
 
 		JLabel nickLab = new JLabel("닉네임 : ");
 		nickLab.setSize(100, 40);
@@ -91,6 +144,17 @@ public class Login_SubPage extends JPanel {
 		emailBtn.setFont(new Font("고딕",Font.BOLD,10));
 		emailBtn.setBackground(new Color(36, 107, 220));
 		
+		emailBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Mail mm = new Mail();
+				String[] args1 = {" "};
+				mm.getEmailAddress(emailTxF.getText());
+				mm.main(args1);
+			}
+		});
+		
 		JLabel emailChLab = new JLabel("이메일 인증 : ");
 		emailChLab.setSize(100, 40);
 		emailChLab.setLocation(30,390);
@@ -99,17 +163,55 @@ public class Login_SubPage extends JPanel {
 		emailChTxF.setLocation(120,400);
 		emailChTxF.setSize(140, 30);
 		
-		JButton emailChBtn = new JButton("이메일 확인");
+		JButton emailChBtn = new JButton("인증 확인");
 		emailChBtn.setSize(100,40);
 		emailChBtn.setLocation(270,395);
 		emailChBtn.setFont(new Font("고딕",Font.BOLD,10));
 		emailChBtn.setBackground(new Color(36, 107, 220));
+		
+		emailChBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String a = "";
+				Mail mm = new Mail();
+				for(int i = 0; i < mm.returnNum.length; i++) {
+					a += mm.returnNum[i];
+				}
+				
+				if(a.equals(emailChTxF.getText())) {
+					JOptionPane.showMessageDialog(null, "인증번호가 일치합니다.");
+				}else {
+					JOptionPane.showMessageDialog(null, "인증번호가 일치하지 않습니다.");
+				}
+			}
+		});
 		
 		JButton SignInBtn = new JButton("가입하기");
 		SignInBtn.setSize(100,50);
 		SignInBtn.setLocation(140,460);
 		SignInBtn.setFont(new Font("고딕",Font.BOLD,15));
 		SignInBtn.setBackground(new Color(36, 107, 220));
+		
+		SignInBtn.addActionListener(new ActionListener() {
+			//회원가입 데이터 저장
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String id = idTxF.getText();
+				char[] pass = passChTxF.getPassword();
+				String nickName = nickTxF.getText();
+				String email = emailTxF.getText();
+				int exp = 0;
+				
+					MemberSignIn ms = new MemberSignIn();
+					ArrayList<Member> list = new ArrayList<Member>();
+					list = ms.memberSignIn(id, pass, nickName, email, exp);
+
+					System.out.println("성공적으로 회원 등록이 완료되었습니다.");
+					JOptionPane.showMessageDialog(null, "회원가입성공");
+			}
+			
+		});
 		
 		this.add(SignInBtn);
 		this.add(emailChBtn);

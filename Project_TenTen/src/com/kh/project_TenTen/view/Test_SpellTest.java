@@ -18,13 +18,13 @@ import javax.swing.JTextField;
 
 public class Test_SpellTest extends JPanel{
 
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Test_SpellTest;
 	
 	
-	public Test_SpellTest(MainFrame mf) {
+	public Test_SpellTest(Login_MainFrame mf2) {
 
-		this.mf = mf;
+		this.mf = mf2;
 		this.Test_SpellTest = this;
 		
 		//¹è°æ
@@ -99,13 +99,13 @@ public class Test_SpellTest extends JPanel{
 		this.add(lbTop);
 		this.add(panelTitle);
 		this.add(buttonNext);
-		mf.add(this);
+		mf2.add(this);
 
 		
 		buttonNext.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Test_SpellTest, new Test_TestPopup(mf));
+				ChangePanel.changePanel(mf2, Test_SpellTest, new Test_TestPopup(mf2));
 			}
 
 		});

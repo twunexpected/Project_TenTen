@@ -2,6 +2,8 @@ package com.kh.project_TenTen.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -77,6 +79,16 @@ public class Login_MainPage extends JPanel{
 		JButton logBtn = new JButton("로그인"); //로그인 버튼
 		logBtn.setPreferredSize(new Dimension(75, 70));
 		logBtn.setBackground(new Color(36, 107, 220));
+		
+		logBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				ChangePanel.changePanel(mf, mainPage, new Main_UZ(mf));
+				
+			}
+		});
 		
 		JPanel signInPan = new JPanel();
 		signInPan.setSize(100, 30);

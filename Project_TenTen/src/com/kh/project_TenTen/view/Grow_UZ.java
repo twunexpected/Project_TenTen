@@ -16,10 +16,10 @@ import javax.swing.JPanel;
 
 public class Grow_UZ extends JPanel{
 
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Grow_UZ;
 	
-	public Grow_UZ(MainFrame mf) {
+	public Grow_UZ(Login_MainFrame mf) {
 		this.mf = mf;
 		Grow_UZ = this;
 		

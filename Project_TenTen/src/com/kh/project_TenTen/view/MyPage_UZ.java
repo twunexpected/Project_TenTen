@@ -19,10 +19,10 @@ import javax.swing.JTextField;
 
 public class MyPage_UZ extends JPanel {
 	
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel MyPage_UZ;
 	
-	public MyPage_UZ(MainFrame mf) {
+	public MyPage_UZ(Login_MainFrame mf) {
 		this.mf = mf;
 		MyPage_UZ = this;
 		

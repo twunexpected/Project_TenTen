@@ -18,6 +18,7 @@ public class Test_TestPopup extends JPanel {
 	private JPanel Test_TestPopup;
 	
 	
+	
 	public Test_TestPopup(Login_MainFrame mf) {
 		
 		this.mf = mf;

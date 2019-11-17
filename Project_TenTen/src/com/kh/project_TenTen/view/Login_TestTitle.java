@@ -32,7 +32,6 @@ public class Login_TestTitle extends JPanel{
 		//Circle
 		Image Circle1 = new ImageIcon("Imeges/테스트주제(여행).PNG").getImage().getScaledInstance(150, 150, 0);
 		JButton Id1 = new JButton(new ImageIcon(Circle1));
-		Id1.setBackground(new Color(1,123,1));
 		Id1.setBounds(40, 100, 150, 150);
 		Id1.setContentAreaFilled(false);
 

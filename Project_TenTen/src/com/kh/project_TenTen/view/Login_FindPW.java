@@ -22,14 +22,17 @@ public class Login_FindPW extends JPanel {
 	public Login_FindPW(Login_MainFrame mf) {
 		this.mf = mf;
 		Login_FindPW = this;
+		
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
+	
 		//비밀번호 찾기
 		Image icon1 = new ImageIcon("Imege/비밀번호 찾기.PNG").getImage().getScaledInstance(150, 60, 0);
 		JLabel PW1 = new JLabel(new ImageIcon(icon1));
 		PW1.setBounds(100, 100, 170, 100);
+		
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);

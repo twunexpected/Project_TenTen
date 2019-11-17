@@ -6,11 +6,13 @@ public class MainFrame extends JFrame{
 	public MainFrame() {
 		
 		this.setSize(400,700);
-		new Test_ChooseTest(this);
-		new Main_UZ(this);
+		
+		new MainPage(this);
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
 	}
+	
+}

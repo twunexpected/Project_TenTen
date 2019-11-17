@@ -15,10 +15,10 @@ import javax.swing.JTextField;
 
 public class Main_UZ extends JPanel {
 
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Main_UZ;
 
-	public Main_UZ(MainFrame mf) {
+	public Main_UZ(Login_MainFrame mf) {
 		this.mf = mf;
 		Main_UZ = this;
 		
@@ -26,8 +26,6 @@ public class Main_UZ extends JPanel {
 //		super("텐텐 메인 페이지");
 //		this.setBounds(650, 100, 400, 700);
 //		this.setLayout(null);
-
-
 
 		//마이페이지 버튼
 		JButton btn = new JButton("마이페이지");
@@ -37,8 +35,16 @@ public class Main_UZ extends JPanel {
 		btn.setBackground(new Color(36, 107, 220));
 		btn.setFont(new Font("고딕",Font.PLAIN,12));
 		btn.setPreferredSize(new Dimension(120, 45));
-
 		
+		btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Main_UZ, new MyPage_UZ(mf));
+				
+				
+			}
+		});
 		
 
 		//암기 버튼
@@ -138,6 +144,15 @@ public class Main_UZ extends JPanel {
 		btnLeft1.setBackground(new Color(36, 107, 220));
 		btnLeft1.setFont(new Font("고딕",Font.BOLD,20));
 		this.add(btnLeft1);
+		
+		btnLeft1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Main_UZ, Main_UZ);
+			}
+		});
+		
 		JPanel panelLeft1 = new JPanel();
 		panelLeft1.setBounds(0,120, 80, 10);
 		panelLeft1.setBackground(new Color(255, 255, 255));
@@ -191,24 +206,24 @@ public class Main_UZ extends JPanel {
 
 		
 		
-		btn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				 ChangePanel.changePanel(mf, Main_UZ, new  MyPage_UZ(mf));				
-			}
-			
-		});
-
-		
-		btnLeft5.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Main_UZ, new Grow_UZ(mf));
-			}
-			
-		});
+//		btn.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				 ChangePanel.changePanel(mf, Main_UZ, new  MyPage_UZ(mf));				
+//			}
+//			
+//		});
+//
+//		
+//		btnLeft5.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				ChangePanel.changePanel(mf, Main_UZ, new Grow_UZ(mf));
+//			}
+//			
+//		});
 		
 		
 

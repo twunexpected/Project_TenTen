@@ -96,21 +96,21 @@ public class SeoungJang_2 extends JPanel{
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 		//�븯�떒 誘몃━ 蹂댁뿬二쇰뒗 �긽�옣 �씠誘몄�
-		Image reword = new ImageIcon("/Users/uzdev/Documents/Dev/images/sangjang.PNG").getImage().getScaledInstance(50, 70, 0);
+		Image reword = new ImageIcon("images/sangjang.PNG").getImage().getScaledInstance(50, 70, 0);
 		JLabel rewordImg = new JLabel(new ImageIcon(reword));
 		rewordImg.setSize(50, 75);
 		rewordImg.setLocation(130,540);
 		this.add(rewordImg);
 
 		//吏꾩뿴�옣 �쐞�뿉 �긽�옣異붽��씠誘몄�
-		Image reword2 = new ImageIcon("/Users/uzdev/Documents/Dev/images/sangjang.PNG").getImage().getScaledInstance(50, 70, 0);
+		Image reword2 = new ImageIcon("images/sangjang.PNG").getImage().getScaledInstance(50, 70, 0);
 		JLabel rewordImg2 = new JLabel(new ImageIcon(reword2));
 		rewordImg2.setSize(50, 75);
 		rewordImg2.setLocation(105,140);
 		this.add(rewordImg2);
 
 		//吏꾩뿴�옣 �씠誘몄� 
-		Image backGround = new ImageIcon("/Users/uzdev/Documents/Dev/images/Pan.PNG").getImage().getScaledInstance(390, 370, 0);
+		Image backGround = new ImageIcon("images/Pan.PNG").getImage().getScaledInstance(390, 370, 0);
 		JLabel PanLabel = new JLabel(new ImageIcon(backGround));
 		PanLabel.setSize(320, 380);
 		PanLabel.setLocation(80,100);

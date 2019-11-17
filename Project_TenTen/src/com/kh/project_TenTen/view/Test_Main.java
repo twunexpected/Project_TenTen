@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 
 public class Test_Main extends JPanel {
-	//
+	
 	private Login_MainFrame mf;
 	private JPanel Test_Main;
 	

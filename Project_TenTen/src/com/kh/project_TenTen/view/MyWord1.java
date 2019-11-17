@@ -18,10 +18,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class MyWord1 extends JPanel{
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel MyWord1;
 
-	public MyWord1(MainFrame mf) {
+	public MyWord1(Login_MainFrame mf) {
 		this.mf = mf;
 		MyWord1 = this;
 

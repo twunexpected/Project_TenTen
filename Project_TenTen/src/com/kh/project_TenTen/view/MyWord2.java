@@ -14,9 +14,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class MyWord2 extends JPanel{
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel MyWord2;
-	public MyWord2(MainFrame mf) {
+	public MyWord2(Login_MainFrame mf) {
 		this.mf = mf;
 		MyWord2 = this;
 		

@@ -1,4 +1,4 @@
-package com.kh.tenten_Gui.layout;
+package com.kh.project_TenTen.view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,175 +9,148 @@ import java.io.FileWriter;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class OXQuiz2 extends JPanel {
-	public OXQuiz2() {
-		//super("NULL");
+public class Login_OXQuiz2 extends JPanel {
+	private MainFrame mf;
+	private JPanel Login_OXQuiz2;
 
-		this.setBounds(650, 100, 400, 700);
-		this.setLayout(null);
-
+	public Login_OXQuiz2(MainFrame mf) {
+		this.mf = mf;
+		Login_OXQuiz2 = this;
+		
 		//¹é È­¸é
-		JPanel panelBack = new JPanel();
-		panelBack.setSize(400, 700);
-		panelBack.setBackground(new Color(123, 185, 237));
+		this.setSize(400, 700);
+		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ¨Ï  ºñ!´¢³»°ú All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("°íµñ", Font.BOLD, 13));
-		//this.setLayout(null);
 
 		//º»¹®
 		JLabel word = new JLabel("´Ü¾î");
 		word.setBounds(50, 110, 70, 50);
 		word.setFont(new Font("°íµñ", Font.BOLD, 22));
-		//this.setLayout(null);
 
 		JLabel mean = new JLabel("¶æ");
 		mean.setBounds(160, 110, 70, 50);
 		mean.setFont(new Font("°íµñ", Font.BOLD, 22));
-		//this.setLayout(null);
 
 		JLabel o = new JLabel("O");
 		o.setBounds(260, 110, 70, 50);
 		o.setFont(new Font("°íµñ", Font.BOLD, 22));
-		//this.setLayout(null);
 
 		JLabel x = new JLabel("X");
 		x.setBounds(310, 110, 70, 50);
-		//capyRights.setForeground(new Color(255, 255, 225));
 		x.setFont(new Font("°íµñ", Font.BOLD, 22));
-	//	this.setLayout(null);
 
 		// ´Ü¾î ÅØ½ºÆ® ÇÊµå
 		JTextField word1 = new JTextField("´Ü¾î");
 		word1.setBounds(10, 170, 120, 35);
 		word1.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word1.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField word2 = new JTextField("´Ü¾î");
 		word2.setBounds(10, 200, 120, 35);
 		word2.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word2.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField word3 = new JTextField("´Ü¾î");
 		word3.setBounds(10, 230, 120, 35);
 		word3.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word3.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField word4 = new JTextField("´Ü¾î");
 		word4.setBounds(10, 260, 120, 35);
 		word4.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word4.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField word5 = new JTextField("´Ü¾î");
 		word5.setBounds(10, 290, 120, 35);
 		word5.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word5.setHorizontalAlignment(JTextField.LEFT);
-		//this.setLayout(null);
 
 		JTextField word6 = new JTextField("´Ü¾î");
 		word6.setBounds(10, 320, 120, 35);
 		word6.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word6.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField word7 = new JTextField("´Ü¾î");
 		word7.setBounds(10, 350, 120, 35);
 		word7.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word7.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField word8 = new JTextField("´Ü¾î");
 		word8.setBounds(10, 380, 120, 35);
 		word8.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word8.setHorizontalAlignment(JTextField.LEFT);
-		//this.setLayout(null);
 
 		JTextField word9 = new JTextField("´Ü¾î");
 		word9.setBounds(10, 410, 120, 35);
 		word9.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word9.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField word10 = new JTextField("´Ü¾î");
 		word10.setBounds(10, 440, 120, 35);
 		word10.setFont(new Font("°íµñ", Font.BOLD, 15));
 		word10.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		//mean
 		JTextField mean1 = new JTextField("¶æ");
 		mean1.setBounds(130, 170, 120, 35);
 		mean1.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean1.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField mean2 = new JTextField("¶æ");
 		mean2.setBounds(130, 200, 120, 35);
 		mean2.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean2.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField mean3 = new JTextField("¶æ");
 		mean3.setBounds(130, 230, 120, 35);
 		mean3.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean3.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField mean4 = new JTextField("¶æ");
 		mean4.setBounds(130, 260, 120, 35);
 		mean4.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean4.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField mean5 = new JTextField("¶æ");
 		mean5.setBounds(130, 290, 120, 35);
 		mean5.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean5.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField mean6 = new JTextField("¶æ");
 		mean6.setBounds(130, 320, 120, 35);
 		mean6.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean6.setHorizontalAlignment(JTextField.LEFT);
-	///	this.setLayout(null);
 
 		JTextField mean7 = new JTextField("¶æ");
 		mean7.setBounds(130, 350, 120, 35);
 		mean7.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean7.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField mean8 = new JTextField("¶æ");
 		mean8.setBounds(130, 380, 120, 35);
 		mean8.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean8.setHorizontalAlignment(JTextField.LEFT);
-		//this.setLayout(null);
 
 		JTextField mean9 = new JTextField("¶æ");
 		mean9.setBounds(130, 410, 120, 35);
 		mean9.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean9.setHorizontalAlignment(JTextField.LEFT);
-	//	this.setLayout(null);
 
 		JTextField mean10 = new JTextField("¶æ");
 		mean10.setBounds(130, 440, 120, 35);
 		mean10.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean10.setHorizontalAlignment(JTextField.LEFT);
-//		this.setLayout(null);
 
 		//btnFinish
 		JButton btnFinish = new JButton("Á¦Ãâ");
@@ -185,7 +158,6 @@ public class OXQuiz2 extends JPanel {
 		btnFinish.setForeground(new Color(255, 255, 225));
 		btnFinish.setBackground(new Color(36, 107, 220));
 		btnFinish.setFont(new Font("°íµñ", Font.BOLD, 20));
-	//	this.setLayout(null);
 
 		//RadioButton 1~10
 		JRadioButton rb1_o = new JRadioButton();
@@ -278,7 +250,7 @@ public class OXQuiz2 extends JPanel {
 		rb10_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group10 = new ButtonGroup();
 
-		//o 1~10
+		//ox RadioButton Group 1~10
 
 		group1.add(rb1_o);
 		group1.add(rb1_x);
@@ -353,14 +325,15 @@ public class OXQuiz2 extends JPanel {
 		this.add(mean8);
 		this.add(mean9);
 		this.add(mean10);
+
 		//¿©·¯°¡Áö
-		this.add(copyRights);
-		this.add(mean);
+		this.add(btnFinish);
 		this.add(word);
+		this.add(mean);
 		this.add(o);
 		this.add(x);
-		this.add(btnFinish);
-		this.add(panelBack);
+		this.add(copyRights);
+		mf.add(this);
 
 
 		btnFinish.addActionListener(new ActionListener() {
@@ -376,8 +349,5 @@ public class OXQuiz2 extends JPanel {
 				JOptionPane.showMessageDialog(null, "ÃÊ±ÞÀÔ´Ï´Ù.."); 
 			}
 		});
-		
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
 	}
 }

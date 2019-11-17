@@ -1,49 +1,35 @@
-package com.kh.tenten_Gui.layout;
+package com.kh.project_TenTen.view;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class TestTitle extends JPanel{
+import com.kh.project_TenTen.view.MainFrame;
 
-	public TestTitle() {
-	//	super("NULL");
-
-		this.setBounds(650, 100, 400, 700);
-		this.setLayout(null);
+public class Login_TestTitle extends JPanel{
+	private MainFrame mf;
+	private JPanel Login_TestTitle;
+	public Login_TestTitle(MainFrame mf) {
 
 		//백 화면
-		JPanel panelBack = new JPanel();
-		panelBack.setSize(400, 700);
-		panelBack.setBackground(new Color(123, 185, 237));
-		panelBack.setLayout(null);
+		this.setSize(400, 700);
+		this.setBackground(new Color(123, 185, 237));
+		this.setLayout(null);
 
 		//본문
 		JLabel mesege1 = new JLabel("<html> 가입이 완료되었습니다..<br/> 레벨 테스트 주제를 선택하세요. <html/>");
 		mesege1.setBounds(80, 20, 250, 100);
 		mesege1.setFont(new Font("고딕", Font.BOLD, 15));
-	//	this.setLayout(null);
 
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("고딕", Font.BOLD, 13));
-	//	this.setLayout(null);
 
-
-		/*		btnSend.setBounds(280, 350, 85, 40);
-		btnSend.setForeground(new Color(255, 255, 225));
-		btnSend.setBackground(new Color(36, 107, 220));
-		btnSend.setFont(new Font("고딕", Font.BOLD, 15));
-		this.setLayout(null);
-		 */		
 		Image Circle1 = new ImageIcon("Imege/테스트주제.PNG").getImage().getScaledInstance(150, 150, 0);
 		JLabel Id1 = new JLabel(new ImageIcon(Circle1));
 		Id1.setBackground(new Color(1,123,1));
@@ -71,30 +57,14 @@ public class TestTitle extends JPanel{
 		JLabel Id6 = new JLabel(new ImageIcon(Circle1));
 		Id6.setBounds(170, 440, 200, 200);
 
-		panelBack.add(Id1);
-		panelBack.add(Id2);
-		panelBack.add(Id3);
-		panelBack.add(Id4);
-		panelBack.add(Id5);
-		panelBack.add(Id6);
+		this.add(Id1);
+		this.add(Id2);
+		this.add(Id3);
+		this.add(Id4);
+		this.add(Id5);
+		this.add(Id6);
 		this.add(mesege1);
-		this.add(panelBack);
 		this.add(copyRights);
-		this.add(panelBack);
-
-	//	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
-	/*	Id1.addMouseListener(new MyMouseAdapter());
-
-
-	}
-
-	class MyMouseAdapter extends MouseAdapter{
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			if(e.getButton()== 1) {
-				changePage.changePanel(oq1, OXQuiz1 , new OXQuiz1(oq1));
-
-			}*/
+		mf.add(this);
 		}
 }

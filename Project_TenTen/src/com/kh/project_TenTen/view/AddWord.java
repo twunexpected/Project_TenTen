@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class AddWord extends JPanel{
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel addWord;
 
-	public AddWord(MainFrame mf) {
+	public AddWord(Login_MainFrame mf) {
 		this.mf = mf;
 		addWord = this;
 		//«¡∑π¿”

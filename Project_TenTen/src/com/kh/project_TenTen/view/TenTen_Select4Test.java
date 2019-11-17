@@ -142,7 +142,7 @@ public class TenTen_Select4Test extends JPanel{
 		btsouth1.addActionListener(new ActionListener() {//¿Õ∏Ì
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, TenTen_Select4Test, new TenTen_Popup2(mf));
+				ChangePanel.changePanel(mf, TenTen_Select4Test, new TenTen_Popup(mf));
 			}
 		});
 		this.add(naming);

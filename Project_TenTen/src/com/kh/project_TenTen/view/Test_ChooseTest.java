@@ -136,7 +136,14 @@ public class Test_ChooseTest extends JPanel {
 		//			}
 		//			
 		//		}
+		btnTest1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Test_ChooseTest, new Test_Select4(mf));
+			}
 
+		});		
+		
 
 		btnTest2.addActionListener(new ActionListener() {
 			@Override

@@ -23,7 +23,7 @@ public class Test_SpellTest extends JPanel{
 	
 	
 	public Test_SpellTest(Login_MainFrame mf2) {
-
+//
 		this.mf = mf2;
 		this.Test_SpellTest = this;
 		

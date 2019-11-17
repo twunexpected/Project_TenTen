@@ -125,7 +125,7 @@ public class Test_Main extends JPanel {
 			btnCenter.addActionListener(new ActionListener() {//¿Õ∏Ì
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					ChangePanel.changePanel(mf, Test_Main, new Test_Select4(mf));
+					ChangePanel.changePanel(mf, Test_Main, new Test_ChooseTest(mf));
 				}
 			});
 			

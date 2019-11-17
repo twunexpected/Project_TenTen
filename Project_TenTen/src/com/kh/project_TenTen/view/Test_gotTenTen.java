@@ -22,7 +22,7 @@ public class Test_gotTenTen extends JPanel{
 	
 	
 	public Test_gotTenTen(Login_MainFrame mf) {
-		
+	//	
 		this.mf = mf;
 		this.Test_gotTenTen = this;
 		

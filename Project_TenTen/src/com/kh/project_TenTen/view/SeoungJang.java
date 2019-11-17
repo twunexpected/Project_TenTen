@@ -1,7 +1,7 @@
 package com.kh.project_TenTen.view;
 
  
-import java.awt.Color;
+import java.awt.Color;  
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -223,7 +223,7 @@ public class SeoungJang extends JPanel{
 		});
 		
 		btnLeft4.addActionListener(new ActionListener() {
-
+ 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, SeoungJang, new Test_ChooseTest(mf));

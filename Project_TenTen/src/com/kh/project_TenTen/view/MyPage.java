@@ -1,7 +1,7 @@
 package com.kh.project_TenTen.view;
 
 
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -21,7 +21,7 @@ public class MyPage extends JPanel {
 	
 	private Login_MainFrame mf;
 	private JPanel MyPage;
-	
+	 
 	public MyPage(Login_MainFrame mf) {
 		this.mf = mf;
 		MyPage = this;

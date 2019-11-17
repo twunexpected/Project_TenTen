@@ -14,10 +14,10 @@ import javax.swing.JTextField;
 
 public class Test_Select4 extends JPanel{
 	//
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Test_Select4;
 	
-	public Test_Select4(MainFrame mf) {
+	public Test_Select4(Login_MainFrame mf) {
 		this.mf = mf;
 		Test_Select4 = this;
 		

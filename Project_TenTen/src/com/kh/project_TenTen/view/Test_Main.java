@@ -17,10 +17,10 @@ import javax.swing.JPanel;
 
 public class Test_Main extends JPanel {
 	//
-	private MainFrame mf;
+	private Login_MainFrame mf;
 	private JPanel Test_Main;
 	
-	public Test_Main(MainFrame mf) {
+	public Test_Main(Login_MainFrame mf) {
 		this.mf = mf;
 		Test_Main = this;
 		
@@ -125,7 +125,7 @@ public class Test_Main extends JPanel {
 			btnCenter.addActionListener(new ActionListener() {//¿Õ∏Ì
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					ChangePanel.changePanel(mf, Test_Main, new Test_Select4Test(mf));
+					ChangePanel.changePanel(mf, Test_Main, new Test_Select4(mf));
 				}
 			});
 			

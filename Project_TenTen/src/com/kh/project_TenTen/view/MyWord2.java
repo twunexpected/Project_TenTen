@@ -1,4 +1,4 @@
-package mini;
+package com.kh.project_TenTen.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -120,6 +120,13 @@ public class MyWord2 extends JPanel{
 		btnLeft1.setBackground(new Color(36, 107, 220));
 		btnLeft1.setFont(new Font("∞ÌµÒ", Font.BOLD, 20));
 		this.add(btnLeft1);
+		btnLeft1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord2, new MainPage(mf));
+			}
+
+		});
 		JPanel panelLeft1 = new JPanel();
 		panelLeft1.setBounds(0,120, 80, 10);
 		panelLeft1.setBackground(new Color(255, 255, 255));
@@ -160,6 +167,13 @@ public class MyWord2 extends JPanel{
 		btnLeft4.setBackground(new Color(36, 107, 220));
 		btnLeft4.setFont(new Font("∞ÌµÒ", Font.BOLD, 20));
 		this.add(btnLeft4);
+		btnLeft4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord2, new Test_Main(mf));
+			}
+
+		});
 		JPanel panelLeft4  = new JPanel();
 		panelLeft4.setBounds(0, 510, 80, 10);
 		panelLeft4.setBackground(new Color(255, 255, 255));
@@ -170,7 +184,14 @@ public class MyWord2 extends JPanel{
 		btnLeft5.setForeground(new Color(255, 255, 225));
 		btnLeft5.setBackground(new Color(36, 107, 220));
 		btnLeft5.setFont(new Font("∞ÌµÒ", Font.BOLD, 20));
-		this.add(btnLeft5);
+		this.add(btnLeft5);		
+		btnLeft5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord2, new SeoungJang(mf));
+			}
+
+		});
 
 
 		//ƒ´««∂Û¿Ã≈Õ

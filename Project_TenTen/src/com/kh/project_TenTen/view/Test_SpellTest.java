@@ -21,6 +21,7 @@ public class Test_SpellTest extends JPanel{
 	private Login_MainFrame mf;
 	private JPanel Test_SpellTest;
 	
+
 	public Test_SpellTest(Login_MainFrame mf) {
 
 		this.mf = mf;

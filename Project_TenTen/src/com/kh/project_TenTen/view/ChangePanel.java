@@ -10,5 +10,6 @@ public class ChangePanel {
 		mf.add(np);
 		mf.repaint();
 		
+		
 	}
 }

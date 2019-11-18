@@ -10,8 +10,7 @@ import java.util.ArrayList;
 
 import com.kh.project_TenTen.model.vo.Member;
 
-public class MemberSignIn {
-	
+public class MemberDao {
 	private String id;
 	private char[] pass;
 	private String nickName;
@@ -19,20 +18,30 @@ public class MemberSignIn {
 	private int exp;
 	public int memNum = 0;
 	
-	public ArrayList<Member> memberSignIn(String id, char[] pass, String nickName, String email, int exp) {
-		memNum++;
-		Member m = new Member(id, pass, nickName, email, exp);
+	public void basicMember() {
+		//기본멤버 생성
+		Member m = new Member("asdf1234", new char[] {'1', '2', '3'} , "test1", "test01@naver.com", 0) ;
+		Member m1 = new Member("asdf5678", new char[] {'1', '2', '3'} , "test2", "test01@naver.com", 0) ;
+		Member m2 = new Member("asdf1357", new char[] {'1', '2', '3'} , "test3", "test01@naver.com", 0) ;
 		
-		ArrayList<Member> mlist = new ArrayList();
+		MemberDao md = new MemberDao();
+		ArrayList ar = md.findMember();
+		ar.add(m);
+		ar.add(m1);
+		ar.add(m2);
 		
-		mlist.add(m);
+		md.writeMember(ar);
+		
+	}
+	
+	public void writeMember(ArrayList list) {
 		
 		ObjectOutputStream objOut = null;
-		
+
 		try {
 			objOut = new ObjectOutputStream(new FileOutputStream("회원명단.txt"));
-			objOut.writeObject(mlist);
-			
+			objOut.writeObject(list);
+
 			objOut.flush();
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
@@ -46,13 +55,10 @@ public class MemberSignIn {
 			}
 		}
 		
-		return mlist;
 	}
-	
 	
 	@SuppressWarnings("unchecked")
 	public ArrayList<Member> findMember() {
-		MemberSignIn ms = new MemberSignIn();
 		
 		ObjectInputStream objIn = null;
 		ArrayList<Member> mlist = new ArrayList();
@@ -72,8 +78,4 @@ public class MemberSignIn {
 		
 		return mlist ;
 	}
-	
-	
 }
-
-

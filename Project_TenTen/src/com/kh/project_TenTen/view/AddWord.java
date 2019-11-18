@@ -55,6 +55,7 @@ public class AddWord extends JPanel{
 		mainList.setFont(new Font("고딕",Font.BOLD,15));
 		this.add(mainList);
 		
+		
 		//품사
 		JLabel lb5 = new JLabel("품사  ");
 		lb5.setLocation(110, 230);

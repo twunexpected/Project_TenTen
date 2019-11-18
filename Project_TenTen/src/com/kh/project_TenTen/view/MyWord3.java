@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+
 public class MyWord3 extends JPanel {
 	private Login_MainFrame mf;	
 	private JPanel MyWord3;
@@ -24,8 +25,6 @@ public class MyWord3 extends JPanel {
 	public MyWord3(Login_MainFrame mf) {
 		this.mf = mf;
 		MyWord3 = this;
-
-	
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);

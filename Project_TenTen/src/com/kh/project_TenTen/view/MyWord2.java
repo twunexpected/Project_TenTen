@@ -18,8 +18,7 @@ public class MyWord2 extends JPanel{
 	private JPanel MyWord2;
 	public MyWord2(Login_MainFrame mf) {
 		this.mf = mf;
-		MyWord2 = this;
-		
+		MyWord2 = this;	
 		//«¡∑π¿”
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));

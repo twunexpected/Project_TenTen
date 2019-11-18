@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -11,24 +12,30 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
- 
-public class Login_OXQuiz1 extends JPanel {
+
+import com.kh.project_TenTen.model.dao.WordDao;
+import com.kh.project_TenTen.model.vo.Word;
+
+public class Login_OXQuiz1 extends JPanel{
 	private Login_MainFrame mf;
-	private JPanel Login_OXQuiz1;
+	private JPanel login_OXQuiz1;
 
 	public Login_OXQuiz1(Login_MainFrame mf) {
 		this.mf = mf;
-		Login_OXQuiz1 = this;
+		login_OXQuiz1 = this;
+
 		
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
+
 		
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("고딕", Font.BOLD, 13));
+
 		
 		//본문
 		JLabel word = new JLabel("단어");
@@ -46,13 +53,18 @@ public class Login_OXQuiz1 extends JPanel {
 		JLabel x = new JLabel("X");
 		x.setBounds(310, 110, 70, 50);
 		x.setFont(new Font("고딕", Font.BOLD, 22));
-
+		
+//		WordDao nn = new WordDao();
+//
+//		ArrayList cookWord = nn.readWord(0);
+//		Word[] wd = new Word[20];
+//		wd[1].getMean();
 		// 단어 텍스트 필드
 		JTextField word1 = new JTextField("단어");
 		word1.setBounds(10, 170, 120, 35);
 		word1.setFont(new Font("고딕", Font.BOLD, 15));
 		word1.setHorizontalAlignment(JTextField.LEFT);
-
+		
 		JTextField word2 = new JTextField("단어");
 		word2.setBounds(10, 200, 120, 35);
 		word2.setFont(new Font("고딕", Font.BOLD, 15));
@@ -254,6 +266,39 @@ public class Login_OXQuiz1 extends JPanel {
 		rb10_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group10 = new ButtonGroup();
 
+		//여러가지
+		this.add(btnBack);
+		this.add(btnNext);
+		this.add(word);
+		this.add(mean);
+		this.add(o);
+		this.add(x);
+		this.add(copyRights);
+		mf.add(this);
+
+		//word1~10
+		this.add(word1);
+		this.add(word2);
+		this.add(word3);
+		this.add(word4);
+		this.add(word5);
+		this.add(word6);
+		this.add(word7);
+		this.add(word8);
+		this.add(word9);
+		this.add(word10);
+
+		//mean1~10
+		this.add(mean1);
+		this.add(mean2);
+		this.add(mean3);
+		this.add(mean4);
+		this.add(mean5);
+		this.add(mean6);
+		this.add(mean7);
+		this.add(mean8);
+		this.add(mean9);
+		this.add(mean10);
 
 		//ox RadioButton Group 1~10
 		group1.add(rb1_o);
@@ -306,44 +351,18 @@ public class Login_OXQuiz1 extends JPanel {
 		this.add(rb10_o);
 		this.add(rb10_x);
 
-		//word1~10
-		this.add(word1);
-		this.add(word2);
-		this.add(word3);
-		this.add(word4);
-		this.add(word5);
-		this.add(word6);
-		this.add(word7);
-		this.add(word8);
-		this.add(word9);
-		this.add(word10);
+		btnBack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, login_OXQuiz1, new Login_TestTitle(mf));
+			}
 
-		//mean1~10
-		this.add(mean1);
-		this.add(mean2);
-		this.add(mean3);
-		this.add(mean4);
-		this.add(mean5);
-		this.add(mean6);
-		this.add(mean7);
-		this.add(mean8);
-		this.add(mean9);
-		this.add(mean10);
-
-		//여러가지
-		this.add(btnBack);
-		this.add(btnNext);
-		this.add(word);
-		this.add(mean);
-		this.add(o);
-		this.add(x);
-		this.add(copyRights);
-		mf.add(this);
-
+		});
+		
 		btnNext.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Login_OXQuiz1, new Login_OXQuiz2(mf));
+				ChangePanel.changePanel(mf, login_OXQuiz1, new Login_OXQuiz2(mf));
 			}
 
 		});

@@ -16,9 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
-
-
 public class MyWord3 extends JPanel {
 	private Login_MainFrame mf;	
 	private JPanel MyWord3;

@@ -32,7 +32,7 @@ public class MyWord3 extends JPanel {
 		p.setSize(210,490);
 		p.setLocation(130, 100);
 		//표
-		String[] headings = new String[] {"번호","단어","뜻"};
+		String[] headings = new String[] {"주제","품사","단어","뜻"};
 
 		//관아 여기가 안된다ㅜㅠㅜㅠㅜㅠㅜㅠ 살려줘
 		String s; 
@@ -95,7 +95,7 @@ public class MyWord3 extends JPanel {
 				}
 
 			});
-			JButton b3 = new JButton("단어추가");
+			JButton b3 = new JButton("나의단어");
 			b3.setHorizontalAlignment(JLabel.CENTER);
 			b3.setForeground(Color.white);
 			b3.setFont(new Font("고딕",Font.BOLD,12));

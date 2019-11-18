@@ -98,7 +98,7 @@ public class MyWord1 extends JPanel{
 			}
 
 		});
-		JButton b3 = new JButton("Áñ°ÜÃ£±â");
+		JButton b3 = new JButton("³ªÀÇ´Ü¾î");
 		b3.setHorizontalAlignment(JLabel.CENTER);
 		b3.setForeground(Color.white);
 		b3.setFont(new Font("°íµñ",Font.BOLD,12));

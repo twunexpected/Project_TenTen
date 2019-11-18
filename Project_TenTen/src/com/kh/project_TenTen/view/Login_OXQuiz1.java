@@ -54,11 +54,6 @@ public class Login_OXQuiz1 extends JPanel{
 		x.setBounds(310, 110, 70, 50);
 		x.setFont(new Font("°íµñ", Font.BOLD, 22));
 		
-//		WordDao nn = new WordDao();
-//
-//		ArrayList cookWord = nn.readWord(0);
-//		Word[] wd = new Word[20];
-//		wd[1].getMean();
 		// ´Ü¾î ÅØ½ºÆ® ÇÊµå
 		JTextField word1 = new JTextField("´Ü¾î");
 		word1.setBounds(10, 170, 120, 35);
@@ -111,56 +106,101 @@ public class Login_OXQuiz1 extends JPanel{
 		word10.setHorizontalAlignment(JTextField.LEFT);
 
 		//mean
-		JTextField mean1 = new JTextField("¶æ");
+		WordDao wdo1 = new WordDao();
+		ArrayList tripWord = wdo1.readWord(0);
+		Word[] wd = new Word[10];
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd1 = wd[0].getMean();
+		JTextField mean1 = new JTextField(sd1);
 		mean1.setBounds(130, 170, 120, 35);
 		mean1.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean1.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean2 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd2 = wd[1].getMean();
+		JTextField mean2 = new JTextField(sd2);
 		mean2.setBounds(130, 200, 120, 35);
 		mean2.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean2.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean3 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd3 = wd[2].getMean();
+		JTextField mean3 = new JTextField(sd3);
 		mean3.setBounds(130, 230, 120, 35);
 		mean3.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean3.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean4 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd4 = wd[3].getMean();
+		JTextField mean4 = new JTextField(sd4);
 		mean4.setBounds(130, 260, 120, 35);
 		mean4.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean4.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean5 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd5 = wd[4].getMean();
+		JTextField mean5 = new JTextField(sd5);
 		mean5.setBounds(130, 290, 120, 35);
 		mean5.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean5.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean6 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd6 = wd[5].getMean();
+		JTextField mean6 = new JTextField(sd6);
 		mean6.setBounds(130, 320, 120, 35);
 		mean6.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean6.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean7 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd7 = wd[6].getMean();
+		JTextField mean7 = new JTextField(sd7);
 		mean7.setBounds(130, 350, 120, 35);
 		mean7.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean7.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean8 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd8 = wd[7].getMean();
+		JTextField mean8 = new JTextField(sd8);
 		mean8.setBounds(130, 380, 120, 35);
 		mean8.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean8.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean9 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd9 = wd[8].getMean();
+		
+		JTextField mean9 = new JTextField(sd9);
 		mean9.setBounds(130, 410, 120, 35);
 		mean9.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean9.setHorizontalAlignment(JTextField.LEFT);
-
-		JTextField mean10 = new JTextField("¶æ");
+		
+		for(int i = 0; i < tripWord.size(); i++) {
+			wd[i] = (Word)tripWord.get(i);
+		}
+		String sd10 = wd[9].getMean();
+		JTextField mean10 = new JTextField(sd10);
 		mean10.setBounds(130, 440, 120, 35);
 		mean10.setFont(new Font("°íµñ", Font.BOLD, 15));
 		mean10.setHorizontalAlignment(JTextField.LEFT);
-
+		
 		//btnBack
 		JButton btnBack = new JButton("µÚ·Î");
 		btnBack.setBounds(17, 20, 90, 40);
@@ -176,11 +216,11 @@ public class Login_OXQuiz1 extends JPanel{
 		btnNext.setFont(new Font("°íµñ", Font.BOLD, 20));
 
 		//RadioButton 1~10
-		JRadioButton rb1_o = new JRadioButton();
+		JRadioButton rb1_o = new JRadioButton("yes", true);
 		rb1_o.setBounds(260, 180, 20, 15);
 		rb1_o.setBackground(new Color(123, 185, 237));
 
-		JRadioButton rb1_x = new JRadioButton();
+		JRadioButton rb1_x = new JRadioButton("no", false);
 		rb1_x.setBounds(310, 180, 20, 15);
 		rb1_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group1 = new ButtonGroup();

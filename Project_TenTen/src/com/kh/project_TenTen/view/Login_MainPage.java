@@ -2,15 +2,23 @@ package com.kh.project_TenTen.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import com.kh.project_TenTen.controller.MemberController;
+import com.kh.project_TenTen.model.dao.MemberDao;
+import com.kh.project_TenTen.model.vo.Member;
 
 
 public class Login_MainPage extends JPanel{
@@ -24,103 +32,89 @@ public class Login_MainPage extends JPanel{
 		this.setLayout(null);
 		mainPage = this;
 		
-		JPanel footPan = new JPanel();
-		footPan.setSize(400,200);
-		footPan.setLocation(0, 600);
-		footPan.setBackground(new Color(123,185,237));
-		
 		JLabel footer = new JLabel("Copyrightsⓒ 비!뇨내과 All Rights Reserved.");
 		footer.setBounds(75, 500, 300, 100);
 		
-		JPanel logoWordsPan = new JPanel();
-		logoWordsPan.setBounds(95, 5, 200, 150);
-		logoWordsPan.setBackground(new Color(123, 185, 237));
+		this.add(footer);
+		
 		Image tenWords = new ImageIcon("images/tentenwords.PNG").getImage().getScaledInstance(130, 130, 0);
 		JLabel logoWordsLab = new JLabel(new ImageIcon(tenWords));
+		logoWordsLab.setBounds(95, 5, 200, 150);
+		this.add(logoWordsLab);
 		
-		JPanel logoPan = new JPanel();
-		logoPan.setBounds(70, 135, 250, 250);
-		logoPan.setBackground(new Color(123, 185, 237));
 		Image tenLogo = new ImageIcon("images/tenten.PNG").getImage().getScaledInstance(130, 130, 0);
 		JLabel logoLab = new JLabel(new ImageIcon(tenLogo));
+		logoLab.setBounds(70, 95, 250, 250);
+		this.add(logoLab);
 		
-		JPanel idPan = new JPanel();
-		idPan.setSize(80, 25);
-		idPan.setLocation(13, 300);
-		idPan.setBackground(new Color(123, 185, 237));
 		JLabel id = new JLabel("아이디 : ");
-
+		id.setSize(80, 25);
+		id.setLocation(60, 300);
+		this.add(id);
 		
-		JPanel idTfPan = new JPanel();
-		idTfPan.setSize(200, 30);
-		idTfPan.setLocation(80, 300);
-		idTfPan.setBackground(new Color(123, 185, 237));
-		JTextField idTf = new JTextField(15);
+		JTextField idTxF = new JTextField(15);
+		idTxF.setSize(150, 30);
+		idTxF.setLocation(120, 298);
+		this.add(idTxF);
 		
-		JPanel passPan = new JPanel();
-		passPan.setSize(80, 25);
-		passPan.setLocation(13, 340);
-		passPan.setBackground(new Color(123, 185, 237));
 		JLabel passLab = new JLabel("비밀번호 : ");
+		passLab.setSize(80, 25);
+		passLab.setLocation(45, 340);
+		this.add(passLab);
 		
-		JPanel passTfPan = new JPanel();
-		passTfPan.setSize(200, 30);
-		passTfPan.setLocation(80, 337);
-		passTfPan.setBackground(new Color(123, 185, 237));
-		JTextField passTf = new JTextField(15);
-		
-		JPanel logPan = new JPanel();
-		logPan.setSize(75, 75);
-		logPan.setLocation(280, 295);
-		logPan.setBackground(new Color(123, 185, 237));
+		JPasswordField passTxF = new JPasswordField(15);
+		passTxF.setSize(150, 30);
+		passTxF.setLocation(120, 338);
+		this.add(passTxF);
 		
 		JButton logBtn = new JButton("로그인"); //로그인 버튼
-		logBtn.setPreferredSize(new Dimension(75, 70));
 		logBtn.setBackground(new Color(36, 107, 220));
+		logBtn.setBounds(280, 295, 80, 80);
+		this.add(logBtn);
 		
-		JPanel signInPan = new JPanel();
-		signInPan.setSize(100, 30);
-		signInPan.setLocation(70,370);
-		signInPan.setBackground(new Color(123, 185, 237));
+		logBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean idCheck = true;
+				boolean passCheck = true;
+				
+				MemberController mm = new MemberController();
+				
+				String id = idTxF.getText();
+				idCheck = mm.idCheck(id);
+				passCheck = mm.passCheck(passTxF.getPassword(), passTxF.getPassword().length, idTxF.getText());
+				
+				if(idCheck && passCheck) {
+					JOptionPane.showMessageDialog(null, "메인페이지로 이동합니다.");
+					ChangePanel.changePanel(mf, mainPage, new MainPage(mf));	
+				}else if(idCheck == false) {
+					JOptionPane.showMessageDialog(null, "일치하는 아이디가 존재하지 않습니다.");
+				}else {
+					JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.");
+				}
+			}
+		});
+		
 		JLabel signInlab = new JLabel("회원가입      |");
+		signInlab.setSize(100, 30);
+		signInlab.setLocation(70,370);
+		signInlab.setBackground(new Color(123, 185, 237));
+		this.add(signInlab);
 		
-		JPanel findIdPan = new JPanel();
-		findIdPan.setSize(100, 30);
-		findIdPan.setLocation(160,370);
-		findIdPan.setBackground(new Color(123, 185, 237));
 		JLabel findIdLab = new JLabel("   아이디 찾기");
-
-		JPanel findPassPan = new JPanel();
-		findPassPan.setSize(100, 30);
-		findPassPan.setLocation(160,390);
-		findPassPan.setBackground(new Color(123, 185, 237));
+		findIdLab.setSize(100, 30);
+		findIdLab.setLocation(160,370);
+		findIdLab.setBackground(new Color(123, 185, 237));
+		this.add(findIdLab);
+		
+		
 		JLabel findPassLab = new JLabel("   비밀번호 찾기");
+		findPassLab.setSize(100, 30);
+		findPassLab.setLocation(160,390);
+		findPassLab.setBackground(new Color(123, 185, 237));
+		this.add(findPassLab);
 		
-		
-		findPassPan.add(findPassLab);
-		findIdPan.add(findIdLab);
-		signInPan.add(signInlab);
-		logPan.add(logBtn);
-		passTfPan.add(passTf);
-		passPan.add(passLab);
-		idTfPan.add(idTf);
-		idPan.add(id);
-		logoPan.add(logoLab);
-		logoWordsPan.add(logoWordsLab);
-		footPan.add(footer);
-		
-		
-		this.add(findPassPan);
-		this.add(findIdPan);
-		this.add(signInPan);
-		this.add(logPan);
-		this.add(passTfPan);
-		this.add(passPan);
-		this.add(idTfPan);
-		this.add(idPan);
-		this.add(logoPan);
-		this.add(logoWordsPan);
-		this.add(footPan);
 		mf.add(this);
 
 		signInlab.addMouseListener(new MyMouseAdapter());
@@ -129,7 +123,7 @@ public class Login_MainPage extends JPanel{
 	class MyMouseAdapter extends MouseAdapter{
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			Login_ChangePanel.changePanel(mf, mainPage , new Login_SubPage(mf));
+			ChangePanel.changePanel(mf, mainPage , new Login_SubPage(mf));
 		}
 	}
 	

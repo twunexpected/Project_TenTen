@@ -17,11 +17,11 @@ import javax.swing.JTextField;
  
 public class Login_FindPW extends JPanel {
 	private Login_MainFrame mf;
-	private JPanel Login_FindPW;
+	private JPanel login_FindPW;
 
 	public Login_FindPW(Login_MainFrame mf) {
 		this.mf = mf;
-		Login_FindPW = this;
+		login_FindPW = this;
 		
 		//¹é È­¸é
 		this.setSize(400, 700);

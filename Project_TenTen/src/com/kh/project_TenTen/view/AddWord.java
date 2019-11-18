@@ -97,19 +97,25 @@ public class AddWord extends JPanel{
 		this.add(b1);
 
 		b1.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				BufferedWriter bo = null;
 				try{
-					BufferedWriter bo = new BufferedWriter(new FileWriter("단어추가.txt"));				
+					bo = new BufferedWriter(new FileWriter("단어추가.txt", true));
+					bo.write((String) mainList.getSelectedItem()+"/");
+					bo.write((String) subList.getSelectedItem()+"/");
 					bo.write(tf.getText()+"/");
-					bo.write(tf1.getText()+"/\n");
+					bo.write(tf1.getText()+"/");
 
+					
+					
 					bo.close();
-				} catch (Exception ex) { 
+			    } catch (Exception ex) { 
+			  
+			 } 
 
-				} 
-
-				JOptionPane.showMessageDialog(null, "입력하신 단어가 저장되었습니다."); 
+					 JOptionPane.showMessageDialog(null, "입력하신 단어가 저장되었습니다."); 
 			}
 		});
 		//좌측 고정

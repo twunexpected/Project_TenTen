@@ -5,6 +5,10 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +20,7 @@ import javax.swing.JTable;
 public class MyWord3 extends JPanel {
 	private Login_MainFrame mf;	
 	private JPanel MyWord3;
-
+	private String[][] data;
 	public MyWord3(Login_MainFrame mf) {
 		this.mf = mf;
 		MyWord3 = this;
@@ -32,47 +36,33 @@ public class MyWord3 extends JPanel {
 		p.setLocation(130, 100);
 		//표
 		String[] headings = new String[] {"번호","단어","뜻"};
-		Object data[][] ={
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-				{"1","apple","사과"},
-				{"2","banana","바나나"},
-				{"3","orange","오렌지"},
-		};
+
+		//관아 여기가 안된다ㅜㅠㅜㅠㅜㅠㅜㅠ 살려줘
+				String s; 
+				String[] arr = null; 
+				BufferedReader br=null;
+				try {
+					br = new BufferedReader(new FileReader("단어추가.txt"));
+				} catch (FileNotFoundException e1) {
+
+				} 
+				try {
+					while ((s = br.readLine()) != null) { 
+						arr = s.split("/");
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			int ar = arr.length/4;
+			int a =0;
+			for(int i=0; i<ar; i++) {
+				for(int j =0; j<4;j++) {
+				 data[i][j]=arr[a];
+							a++;
+						
+					}
+				}
+			
 		JTable table = new JTable(data,headings);
 		table.setPreferredScrollableViewportSize(new Dimension(190,470));
 		table.setFillsViewportHeight(true);

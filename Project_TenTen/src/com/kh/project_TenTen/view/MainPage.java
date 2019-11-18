@@ -24,34 +24,34 @@ public class MainPage extends JPanel {
 		MainPage = this;
 
 		UZ_Manager um = new UZ_Manager();
-		// ÇÁ·¹ÀÓ 
-		//		super("ÅÙÅÙ ¸ÞÀÎ ÆäÀÌÁö");
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//		super("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		//		this.setBounds(650, 100, 400, 700);
 		//		this.setLayout(null);
 
 
 
-		//¸¶ÀÌÆäÀÌÁö ¹öÆ°
-		JButton btn = new JButton("¸¶ÀÌÆäÀÌÁö");
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
+		JButton btn = new JButton("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		btn.setSize(120, 45);
 		btn.setLocation(260, 20);
 		btn.setForeground(Color.WHITE);
 		btn.setBackground(new Color(36, 107, 220));
-		btn.setFont(new Font("°íµñ",Font.PLAIN,12));
+		btn.setFont(new Font("ï¿½ï¿½ï¿½",Font.PLAIN,12));
 		btn.setPreferredSize(new Dimension(120, 45));
 
-		/////ÁÖÁ¦º°·Î ´Ü¾î 10°³ ³»ÁÖ´Â°Å ÀÓ½Ã ¹öÆ°///////
-		//¿ä¸®¼±ÅÃ¹öÆ°
+		/////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¾ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´Â°ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½Æ°///////
+		//ï¿½ä¸®ï¿½ï¿½ï¿½Ã¹ï¿½Æ°
 //		JPanel subjectTest = new JPanel();
 //		subjectTest.setSize(100, 30);
 //		subjectTest.setLocation(140,50);
 //		subjectTest.setBackground(new Color(123, 185, 237));
-//		JButton subjectTestLab = new JButton("   ÁÖÁ¦¼±ÅÃ");
+//		JButton subjectTestLab = new JButton("   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 //		subjectTest.add(subjectTestLab);
 //		this.add(subjectTest);
 		
-		//ÁÖÁ¦ÄÞº¸¹Ú½º
-		String[] Subject = {"ÁÖÁ¦¼±ÅÃ","¿ä¸®","½ºÆ÷Ã÷","¿©Çà","ºñÁö´Ï½º","°æÁ¦","¿¹¼ú"};
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Þºï¿½ï¿½Ú½ï¿½
+		String[] Subject = {"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ä¸®","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½","ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½"};
 		JComboBox subList = new JComboBox(Subject);
 		subList.setLocation(185,120);
 		subList.setSize(80,50);
@@ -61,24 +61,24 @@ public class MainPage extends JPanel {
 		this.add(subList);
 
 
-		//ÁÖÁ¦ ¿© ÅØ½º
-//		JTextField sectionText = new JTextField("  ÁÖÁ¦");
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø½ï¿½
+//		JTextField sectionText = new JTextField("  ï¿½ï¿½ï¿½ï¿½");
 //		sectionText.setSize(80, 50);
 //		sectionText.setLocation(185, 120);
 //		sectionText.setBackground(new Color(123, 185, 237));
-//		sectionText.setFont(new Font("°íµñ",Font.PLAIN,20));
+//		sectionText.setFont(new Font("ï¿½ï¿½ï¿½",Font.PLAIN,20));
 //		sectionText.setPreferredSize(new Dimension(80, 50));
 
 	
 
 		
 
-		//´Ü¾î ÅØ½º
-		JTextField wordText = new JTextField(" ´Ü ¾î");
+		//ï¿½Ü¾ï¿½ ï¿½Ø½ï¿½
+		JTextField wordText = new JTextField(" ï¿½ï¿½ ï¿½ï¿½");
 		wordText.setSize(240, 90);
 		wordText.setLocation(105, 180);
 		wordText.setBackground(new Color(123, 185, 237));
-		wordText.setFont(new Font("°íµñ",Font.BOLD,80));
+		wordText.setFont(new Font("ï¿½ï¿½ï¿½",Font.BOLD,80));
 		wordText.setPreferredSize(new Dimension(240, 90));
 
 		
@@ -91,17 +91,17 @@ public class MainPage extends JPanel {
 
 				//Object value = subList.getSelectedItem();
 				JComboBox cb = (JComboBox)e.getSource();
-				if(cb.getSelectedItem().equals("¿ä¸®")) {
+				if(cb.getSelectedItem().equals("ï¿½ä¸®")) {
 				//	UZ_Manager um = new UZ_Manager();
 					wordText.setText(um.CookWord()[0]);
-				}else if(cb.getSelectedItem().equals("½ºÆ÷Ã÷")) {
+				}else if(cb.getSelectedItem().equals("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")) {
 				//	UZ_Manager um = new UZ_Manager();
 					wordText.setText(um.sportsWord());
 				}
 			}
 		}); 
-		//¾Ï±â ¹öÆ°
-		JButton arm = new JButton("¾Ï±â");
+		//ï¿½Ï±ï¿½ ï¿½ï¿½Æ°
+		JButton arm = new JButton("ï¿½Ï±ï¿½");
 		arm.setSize(105, 60);
 		arm.setLocation(105,390);
 		arm.setForeground(Color.WHITE);
@@ -113,7 +113,7 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(subList.getSelectedItem().equals("¿ä¸®")) {
+				if(subList.getSelectedItem().equals("ï¿½ä¸®")) {
 				
 					wordText.setText(um.CookWord()[0]);
 			}
@@ -121,8 +121,8 @@ public class MainPage extends JPanel {
 		});
 		
 
-		//ºñ¾Ï±â¹öÆ°
-		JButton beearm = new JButton("ºñ¾Ï±â");
+		//ï¿½ï¿½Ï±ï¿½ï¿½Æ°
+		JButton beearm = new JButton("ï¿½ï¿½Ï±ï¿½");
 		beearm.setSize(105, 60);
 		beearm.setLocation(240, 390);
 		beearm.setForeground(Color.WHITE);
@@ -131,12 +131,12 @@ public class MainPage extends JPanel {
 
 
 
-		//Ä«¿î ÅØ½º
-		JTextField countnum = new JTextField("ÀÔ·Â°ª");
+		//Ä«ï¿½ï¿½ ï¿½Ø½ï¿½
+		JTextField countnum = new JTextField("ï¿½Ô·Â°ï¿½");
 		countnum.setBackground(new Color(123, 185, 237));
 		countnum.setSize(60, 50);
 		countnum.setLocation(165, 460);
-		countnum.setFont(new Font("°íµñ",Font.PLAIN,15));
+		countnum.setFont(new Font("ï¿½ï¿½ï¿½",Font.PLAIN,15));
 		countnum.setPreferredSize(new Dimension(60, 50));
 
 
@@ -145,8 +145,8 @@ public class MainPage extends JPanel {
 		countMax.setBackground(new Color(123, 185, 237));
 		countMax.setSize(50, 40);
 		countMax.setLocation(225, 465);
-		countMax.setFont(new Font("°íµñ",Font.PLAIN,20));
-		//	¶óº§Àº »çÀÌÁî°ª µû·Î ¾È½áµµ ÆÐ³Î¿¡ ÀÚµ¿ ºÎÂø.
+		countMax.setFont(new Font("ï¿½ï¿½ï¿½",Font.PLAIN,20));
+		//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½î°ª ï¿½ï¿½ï¿½ï¿½ ï¿½È½áµµ ï¿½Ð³Î¿ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½.
 
 
 
@@ -159,16 +159,16 @@ public class MainPage extends JPanel {
 		this.add(countnum);
 
 
-		//Ä«ÇÇ¶óÀÕ
-		JLabel naming = new JLabel("Copyrights ¨Ï  ºñ!´¢³»°ú All Rights reserved.");
+		//Ä«ï¿½Ç¶ï¿½ï¿½ï¿½
+		JLabel naming = new JLabel("Copyrights ï¿½ï¿½  ï¿½ï¿½!ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ All Rights reserved.");
 		naming.setBounds(90, 600, 400, 50);
 		//naming.setForeground(new Color(255, 255, 225));
-		naming.setFont(new Font("°í", Font.BOLD, 13));
+		naming.setFont(new Font("ï¿½ï¿½", Font.BOLD, 13));
 		this.setLayout(null);
 		this.add(naming);
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//¹è°æ
+		//ï¿½ï¿½ï¿½
 		//		JPanel jp = new JPanel();
 		//		jp.setSize(400, 700);
 		//		jp.setLayout(null);
@@ -182,12 +182,12 @@ public class MainPage extends JPanel {
 		mf.add(this);   
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//ÁÂÃø ¸Þ´º
-		final JButton btnLeft1 = new JButton("<html>¸ÞÀÎ<br/>È­¸é</html>");
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½
+		final JButton btnLeft1 = new JButton("<html>ï¿½ï¿½ï¿½ï¿½<br/>È­ï¿½ï¿½</html>");
 		btnLeft1.setBounds(0, 0, 80, 120);
 		btnLeft1.setForeground(new Color(255, 255, 225));
 		btnLeft1.setBackground(new Color(36, 107, 220));
-		btnLeft1.setFont(new Font("°íµñ",Font.BOLD,20));
+		btnLeft1.setFont(new Font("ï¿½ï¿½ï¿½",Font.BOLD,20));
 		this.add(btnLeft1);
 		JPanel panelLeft1 = new JPanel();
 		panelLeft1.setBounds(0,120, 80, 10);
@@ -195,35 +195,49 @@ public class MainPage extends JPanel {
 		this.setLayout(null);
 		this.add(panelLeft1);
 
-		final JButton btnLeft2 = new JButton("<html>³ªÀÇ<br/>´Ü¾î</html>");
+		final JButton btnLeft2 = new JButton("<html>ï¿½ï¿½ï¿½ï¿½<br/>ï¿½Ü¾ï¿½</html>");
 		btnLeft2.setBounds(0, 130, 80, 120);
 		btnLeft2.setForeground(new Color(255, 255, 225));
 		btnLeft2.setBackground(new Color(36, 107, 220));
-		btnLeft2.setFont(new Font("°íµñ",Font.BOLD,20));
+		btnLeft2.setFont(new Font("ï¿½ï¿½ï¿½",Font.BOLD,20));
 		this.add(btnLeft2);
+		btnLeft2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MainPage, new MyWord1(mf));
+			}
+
+		});
 		JPanel panelLeft2= new JPanel();
 		panelLeft2.setBounds(0, 250, 80, 10);
 		panelLeft2.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft2);
 
 
-		final JButton btnLeft3 = new JButton("<html>´Ü¾î<br/>Ãß°¡</html>");
+		final JButton btnLeft3 = new JButton("<html>ï¿½Ü¾ï¿½<br/>ï¿½ß°ï¿½</html>");
 		btnLeft3.setBounds(0, 260, 80, 120);
 		btnLeft3.setForeground(new Color(255, 255, 225));
 		btnLeft3.setBackground(new Color(36, 107, 220));
-		btnLeft3.setFont(new Font("°íµñ",Font.BOLD,20));
+		btnLeft3.setFont(new Font("ï¿½ï¿½ï¿½",Font.BOLD,20));
 		this.add(btnLeft3);
+		btnLeft3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MainPage, new AddWord(mf));
+			}
+
+		});
 		JPanel panelLeft3 = new JPanel();
 		panelLeft3.setBounds(0, 380, 80, 10);
 		panelLeft3.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft3);
 
 
-		final JButton btnLeft4 = new JButton("<html>´Ü¾î<br/>TEST</html>");
+		final JButton btnLeft4 = new JButton("<html>ï¿½Ü¾ï¿½<br/>TEST</html>");
 		btnLeft4.setBounds(0, 390, 80, 120);
 		btnLeft4.setForeground(new Color(255, 255, 225));
 		btnLeft4.setBackground(new Color(36, 107, 220));
-		btnLeft4.setFont(new Font("°íµñ",Font.BOLD,20));
+		btnLeft4.setFont(new Font("ï¿½ï¿½ï¿½",Font.BOLD,20));
 		this.add(btnLeft4);
 		JPanel panelLeft4  = new JPanel();
 		panelLeft4.setBounds(0, 510, 80, 10);
@@ -232,11 +246,11 @@ public class MainPage extends JPanel {
 
 
 
-		final JButton btnLeft5 = new JButton("<html>¼ºÀå<br/>°úÁ¤</html>");
+		final JButton btnLeft5 = new JButton("<html>ï¿½ï¿½ï¿½ï¿½<br/>ï¿½ï¿½ï¿½ï¿½</html>");
 		btnLeft5.setBounds(0, 520, 80, 135);
 		btnLeft5.setForeground(new Color(255, 255, 225));
 		btnLeft5.setBackground(new Color(36, 107, 220));
-		btnLeft5.setFont(new Font("°íµñ",Font.BOLD,20));
+		btnLeft5.setFont(new Font("ï¿½ï¿½ï¿½",Font.BOLD,20));
 		this.add(btnLeft5);
 
 

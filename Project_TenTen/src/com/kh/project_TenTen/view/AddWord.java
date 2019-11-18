@@ -47,7 +47,7 @@ public class AddWord extends JPanel{
 		lb4.setSize(120, 50);
 		lb4.setFont(new Font("고딕",Font.BOLD,18));
 		this.add(lb4);
-		String[] list = {"     여행", "     스포츠", "     요리","     비즈니스","     예술","     경제"};
+		String[] list = {" 여행", " 스포츠", " 요리"," 비즈니스"," 예술"," 경제"};
 		JComboBox mainList = new JComboBox(list);
 		mainList.setSelectedIndex(0);
 		mainList.setLocation(160, 150);
@@ -60,7 +60,7 @@ public class AddWord extends JPanel{
 		lb5.setSize(120, 50);
 		lb5.setFont(new Font("고딕",Font.BOLD,18));
 		this.add(lb5);
-		String[] list1 = {"      명사", "      대명사", "      동사","      형용사","      부사","      전치사","      접속사","      감탄사"};
+		String[] list1 = {" 명사", " 대명사", " 동사"," 형용사"," 부사"," 전치사"," 접속사"," 감탄사"};
 		JComboBox subList = new JComboBox(list1);
 		subList.setSelectedIndex(0);
 		subList.setLocation(160, 230);

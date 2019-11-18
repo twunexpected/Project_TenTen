@@ -94,7 +94,7 @@ public class MyWord2 extends JPanel{
 		b2.setForeground(Color.white);
 		b2.setFont(new Font("°íµñ",Font.BOLD,14));
 		b2.setBackground(new Color(225, 91, 91));
-		JButton b3 = new JButton("Áñ°ÜÃ£±â");
+		JButton b3 = new JButton("³ªÀÇ´Ü¾î");
 		b3.setHorizontalAlignment(JLabel.CENTER);
 		b3.setForeground(Color.white);
 		b3.setFont(new Font("°íµñ",Font.BOLD,12));

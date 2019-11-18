@@ -12,6 +12,5 @@ public class Login_MainFrame extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		
 	}
 }

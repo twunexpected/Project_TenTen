@@ -12,11 +12,13 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import com.kh.project_TenTen.model.dao.MemberSignIn;
+import com.kh.project_TenTen.controller.MemberController;
+import com.kh.project_TenTen.model.dao.MemberDao;
 import com.kh.project_TenTen.model.vo.Member;
 
 public class Login_SubPage extends JPanel {
 	public JTextField emailTxF;
+	JPanel login_SubPage;
 	
 	public Login_SubPage() {}
 	
@@ -25,7 +27,8 @@ public class Login_SubPage extends JPanel {
 		this.setLayout(null);
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
-
+		login_SubPage = this;
+		
 		JButton signInbtn1 = new JButton("회원가입");
 		signInbtn1.setSize(100,40);
 		signInbtn1.setLocation(140,50);
@@ -60,17 +63,19 @@ public class Login_SubPage extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				MemberSignIn ms = new MemberSignIn();
+				MemberDao md = new MemberDao();
 				ArrayList<Member> list = new ArrayList<Member>();
-				list = ms.findMember();
+				list = md.findMember();
 				
 				for(int i = 0; i < list.size(); i++) {
 					if(list.get(i).getId().equals(idTxF.getText())) {
 						 JOptionPane.showMessageDialog(null, "중복된 아이디 입니다.");
 						 idTxF.setText("");
 						 idTxF.requestFocus();
+						 break;
 					}else{
 						 JOptionPane.showMessageDialog(null, "사용가능한 아이디 입니다.");
+						 break;
 					}
 				}
 			}
@@ -107,9 +112,15 @@ public class Login_SubPage extends JPanel {
 				pass1 = passTxF.getPassword();
 				pass2 = passChTxF.getPassword();
 				
-				for(int i = 0; i < pass1.length; i++) {
-					if(pass1[i] != pass2[i] && pass1.length != pass2.length) {
-						check = false;
+				if(pass1.length != pass2.length) {
+					check = false;
+				}
+				
+				if(check == true) {
+					for(int i = 0; i < pass1.length; i++) {
+						if(pass1[i] != pass2[i] && pass1.length != pass2.length) {
+							check = false;
+						}
 					}
 				}
 				
@@ -203,12 +214,14 @@ public class Login_SubPage extends JPanel {
 				String email = emailTxF.getText();
 				int exp = 0;
 				
-					MemberSignIn ms = new MemberSignIn();
+					MemberController mc = new MemberController();
 					ArrayList<Member> list = new ArrayList<Member>();
-					list = ms.memberSignIn(id, pass, nickName, email, exp);
+					mc.memberSignIn(id, pass, nickName, email, exp);
 
 					System.out.println("성공적으로 회원 등록이 완료되었습니다.");
 					JOptionPane.showMessageDialog(null, "회원가입성공");
+					
+				ChangePanel.changePanel(mf, login_SubPage, new Login_MainPage(mf));
 			}
 			
 		});
@@ -233,7 +246,5 @@ public class Login_SubPage extends JPanel {
 		this.add(idLab);
 		this.add(footer);
 		this.add(signInbtn1);
-		
-		
 	}
 }

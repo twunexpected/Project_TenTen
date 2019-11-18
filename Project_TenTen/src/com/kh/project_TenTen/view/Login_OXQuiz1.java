@@ -24,16 +24,19 @@ public class Login_OXQuiz1 extends JPanel{
 		this.mf = mf;
 		login_OXQuiz1 = this;
 
+		
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 
+		
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("고딕", Font.BOLD, 13));
 
+		
 		//본문
 		JLabel word = new JLabel("단어");
 		word.setBounds(50, 110, 70, 50);

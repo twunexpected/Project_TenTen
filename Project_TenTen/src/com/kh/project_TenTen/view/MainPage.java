@@ -21,10 +21,6 @@ public class MainPage extends JPanel {
 	public MainPage(Login_MainFrame mf) {
 		this.mf = mf;
 		MainPage = this;
-		
-
-
-
 
 		//마이페이지버튼
 		JButton btn = new JButton("마이페이지");

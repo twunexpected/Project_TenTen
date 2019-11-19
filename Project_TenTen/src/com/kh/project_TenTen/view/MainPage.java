@@ -257,7 +257,7 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MainPage, new  SeoungJang(mf));				
+				ChangePanel.changePanel(mf, MainPage, new MyPage(mf));				
 			}
 
 		});

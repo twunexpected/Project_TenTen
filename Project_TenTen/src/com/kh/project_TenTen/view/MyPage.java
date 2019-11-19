@@ -1,27 +1,32 @@
 package com.kh.project_TenTen.view;
 
 
-import java.awt.Color; 
+import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.beans.DefaultPersistenceDelegate;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import com.kh.project_TenTen.controller.MemberController;
+import com.kh.project_TenTen.model.dao.MemberDao;
 
 public class MyPage extends JPanel {
 	
 	private Login_MainFrame mf;
 	private JPanel MyPage;
-	 
+	MemberController mc = new MemberController();
+			
 	public MyPage(Login_MainFrame mf) {
 		this.mf = mf;
 		MyPage = this;
@@ -45,46 +50,95 @@ public class MyPage extends JPanel {
 
 		Above.add(mp);
 		this.add(Above);
+		
+		//닉네임변경 버튼모양 패널 add
 
+		JButton logOutBtn = new JButton("로그아웃");
+		logOutBtn.setForeground(Color.white);
+		logOutBtn.setBackground(new Color(36, 107, 220));
+		logOutBtn.setBounds(250,70,110,40);
+		logOutBtn.setFont(new Font("고딕", Font.BOLD, 17));
+		this.add(logOutBtn);
+		
+		
+		//로그아웃 다이얼로그
+		Dialog logOutDlog = new Dialog(mf,"로그아웃 다이얼로그");
+		logOutDlog.setLayout(null);
+		logOutDlog.setBounds(300,500,300,300);
+		logOutDlog.setBackground(new Color(123, 185, 237));
+		
+		//버튼클릭시 다이얼로그 노출
+		logOutBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				logOutDlog.setVisible(true);
+			}
+		});
+		
+		JLabel logOutMLab = new JLabel("로그아웃 하시겠습니까?");
+		logOutMLab.setBounds(50, 100, 300, 30);
+		logOutMLab.setFont(new Font("고딕", Font.BOLD, 17));
+		logOutMLab.setForeground(Color.white);
+		logOutDlog.add(logOutMLab);
+		
+		JButton logOutYesBtn = new JButton("네");
+		logOutYesBtn.setBounds(55, 200, 90, 30);
+		logOutYesBtn.setFont(new Font("고딕", Font.BOLD, 17));
+		logOutYesBtn.setForeground(Color.white);
+		logOutYesBtn.setBackground(new Color(36, 107, 220));
+		logOutYesBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mc.logoutMember();
+				logOutDlog.dispose();
+				ChangePanel.changePanel(mf, MyPage, new Login_MainPage(mf));
+			}
+		});
 
-
-		//아이디 :
-
+		JButton logOutNoBtn = new JButton("아니오");
+		logOutNoBtn.setBounds(165, 200, 90, 30);
+		logOutNoBtn.setFont(new Font("고딕", Font.BOLD, 17));
+		logOutNoBtn.setForeground(Color.white);
+		logOutNoBtn.setBackground(new Color(36, 107, 220));
+		logOutNoBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				logOutDlog.dispose();
+			}
+		});
+		
+		logOutDlog.add(logOutYesBtn);
+		logOutDlog.add(logOutNoBtn);
+		
+		//아이디라벨
 		JLabel ID = new JLabel("아이디 :");
 		ID.setFont(new Font("고딕",Font.PLAIN,19));
 		ID.setBackground(new Color(2, 234, 23));
-		ID.setSize(115, 40);
-		ID.setLocation(110,155);
+		ID.setBounds(120, 165, 115, 40);
 		this.add(ID);
 
 		//입력받은아이디
-		JTextField userID = new JTextField("syso");
+		JLabel userID = new JLabel(MemberDao.loginMember.getId());
 		userID.setBackground(new Color(123,185,237));
-		userID.setSize(115, 40);
-		userID.setLocation(205,155);
+		userID.setBounds(205, 165, 115, 40);
 		userID.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(userID);
-		//////////////////////////////
 
-
-		//닉네임 :
-		JLabel NicName = new JLabel("닉네임 :");
-		NicName.setBackground(new Color(123, 185, 237));
-		NicName.setSize(115, 40);
-		NicName.setLocation(110,207);
-		NicName.setFont(new Font("고딕",Font.PLAIN,19));
-		this.add(NicName);
+		//닉네임라벨
+		JLabel nickName = new JLabel("닉네임 :");
+		nickName.setBounds(120, 207, 115, 40);
+		nickName.setBackground(new Color(123, 185, 237));
+		nickName.setFont(new Font("고딕",Font.PLAIN,19));
+		this.add(nickName);
 
 		//입력받은 닉네임
-		JTextField userNickName = new JTextField("비뇨내과");
+		JLabel userNickName = new JLabel(MemberDao.loginMember.getNickname());
 		userNickName.setBackground(new Color(123,185,237));
-		userNickName.setSize(115, 40);
-		userNickName.setLocation(205,207);
+		userNickName.setBounds(205, 207, 115, 40);
 		userNickName.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(userNickName);
-
-
-		//////////////////////////
 
 		//나의레벨 : 
 		JLabel myLevel = new JLabel("나의 레벨 :");
@@ -95,14 +149,12 @@ public class MyPage extends JPanel {
 		this.add(myLevel);
 
 		//유저레벨
-		JLabel userMyLevel = new JLabel("Lv.1");
+		JLabel userMyLevel = new JLabel(String.valueOf(MemberDao.loginMember.getLevel()));
 		userMyLevel.setBackground(new Color(123,185,237));
 		userMyLevel.setSize(110, 40);
-		userMyLevel.setLocation(220,255);
+		userMyLevel.setLocation(230,255);
 		userMyLevel.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(userMyLevel);
-
-
 
 		//////////////////////////
 
@@ -115,16 +167,17 @@ public class MyPage extends JPanel {
 		this.add(wLevel);
 
 		//초/중/고급
-		JLabel userWdLevel = new JLabel("초급");
+		JLabel userWdLevel = new JLabel(MemberDao.loginMember.getWordLevel());
 		userWdLevel.setBackground(new Color(123,185,237));
 		userWdLevel.setSize(120, 40);
 		userWdLevel.setLocation(220,305);
 		userWdLevel.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(userWdLevel);
 
-
 		//////////////////////////
 
+		
+		
 		//보유텐텐
 		JLabel ttCount = new JLabel("보유 텐텐 :");
 		ttCount.setBackground(new Color(123, 185, 237));
@@ -134,20 +187,19 @@ public class MyPage extends JPanel {
 		this.add(ttCount);
 
 		//현재 텐텐개수
-		JLabel myttNow = new JLabel("20");
+		JLabel myttNow = new JLabel(String.valueOf(MemberDao.loginMember.getHaveTen()));
 		myttNow.setBackground(new Color(123,185,237));
 		myttNow.setSize(110, 40);
-		myttNow.setLocation(215,355);
+		myttNow.setLocation(230,355);
 		myttNow.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(myttNow);
 
-
 		//////////////////////////
 
-		//학습시작일 : 
-		JLabel ddCount = new JLabel("합습시작일 :") ;
+		/*//학습시작일 : 
+		JLabel ddCount = new JLabel("학습시작일 :") ;
 		ddCount.setSize(115, 40);
-		ddCount.setLocation(100,405);
+		ddCount.setLocation(90,405);
 		ddCount.setBackground(new Color(123, 185, 237));
 		ddCount.setFont(new Font("고딕",Font.PLAIN,19));
 		this.add(ddCount);
@@ -158,128 +210,103 @@ public class MyPage extends JPanel {
 		myddNow.setSize(110, 40);
 		myddNow.setLocation(205,405);
 		myddNow.setFont(new Font("고딕",Font.PLAIN,19));
-		this.add(myddNow);
-
-
+		this.add(myddNow);*/
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//닉네임변경버튼
 		JButton ncbButton = new JButton("변경") ;
-		ncbButton.setSize(50, 40);
-		ncbButton.setLocation(320,207);
-		ncbButton.setPreferredSize(new Dimension(50, 40));
+		ncbButton.setSize(60, 40);
+		ncbButton.setLocation(290,207);
 		ncbButton.setBackground(new Color(36, 107, 220));
 		ncbButton.setForeground(Color.WHITE);
-		ncbButton.setFont(new Font("고딕",Font.PLAIN,18));
+		ncbButton.setFont(new Font("고딕",Font.PLAIN,12));
 		this.add(ncbButton);
-
 
 
 		//@@@@@@@@@@@@@@@@@@@@@ 변경버튼 누를시 팝업창  @@@@@@@@@@@@@@@@@@@@@@@
 		//패널
-		JPanel pop = new JPanel();
-		pop.setBackground(new Color(36,107,220));
-		pop.setSize(200, 40);
-		pop.setLocation(100, 10);
-
 		//다이어로그
-		Dialog sd = new Dialog(mf,"닉네임 변경");
-		sd.setBounds(300,500,400,400);
-		sd.setBackground(new Color(123, 185, 237));
-
-		//닉네임변경패널
-		JLabel nc = new JLabel("닉네임변경");
-		nc.setBounds(150,10,200,40);
-		nc.setForeground(Color.WHITE);
-		nc.setBackground(new Color(36, 107, 220));
-		nc.setFont(new Font("고딕",Font.BOLD,20));
-		pop.add(nc);
-
-
-		//변경완료버튼
-		JButton jb = new JButton("변경완료");
-		jb.setSize(100,50);
-		jb.setLocation(150,300);
-		jb.setForeground(Color.WHITE);
-		jb.setBackground(new Color(36, 107, 220));
-		sd.add(jb);
-
-		jb.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				sd.dispose();
-			}
-
-		});
-
-
-		JLabel lb = new JLabel();
-		lb.setSize(400,400);
-		sd.add(lb);
-
-		lb.add(pop);
-
-		//기존닉네임:
-		JPanel oldNickP = new JPanel();
-		oldNickP.setBounds(52, 100, 100, 30);
-		oldNickP.setBackground(new Color(123,185,237));
-		lb.add(oldNickP);
-		JLabel oldNick = new JLabel("기존 닉네임 : ");
-		oldNick.setBackground(new Color(123,185,237));
-		oldNick.setFont(new Font("고딕",Font.PLAIN,18));
-		oldNickP.add(oldNick);
-
-		// 기존닉네임 보여주기
-		JPanel userOldNickP = new JPanel();
-		userOldNickP.setBounds(170, 100, 100, 30);
-		userOldNickP.setBackground(new Color(123,185,237));
-		lb.add(userOldNickP);
-		JLabel userOldNick = new JLabel("비뇨내과");
-		userOldNick.setBackground(new Color(123,185,237));
-		userOldNick.setFont(new Font("고딕",Font.PLAIN,18));
-		userOldNickP.add(userOldNick);
-
-		// 새 닉네임 :
-		JPanel	newNickP = new JPanel();
-		newNickP.setBounds(60, 150, 100, 30);
-		newNickP.setBackground(new Color(123,185,237));
-		lb.add(newNickP);
-		JLabel newNick = new JLabel("새 닉네임 : ");
-		newNick.setBackground(new Color(123,185,237));
-		newNick.setFont(new Font("고딕",Font.PLAIN,18));
-		newNickP.add(newNick);
-
-		// 입력받을 새 닉네임
-		JPanel userNewNP = new JPanel();
-		userNewNP.setBounds(170, 145, 100, 40);
-		userNewNP.setBackground(new Color(123,185,237));
-		lb.add(userNewNP);
-		JTextField userNewNick = new JTextField();
-		userNewNick.setPreferredSize(new Dimension(110, 40));
-		userNewNick.setFont(new Font("고딕",Font.PLAIN,15));
-		userNewNP.add(userNewNick);
-
-		JLabel naming1 = new JLabel("Copyrights ⓒ    비!뇨내과� All Rights reserved.");
-		naming1.setBounds(60, 330, 400, 50);
-		//naming.setForeground(new Color(255, 255, 225));
-		naming1.setFont(new Font("고딕", Font.BOLD, 13));
-		this.setLayout(null);
-		lb.add(naming1);
-
-
-
+		Dialog changeNickDlog = new Dialog(mf,"닉네임 변경");
+		changeNickDlog.setLayout(null);
+		changeNickDlog.setBounds(300,500,400,400);
+		changeNickDlog.setBackground(new Color(123, 185, 237));
+//		changeNickDlog.setResizable(false);
+		
 		//닉네임변경버튼 누를시 팝업창뜨는 이벤트
 		ncbButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sd.setVisible(true);
+				changeNickDlog.setVisible(true);
 			}
-
 		});
+		//닉네임변경 버튼모양 패널 add
+		JPanel titlePan = new JPanel();
+		titlePan.setBounds(140,70,130,40);
+		titlePan.setBackground(new Color(36, 107, 220));
+		titlePan.setLayout(null);
+		changeNickDlog.add(titlePan);
+		
+		JLabel titleLab = new JLabel("닉네임변경");
+		titleLab.setForeground(Color.white);
+		titleLab.setBounds(20,5,100,30);
+		titleLab.setFont(new Font("고딕", Font.BOLD, 17));
+		titlePan.add(titleLab);
 
+		JLabel oldLab = new JLabel("기존 닉네임 : ");
+		oldLab.setSize(100, 30);
+		oldLab.setLocation(50, 150);
+		oldLab.setFont(new Font("고딕",Font.BOLD, 15));
+		changeNickDlog.add(oldLab);
+		
+		JLabel oldLab2 = new JLabel(MemberDao.loginMember.getNickname());
+		oldLab2.setSize(150, 30);
+		oldLab2.setLocation(160, 150);
+		oldLab2.setFont(new Font("고딕",Font.BOLD, 15));
+		changeNickDlog.add(oldLab2);
+		
+		JLabel newLab = new JLabel("변경할 닉네임 : ");
+		newLab.setSize(130, 30);
+		newLab.setLocation(30, 200);
+		newLab.setFont(new Font("고딕",Font.BOLD, 15));
+		changeNickDlog.add(newLab);
 
+		JTextField newTxF = new JTextField();
+		newTxF.setSize(150, 30);
+		newTxF.setLocation(155, 200);
+		changeNickDlog.add(newTxF);
+		
+		//변경완료버튼
+		JButton finishBtn = new JButton("변경완료");
+		finishBtn.setSize(100,50);
+		finishBtn.setLocation(90,280);
+		finishBtn.setForeground(Color.WHITE);
+		finishBtn.setBackground(new Color(36, 107, 220));
+		changeNickDlog.add(finishBtn);
+		
+		finishBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MemberDao.loginMember.setNickname(newTxF.getText());
+				JOptionPane.showMessageDialog(null, "변경이완료되었습니다.");
+				changeNickDlog.dispose();
+			}
+		});
+		
+		JButton backBtn = new JButton("뒤로");
+		finishBtn.setSize(100,50);
+		finishBtn.setLocation(170,280);
+		finishBtn.setForeground(Color.WHITE);
+		finishBtn.setBackground(new Color(36, 107, 220));
+		changeNickDlog.add(finishBtn);
+		
+		finishBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				changeNickDlog.dispose();
+			}
+		});
 
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -288,8 +315,7 @@ public class MyPage extends JPanel {
 		JButton mdlButton = new JButton("회원탈퇴") ;
 		mdlButton.setBackground(new Color(123, 185, 237));
 		mdlButton.setSize(115, 50);
-		mdlButton.setLocation(175,550);
-		mdlButton.setPreferredSize(new Dimension(115, 50));
+		mdlButton.setLocation(175,450);
 		mdlButton.setBackground(new Color(36, 107, 220));
 		mdlButton.setForeground(Color.WHITE);
 		mdlButton.setFont(new Font("고딕",Font.PLAIN,18));
@@ -297,117 +323,61 @@ public class MyPage extends JPanel {
 
 
 		//탈퇴창 다이어로그
-		Dialog sd2 = new Dialog(mf,"회원탈퇴");
-		sd2.setBounds(300,500,400,700);
-		JPanel deletePop = new JPanel();
-		deletePop.setSize(400, 700);
-		
 
-		Image backGround = new ImageIcon("images/delete1.PNG").getImage().getScaledInstance(400, 700, 0);
-		JLabel deleteWarn = new JLabel(new ImageIcon(backGround));
-		deleteWarn.setSize(400,700);
-		deletePop.add(deleteWarn);
-		sd2.add(deletePop);
-		
-		//재확인 답 '네'버튼
-		JPanel	yesPanel = new JPanel();
-		yesPanel.setSize(80, 50);
-		yesPanel.setLocation(115,370);
-		JButton naeButton = new JButton("네") ;
-		naeButton.setPreferredSize(new Dimension(80, 50));
-		naeButton.setForeground(Color.WHITE);
-		naeButton.setBackground(new Color(36, 107, 220));
-		naeButton.setFont(new Font("고딕",Font.PLAIN,18));
-		yesPanel.add(naeButton);
-		deleteWarn.add(yesPanel);
-		
-		
-		//@@@@@@@@@@@@@@@@ 삭제 재확인에서 "네" 누르면 뜨는 확인팝업창 � @@@@@@@@@@@@
-		Dialog sd3 = new Dialog(mf,"정보삭제확인창");
-		sd3.setBounds(300,500,400,700);
-		JPanel DConfirmPop = new JPanel();
-		DConfirmPop.setSize(400,700);
-		
-	
-		
-		
-		Image backGround2 = new ImageIcon("images/delete2.PNG").getImage().getScaledInstance(400, 700, 0);
-		JLabel deletePopImg = new JLabel(new ImageIcon(backGround2));
-		deletePopImg.setSize(400,700);
-		DConfirmPop.add(deletePopImg);
-		
-		sd3.add(DConfirmPop);
-		
-		
-		naeButton.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				sd3.setVisible(true);
-			}
-			
-		});
-		
-		// 삭제완료확인버튼
-		JPanel OkPanel = new JPanel();
-		OkPanel.setSize(80,50);
-		OkPanel.setLocation(160,370);
-		JButton OkButton = new JButton("확인");
-		OkButton.setPreferredSize(new Dimension(80,50));
-		OkButton.setForeground(Color.WHITE);
-		OkButton.setBackground(new Color(36,107,220));
-		OkButton.setFont(new Font("고딕",Font.PLAIN,18));
-		OkPanel.add(OkButton);
-		deletePopImg.add(OkPanel);
-		
-		OkButton.addActionListener(new ActionListener() {
+		//회원탈퇴 다이얼로그
+		Dialog deleteMemDlog = new Dialog(mf,"회원탈퇴");
+		deleteMemDlog.setLayout(null);
+		deleteMemDlog.setBounds(300,500,300,300);
+		deleteMemDlog.setBackground(new Color(123, 185, 237));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				sd3.dispose();
-				sd2.dispose();
-			}
-			
-		});
-		
-		
-		
-		//삭제재확인 묻는팝업창에 "아니오"버튼
-		JPanel	NoPanel = new JPanel();
-		NoPanel.setSize(80, 50);
-		NoPanel.setLocation(200,370);
-		JButton aniyoButton = new JButton("아니오") ;
-		aniyoButton.setPreferredSize(new Dimension(80, 50));
-		aniyoButton.setForeground(Color.WHITE);
-		aniyoButton.setBackground(new Color(36, 107, 220));
-		aniyoButton.setFont(new Font("고딕",Font.PLAIN,18));
-		NoPanel.add(aniyoButton);
-		deleteWarn.add(NoPanel);
-		
-		//아니오 누르면 꺼지는 이벤트
-		aniyoButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				sd2.dispose();
-			}
-		});
-
-		//회원탈퇴버튼 누르면 뜨는 팝업창 이벤트
-		
 		mdlButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sd2.setVisible(true);
+				deleteMemDlog.setVisible(true);
 			}
 		});
 
-//		mf.addWindowListener(new WindowAdapter() {
-//			public void windowClosing(WindowEvent e) { 
-//                System.exit(0);
-//        }
-//
-//		});
+		JLabel deleteMsgLab = new JLabel("정말회원탈퇴 하시겠습니까?");
+		deleteMsgLab.setBounds(35, 100, 300, 30);
+		deleteMsgLab.setFont(new Font("고딕", Font.BOLD, 17));
+		deleteMsgLab.setForeground(Color.white);
+		deleteMemDlog.add(deleteMsgLab);
+
+		JButton deleteMYesBtn = new JButton("네");
+		deleteMYesBtn.setBounds(55, 200, 90, 30);
+		deleteMYesBtn.setFont(new Font("고딕", Font.BOLD, 17));
+		deleteMYesBtn.setForeground(Color.white);
+		deleteMYesBtn.setBackground(new Color(36, 107, 220));
+		
+		deleteMYesBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mc.deleteMember(MemberDao.loginMember);
+				deleteMemDlog.dispose();
+				ChangePanel.changePanel(mf, MyPage, new Login_MainPage(mf));
+			}
+		});
+
+		JButton deleteMNoBtn = new JButton("아니오");
+		deleteMNoBtn.setBounds(165, 200, 90, 30);
+		deleteMNoBtn.setFont(new Font("고딕", Font.BOLD, 17));
+		deleteMNoBtn.setForeground(Color.white);
+		deleteMNoBtn.setBackground(new Color(36, 107, 220));
+		deleteMNoBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				deleteMemDlog.dispose();
+			}
+		});
+
+		deleteMemDlog.add(deleteMNoBtn);
+		deleteMemDlog.add(deleteMYesBtn);
+		
+
+		
+		
 
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -471,8 +441,6 @@ public class MyPage extends JPanel {
 		panelLeft4.setBounds(0, 510, 80, 10);
 		panelLeft4.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft4);
-
-
 
 		final JButton btnLeft5 = new JButton("<html>성장<br/>과정</html>");
 		btnLeft5.setBounds(0, 520, 80, 135);

@@ -33,8 +33,8 @@ public class MyWord1 extends JPanel{
 
 		//표올릴 패널
 		JPanel p = new JPanel();
-		p.setSize(210,490);
-		p.setLocation(130, 100);
+		p.setSize(250,490);
+		p.setLocation(105, 105);
 		//표
 		String[] headings = new String[] {"번호","단어","뜻"};
 		Object data[][] ={

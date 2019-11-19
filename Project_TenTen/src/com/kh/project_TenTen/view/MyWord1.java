@@ -1,21 +1,23 @@
 package com.kh.project_TenTen.view;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+
 
 public class MyWord1 extends JPanel{
 	private Login_MainFrame mf;
@@ -76,8 +78,11 @@ public class MyWord1 extends JPanel{
 				{"2","banana","바나나"},
 				{"3","orange","오렌지"},
 		};
-		JTable table = new JTable(data,headings);
-		table.setPreferredScrollableViewportSize(new Dimension(190,470));
+		//기본테이블 모델을 만들고 그위에 제이테이블을 올려야 삭제하기 추가 하기가 가능하다.
+		DefaultTableModel model =
+				new DefaultTableModel(data,headings);
+		JTable table = new JTable(model);
+		table.setPreferredScrollableViewportSize(new Dimension(230,470));
 		table.setFillsViewportHeight(true);
 		p.add(new JScrollPane(table));
 		//암기 비암기 버튼
@@ -86,36 +91,89 @@ public class MyWord1 extends JPanel{
 		b1.setForeground(Color.white);
 		b1.setFont(new Font("고딕",Font.BOLD,17));
 		b1.setBackground(new Color(225, 91, 91));
+		/*	b1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord1, new MyWord1(mf));
+			}
+		});*/
 		JButton b2 = new JButton("비암기");
 		b2.setHorizontalAlignment(JLabel.CENTER);
 		b2.setForeground(Color.white);
-		b2.setFont(new Font("고딕",Font.BOLD,14));
+		b2.setFont(new Font("고딕",Font.BOLD,15));
 		b2.setBackground(new Color(36, 107, 220));
 		b2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, MyWord1, new MyWord2(mf));
 			}
-
 		});
 		JButton b3 = new JButton("나의단어");
 		b3.setHorizontalAlignment(JLabel.CENTER);
 		b3.setForeground(Color.white);
-		b3.setFont(new Font("고딕",Font.BOLD,12));
+		b3.setFont(new Font("고딕",Font.BOLD,15));
 		b3.setBackground(new Color(36, 107, 220));
-		b1.setBounds(95, 20, 70, 50);
+		/*b1.setBounds(95, 20, 70, 50);
 		b2.setBounds(180, 20, 79, 50);
-		b3.setBounds(275, 20, 87, 50);	
+		b3.setBounds(275, 20, 87, 50);*/	
 		b3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, MyWord1, new MyWord3(mf));
+			}
+		});
+		JButton b4 = new JButton("즐겨찾기");
+		b4.setHorizontalAlignment(JLabel.CENTER);
+		b4.setForeground(Color.white);
+		b4.setFont(new Font("고딕",Font.BOLD,15));
+		b4.setBackground(new Color(36, 107, 220));
+		b4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord1, new MyWord4(mf));
+			}
+
+		});
+		JButton b5 = new JButton("★");
+		b5.setHorizontalAlignment(JLabel.CENTER);
+		b5.setForeground(Color.yellow);
+		b5.setFont(new Font("고딕",Font.BOLD,30));
+		b5.setBackground(new Color(123, 185, 237));
+		//b5.setOpaque(false);
+		b1.setBounds(100, 20, 100, 35);
+		b2.setBounds(210, 20, 100, 35);
+		b3.setBounds(100, 65, 100, 35);	
+		b4.setBounds(210, 65, 100, 35);	
+		b5.setBounds(310, 20, 70, 80);
+		b5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JButton b5 = (JButton)e.getSource();
+				DefaultTableModel m = (DefaultTableModel)table.getModel();
+				BufferedWriter bo = null;
+
+				try {
+					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt", true));
+					int row=table.getSelectedRow();//사용자가 선택한 행
+					bo.write(((String) data[row][0])+"/");
+					bo.write(((String) data[row][1])+"/");
+					bo.write(((String) data[row][2])+"/");
+					bo.flush();
+				} catch (IOException e1) {
+
+					e1.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(null, "선택하신 단어가 즐겨찾기에 추가되었습니다.");
+				//m.removeRow(table.getSelectedRow());
+				//ChangePanel.changePanel(mf, MyWord1, new Myword4(mf));
 			}
 
 		});
 		this.add(b1);
 		this.add(b2);
 		this.add(b3);
+		this.add(b4);
+		this.add(b5);
 		this.add(p);
 		//좌측 고정
 		final JButton btnLeft1 = new JButton("<html>메인<br/>화면</html>");

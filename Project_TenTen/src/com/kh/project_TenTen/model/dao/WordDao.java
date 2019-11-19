@@ -151,6 +151,17 @@ public class WordDao {
 		
 		ArrayList artWord = new ArrayList();
 		
+		artWord.add(word51);
+		artWord.add(word52);
+		artWord.add(word53);
+		artWord.add(word54);
+		artWord.add(word55);
+		artWord.add(word56);
+		artWord.add(word57);
+		artWord.add(word58);
+		artWord.add(word59);
+		artWord.add(word60);
+		
 		HashMap wordList = new HashMap();
 		wordList.put(0, cookWord);
 		wordList.put(1, sportsWord);
@@ -211,14 +222,5 @@ public class WordDao {
 		return list;
 	}
 	
-	public static void main(String[] args) {
-		
-		WordDao wd = new WordDao();
-		wd.insertWord();
-		ArrayList cook = wd.readWord(0);
-		System.out.println("요리단어출력");
-		System.out.println(cook);
-		
-	}
 	
 }

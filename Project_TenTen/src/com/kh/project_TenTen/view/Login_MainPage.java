@@ -86,6 +86,7 @@ public class Login_MainPage extends JPanel{
 				passCheck = mm.passCheck(passTxF.getPassword(), passTxF.getPassword().length, idTxF.getText());
 				
 				if(idCheck && passCheck) {
+					mm.loginMember(idTxF.getText());
 					JOptionPane.showMessageDialog(null, "메인페이지로 이동합니다.");
 					ChangePanel.changePanel(mf, mainPage, new MainPage(mf));	
 				}else if(idCheck == false) {

@@ -17,15 +17,16 @@ public class MemberDao {
 	private String email;
 	private int exp;
 	public int memNum = 0;
+	public static Member loginMember;
 	
 	public void basicMember() {
 		//기본멤버 생성
-		Member m = new Member("asdf1234", new char[] {'1', '2', '3'} , "test1", "test01@naver.com", 0) ;
-		Member m1 = new Member("asdf5678", new char[] {'1', '2', '3'} , "test2", "test01@naver.com", 0) ;
-		Member m2 = new Member("asdf1357", new char[] {'1', '2', '3'} , "test3", "test01@naver.com", 0) ;
+		Member m = new Member("asdf1234", new char[] {'1', '2', '3'} , "test1", "test01@naver.com", 0, 0, "초급", 0) ;
+		Member m1 = new Member("asdf5678", new char[] {'1', '2', '3'} , "test2", "test01@naver.com", 0, 0, "초급", 0) ;
+		Member m2 = new Member("asdf1357", new char[] {'1', '2', '3'} , "test3", "test01@naver.com", 0, 0, "초급", 0) ;
 		
 		MemberDao md = new MemberDao();
-		ArrayList ar = md.findMember();
+		ArrayList ar = new ArrayList();
 		ar.add(m);
 		ar.add(m1);
 		ar.add(m2);
@@ -39,7 +40,7 @@ public class MemberDao {
 		ObjectOutputStream objOut = null;
 
 		try {
-			objOut = new ObjectOutputStream(new FileOutputStream("회원명단.txt"));
+			objOut = new ObjectOutputStream(new FileOutputStream("회원명단.txt", false));
 			objOut.writeObject(list);
 
 			objOut.flush();

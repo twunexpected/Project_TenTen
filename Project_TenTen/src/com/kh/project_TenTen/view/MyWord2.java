@@ -28,8 +28,9 @@ public class MyWord2 extends JPanel{
 	private String[][] data;
 	public MyWord2(Login_MainFrame mf) {
 		this.mf = mf;
-		MyWord2 = this;		
-		//페널
+		MyWord2 = this;	
+		
+		//패널
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);		

@@ -124,9 +124,9 @@ public class MyWord3 extends JPanel {
 				BufferedWriter bo = null;
 				try {
 					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt", true));
-					int row=table.getSelectedRow();//사용자가 선택한 행
-					int col = table.getSelectedColumn();
-					Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
+					//int row=table.getSelectedRow();//사용자가 선택한 행
+					//int col = table.getSelectedColumn();
+					//Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
 					//txt파일에서 저 value값이랑 같으면 지워주고 다시 저장되면 되는데....
 					
 				} catch (IOException e1) {

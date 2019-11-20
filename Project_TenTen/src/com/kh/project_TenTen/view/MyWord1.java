@@ -138,7 +138,6 @@ public class MyWord1 extends JPanel{
 					bo.write(((String) data[row][2])+"/");
 					bo.flush();
 				} catch (IOException e1) {
-
 					e1.printStackTrace();
 				}
 				JOptionPane.showMessageDialog(null, "선택하신 단어가 즐겨찾기에 추가되었습니다.");

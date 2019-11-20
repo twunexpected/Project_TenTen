@@ -20,6 +20,7 @@ import javax.swing.JButton;
 
 	public class Test_Select4_new1 extends JPanel{
 		
+		
 		WordDao wd = new WordDao();
 		String[] wordStr1 = null;
 		String[] wordStr2 = null;

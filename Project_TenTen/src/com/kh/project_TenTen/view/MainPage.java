@@ -35,7 +35,7 @@ public class MainPage extends JPanel {
 
 	private Login_MainFrame mf;
 	private JPanel MainPage;
-
+	int count = 0;
 	boolean check = true;
 
 
@@ -75,19 +75,6 @@ public class MainPage extends JPanel {
 		return word;
 	}
 
-
-	/*public class booleancheck {
-
-		int num =0;
-
-		public boolean istrue() {
-
-			return num ==0;
-		}
-	}
-	public boolean check() {
-		return true;
-	}*/
 
 
 	public MainPage(Login_MainFrame mf) {
@@ -151,52 +138,30 @@ public class MainPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 
 
-				wordStr = new String[10];
-				meanStr = new String[10];
-				kindStr = new String[10];
-				word = objectTest(returnSubject("요리"));
 
-				//스펠링 가져오기
-				for(int i = 0; i < word.length; i++) {
-					wordStr[i] = word[i].getSpelling();
-					meanStr[i] = word[i].getMean();
-					kindStr[i] = word[i].getKind();
 
-				}
+				if(count == 0 ) {
+					
+					wordStr = new String[10];
+					meanStr = new String[10];
+					kindStr = new String[10];
+					word = objectTest(returnSubject("요리"));
 
-				/*	Boolean actionPerformed = false;
+					//스펠링 가져오기
+					for(int i = 0; i < word.length; i++) {
+						wordStr[i] = word[i].getSpelling();
+						meanStr[i] = word[i].getMean();
+						kindStr[i] = word[i].getKind();
 
-				for(int i = 0; i<wordStr.length; i++) {
-					if(wordStr[i] == wordStr[0]) {
-
-						actionPerformed = false;
-						break;
-
-					}else {
-					//	actionPerformed = false;
+						wordText.setText(wordStr[index]);
+						System.out.println(wordStr[index]);
+						meanText.setText(meanStr[index]);
+						kindText.setText(kindStr[index]);
+						countnum.setText(Integer.valueOf(index+1).toString());
 					}
-				}
-				booleancheck b = new booleancheck();
-
-				if(b.istrue()) {
-
-				}*/
-				if(check =true) {
-					wordText.setText(wordStr[index]);
-					System.out.println(wordStr[index]);
-
-				}
-
-				meanText.setText(meanStr[index]);
-				kindText.setText(kindStr[index]);
-				countnum.setText(Integer.valueOf(index+1).toString());
-
-
-
-
-
-
-
+					
+				}count++;
+				
 
 
 			}
@@ -215,6 +180,8 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			
+				if(count == 0 ) {
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -230,6 +197,7 @@ public class MainPage extends JPanel {
 				wordText.setText(wordStr[index]);
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
+				}count++;
 			}
 		});
 
@@ -246,6 +214,8 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			
+				if(count == 0 ) {
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -261,7 +231,8 @@ public class MainPage extends JPanel {
 				wordText.setText(wordStr[index]);
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
-			}
+				}count++;
+				}
 		});
 
 		//회사 버튼
@@ -277,6 +248,8 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			
+				if(count == 0 ) {
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -293,6 +266,7 @@ public class MainPage extends JPanel {
 				wordText.setText(wordStr[index]);
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
+				}count++;
 			}
 		});
 
@@ -309,6 +283,8 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				if(count ==0) {
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -324,6 +300,7 @@ public class MainPage extends JPanel {
 				wordText.setText(wordStr[index]);
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
+				}count++;
 			}
 		});
 
@@ -340,6 +317,8 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			
+				if(count == 0) {
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -355,6 +334,7 @@ public class MainPage extends JPanel {
 				wordText.setText(wordStr[index]);
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
+				}
 			}
 		});
 

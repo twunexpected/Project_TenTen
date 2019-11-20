@@ -1,12 +1,13 @@
 package com.kh.project_TenTen.view;
 
- 
-import java.awt.Color;  
-import java.awt.Dimension;
+
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,15 +15,21 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
+
+
 public class SeoungJang extends JPanel{
 
 	private Login_MainFrame mf;
 	private JPanel SeoungJang;
+	private int num = 0;
+
+	
 	
 	public SeoungJang(Login_MainFrame mf) {
 		this.mf = mf;
 		SeoungJang = this;
-		
+
 
 		this.setSize(400, 700);
 		this.setLayout(null);
@@ -48,7 +55,7 @@ public class SeoungJang extends JPanel{
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		// 보유텐텐 :
-		JLabel Gttnum = new JLabel("보유 텐텐: ");
+		JLabel Gttnum = new JLabel("보유 텐텐 : ");
 		Gttnum.setBackground(new Color(123, 185, 237));
 		Gttnum.setSize(80, 40);
 		Gttnum.setLocation(110, 500);
@@ -56,12 +63,16 @@ public class SeoungJang extends JPanel{
 		this.add(Gttnum);
 
 		// 현재 보유 텐텐 
-		JLabel myttnum = new JLabel("20");
+		//텐텐 누적된거 여기에 가져와야함.
+		JLabel myttnum = new JLabel("   20");
 		myttnum.setBackground(new Color(123, 185, 237));
 		myttnum.setSize(80, 40);
 		myttnum.setLocation(170, 500);
 		myttnum.setFont(new Font("고딕",Font.PLAIN,15));
 		this.add(myttnum);
+		
+		
+		
 
 
 		// 획득조건 :
@@ -85,10 +96,10 @@ public class SeoungJang extends JPanel{
 
 		// 상장 교환 버튼
 		JButton ttChangeB = new JButton("교환") ;
-		ttChangeB.setSize(50, 40);
+		ttChangeB.setSize(60, 40);
 		ttChangeB.setLocation(250,575);
 		ttChangeB.setBackground(new Color(36, 107, 220));
-		ttChangeB.setFont(new Font("고딕",Font.BOLD,16));
+		ttChangeB.setFont(new Font("고딕",Font.BOLD,13));
 		this.add(ttChangeB);
 
 
@@ -102,14 +113,43 @@ public class SeoungJang extends JPanel{
 		rewordImg.setLocation(130,540);
 		this.add(rewordImg);
 
-
+		//하단 트로피이미지
+		Image gold = new ImageIcon("images/gold.PNG").getImage().getScaledInstance(70, 90, 0);
+		JLabel goldImg = new JLabel(new ImageIcon(gold));
+		goldImg.setSize(70, 90);
+		goldImg.setLocation(120,530);
+		goldImg.setVisible(false);
+		this.add(goldImg);
+		
+		
 		//진열장이미지
 		Image backGround = new ImageIcon("images/Pan.PNG").getImage().getScaledInstance(390, 370, 0);
 		JLabel PanLabel = new JLabel(new ImageIcon(backGround));
 		PanLabel.setSize(320, 380);
 		PanLabel.setLocation(80,100);
-		this.add(PanLabel);
+		this.add(PanLabel);	
 
+
+
+		
+		//교환버튼 클릭시 이벤트 발생
+		ttChangeB.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+	
+				
+				rewordImg.setLocation(100,140);
+				goldImg.setVisible(true);
+				myttnum.setText("   10");
+				needTTNum.setText("텐텐 20개");
+				
+				 
+			}
+
+		});
+
+		
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -186,18 +226,18 @@ public class SeoungJang extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, SeoungJang, new MainPage(mf));
 			}
-			
+
 		});
 
 
-	
+
 		btnLeft2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, SeoungJang, new MyWord1(mf));
 			}
-			
+
 		});
 		btnLeft3.addActionListener(new ActionListener() {
 
@@ -205,29 +245,73 @@ public class SeoungJang extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, SeoungJang, new AddWord(mf));
 			}
-			
+
 		});
-		
+
 		btnLeft4.addActionListener(new ActionListener() {
- 
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, SeoungJang, new Test_ChooseTest(mf));
 			}
-			
+
 		});
+
+
+
+
+
+		//상장올릴위치 좌표값 알아내는 구문
+		/*	PanLabel.addMouseListener(new MouseAdapter() {
+			   public void mouseClicked(MouseEvent e) {
+		             this.display("Mouse released (#of click :," + e.getClickCount()+")",e);
+		          }
+
+				private void display(String s, MouseEvent e) {
+					System.out.println(s +"X =" +e.getX()+",Y="+e.getY());
+
+				}
+
+		      });*/
+
+
+	}
+	
+/*	public final void initUI() {
+		
 		
 		ttChangeB.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, SeoungJang, new SeoungJang_2(mf));
+				JButton ttChangeB = (JButton)e.getSource();
+				if(myttnum.getText().equals("20")) {
+					Image reword2 = new ImageIcon("images/sangjang.PNG").getImage().getScaledInstance(200, 200, 0);
+					JLabel rewordImg2 = new JLabel(new ImageIcon(reword2));
+					rewordImg2.setLocation(20,20);
+					
+					
+				}
+					
 			}
 			
+			
 		});
-
-
-
-	}
+		
+	
+		
+	}*/
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

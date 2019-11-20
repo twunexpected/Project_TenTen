@@ -5,10 +5,12 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Login_TestTitle extends JPanel{
@@ -38,7 +40,7 @@ public class Login_TestTitle extends JPanel{
 
 		
 		//Circle
-		Image Circle1 = new ImageIcon("Images/테스트주제(여행).PNG").getImage().getScaledInstance(150, 150, 0);
+		Image Circle1 = new ImageIcon("Images/테스트주제(요리).PNG").getImage().getScaledInstance(150, 150, 0);
 		JButton Id1 = new JButton(new ImageIcon(Circle1));
 		Id1.setBounds(40, 100, 150, 150);
 		Id1.setContentAreaFilled(false);
@@ -48,7 +50,7 @@ public class Login_TestTitle extends JPanel{
 		Id2.setBounds(190, 100, 150, 150);
 		Id2.setContentAreaFilled(false);
 
-		Image Circle3 = new ImageIcon("Images/테스트주제(요리).PNG").getImage().getScaledInstance(150, 150, 0);
+		Image Circle3 = new ImageIcon("Images/테스트주제(여행).PNG").getImage().getScaledInstance(150, 150, 0);
 		JButton Id3 = new JButton(new ImageIcon(Circle3));
 		Id3.setBounds(40, 270, 150, 150);
 		Id3.setContentAreaFilled(false);
@@ -58,12 +60,12 @@ public class Login_TestTitle extends JPanel{
 		Id4.setBounds(190, 270, 150, 150);
 		Id4.setContentAreaFilled(false);
 
-		Image Circle5 = new ImageIcon("Images/테스트주제(예술).PNG").getImage().getScaledInstance(150, 150, 0);
+		Image Circle5 = new ImageIcon("Images/테스트주제(경제).PNG").getImage().getScaledInstance(150, 150, 0);
 		JButton Id5 = new JButton(new ImageIcon(Circle5));
 		Id5.setBounds(40, 440, 150, 150);
 		Id5.setContentAreaFilled(false);
 
-		Image Circle6 = new ImageIcon("Images/테스트주제(경제).PNG").getImage().getScaledInstance(150, 150, 0);
+		Image Circle6 = new ImageIcon("Images/테스트주제(예술).PNG").getImage().getScaledInstance(150, 150, 0);
 		JButton Id6 = new JButton(new ImageIcon(Circle6));
 		Id6.setBounds(190, 440, 150, 150);
 		Id6.setContentAreaFilled(false);
@@ -77,61 +79,73 @@ public class Login_TestTitle extends JPanel{
 		this.add(mesege1);
 		this.add(copyRights);
 		mf.add(this);
-		
-		Id1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz1(mf));
-			}
 
-		});
-		
 		Id1.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz1(mf));
+				int result = JOptionPane.showConfirmDialog(null, 
+						"<html> 확인을 누르시면<br/> 주제를 변경 할 수 없습니다. <html/>", null, 
+						JOptionPane.OK_CANCEL_OPTION);
+				if(result == JOptionPane.OK_OPTION) {
+					ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz1(mf));
+				}
+				System.out.println(result);
 			}
-
 		});
 		
 		Id2.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz1(mf));
+				int result = JOptionPane.showConfirmDialog(null, 
+						"<html> 확인을 누르시면<br/> 주제를 변경 할 수 없습니다. <html/>", null, 
+						JOptionPane.OK_CANCEL_OPTION);
+				if(result == JOptionPane.OK_OPTION) {
+					ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz2(mf));
+				}
+				System.out.println(result);
 			}
-
 		});
-		
 		Id3.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz1(mf));
+				int result = JOptionPane.showConfirmDialog(null, 
+						"<html> 확인을 누르시면<br/> 주제를 변경 할 수 없습니다. <html/>", null, 
+						JOptionPane.OK_CANCEL_OPTION);
+				if(result == JOptionPane.OK_OPTION) {
+					ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz3(mf));
+				}
+				System.out.println(result);
 			}
-
 		});
-		
 		Id4.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz1(mf));
+				int result = JOptionPane.showConfirmDialog(null, 
+						"<html> 확인을 누르시면<br/> 주제를 변경 할 수 없습니다. <html/>", null, 
+						JOptionPane.OK_CANCEL_OPTION);
+				if(result == JOptionPane.OK_OPTION) {
+					ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz4(mf));
+				}
+				System.out.println(result);
 			}
-
 		});
-		
 		Id5.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz1(mf));
+				int result = JOptionPane.showConfirmDialog(null, 
+						"<html> 확인을 누르시면<br/> 주제를 변경 할 수 없습니다. <html/>", null, 
+						JOptionPane.OK_CANCEL_OPTION);
+				if(result == JOptionPane.OK_OPTION) {
+					ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz5(mf));
+				}
+				System.out.println(result);
 			}
-
 		});
-		
 		Id6.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz1(mf));
+				int result = JOptionPane.showConfirmDialog(null, 
+						"<html> 확인을 누르시면<br/> 주제를 변경 할 수 없습니다. <html/>", null, 
+						JOptionPane.OK_CANCEL_OPTION);
+				if(result == JOptionPane.OK_OPTION) {
+					ChangePanel.changePanel(mf, login_TestTitle, new Login_OXQuiz6(mf));
+				}
+				System.out.println(result);
 			}
-
 		});
 	}
 }

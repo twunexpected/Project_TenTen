@@ -10,9 +10,15 @@ public class Login_MainFrame extends JFrame {
 		new Login_MainPage(this);
 		//new Login_TestTitle(this);
 		//new Login_OXQuiz1(this);
+		//new Login_OXQuiz2(this);
+		//new Login_OXQuiz3(this);
+		//new Login_OXQuiz4(this);
+		//new Login_OXQuiz5(this);
+		//new Login_OXQuiz6(this);
+
 
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 	}
 }

@@ -42,7 +42,6 @@ public class MyWord2 extends JPanel{
 		try {
 			br = new BufferedReader(new FileReader("비암기 단어.txt"));
 		} catch (FileNotFoundException e1) {
-
 		} 
 		try {
 			while ((s = br.readLine()) != null) { 
@@ -65,10 +64,12 @@ public class MyWord2 extends JPanel{
 				}
 			}
 		}
-		DefaultTableModel model =
-				new DefaultTableModel(data,headings);
+		DefaultTableModel model = new DefaultTableModel(data,headings);
 		JTable table = new JTable(model);
 		table.setFillsViewportHeight(true);
+		table.setRowHeight(25);
+		table.getColumn("품사").setPreferredWidth(15);
+		table.getTableHeader().setReorderingAllowed(false);
 		JScrollPane scroll = new JScrollPane(table);		
 		scroll.setBounds( 105, 105, 250, 490); // x, y, width, height
 		this.add(scroll);		

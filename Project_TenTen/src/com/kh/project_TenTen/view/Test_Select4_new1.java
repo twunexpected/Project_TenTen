@@ -25,7 +25,6 @@ import javax.swing.JButton;
 		String[] wordStr2 = null;
 		int index =0;
 		
-		
 		private Login_MainFrame mf;
 		private JPanel Test_Select4_new1;
 		private String[] strArr;

@@ -5,12 +5,14 @@ package com.kh.project_TenTen.view;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 	import javax.swing.JFrame;
 	import javax.swing.JLabel;
 	import javax.swing.JOptionPane;
 	import javax.swing.JPanel;
-	import javax.swing.JTextArea;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 	import javax.swing.JTextField;
 
 	import com.kh.project_TenTen.model.dao.WordDao;
@@ -96,10 +98,12 @@ import javax.swing.JButton;
 	 
 
 		public Test_Select4_new1(Login_MainFrame mf) {
-			
+			String[] pass = new String[10]; 
 			wordStr1 = spellTest(0);
 			wordStr2 = meanTest(0);
 
+			
+			
 			
 			this.mf = mf;
 			Test_Select4_new1 = this;
@@ -125,6 +129,7 @@ import javax.swing.JButton;
 //			lbTop.setFont(new Font(" ", Font.BOLD, 10));
 
 			// TEST 남은 단어 표시 -> JtextFiled 로 변경 !!!!!
+			
 			JTextField tfWord = new JTextField(index);
 			tfWord.setBounds(175,165, 30, 30);
 			tfWord.setFont(new Font("Serif", Font.BOLD, 20));
@@ -133,6 +138,7 @@ import javax.swing.JButton;
 			tfWord.setHorizontalAlignment(JTextField.RIGHT);
 			this.setLayout(null);
 			
+			
 			JLabel lbNumber = new JLabel("/ 10");
 			lbNumber.setBounds(210, 150, 60, 60);
 			lbNumber.setFont(new Font("Serif", Font.BOLD, 20)); // 굵은 폰트
@@ -140,11 +146,13 @@ import javax.swing.JButton;
 			this.setLayout(null);
 			
 			//JtextField 로 변경 !!!!! 
+			
 			JTextField tfVoca = new JTextField();
 			tfVoca.setBounds(45, 220, 300, 100);
 			tfVoca.setFont(new Font(" ", Font.BOLD, 10)); // 굵은 폰트
 			tfVoca.setFont(tfVoca.getFont().deriveFont(45.0f));
 			tfVoca.setHorizontalAlignment(JTextField.CENTER);
+			
 			
 			this.setLayout(null);
 			//번호
@@ -205,28 +213,50 @@ import javax.swing.JButton;
 			tfsouth4.setHorizontalAlignment(JTextField.CENTER);
 			this.setLayout(null);
 			
-			JTextArea tasouth1 = new JTextArea("정답을 입력하세요.");
-			tasouth1.setBounds(80, 450, 250, 30);
-			tasouth1.setFont(new Font("Serif", Font.BOLD, 20)); // 굵은 폰트		
+			JLabel jbProblem = new JLabel("정답 번호를 입력하세요 : ");
+			jbProblem.setBounds(50, 450, 250, 30);
+			jbProblem.setFont(new Font("Serif", Font.BOLD, 15)); // 굵은 폰트		
 			this.setLayout(null);
 			
+			
+			JTextArea tasouth1 = new JTextArea();
+			tasouth1.setBounds(250, 450, 100, 30);
+			tasouth1.setFont(new Font("Serif", Font.BOLD, 10)); // 굵은 폰트		
+			this.setLayout(null);
+		
 			JButton btsouth1  = new JButton("다음");
-			btsouth1.setBounds(150, 520, 100, 50);
+			btsouth1.setBounds(150, 520, 80, 50);
 			btsouth1.setFont(new Font("Serif", Font.BOLD, 20));
 			btsouth1.setBackground(new Color(36, 107, 220));
 			btsouth1.setForeground(Color.WHITE);
 			this.setLayout(null);
 			
+		
+			
+		
+	
+			
+			
+			
+			
+			
 			btsouth1.addActionListener(new ActionListener() {//익명
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					
+					
 					int num1 =0;
-					int num2 = 0;
+					int num2 =0;
 					int num3 =0;
 					int num4 =0;
+					
+				/*	int str1 = Integer.parseInt("tasouth1");
+					System.out.println(str1);
+					*/
 					if((index + 1) >= 10) {
 						JOptionPane.showMessageDialog(null, "테스트를 완료");
-						ChangePanel.changePanel(mf, Test_Select4_new1, new Test_Select4_new1(mf));	
+						
+						ChangePanel.changePanel(mf, Test_Select4_new1, new Test_TestPopup(mf));	
 					}else {
 						tfVoca.setText(wordStr1[index]);
 							
@@ -248,12 +278,13 @@ import javax.swing.JButton;
 						   }else {
 							  
 						   }
-							  
+						    
 						}
+					}
 						index++;
 					}
-					}
 				}
+
 			});
 			 JLabel naming = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		        naming.setBounds(60, 600, 400, 50);
@@ -262,7 +293,7 @@ import javax.swing.JButton;
 		        this.setLayout(null);
 			
 		        
-		      /* tfVoca.addActionListener(new ActionListener() {
+		   /*    tfVoca.addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -277,11 +308,11 @@ import javax.swing.JButton;
 					
 				}
 			});*/
-		        
-		        
-		
+		       
+		       
+		    this.add(jbProblem);
 			this.add(naming);
-			
+			this.add(jbProblem);
 			this.add(tfsouth4);
 			this.add(tfsouth3);
 			this.add(tfsouth2);
@@ -304,5 +335,6 @@ import javax.swing.JButton;
 		
 		
 	}
+		
 
 		}

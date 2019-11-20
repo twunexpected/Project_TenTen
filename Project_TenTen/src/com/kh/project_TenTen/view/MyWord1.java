@@ -31,7 +31,7 @@ public class MyWord1 extends JPanel{
 	public MyWord1(Login_MainFrame mf) {
 		this.mf = mf;
 		MyWord1 = this;
-		//페널
+		//패널
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);

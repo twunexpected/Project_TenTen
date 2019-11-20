@@ -65,10 +65,12 @@ public class MyWord2 extends JPanel{
 				}
 			}
 		}
-		DefaultTableModel model =
-				new DefaultTableModel(data,headings);
+		DefaultTableModel model = new DefaultTableModel(data,headings);
 		JTable table = new JTable(model);
 		table.setFillsViewportHeight(true);
+		table.setRowHeight(25);
+		table.getColumn("Ç°»ç").setPreferredWidth(15);
+		table.getTableHeader().setReorderingAllowed(false);
 		JScrollPane scroll = new JScrollPane(table);		
 		scroll.setBounds( 105, 105, 250, 490); // x, y, width, height
 		this.add(scroll);		

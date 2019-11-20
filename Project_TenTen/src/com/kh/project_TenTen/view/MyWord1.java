@@ -68,6 +68,9 @@ public class MyWord1 extends JPanel{
 		DefaultTableModel model = new DefaultTableModel(data,headings);
 		JTable table = new JTable(model);
 		table.setFillsViewportHeight(true);
+		table.setRowHeight(25);
+		table.getColumn("품사").setPreferredWidth(15);
+		table.getTableHeader().setReorderingAllowed(false);
 		JScrollPane scroll = new JScrollPane(table);//스크롤 만들고
 		scroll.setBounds( 105, 105, 250, 490); // 스크롤달린 테이블 사이즈 위치 조정 x, y, width, height
 		this.add(scroll);

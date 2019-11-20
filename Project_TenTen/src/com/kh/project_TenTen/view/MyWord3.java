@@ -67,6 +67,10 @@ public class MyWord3 extends JPanel {
 		DefaultTableModel model =new DefaultTableModel(data,headings);
 		JTable table = new JTable(model);
 		table.setFillsViewportHeight(true);
+		table.setRowHeight(25);
+		table.getColumn("품사").setPreferredWidth(20);
+		table.getColumn("주제").setPreferredWidth(20);
+		table.getTableHeader().setReorderingAllowed(false);
 		JScrollPane scroll = new JScrollPane(table);	
 		scroll.setBounds( 105, 105, 250, 490); // x, y, width, height
 		this.add(scroll);
@@ -121,6 +125,10 @@ public class MyWord3 extends JPanel {
 				try {
 					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt", true));
 					int row=table.getSelectedRow();//사용자가 선택한 행
+					int col = table.getSelectedColumn();
+					Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
+					//txt파일에서 저 value값이랑 같으면 지워주고 다시 저장되면 되는데....
+					
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -128,6 +136,7 @@ public class MyWord3 extends JPanel {
 				JOptionPane.showMessageDialog(null, "선택하신 단어가 삭제되었습니다.");
 			}
 		});
+		
 		b1.setBounds(100, 20, 100, 35);
 		b2.setBounds(210, 20, 100, 35);
 		b3.setBounds(100, 65, 100, 35);	

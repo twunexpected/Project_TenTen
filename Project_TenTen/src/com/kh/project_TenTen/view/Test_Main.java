@@ -24,8 +24,9 @@ public class Test_Main extends JPanel {
 		this.mf = mf;
 		Test_Main = this;
 		
-		this.setBounds(650, 100, 400, 700);
-		this.setLayout(null);
+		
+		//this.setBounds(650, 100, 400, 700);
+		//this.setLayout(null);
 		//¹é È­¸é
 	      this.setSize(400, 700);
 	      this.setBackground(new Color(123, 185, 237));

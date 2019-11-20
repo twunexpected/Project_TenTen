@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -12,33 +14,28 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-
-public class Login_OXQuiz2 extends JPanel {
+ 
+public class Login_OXQuiz5 extends JPanel {
 	private Login_MainFrame mf;
 	private JPanel login_OXQuiz2;
-	//HashMap hmap = new HashMap();
-	int num = 0;
-	int i = 0;
-	int nii = num++;
 
-
-	public Login_OXQuiz2(Login_MainFrame mf) {
+	public Login_OXQuiz5(Login_MainFrame mf) {
 		this.mf = mf;
 		login_OXQuiz2 = this;
-
-
+		
+		
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
-
-
+		
+		
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("고딕", Font.BOLD, 13));
-
-
+		
+		
 		//본문
 		JLabel word = new JLabel("단어");
 		word.setBounds(50, 110, 70, 50);
@@ -57,103 +54,103 @@ public class Login_OXQuiz2 extends JPanel {
 		x.setFont(new Font("고딕", Font.BOLD, 22));
 
 		//word
-		JLabel word1 = new JLabel("beatout");
+		JLabel word1 = new JLabel("receipt");
 		word1.setBounds(20, 170, 120, 35);
 		word1.setFont(new Font("고딕", Font.BOLD, 15));
 		word1.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word2 = new JLabel("gopher ball");
+		JLabel word2 = new JLabel("visible balance");
 		word2.setBounds(20, 200, 120, 35);
 		word2.setFont(new Font("고딕", Font.BOLD, 15));
 		word2.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word3 = new JLabel("pitcher");
+		JLabel word3 = new JLabel("net income");
 		word3.setBounds(20, 230, 120, 35);
 		word3.setFont(new Font("고딕", Font.BOLD, 15));
 		word3.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word4 = new JLabel("net");
+		JLabel word4 = new JLabel("depreciatiion");
 		word4.setBounds(20, 260, 120, 35);
 		word4.setFont(new Font("고딕", Font.BOLD, 15));
 		word4.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word5 = new JLabel("libero");
+		JLabel word5 = new JLabel("working asset");
 		word5.setBounds(20, 290, 120, 35);
 		word5.setFont(new Font("고딕", Font.BOLD, 15));
 		word5.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word6 = new JLabel("offside trap");
+		JLabel word6 = new JLabel("sales forecast");
 		word6.setBounds(20, 320, 120, 35);
 		word6.setFont(new Font("고딕", Font.BOLD, 15));
 		word6.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word7 = new JLabel("bicycle kick");
+		JLabel word7 = new JLabel("sales analysis");
 		word7.setBounds(20, 350, 120, 35);
 		word7.setFont(new Font("고딕", Font.BOLD, 15));
 		word7.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word8 = new JLabel("sidefoot");
+		JLabel word8 = new JLabel("product mix");
 		word8.setBounds(20, 380, 120, 35);
 		word8.setFont(new Font("고딕", Font.BOLD, 15));
 		word8.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word9 = new JLabel("approach shot");
+		JLabel word9 = new JLabel("stock");
 		word9.setBounds(20, 410, 120, 35);
 		word9.setFont(new Font("고딕", Font.BOLD, 15));
 		word9.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel word10 = new JLabel("moonball");
+		JLabel word10 = new JLabel("benchmarking");
 		word10.setBounds(20, 440, 120, 35);
 		word10.setFont(new Font("고딕", Font.BOLD, 15));
 		word10.setHorizontalAlignment(JTextField.LEFT);
 
 		//mean
-		JLabel mean1 = new JLabel("내야안타");
+		JLabel mean1 = new JLabel("영수증");
 		mean1.setBounds(140, 170, 120, 35);
 		mean1.setFont(new Font("고딕", Font.BOLD, 15));
 		mean1.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean2 = new JLabel("투수");
+		JLabel mean2 = new JLabel("순이익");
 		mean2.setBounds(140, 200, 120, 35);
 		mean2.setFont(new Font("고딕", Font.BOLD, 15));
 		mean2.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean3 = new JLabel("홈런 볼");
+		JLabel mean3 = new JLabel("무역 수지");
 		mean3.setBounds(140, 230, 120, 35);
 		mean3.setFont(new Font("고딕", Font.BOLD, 15));
 		mean3.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean4 = new JLabel("그물");
+		JLabel mean4 = new JLabel("가치 하락");
 		mean4.setBounds(140, 260, 120, 35);
 		mean4.setFont(new Font("고딕", Font.BOLD, 15));
 		mean4.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean5 = new JLabel("최종수비수");
+		JLabel mean5 = new JLabel("운용 자산");
 		mean5.setBounds(140, 290, 120, 35);
 		mean5.setFont(new Font("고딕", Font.BOLD, 15));
 		mean5.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean6 = new JLabel("오프사이드트랩");
+		JLabel mean6 = new JLabel("판매 예측");
 		mean6.setBounds(140, 320, 120, 35);
 		mean6.setFont(new Font("고딕", Font.BOLD, 15));
 		mean6.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean7 = new JLabel("발(측면)로 차다");
+		JLabel mean7 = new JLabel("제품 믹스");
 		mean7.setBounds(140, 350, 120, 35);
 		mean7.setFont(new Font("고딕", Font.BOLD, 15));
 		mean7.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean8 = new JLabel("바이시클 킥");
+		JLabel mean8 = new JLabel("판매 분석");
 		mean8.setBounds(140, 380, 120, 35);
 		mean8.setFont(new Font("고딕", Font.BOLD, 15));
 		mean8.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean9 = new JLabel("어프로치 샷");
+		JLabel mean9 = new JLabel("주식 자본");
 		mean9.setBounds(140, 410, 120, 35);
 		mean9.setFont(new Font("고딕", Font.BOLD, 15));
 		mean9.setHorizontalAlignment(JTextField.LEFT);
 
-		JLabel mean10 = new JLabel("원을 그리는 샷");
+		JLabel mean10 = new JLabel("벤치마킹");
 		mean10.setBounds(140, 440, 120, 35);
 		mean10.setFont(new Font("고딕", Font.BOLD, 15));
 		mean10.setHorizontalAlignment(JTextField.LEFT);
@@ -169,12 +166,6 @@ public class Login_OXQuiz2 extends JPanel {
 		JRadioButton rb1_o = new JRadioButton();
 		rb1_o.setBounds(260, 180, 20, 15);
 		rb1_o.setBackground(new Color(123, 185, 237));
-		rb1_o.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;
-			}
-		});
 
 		JRadioButton rb1_x = new JRadioButton();
 		rb1_x.setBounds(310, 180, 20, 15);
@@ -184,12 +175,7 @@ public class Login_OXQuiz2 extends JPanel {
 		JRadioButton rb2_o = new JRadioButton();
 		rb2_o.setBounds(260, 210, 20, 15);
 		rb2_o.setBackground(new Color(123, 185, 237));
-		rb2_o.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;
-			}
-		});
+
 		JRadioButton rb2_x = new JRadioButton();
 		rb2_x.setBounds(310, 210, 20, 15);
 		rb2_x.setBackground(new Color(123, 185, 237));
@@ -198,12 +184,7 @@ public class Login_OXQuiz2 extends JPanel {
 		JRadioButton rb3_o = new JRadioButton();
 		rb3_o.setBounds(260, 240, 20, 15);
 		rb3_o.setBackground(new Color(123, 185, 237));
-		rb3_o.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;	
-			}
-		});
+
 		JRadioButton rb3_x = new JRadioButton();
 		rb3_x.setBounds(310, 240, 20, 15);
 		rb3_x.setBackground(new Color(123, 185, 237));
@@ -212,12 +193,7 @@ public class Login_OXQuiz2 extends JPanel {
 		JRadioButton rb4_o = new JRadioButton();
 		rb4_o.setBounds(260, 270, 20, 15);
 		rb4_o.setBackground(new Color(123, 185, 237));
-		rb4_o.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;	   
-			}
-		});
+
 		JRadioButton rb4_x = new JRadioButton();
 		rb4_x.setBounds(310, 270, 20, 15);
 		rb4_x.setBackground(new Color(123, 185, 237));
@@ -226,17 +202,11 @@ public class Login_OXQuiz2 extends JPanel {
 		JRadioButton rb5_o = new JRadioButton();
 		rb5_o.setBounds(260, 300, 20, 15);
 		rb5_o.setBackground(new Color(123, 185, 237));
-		rb5_o.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;	    
-			}
-		});
+
 		JRadioButton rb5_x = new JRadioButton();
 		rb5_x.setBounds(310, 300, 20, 15);
 		rb5_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group5 = new ButtonGroup();
-		num = 1;
 
 		JRadioButton rb6_o = new JRadioButton();
 		rb6_o.setBounds(260, 330, 20, 15);
@@ -246,12 +216,7 @@ public class Login_OXQuiz2 extends JPanel {
 		rb6_x.setBounds(310, 330, 20, 15);
 		rb6_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group6 = new ButtonGroup();
-		rb6_x.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;	        
-			}
-		});
+
 		JRadioButton rb7_o = new JRadioButton();
 		rb7_o.setBounds(260, 360, 20, 15);
 		rb7_o.setBackground(new Color(123, 185, 237));
@@ -260,12 +225,7 @@ public class Login_OXQuiz2 extends JPanel {
 		rb7_x.setBounds(310, 360, 20, 15);
 		rb7_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group7 = new ButtonGroup();
-		rb7_x.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;	         
-			}
-		});
+
 		JRadioButton rb8_o = new JRadioButton();
 		rb8_o.setBounds(260, 390, 20, 15);
 		rb8_o.setBackground(new Color(123, 185, 237));
@@ -274,11 +234,7 @@ public class Login_OXQuiz2 extends JPanel {
 		rb8_x.setBounds(310, 390, 20, 15);
 		rb8_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group8 = new ButtonGroup();
-		rb8_x.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;	         }
-		});
+
 		JRadioButton rb9_o = new JRadioButton();
 		rb9_o.setBounds(260, 420, 20, 15);
 		rb9_o.setBackground(new Color(123, 185, 237));
@@ -287,12 +243,7 @@ public class Login_OXQuiz2 extends JPanel {
 		rb9_x.setBounds(310, 420, 20, 15);
 		rb9_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group9 = new ButtonGroup();
-		rb9_x.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) { 
-				num = 1;	
-			}
-		});
+
 		JRadioButton rb10_o = new JRadioButton();
 		rb10_o.setBounds(260, 450, 20, 15);
 		rb10_o.setBackground(new Color(123, 185, 237));
@@ -301,12 +252,7 @@ public class Login_OXQuiz2 extends JPanel {
 		rb10_x.setBounds(310, 450, 20, 15);
 		rb10_x.setBackground(new Color(123, 185, 237));
 		ButtonGroup group10 = new ButtonGroup();
-		rb10_x.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				num = 1;	      
-			}
-		});
+
 		//ox RadioButton Group 1~10
 		group1.add(rb1_o);
 		group1.add(rb1_x);
@@ -392,12 +338,10 @@ public class Login_OXQuiz2 extends JPanel {
 		mf.add(this);
 
 
-
 		btnFinish.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				nii;
-				JOptionPane.showMessageDialog(null, "점수는 " + nii + "점입니다." + "당신은 초급입니다."); 
+				JOptionPane.showMessageDialog(null, "초급입니다.."); 
 			}
 		});
 	}

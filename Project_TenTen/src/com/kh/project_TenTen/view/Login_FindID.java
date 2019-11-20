@@ -80,14 +80,6 @@ public class Login_FindID extends JPanel{
 		btnSend.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
-					BufferedWriter bo = new BufferedWriter(new FileWriter("단어추가.dat"));
-
-					bo.close();
-				} catch (Exception ex) { 
-
-				} 
-
 				JOptionPane.showMessageDialog(null, "아이디가 전송되었습니다."); 
 			}
 		});

@@ -5,36 +5,44 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.kh.project_TenTen.controller.UZ_Manager;
 import com.kh.project_TenTen.model.dao.WordDao;
 import com.kh.project_TenTen.model.vo.Word;
 
 public class MainPage extends JPanel {
 
 	WordDao wd = new WordDao();
+
+
 	String[] wordStr = null;
+	String[] meanStr = null;
+	String[] kindStr = null;
+
+	public static Word[] word = null;
+
 	int index = 0;
 
 	private Login_MainFrame mf;
 	private JPanel MainPage;
 
+	boolean check = true;
 
 
-	public int returnSubject(String subject) {
+	public int returnSubject(String returnSubject) {
 		int num = 0;
 
-		switch(subject) {
+		switch(returnSubject) {
 		case "요리" : break;
 		case "스포츠" : num = 1; break;
 		case "여행" : num = 2; break;
@@ -45,34 +53,41 @@ public class MainPage extends JPanel {
 
 		return num;
 	}
-	public String[] spellTest(int num) {
 
-		ArrayList wordList = wd.readWord(num); 
-		Word[] word = new Word[wordList.size()]; 
 
-		String[] strArr = new String[10];
+	public Word[] objectTest(int num) {
+		ArrayList wordList = wd.readWord(num);
+		Word[] word = new Word[wordList.size()];
 
 		//읽어온 단어 객체에 넣기
-		for(int i = 0; i < wordList.size(); i++) {   
-			word[i] = (Word) wordList.get(i); 
-
+		for(int i = 0; i < wordList.size(); i++) {
+			word[i] = (Word) wordList.get(i);
 		}
 
-		//객체에있는 스펠링 배열에 저장
-		for(int i = 0; i < strArr.length; i++) { 
-			strArr[i] = word[i].getSpelling();
-		}
-
-		//셔플
-		ArrayList shuffleList = new ArrayList(Arrays.asList(strArr));
+		ArrayList shuffleList = new ArrayList(Arrays.asList(word));
 		Collections.shuffle(shuffleList);
 
-		for (int i = 0; i < strArr.length; i++) {
-			strArr[i] = (String)shuffleList.get(i);
+		for (int i = 0; i < word.length; i++) {
+			word[i] = (Word) shuffleList.get(i);
 		}
 
-		return strArr;
+
+		return word;
 	}
+
+
+	/*public class booleancheck {
+
+		int num =0;
+
+		public boolean istrue() {
+
+			return num ==0;
+		}
+	}
+	public boolean check() {
+		return true;
+	}*/
 
 
 	public MainPage(Login_MainFrame mf) {
@@ -81,17 +96,46 @@ public class MainPage extends JPanel {
 
 
 		//단어 텍스
-		JTextField wordText = new JTextField(" 단 어");
+		JTextField wordText = new JTextField(" ");
 		wordText.setSize(250, 90);
-		wordText.setLocation(105, 200);
+		wordText.setLocation(105, 180);
 		wordText.setBackground(new Color(123, 185, 237));
-		wordText.setFont(new Font("고딕",Font.BOLD,40));
+		wordText.setFont(new Font("고딕",Font.BOLD,30));
 		wordText.setHorizontalAlignment(JTextField.CENTER);
-		wordText.setPreferredSize(new Dimension(250, 90));
-	
+
+		//뜻 텍스
+		JTextField meanText = new JTextField(" ");
+		meanText.setSize(250, 90);
+		meanText.setLocation(105, 280);
+		meanText.setBackground(new Color(123, 185, 237));
+		meanText.setFont(new Font("고딕",Font.BOLD,25));
+		meanText.setHorizontalAlignment(JTextField.CENTER);
+		this.add(meanText);
+
+		//품사텍스
+		JTextField kindText = new JTextField(" ");
+		kindText.setSize(60, 40);
+		kindText.setLocation(195, 375);
+		kindText.setBackground(new Color(123, 185, 237));
+		kindText.setFont(new Font("고딕",Font.BOLD,15));
+		kindText.setHorizontalAlignment(JTextField.CENTER);
+		this.add(kindText);
 
 
+		//카운 텍스
+		JTextField countnum = new JTextField("입력값");
+		countnum.setBackground(new Color(123, 185, 237));
+		countnum.setSize(60, 50);
+		countnum.setLocation(165, 480);
+		countnum.setFont(new Font("고딕",Font.PLAIN,15));
+		countnum.setPreferredSize(new Dimension(60, 50));
 
+		// " /10 "
+		JLabel countMax = new JLabel("/ 10");
+		countMax.setBackground(new Color(123, 185, 237));
+		countMax.setSize(50, 40);
+		countMax.setLocation(225, 485);
+		countMax.setFont(new Font("고딕",Font.PLAIN,20));
 
 		//요리 버튼
 		JButton cook = new JButton("요리");
@@ -105,8 +149,56 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				wordStr = spellTest(returnSubject("요리"));
-				wordText.setText(wordStr[0]);
+
+
+				wordStr = new String[10];
+				meanStr = new String[10];
+				kindStr = new String[10];
+				word = objectTest(returnSubject("요리"));
+
+				//스펠링 가져오기
+				for(int i = 0; i < word.length; i++) {
+					wordStr[i] = word[i].getSpelling();
+					meanStr[i] = word[i].getMean();
+					kindStr[i] = word[i].getKind();
+
+				}
+
+				/*	Boolean actionPerformed = false;
+
+				for(int i = 0; i<wordStr.length; i++) {
+					if(wordStr[i] == wordStr[0]) {
+
+						actionPerformed = false;
+						break;
+
+					}else {
+					//	actionPerformed = false;
+					}
+				}
+				booleancheck b = new booleancheck();
+
+				if(b.istrue()) {
+
+				}*/
+				if(check =true) {
+					wordText.setText(wordStr[index]);
+					System.out.println(wordStr[index]);
+
+				}
+
+				meanText.setText(meanStr[index]);
+				kindText.setText(kindStr[index]);
+				countnum.setText(Integer.valueOf(index+1).toString());
+
+
+
+
+
+
+
+
+
 			}
 		});
 
@@ -123,8 +215,21 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				wordStr = spellTest(returnSubject("스포츠"));
+				wordStr = new String[10];
+				meanStr = new String[10];
+				kindStr = new String[10];
+				word = objectTest(returnSubject("스포츠"));
+
+				//스펠링 가져오기
+				for(int i = 0; i < word.length; i++) {
+					wordStr[i] = word[i].getSpelling();
+					meanStr[i] = word[i].getMean();
+					kindStr[i] = word[i].getKind();
+				}
+
 				wordText.setText(wordStr[index]);
+				meanText.setText(meanStr[index]);
+				kindText.setText(kindStr[index]);
 			}
 		});
 
@@ -141,12 +246,25 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				wordStr = spellTest(returnSubject("여행"));
-				wordText.setText(wordStr[index]);				
+				wordStr = new String[10];
+				meanStr = new String[10];
+				kindStr = new String[10];
+				word = objectTest(returnSubject("여행"));
+
+				//스펠링 가져오기
+				for(int i = 0; i < word.length; i++) {
+					wordStr[i] = word[i].getSpelling();
+					meanStr[i] = word[i].getMean();
+					kindStr[i] = word[i].getKind();
+				}
+
+				wordText.setText(wordStr[index]);
+				meanText.setText(meanStr[index]);
+				kindText.setText(kindStr[index]);
 			}
 		});
 
-		//비지니스 버튼
+		//회사 버튼
 		JButton business= new JButton("회사");
 		business.setSize(80, 40);
 		business.setLocation(100,120);
@@ -159,8 +277,22 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				wordStr = spellTest(returnSubject("회사"));
-				wordText.setText(wordStr[index]);				
+				wordStr = new String[10];
+				meanStr = new String[10];
+				kindStr = new String[10];
+				word = objectTest(returnSubject("회사"));
+
+				//스펠링 가져오기
+				for(int i = 0; i < word.length; i++) {
+					wordStr[i] = word[i].getSpelling();
+					meanStr[i] = word[i].getMean();
+					kindStr[i] = word[i].getKind();
+				}
+
+
+				wordText.setText(wordStr[index]);
+				meanText.setText(meanStr[index]);
+				kindText.setText(kindStr[index]);
 			}
 		});
 
@@ -177,8 +309,21 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				wordStr = spellTest(returnSubject("경제"));
-				wordText.setText(wordStr[index]);				
+				wordStr = new String[10];
+				meanStr = new String[10];
+				kindStr = new String[10];
+				word = objectTest(returnSubject("경제"));
+
+				//스펠링 가져오기
+				for(int i = 0; i < word.length; i++) {
+					wordStr[i] = word[i].getSpelling();
+					meanStr[i] = word[i].getMean();
+					kindStr[i] = word[i].getKind();
+				}
+
+				wordText.setText(wordStr[index]);
+				meanText.setText(meanStr[index]);
+				kindText.setText(kindStr[index]);
 			}
 		});
 
@@ -195,10 +340,25 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				wordStr = spellTest(returnSubject("예술"));
-				wordText.setText(wordStr[index]);				
+				wordStr = new String[10];
+				meanStr = new String[10];
+				kindStr = new String[10];
+				word = objectTest(returnSubject("예술"));
+
+				//스펠링 가져오기
+				for(int i = 0; i < word.length; i++) {
+					wordStr[i] = word[i].getSpelling();
+					meanStr[i] = word[i].getMean();
+					kindStr[i] = word[i].getKind();
+				}
+
+				wordText.setText(wordStr[index]);
+				meanText.setText(meanStr[index]);
+				kindText.setText(kindStr[index]);
 			}
 		});
+
+
 
 
 
@@ -206,7 +366,7 @@ public class MainPage extends JPanel {
 		//암기 버튼
 		JButton arm = new JButton("암기");
 		arm.setSize(105, 60);
-		arm.setLocation(105,390);
+		arm.setLocation(105,420);
 		arm.setForeground(Color.WHITE);
 		arm.setPreferredSize(new Dimension(105, 60));
 		arm.setBackground(new Color(36, 107, 220));
@@ -220,6 +380,16 @@ public class MainPage extends JPanel {
 				try {
 					++index;
 					wordText.setText(wordStr[index]);
+					meanText.setText(meanStr[index]);
+					countnum.setText(Integer.valueOf(index+1).toString());
+
+					BufferedWriter bo = null;
+					bo = new BufferedWriter(new FileWriter("암기 단어.txt", true));
+					bo.write(kindStr[index]+"/");
+					bo.write(wordStr[index]+"/");
+					bo.write(meanStr[index]+"/");
+					bo.flush();
+					bo.close();
 
 				}catch(Exception e1){
 					if(index >= 10) {
@@ -230,35 +400,41 @@ public class MainPage extends JPanel {
 			}
 		});
 
-		
-
-
 		//비암기버튼
 		JButton beearm = new JButton("비암기");
 		beearm.setSize(105, 60);
-		beearm.setLocation(240, 390);
+		beearm.setLocation(240, 420);
 		beearm.setForeground(Color.WHITE);
 		beearm.setPreferredSize(new Dimension(105, 60));
 		beearm.setBackground(new Color(36, 107, 220));
 
+		beearm.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					++index;
+					wordText.setText(wordStr[index]);
+					meanText.setText(meanStr[index]);
+					countnum.setText(Integer.valueOf(index+1).toString());
 
-		//카운 텍스
-		JTextField countnum = new JTextField("입력값");
-		countnum.setBackground(new Color(123, 185, 237));
-		countnum.setSize(60, 50);
-		countnum.setLocation(165, 460);
-		countnum.setFont(new Font("고딕",Font.PLAIN,15));
-		countnum.setPreferredSize(new Dimension(60, 50));
+					BufferedWriter bo = null;
+					bo = new BufferedWriter(new FileWriter("비암기 단어.txt", true));
+					bo.write(kindStr[index]+"/");
+					bo.write(wordStr[index]+"/");
+					bo.write(meanStr[index]+"/");
+					bo.flush();
+					bo.close();
 
+				}catch(Exception e1){
+					if(index >= 10) {
+						JOptionPane.showMessageDialog(null, "추가할단어가 없습니다.");
+					}
+				}
 
-		// " /10 "
-		JLabel countMax = new JLabel("/ 10");
-		countMax.setBackground(new Color(123, 185, 237));
-		countMax.setSize(50, 40);
-		countMax.setLocation(225, 465);
-		countMax.setFont(new Font("고딕",Font.PLAIN,20));
-	
+			}
+		});
+
 
 		//마이페이지 버튼
 		JButton btn = new JButton("마이페이지");

@@ -20,6 +20,7 @@ import com.kh.project_TenTen.model.vo.Word;
 public class TestMainWord extends JFrame{
 	WordDao wd = new WordDao();
 	String[] wordStr = null;
+	public static Word[] word = null;
 	int index = 0;
 	
 	public TestMainWord() {
@@ -28,8 +29,15 @@ public class TestMainWord extends JFrame{
 		this.setLocation(200, 200);
 		this.setLayout(null);
 		
+		word = objectTest(returnSubject("요리"));
+		wordStr = new String[10];
+		
+		for(int i = 0; i < word.length; i++) {
+			wordStr[i] = word[i].getSpelling();
+		}
+		
 		//이부분 수정해야함
-		wordStr = spellTest(returnSubject("요리"));
+//		wordStr = spellTest(returnSubject("요리"));
 		
 		JTextField txf1 = new JTextField();
 		txf1.setSize(300, 100);
@@ -86,7 +94,27 @@ public class TestMainWord extends JFrame{
 		return num;
 	}
 	
-	public String[] spellTest(int num) {
+	public Word[] objectTest(int num) {
+		ArrayList wordList = wd.readWord(num);
+		Word[] word = new Word[wordList.size()];
+		
+		//읽어온 단어 객체에 넣기
+		for(int i = 0; i < wordList.size(); i++) {
+			word[i] = (Word) wordList.get(i);
+		}
+		
+		ArrayList shuffleList = new ArrayList(Arrays.asList(word));
+		Collections.shuffle(shuffleList);
+		
+		for (int i = 0; i < word.length; i++) {
+			word[i] = (Word) shuffleList.get(i);
+		}
+		
+		
+		return word;
+	}
+	
+	/*public String[] spellTest(int num) {
 		
 		ArrayList wordList = wd.readWord(num);
 		Word[] word = new Word[wordList.size()];
@@ -112,10 +140,9 @@ public class TestMainWord extends JFrame{
 		}
 		
 		return strArr;
-	}
+	}*/
 	
 	public static void main(String[] args) {
-//		new TestMainWord();
-		TestMainWord td = new TestMainWord();
+		new TestMainWord();
 	}
 }

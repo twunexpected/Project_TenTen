@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.kh.project_TenTen.model.dao.MemberDao;
@@ -298,17 +299,21 @@ public class SeoungJang extends JPanel{
 			}
 
 		});
-
-
+ 
 
 		btnLeft2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, SeoungJang, new MyWord1(mf));
+				try {
+					ChangePanel.changePanel(mf, SeoungJang, new MyWord1(mf));            
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
+				}
 			}
 
 		});
+
 		btnLeft3.addActionListener(new ActionListener() {
 
 			@Override

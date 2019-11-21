@@ -843,21 +843,7 @@ public class MainPage extends JPanel {
 		this.add(panelLeft2);
 
 
-		btnLeft2.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				try {
-					ChangePanel.changePanel(mf, MainPage, new MyWord1(mf));            
-				} catch (NullPointerException e1) {
-					JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
-				}
-			}
-
-		});
-
-
-
+		
 		final JButton btnLeft3 = new JButton("<html>단어<br/>추가</html>");
 		btnLeft3.setBounds(0, 260, 80, 120);
 		btnLeft3.setForeground(new Color(255, 255, 225));
@@ -898,6 +884,19 @@ public class MainPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, MainPage, new MyPage(mf));				
+			}
+
+		}); 
+
+		btnLeft2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					ChangePanel.changePanel(mf, MainPage, new MyWord1(mf));            
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
+				}
 			}
 
 		});

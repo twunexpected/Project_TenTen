@@ -18,7 +18,7 @@ public class Login_TestTitle extends JPanel{
 	private JPanel login_TestTitle;
 	public Login_TestTitle(Login_MainFrame mf) {
 		login_TestTitle = this;
-		
+		 
 		//¹é È­¸é
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));

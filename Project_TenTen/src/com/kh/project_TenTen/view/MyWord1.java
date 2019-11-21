@@ -41,7 +41,7 @@ public class MyWord1 extends JPanel{
 		String s; 
 		String[] arr = null; 
 		BufferedReader br=null;
-		try {
+		try { 
 			br = new BufferedReader(new FileReader("암기 단어.txt"));
 		} catch (FileNotFoundException e1) {
 		} 

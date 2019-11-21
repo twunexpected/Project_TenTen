@@ -42,7 +42,7 @@ public class MyWord2 extends JPanel{
 		try {
 			br = new BufferedReader(new FileReader("비암기 단어.txt"));
 		} catch (FileNotFoundException e1) {
-		} 
+		}  
 		try {
 			while ((s = br.readLine()) != null) { 
 				arr = s.split("/");

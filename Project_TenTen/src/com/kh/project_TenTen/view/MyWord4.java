@@ -126,7 +126,7 @@ public class MyWord4 extends JPanel {
 		b5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+ 
 				//int row=table.getSelectedRow();//사용자가 선택한 행
 				model.removeRow(table.getSelectedRow());
 				JOptionPane.showMessageDialog(null, "선택하신 단어가 삭제되었습니다.");

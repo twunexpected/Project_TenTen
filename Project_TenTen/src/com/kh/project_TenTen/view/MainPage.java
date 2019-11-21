@@ -1,6 +1,7 @@
 package com.kh.project_TenTen.view;
 
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -31,7 +32,7 @@ public class MainPage extends JPanel {
 
 	public static Word[] word = null;
 
-	int index = 0;
+	int MainIndex = 0;
 
 	private Login_MainFrame mf;
 	private JPanel MainPage;
@@ -131,14 +132,44 @@ public class MainPage extends JPanel {
 		cook.setForeground(Color.WHITE);
 		cook.setBackground(new Color(36, 107, 220));
 		this.add(cook);
-		//요리버튼 이벤트
-		cook.addActionListener(new ActionListener() {
+		//////////////////////////////
+		Dialog jujae = new Dialog(mf,"주제선택 재확인");
+		jujae.setLayout(null);
+		jujae.setBounds(500,500,400,200);
+		jujae.setBackground(new Color(123,185,237));
+
+		JLabel sbCh = new JLabel("요리 주제를 선택하시겠습니까?");
+		sbCh.setBounds(70, 90, 300, 30);
+		sbCh.setFont(new Font("고딕", Font.BOLD, 17));
+		sbCh.setForeground(Color.white);
+		jujae.add(sbCh);
+
+
+		JButton aswY = new JButton("네");
+		aswY.setBounds(90, 130, 90, 30);
+		aswY.setFont(new Font("고딕", Font.BOLD, 17));
+		aswY.setForeground(Color.white);
+		aswY.setBackground(new Color(36, 107, 220));
+		jujae.add(aswY);
+		
+		JButton aswN = new JButton("아니오");
+		aswN.setBounds(205, 130, 90, 30);
+		aswN.setFont(new Font("고딕", Font.BOLD, 17));
+		aswN.setForeground(Color.white);
+		aswN.setBackground(new Color(36, 107, 220));
+		jujae.add(aswN);
+		
+		
+
+		//네 주제 선택확고합니다.
+		aswY.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
+				jujae.dispose();
 				if(count == 0 ) {
-					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
+
 					wordStr = new String[10];
 					meanStr = new String[10];
 					kindStr = new String[10];
@@ -150,18 +181,35 @@ public class MainPage extends JPanel {
 						meanStr[i] = word[i].getMean();
 						kindStr[i] = word[i].getKind();
 
-						wordText.setText(wordStr[index]);
-						meanText.setText(meanStr[index]);
-						kindText.setText(kindStr[index]);
-						countnum.setText(Integer.valueOf(index+1).toString());
+						wordText.setText(wordStr[MainIndex]);
+						meanText.setText(meanStr[MainIndex]);
+						kindText.setText(kindStr[MainIndex]);
+						countnum.setText(Integer.valueOf(MainIndex+1).toString());
 					}
-					
+
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
-				}
-				
+				}				
+			}
+			
+		});
+		
+		aswN.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				jujae.dispose();
+			}
+			
+		});
+
+		//요리버튼 이벤트
+		cook.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				jujae.setVisible(true);
 
 			}
 		});
@@ -179,24 +227,24 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
+
 				if(count == 0 ) {
 					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
-				wordStr = new String[10];
-				meanStr = new String[10];
-				kindStr = new String[10];
-				word = objectTest(returnSubject("스포츠"));
+					wordStr = new String[10];
+					meanStr = new String[10];
+					kindStr = new String[10];
+					word = objectTest(returnSubject("스포츠"));
 
-				//스펠링 가져오기
-				for(int i = 0; i < word.length; i++) {
-					wordStr[i] = word[i].getSpelling();
-					meanStr[i] = word[i].getMean();
-					kindStr[i] = word[i].getKind();
-				}
+					//스펠링 가져오기
+					for(int i = 0; i < word.length; i++) {
+						wordStr[i] = word[i].getSpelling();
+						meanStr[i] = word[i].getMean();
+						kindStr[i] = word[i].getKind();
+					}
 
-				wordText.setText(wordStr[index]);
-				meanText.setText(meanStr[index]);
-				kindText.setText(kindStr[index]);
+					wordText.setText(wordStr[MainIndex]);
+					meanText.setText(meanStr[MainIndex]);
+					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
@@ -217,29 +265,29 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
+
 				if(count == 0 ) {
 					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
-				wordStr = new String[10];
-				meanStr = new String[10];
-				kindStr = new String[10];
-				word = objectTest(returnSubject("여행"));
+					wordStr = new String[10];
+					meanStr = new String[10];
+					kindStr = new String[10];
+					word = objectTest(returnSubject("여행"));
 
-				//스펠링 가져오기
-				for(int i = 0; i < word.length; i++) {
-					wordStr[i] = word[i].getSpelling();
-					meanStr[i] = word[i].getMean();
-					kindStr[i] = word[i].getKind();
-				}
+					//스펠링 가져오기
+					for(int i = 0; i < word.length; i++) {
+						wordStr[i] = word[i].getSpelling();
+						meanStr[i] = word[i].getMean();
+						kindStr[i] = word[i].getKind();
+					}
 
-				wordText.setText(wordStr[index]);
-				meanText.setText(meanStr[index]);
-				kindText.setText(kindStr[index]);
+					wordText.setText(wordStr[MainIndex]);
+					meanText.setText(meanStr[MainIndex]);
+					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
 				}
-				}
+			}
 		});
 
 		//회사 버튼
@@ -255,25 +303,25 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
+
 				if(count == 0 ) {
 					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
-				wordStr = new String[10];
-				meanStr = new String[10];
-				kindStr = new String[10];
-				word = objectTest(returnSubject("회사"));
+					wordStr = new String[10];
+					meanStr = new String[10];
+					kindStr = new String[10];
+					word = objectTest(returnSubject("회사"));
 
-				//스펠링 가져오기
-				for(int i = 0; i < word.length; i++) {
-					wordStr[i] = word[i].getSpelling();
-					meanStr[i] = word[i].getMean();
-					kindStr[i] = word[i].getKind();
-				}
+					//스펠링 가져오기
+					for(int i = 0; i < word.length; i++) {
+						wordStr[i] = word[i].getSpelling();
+						meanStr[i] = word[i].getMean();
+						kindStr[i] = word[i].getKind();
+					}
 
 
-				wordText.setText(wordStr[index]);
-				meanText.setText(meanStr[index]);
-				kindText.setText(kindStr[index]);
+					wordText.setText(wordStr[MainIndex]);
+					meanText.setText(meanStr[MainIndex]);
+					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
@@ -294,24 +342,24 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if(count ==0) {
 					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
-				wordStr = new String[10];
-				meanStr = new String[10];
-				kindStr = new String[10];
-				word = objectTest(returnSubject("경제"));
+					wordStr = new String[10];
+					meanStr = new String[10];
+					kindStr = new String[10];
+					word = objectTest(returnSubject("경제"));
 
-				//스펠링 가져오기
-				for(int i = 0; i < word.length; i++) {
-					wordStr[i] = word[i].getSpelling();
-					meanStr[i] = word[i].getMean();
-					kindStr[i] = word[i].getKind();
-				}
+					//스펠링 가져오기
+					for(int i = 0; i < word.length; i++) {
+						wordStr[i] = word[i].getSpelling();
+						meanStr[i] = word[i].getMean();
+						kindStr[i] = word[i].getKind();
+					}
 
-				wordText.setText(wordStr[index]);
-				meanText.setText(meanStr[index]);
-				kindText.setText(kindStr[index]);
+					wordText.setText(wordStr[MainIndex]);
+					meanText.setText(meanStr[MainIndex]);
+					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
@@ -335,28 +383,28 @@ public class MainPage extends JPanel {
 
 				if(count == 0) {
 					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
-				wordStr = new String[10];
-				meanStr = new String[10];
-				kindStr = new String[10];
-				word = objectTest(returnSubject("예술"));
+					wordStr = new String[10];
+					meanStr = new String[10];
+					kindStr = new String[10];
+					word = objectTest(returnSubject("예술"));
 
-				//스펠링 가져오기
-				for(int i = 0; i < word.length; i++) {
-					wordStr[i] = word[i].getSpelling();
-					meanStr[i] = word[i].getMean();
-					kindStr[i] = word[i].getKind();
-				}
+					//스펠링 가져오기
+					for(int i = 0; i < word.length; i++) {
+						wordStr[i] = word[i].getSpelling();
+						meanStr[i] = word[i].getMean();
+						kindStr[i] = word[i].getKind();
+					}
 
-				wordText.setText(wordStr[index]);
-				meanText.setText(meanStr[index]);
-				kindText.setText(kindStr[index]);
+					wordText.setText(wordStr[MainIndex]);
+					meanText.setText(meanStr[MainIndex]);
+					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
 				}
-				
-//			
-//				
+
+				//			
+				//				
 			}
 		});
 
@@ -380,21 +428,21 @@ public class MainPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					++index;
-					wordText.setText(wordStr[index]);
-					meanText.setText(meanStr[index]);
-					countnum.setText(Integer.valueOf(index+1).toString());
+					++MainIndex;
+					wordText.setText(wordStr[MainIndex]);
+					meanText.setText(meanStr[MainIndex]);
+					countnum.setText(Integer.valueOf(MainIndex+1).toString());
 
 					BufferedWriter bo = null;
 					bo = new BufferedWriter(new FileWriter("암기 단어.txt", true));
-					bo.write(kindStr[index]+"/");
-					bo.write(wordStr[index]+"/");
-					bo.write(meanStr[index]+"/");
+					bo.write(kindStr[MainIndex]+"/");
+					bo.write(wordStr[MainIndex]+"/");
+					bo.write(meanStr[MainIndex]+"/");
 					bo.flush();
 					bo.close();
 
 				}catch(Exception e1){
-					if(index >= 10) {
+					if(MainIndex >= 10) {
 						JOptionPane.showMessageDialog(null, "10 개 단어 학습 완료!");
 					}
 				}
@@ -415,21 +463,21 @@ public class MainPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					++index;
-					wordText.setText(wordStr[index]);
-					meanText.setText(meanStr[index]);
-					countnum.setText(Integer.valueOf(index+1).toString());
+					++MainIndex;
+					wordText.setText(wordStr[MainIndex]);
+					meanText.setText(meanStr[MainIndex]);
+					countnum.setText(Integer.valueOf(MainIndex+1).toString());
 
 					BufferedWriter bo = null;
 					bo = new BufferedWriter(new FileWriter("비암기 단어.txt", true));
-					bo.write(kindStr[index]+"/");
-					bo.write(wordStr[index]+"/");
-					bo.write(meanStr[index]+"/");
+					bo.write(kindStr[MainIndex]+"/");
+					bo.write(wordStr[MainIndex]+"/");
+					bo.write(meanStr[MainIndex]+"/");
 					bo.flush();
 					bo.close();
 
 				}catch(Exception e1){
-					if(index >= 10) {
+					if(MainIndex >= 10) {
 						JOptionPane.showMessageDialog(null, "10 개 단어 학습 완료!");
 					}
 				}
@@ -465,12 +513,12 @@ public class MainPage extends JPanel {
 		this.setLayout(null);
 		this.add(naming);
 
-
+ 
 		this.setSize(400, 700);
 		this.setLayout(null);
 		this.setBackground(new Color(123, 185, 237));
 		mf.add(this);   
- 
+
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//좌측 메뉴
@@ -496,21 +544,21 @@ public class MainPage extends JPanel {
 		panelLeft2.setBounds(0, 250, 80, 10);
 		panelLeft2.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft2);
-		
-		
+
+
 		btnLeft2.addActionListener(new ActionListener() {
 
-	         @Override
-	         public void actionPerformed(ActionEvent e) {
-	            try {
-	               ChangePanel.changePanel(mf, MainPage, new MyWord1(mf));            
-	            } catch (NullPointerException e1) {
-	               JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
-	            }
-	         }
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					ChangePanel.changePanel(mf, MainPage, new MyWord1(mf));            
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
+				}
+			}
 
-	      });
-		
+		});
+
 
 
 		final JButton btnLeft3 = new JButton("<html>단어<br/>추가</html>");
@@ -547,7 +595,7 @@ public class MainPage extends JPanel {
 
 
 
-  
+
 		btn.addActionListener(new ActionListener() {
 
 			@Override
@@ -557,7 +605,7 @@ public class MainPage extends JPanel {
 
 		});
 
-		
+
 		btnLeft3.addActionListener(new ActionListener() {
 
 			@Override

@@ -182,7 +182,7 @@ public class Test_Main extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Test_Main, new MyPage(mf));				
+				ChangePanel.changePanel(mf, Test_Main, new MainPage(mf));				
 			}
 
 		});

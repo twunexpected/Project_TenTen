@@ -19,6 +19,10 @@ import com.kh.project_TenTen.model.vo.Member;
 public class Login_SubPage extends JPanel {
 	public JTextField emailTxF;
 	JPanel login_SubPage;
+	boolean idCheck = false;
+	boolean passCheck = false;
+	boolean emailCheck = false;
+	boolean emailACheck = false;
 	
 	public Login_SubPage() {}
 	
@@ -68,18 +72,30 @@ public class Login_SubPage extends JPanel {
 				MemberDao md = new MemberDao();
 				ArrayList<Member> list = new ArrayList<Member>();
 				list = md.findMember();
+				Member m [] = new Member[list.size()];
 				
-				for(int i = 0; i < list.size(); i++) {
-					if(list.get(i).getId().equals(idTxF.getText())) {
-						 JOptionPane.showMessageDialog(null, "중복된 아이디 입니다.");
-						 idTxF.setText("");
-						 idTxF.requestFocus();
-						 break;
-					}else{
-						 JOptionPane.showMessageDialog(null, "사용가능한 아이디 입니다.");
-						 break;
+				for(int i = 0; i < m.length; i++) {
+					m[i] = (Member) list.get(i);
+				}
+				
+				boolean idCheck = true;
+				
+				for(int i = 0; i < m.length; i++) {
+					if(m[i].getId().equals(idTxF.getText())) {
+						idCheck = false;
+						break;
 					}
 				}
+				
+				if(idCheck) {
+					JOptionPane.showMessageDialog(null, "사용가능한 아이디입니다.");
+					Login_SubPage.this.idCheck = true;
+				}else {
+					JOptionPane.showMessageDialog(null, "중복된 아이디 입니다.");
+					 idTxF.setText("");
+					 idTxF.requestFocus();
+				}
+				
 			}
 		});
 		
@@ -131,6 +147,7 @@ public class Login_SubPage extends JPanel {
 					JOptionPane.showMessageDialog(null, "비밀번호를 다시 입력해주세요.");
 				}else {
 					JOptionPane.showMessageDialog(null, "비밀번호가 일치합니다. 다음 항목을 기입해주세요.");
+					passCheck = true;
 				}
 				
 			}
@@ -160,13 +177,44 @@ public class Login_SubPage extends JPanel {
 		emailBtn.setBackground(new Color(36, 107, 220));
 		
 		emailBtn.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Mail mm = new Mail();
-				String[] args1 = {" "};
-				mm.getEmailAddress(emailTxF.getText());
-				mm.main(args1);
+				
+				MemberDao md = new MemberDao();
+				
+				if(emailTxF.getText().length() > 0) {
+					ArrayList<Member> list = new ArrayList<Member>();
+					list = md.findMember();
+					Member m [] = new Member[list.size()];
+					
+					for(int i = 0; i < m.length; i++) {
+						m[i] = (Member) list.get(i);
+					}
+					
+					boolean emailCheck = true;
+					
+					for(int i = 0; i < m.length; i++) {
+						if(m[i].getEmail().equals(emailTxF.getText())) {
+							emailCheck = false;
+							break;
+						}
+					}
+					
+					if(emailCheck) {
+						JOptionPane.showMessageDialog(null, "사용가능한 이메일입니다. 인증번호를 전송합니다.");
+						Login_SubPage.this.emailCheck = true;
+						Mail mm = new Mail();
+						String[] args1 = {" "};
+						mm.getEmailAddress(emailTxF.getText());
+						mm.main(args1);
+					}else {
+						JOptionPane.showMessageDialog(null, "중복된 이메일 입니다.");
+						 emailTxF.setText("");
+						 emailTxF.requestFocus();
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "이메일을 입력해주세요.");
+				}
 			}
 		});
 		
@@ -197,6 +245,7 @@ public class Login_SubPage extends JPanel {
 				
 				if(a.equals(emailChTxF.getText())) {
 					JOptionPane.showMessageDialog(null, "인증번호가 일치합니다.");
+					emailACheck = true;
 				}else {
 					JOptionPane.showMessageDialog(null, "인증번호가 일치하지 않습니다.");
 				}
@@ -220,18 +269,30 @@ public class Login_SubPage extends JPanel {
 				String email = emailTxF.getText();
 				int exp = 0;
 				
+				if(idCheck && passCheck && emailCheck && emailACheck == true) {
 
-				if(id.length() > 0 && pass.length > 0 && nickName.length() > 0 &&
-						email.length() > 0 && emailChTxF.getText().length() > 0 &&
-						passChTxF.getPassword().length > 0) {
-					MemberController mc = new MemberController();
-					ArrayList<Member> list = new ArrayList<Member>();
-					mc.memberSignIn(id, pass, nickName, email, exp);
-					System.out.println("성공적으로 회원 등록이 완료되었습니다.");
-					JOptionPane.showMessageDialog(null, "회원가입성공");
-					ChangePanel.changePanel(mf, login_SubPage, new Login_MainPage(mf));
+					if(id.length() > 0 && pass.length > 0 && nickName.length() > 0 &&
+							email.length() > 0 && emailChTxF.getText().length() > 0 &&
+							passChTxF.getPassword().length > 0) {
+						MemberController mc = new MemberController();
+						ArrayList<Member> list = new ArrayList<Member>();
+						mc.memberSignIn(id, pass, nickName, email, exp);
+						System.out.println("성공적으로 회원 등록이 완료되었습니다.");
+						JOptionPane.showMessageDialog(null, "회원가입성공");
+						ChangePanel.changePanel(mf, login_SubPage, new Login_MainPage(mf));
+					}else {
+						JOptionPane.showMessageDialog(null, "빈 칸을 채워주세요.");
+					}
 				}else {
-					JOptionPane.showMessageDialog(null, "빈 칸을 채워주세요.");
+					if(idCheck == false) {
+						JOptionPane.showMessageDialog(null, "id값을 확인해주세요");
+					}else if(passCheck == false) {
+						JOptionPane.showMessageDialog(null, "비밀번호 일치여부를 확인해주세요.");
+					}else if(emailCheck == false) {
+						JOptionPane.showMessageDialog(null, "email 중복여부를 확인해주세요");
+					}else {
+						JOptionPane.showMessageDialog(null, "email 인증을 실행해주세요.");
+					}
 				}
 			}
 			

@@ -112,11 +112,12 @@ public class MainPage extends JPanel {
 
 
 		//카운 텍스
-		JTextField countnum = new JTextField("입력값");
+		JTextField countnum = new JTextField("");
 		countnum.setBackground(new Color(123, 185, 237));
 		countnum.setSize(60, 50);
 		countnum.setLocation(165, 480);
-		countnum.setFont(new Font("고딕",Font.PLAIN,15));
+		countnum.setFont(new Font("고딕",Font.PLAIN,19));
+		countnum.setHorizontalAlignment(JTextField.CENTER);
 		countnum.setPreferredSize(new Dimension(60, 50));
 
 		// " /10 "
@@ -208,21 +209,19 @@ public class MainPage extends JPanel {
 		});
 
 		//요리버튼 이벤트. 주제선택 재확인 팝업창 실행
+		if(count == 0) {
 		cook.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
 
 				if(count > 0) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
 				}else {
 					CookjujaeD.setVisible(true);
 				}
-
-
 			}
 		});
-
+		}
 
 
 		////////////////////////////////////////////////////////////////////////
@@ -930,7 +929,8 @@ public class MainPage extends JPanel {
 			}
 
 		});
-
+		
+		
 
 	}
 

@@ -150,13 +150,17 @@ public class AddWord extends JPanel{
 		panelLeft2.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft2);
 		btnLeft2.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, addWord, new MyWord1(mf));
-			}
 
-		});
+	         @Override
+	         public void actionPerformed(ActionEvent e) {
+	            try {
+	               ChangePanel.changePanel(mf, addWord, new MyWord1(mf));            
+	            } catch (NullPointerException e1) {
+	               JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
+	            }
+	         }
 
+	      });
 
 		final JButton btnLeft3 = new JButton("<html>단어<br/>추가</html>");
 		btnLeft3.setBounds(0, 260, 80, 120);

@@ -191,14 +191,23 @@ public class Test_Main extends JPanel {
 
 		});
 
+		
+			
 		btnLeft2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Test_Main, new MyWord1(mf));
+				try {
+					ChangePanel.changePanel(mf, Test_Main, new MyWord1(mf));            
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
+				}
 			}
 
 		});
+			
+
+		
 		btnLeft3.addActionListener(new ActionListener() {
 
 			@Override

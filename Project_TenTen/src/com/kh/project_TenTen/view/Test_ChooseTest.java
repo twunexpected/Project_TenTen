@@ -122,17 +122,7 @@ public class Test_ChooseTest extends JPanel {
 		naming.setFont(new Font("고딕", Font.BOLD, 13));
 
 
-
-		//		4지선다 버튼.addActionListener(new ActionListener() {
-		//			@Override
-		//			public void actionPerformed(ActionEvent e) {
-		//					4지선다 = new 4지선다
-		//					나중에 갖다붙이기		
-		//			}
-		//			
-		//		}
-
-
+		
 		btnTest1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

@@ -95,7 +95,7 @@ public class Test_OxTest extends JPanel {
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 		
-		//단어 추가 라벨
+		//단어 라벨
 		JLabel panelTitle = new JLabel("단어 Test");
 		panelTitle.setHorizontalAlignment(JLabel.CENTER);
 		panelTitle.setForeground(Color.white);
@@ -109,7 +109,7 @@ public class Test_OxTest extends JPanel {
 		JTextField tfWord = new JTextField();
 		tfWord.setBounds(175,165, 30, 30);
 		tfWord.setFont(new Font("고딕", Font.BOLD, 20));
-		tfWord.setBackground(new Color(255, 255, 225));
+		tfWord.setBackground(new Color(123, 185, 237));
 		tfWord.setFont(tfWord.getFont().deriveFont(16.0f));
 		tfWord.setHorizontalAlignment(JTextField.RIGHT);
 		tfWord.setText(Integer.valueOf(index+1).toString());
@@ -128,16 +128,15 @@ public class Test_OxTest extends JPanel {
 		lbVoca.setBounds(50, 220, 300, 100);
 		lbVoca.setFont(new Font(" ", Font.BOLD, 10)); // 굵은 폰트
 		lbVoca.setFont(lbVoca.getFont().deriveFont(45.0f));
-		lbVoca.setBackground(new Color(255, 255, 225));
+		lbVoca.setBackground(new Color(123, 185, 237));
 		lbVoca.setText(spellStr[index]);
 		lbVoca.setHorizontalAlignment(JTextField.CENTER);
 		this.setLayout(null);
 
-
 		// TEST 노출단어 뜻
 		JTextField lbMeanning = new JTextField();
 		lbMeanning.setBounds(105, 330, 200, 50);
-		lbMeanning.setBackground(new Color(255, 255, 225));
+		lbMeanning.setBackground(new Color(123, 185, 237));
 		lbMeanning.setFont(new Font(" ", Font.BOLD, 10)); // 굵은 폰트
 		lbMeanning.setFont(lbVoca.getFont().deriveFont(16.0f));
 		lbMeanning.setText(meanStr[index]);

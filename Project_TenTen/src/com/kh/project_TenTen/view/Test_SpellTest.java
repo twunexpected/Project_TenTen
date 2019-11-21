@@ -51,7 +51,7 @@ public class Test_SpellTest extends JPanel{
 		JTextField tfWord = new JTextField();
 		tfWord.setBounds(175,165, 30, 30);
 		tfWord.setFont(new Font("고딕", Font.BOLD, 20));
-		tfWord.setBackground(new Color(255, 255, 225));
+		tfWord.setBackground(new Color(123, 185, 237));
 		tfWord.setFont(tfWord.getFont().deriveFont(16.0f));
 		tfWord.setText(Integer.valueOf(index+1).toString());
 		tfWord.setHorizontalAlignment(JTextField.RIGHT);
@@ -64,9 +64,10 @@ public class Test_SpellTest extends JPanel{
 		this.setLayout(null);
 
 
-		// TEST 노출단어 표시 -> JtextField 로 변경 !!!!! 
+		// TEST 노출단어 표시 
 		JTextField lbVoca = new JTextField("Explain");
 		lbVoca.setBounds(50, 220, 300, 100);
+		tfWord.setBackground(new Color(123, 185, 237));
 		lbVoca.setFont(new Font("고딕", Font.BOLD, 10));
 		lbVoca.setFont(lbVoca.getFont().deriveFont(45.0f));
 		lbVoca.setHorizontalAlignment(JTextField.CENTER);

@@ -137,9 +137,6 @@ public class MainPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-
-
-
 				if(count == 0 ) {
 					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
 					wordStr = new String[10];
@@ -154,7 +151,6 @@ public class MainPage extends JPanel {
 						kindStr[i] = word[i].getKind();
 
 						wordText.setText(wordStr[index]);
-						System.out.println(wordStr[index]);
 						meanText.setText(meanStr[index]);
 						kindText.setText(kindStr[index]);
 						countnum.setText(Integer.valueOf(index+1).toString());

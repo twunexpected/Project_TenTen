@@ -109,12 +109,25 @@ public class Login_MainPage extends JPanel{
 		findIdLab.setBackground(new Color(123, 185, 237));
 		this.add(findIdLab);
 		
+		findIdLab.addMouseListener(new MouseAdapter() {
+			 public void mouseClicked(MouseEvent e) {
+				 ChangePanel.changePanel(mf, mainPage, new Login_FindID(mf));
+			 }
+			
+		});
 		
 		JLabel findPassLab = new JLabel("   비밀번호 찾기");
 		findPassLab.setSize(100, 30);
 		findPassLab.setLocation(160,390);
 		findPassLab.setBackground(new Color(123, 185, 237));
 		this.add(findPassLab);
+		
+		findPassLab.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				ChangePanel.changePanel(mf, mainPage, new Login_FindPW(mf));
+			 }
+			
+		});
 		
 		mf.add(this);
 
@@ -125,6 +138,11 @@ public class Login_MainPage extends JPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			ChangePanel.changePanel(mf, mainPage , new Login_SubPage(mf));
+		}
+
+		public void mouseCliked() {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 	

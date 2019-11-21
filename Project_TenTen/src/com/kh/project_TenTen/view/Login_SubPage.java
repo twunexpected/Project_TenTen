@@ -32,6 +32,7 @@ public class Login_SubPage extends JPanel {
 		JButton signInbtn1 = new JButton("회원가입");
 		signInbtn1.setSize(100,40);
 		signInbtn1.setLocation(140,50);
+		signInbtn1.setForeground(Color.white);
 		signInbtn1.setBackground(new Color(36, 107, 220));
 		
 		JLabel footer = new JLabel("Copyrightsⓒ 비!뇨내과 All Rights Reserved.");
@@ -56,6 +57,7 @@ public class Login_SubPage extends JPanel {
 		JButton idCheckBtn = new JButton("중복확인");
 		idCheckBtn.setSize(80,40);
 		idCheckBtn.setFont(new Font("고딕",Font.BOLD,10));
+		idCheckBtn.setForeground(Color.WHITE);
 		idCheckBtn.setBackground(new Color(36, 107, 220));
 		idCheckBtn.setLocation(270,150);
 		
@@ -99,6 +101,7 @@ public class Login_SubPage extends JPanel {
 		passChBtn.setSize(100,40);
 		passChBtn.setLocation(270,235);
 		passChBtn.setFont(new Font("고딕",Font.BOLD,8));
+		passChBtn.setForeground(Color.WHITE);
 		passChBtn.setBackground(new Color(36, 107, 220));
 		
 		passChBtn.addActionListener(new ActionListener() {
@@ -152,6 +155,7 @@ public class Login_SubPage extends JPanel {
 		JButton emailBtn = new JButton("이메일 확인");
 		emailBtn.setSize(100,40);
 		emailBtn.setLocation(270,350);
+		emailBtn.setForeground(Color.WHITE);
 		emailBtn.setFont(new Font("고딕",Font.BOLD,10));
 		emailBtn.setBackground(new Color(36, 107, 220));
 		
@@ -177,6 +181,7 @@ public class Login_SubPage extends JPanel {
 		JButton emailChBtn = new JButton("인증 확인");
 		emailChBtn.setSize(100,40);
 		emailChBtn.setLocation(270,395);
+		emailChBtn.setForeground(Color.WHITE);
 		emailChBtn.setFont(new Font("고딕",Font.BOLD,10));
 		emailChBtn.setBackground(new Color(36, 107, 220));
 		
@@ -200,8 +205,9 @@ public class Login_SubPage extends JPanel {
 		
 		JButton SignInBtn = new JButton("가입하기");
 		SignInBtn.setSize(100,50);
-		SignInBtn.setLocation(140,460);
+		SignInBtn.setLocation(80,460);
 		SignInBtn.setFont(new Font("고딕",Font.BOLD,15));
+		SignInBtn.setForeground(Color.white);
 		SignInBtn.setBackground(new Color(36, 107, 220));
 		
 		SignInBtn.addActionListener(new ActionListener() {
@@ -214,18 +220,39 @@ public class Login_SubPage extends JPanel {
 				String email = emailTxF.getText();
 				int exp = 0;
 				
+
+				if(id.length() > 0 && pass.length > 0 && nickName.length() > 0 &&
+						email.length() > 0 && emailChTxF.getText().length() > 0 &&
+						passChTxF.getPassword().length > 0) {
 					MemberController mc = new MemberController();
 					ArrayList<Member> list = new ArrayList<Member>();
 					mc.memberSignIn(id, pass, nickName, email, exp);
-
 					System.out.println("성공적으로 회원 등록이 완료되었습니다.");
 					JOptionPane.showMessageDialog(null, "회원가입성공");
-					
-				ChangePanel.changePanel(mf, login_SubPage, new Login_MainPage(mf));
+					ChangePanel.changePanel(mf, login_SubPage, new Login_MainPage(mf));
+				}else {
+					JOptionPane.showMessageDialog(null, "빈 칸을 채워주세요.");
+				}
 			}
 			
 		});
 		
+		JButton backBtn = new JButton("뒤로");
+		backBtn.setSize(100,50);
+		backBtn.setLocation(200,460);
+		backBtn.setFont(new Font("고딕",Font.BOLD,15));
+		backBtn.setForeground(Color.white);
+		backBtn.setBackground(new Color(36, 107, 220));
+		backBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, login_SubPage, new Login_MainPage(mf));
+				
+			}
+		});
+		
+		this.add(backBtn);
 		this.add(SignInBtn);
 		this.add(emailChBtn);
 		this.add(emailChTxF);

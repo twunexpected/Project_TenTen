@@ -142,7 +142,7 @@ public class SeoungJang extends JPanel{
 		if(mb.getHaveTen() >= 20) {
 			
 		ttChangeB.addActionListener(new ActionListener() {
-
+ 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 	

@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.kh.project_TenTen.model.dao.MemberDao;
+
 public class AddWord extends JPanel{
 	private Login_MainFrame mf;
 	private JPanel addWord;
@@ -102,7 +104,7 @@ public class AddWord extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				BufferedWriter bo = null;
 				try{
-					bo = new BufferedWriter(new FileWriter("단어추가.txt", true));
+					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"단어추가.txt", true));
 					bo.write((String) mainList.getSelectedItem()+"/");
 					bo.write((String) subList.getSelectedItem()+"/");
 					bo.write(tf.getText()+"/");

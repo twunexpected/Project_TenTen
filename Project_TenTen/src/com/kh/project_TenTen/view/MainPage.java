@@ -33,7 +33,7 @@ public class MainPage extends JPanel {
 
 	public static Word[] word = null;
 
-	static int MainIndex = 0;
+	static int MainIndex = 0; 
 
 	private Login_MainFrame mf;
 	private JPanel MainPage;
@@ -728,12 +728,12 @@ public class MainPage extends JPanel {
 					wordText.setText(wordStr[MainIndex]);
 					meanText.setText(meanStr[MainIndex]);
 					countnum.setText(Integer.valueOf(MainIndex+1).toString());
-
+ 
 					BufferedWriter bo = null;
 					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"암기 단어.txt", true));
-					bo.write(kindStr[MainIndex]+"/");
-					bo.write(wordStr[MainIndex]+"/");
-					bo.write(meanStr[MainIndex]+"/");
+					bo.write(kindStr[MainIndex-1]+"/");
+					bo.write(wordStr[MainIndex-1]+"/");
+					bo.write(meanStr[MainIndex-1]+"/");
 					bo.flush();
 					bo.close();
 
@@ -766,9 +766,9 @@ public class MainPage extends JPanel {
 
 					BufferedWriter bo = null;
 					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"비암기 단어.txt", true));
-					bo.write(kindStr[MainIndex]+"/");
-					bo.write(wordStr[MainIndex]+"/");
-					bo.write(meanStr[MainIndex]+"/");
+					bo.write(kindStr[MainIndex-1]+"/");
+					bo.write(wordStr[MainIndex-1]+"/");
+					bo.write(meanStr[MainIndex-1]+"/");
 					bo.flush();
 					bo.close();
 

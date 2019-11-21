@@ -107,7 +107,7 @@ public class Login_SubPage extends JPanel {
 		passChTxF.setLocation(120,240);
 		passChTxF.setSize(140, 30);
 		
-		JLabel passWarnLab = new JLabel("※영문, 숫자, 특수문자를 혼합 8자리 이상 입력하세요.");
+		JLabel passWarnLab = new JLabel("※비밀번호는 8자리 이상 입력하세요.");
 		passWarnLab.setFont(new Font("고딕",Font.BOLD,10));
 		passWarnLab.setForeground(Color.RED);
 		passWarnLab.setSize(400, 100);
@@ -125,31 +125,43 @@ public class Login_SubPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				boolean check = true;
-				char[] pass1 = new char[20];
-				char[] pass2 = new char[20];
+
+				char[] pass1 = new char[passTxF.getPassword().length];
+				char[] pass2 = new char[passChTxF.getPassword().length];
 				
-				pass1 = passTxF.getPassword();
-				pass2 = passChTxF.getPassword();
+				for(int i = 0; i < passTxF.getPassword().length; i++) {
+					pass1[i] = passTxF.getPassword()[i];
+					pass2[i] = passChTxF.getPassword()[i];
+				}
+				
+				//비밀번호 확인
+				//pass1 과 pass2가 일치해야함
+				//8자리이상 작성되어야함
 				
 				if(pass1.length != pass2.length) {
 					check = false;
 				}
 				
-				if(check == true) {
-					for(int i = 0; i < pass1.length; i++) {
-						if(pass1[i] != pass2[i] && pass1.length != pass2.length) {
-							check = false;
-						}
+				if(pass1.length < 8 && pass2.length < 8) {
+					check = false;
+				}
+				
+				for(int i = 0; i < pass1.length; i++) {
+					if(pass1[i] != pass2[i]) {
+						check = false;
+						break;
 					}
 				}
 				
-				if(check == false) {
-					JOptionPane.showMessageDialog(null, "비밀번호를 다시 입력해주세요.");
-				}else {
-					JOptionPane.showMessageDialog(null, "비밀번호가 일치합니다. 다음 항목을 기입해주세요.");
+				if(check) {
+					JOptionPane.showMessageDialog(null, "비밀번호 인증에 성공하였습니다.");
 					passCheck = true;
+				}else {
+					JOptionPane.showMessageDialog(null, "비밀번호를 다시 확인해주세요.");
+					passTxF.setText("");
+					passTxF.requestFocus();
+					passChTxF.setText("");
 				}
-				
 			}
 		});
 

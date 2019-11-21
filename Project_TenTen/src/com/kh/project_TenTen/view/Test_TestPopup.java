@@ -32,7 +32,7 @@ public class Test_TestPopup extends JPanel {
 		JLabel panelTitle = new JLabel("´Ü¾î Test");
 		panelTitle.setHorizontalAlignment(JLabel.CENTER);
 		panelTitle.setForeground(Color.white);
-		panelTitle.setLocation(95, 0);
+		panelTitle.setLocation(95, 5);
 		panelTitle.setSize(230, 50);
 		panelTitle.setFont(new Font("°íµñ",Font.BOLD,20));
 		panelTitle.setOpaque(true);

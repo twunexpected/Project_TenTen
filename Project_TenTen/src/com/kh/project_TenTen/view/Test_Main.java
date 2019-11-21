@@ -49,7 +49,7 @@ public class Test_Main extends JPanel {
 		JLabel panelTitle = new JLabel("´Ü¾î Test");
 		panelTitle.setHorizontalAlignment(JLabel.CENTER);
 		panelTitle.setForeground(Color.white);
-		panelTitle.setLocation(120, 0);
+		panelTitle.setLocation(120, 5);
 		panelTitle.setSize(230, 50);
 		panelTitle.setFont(new Font("°íµñ",Font.BOLD,20));
 		panelTitle.setOpaque(true);
@@ -128,11 +128,12 @@ public class Test_Main extends JPanel {
 		btnLeft5.setFont(new Font("°íµñ", Font.BOLD, 20));
 		this.setLayout(null);
 
-		JLabel naming = new JLabel("Copyrights ¨Ï  ºñ!´¢³»°ú All Rights reserved.");
-		naming.setBounds(60, 600, 400, 50);
-		//naming.setForeground(new Color(255, 255, 225));
+		//Ä«ÇÇ¶óÀÌÆ®
+		JLabel naming = new JLabel("Copyrights ¨Ï   ºñ!´¢³»°ú All Rights reserved.");
+		naming.setBounds(90, 600, 400, 50);
 		naming.setFont(new Font("°íµñ", Font.BOLD, 13));
 		this.setLayout(null);
+		this.add(naming);
 
 		btnCenter.addActionListener(new ActionListener() {//ÀÍ¸í
 			@Override
@@ -208,7 +209,7 @@ public class Test_Main extends JPanel {
 		this.add(labelCenter);
 		this.add(btnCenter);
 		this.add(panelTitle);
-//		this.add(lableTitle);
+		//		this.add(lableTitle);
 		mf.add(this);
 
 	}

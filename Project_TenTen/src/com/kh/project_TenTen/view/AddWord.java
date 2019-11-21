@@ -35,7 +35,7 @@ public class AddWord extends JPanel{
 		JLabel lb3 = new JLabel("단어추가 ");
 		lb3.setHorizontalAlignment(JLabel.CENTER);
 		lb3.setForeground(Color.white);
-		lb3.setLocation(105, 0);
+		lb3.setLocation(110, 5);
 		lb3.setSize(230, 50);
 		lb3.setFont(new Font("고딕",Font.BOLD,20));
 		lb3.setOpaque(true);

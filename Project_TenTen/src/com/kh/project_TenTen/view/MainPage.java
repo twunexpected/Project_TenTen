@@ -141,7 +141,7 @@ public class MainPage extends JPanel {
 
 
 				if(count == 0 ) {
-					
+					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
 					wordStr = new String[10];
 					meanStr = new String[10];
 					kindStr = new String[10];
@@ -161,6 +161,9 @@ public class MainPage extends JPanel {
 					}
 					
 				}count++;
+				if(count > 1) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}
 				
 
 
@@ -182,6 +185,7 @@ public class MainPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			
 				if(count == 0 ) {
+					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -198,6 +202,9 @@ public class MainPage extends JPanel {
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
 				}count++;
+				if(count > 1) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}
 			}
 		});
 
@@ -216,6 +223,7 @@ public class MainPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			
 				if(count == 0 ) {
+					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -232,6 +240,9 @@ public class MainPage extends JPanel {
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
 				}count++;
+				if(count > 1) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}
 				}
 		});
 
@@ -250,6 +261,7 @@ public class MainPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			
 				if(count == 0 ) {
+					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -267,6 +279,9 @@ public class MainPage extends JPanel {
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
 				}count++;
+				if(count > 1) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}
 			}
 		});
 
@@ -285,6 +300,7 @@ public class MainPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				
 				if(count ==0) {
+					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -301,6 +317,9 @@ public class MainPage extends JPanel {
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
 				}count++;
+				if(count > 1) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}
 			}
 		});
 
@@ -317,8 +336,9 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
+
 				if(count == 0) {
+					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
 				wordStr = new String[10];
 				meanStr = new String[10];
 				kindStr = new String[10];
@@ -334,7 +354,13 @@ public class MainPage extends JPanel {
 				wordText.setText(wordStr[index]);
 				meanText.setText(meanStr[index]);
 				kindText.setText(kindStr[index]);
+				}count++;
+				if(count > 1) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
 				}
+				
+//			
+//				
 			}
 		});
 
@@ -373,7 +399,7 @@ public class MainPage extends JPanel {
 
 				}catch(Exception e1){
 					if(index >= 10) {
-						JOptionPane.showMessageDialog(null, "추가할단어가 없습니다.");
+						JOptionPane.showMessageDialog(null, "10 개 단어 학습 완료!");
 					}
 				}
 
@@ -408,7 +434,7 @@ public class MainPage extends JPanel {
 
 				}catch(Exception e1){
 					if(index >= 10) {
-						JOptionPane.showMessageDialog(null, "추가할단어가 없습니다.");
+						JOptionPane.showMessageDialog(null, "10 개 단어 학습 완료!");
 					}
 				}
 
@@ -448,7 +474,7 @@ public class MainPage extends JPanel {
 		this.setLayout(null);
 		this.setBackground(new Color(123, 185, 237));
 		mf.add(this);   
-
+ 
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//좌측 메뉴
@@ -474,6 +500,21 @@ public class MainPage extends JPanel {
 		panelLeft2.setBounds(0, 250, 80, 10);
 		panelLeft2.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft2);
+		
+		
+		btnLeft2.addActionListener(new ActionListener() {
+
+	         @Override
+	         public void actionPerformed(ActionEvent e) {
+	            try {
+	               ChangePanel.changePanel(mf, MainPage, new MyWord1(mf));            
+	            } catch (NullPointerException e1) {
+	               JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
+	            }
+	         }
+
+	      });
+		
 
 
 		final JButton btnLeft3 = new JButton("<html>단어<br/>추가</html>");

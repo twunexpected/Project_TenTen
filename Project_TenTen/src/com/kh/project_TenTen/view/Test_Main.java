@@ -24,6 +24,7 @@ public class Test_Main extends JPanel {
 	private Login_MainFrame mf;
 	private JPanel Test_Main;
 
+	
 	WordDao wd = new WordDao();
 	String[] spellStr = null;	//단어 스펠링
 	String[] meanStr = null;	//뜻

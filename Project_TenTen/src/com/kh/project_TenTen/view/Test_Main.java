@@ -31,7 +31,7 @@ public class Test_Main extends JPanel {
 
 	public static Word[] word = null;
 	
-	//int MainIndex;
+//	static int MainIndex;
 
 	char [] checkAns = null;
 	
@@ -161,10 +161,7 @@ public class Test_Main extends JPanel {
 		
 		
 		
-		//********* To do ********
-		//메인에서 10개 단어 넘기면 버튼클릭 가능하게 아니면 다이얼로그 메시지 경고창 
-		
-		btnCenter.addActionListener(new ActionListener() {//익명
+		btnCenter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(MainPage.MainIndex == 10) {
@@ -190,14 +187,23 @@ public class Test_Main extends JPanel {
 
 		});
 
+		
+			
 		btnLeft2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Test_Main, new MyWord1(mf));
+				try {
+					ChangePanel.changePanel(mf, Test_Main, new MyWord1(mf));            
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
+				}
 			}
 
 		});
+			
+
+		
 		btnLeft3.addActionListener(new ActionListener() {
 
 			@Override

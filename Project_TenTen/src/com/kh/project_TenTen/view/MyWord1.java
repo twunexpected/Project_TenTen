@@ -89,8 +89,12 @@ public class MyWord1 extends JPanel{
 		b2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord1, new MyWord2(mf));
-			}
+				try {
+					ChangePanel.changePanel(mf, MyWord1, new MyWord2(mf));								
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "비암기 단어가 없어요~♥");
+				}
+			}		
 		});
 		JButton b3 = new JButton("나의단어");
 		b3.setHorizontalAlignment(JLabel.CENTER);
@@ -100,8 +104,12 @@ public class MyWord1 extends JPanel{
 		b3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord1, new MyWord3(mf));
-			}
+				try {
+					ChangePanel.changePanel(mf, MyWord1, new MyWord3(mf));							
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 추가해주세요~♥");
+				}
+			}		
 		});
 		JButton b4 = new JButton("즐겨찾기");
 		b4.setHorizontalAlignment(JLabel.CENTER);
@@ -111,7 +119,11 @@ public class MyWord1 extends JPanel{
 		b4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord1, new MyWord4(mf));
+				try {
+					ChangePanel.changePanel(mf, MyWord1, new MyWord4(mf));						
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "즐겨찾기 단어가 없어용~♥");
+				}
 			}
 		});
 		JButton b5 = new JButton("★");
@@ -227,7 +239,7 @@ public class MyWord1 extends JPanel{
 		this.add(naming);
 		mf.add(this);
 	}
-}
+} 
 
 
 

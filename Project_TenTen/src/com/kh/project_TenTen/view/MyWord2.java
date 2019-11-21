@@ -81,7 +81,7 @@ public class MyWord2 extends JPanel{
 		b1.setBackground(new Color(36, 107, 220));
 		b1.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {				
 				ChangePanel.changePanel(mf, MyWord2, new MyWord1(mf));
 			}
 		});
@@ -96,13 +96,15 @@ public class MyWord2 extends JPanel{
 		b3.setForeground(Color.white);
 		b3.setFont(new Font("고딕",Font.BOLD,15));
 		b3.setBackground(new Color(36, 107, 220));
-		/*b1.setBounds(95, 20, 70, 50);
-		b2.setBounds(180, 20, 79, 50);
-		b3.setBounds(275, 20, 87, 50);*/	
 		b3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord2, new MyWord3(mf));
+				try {
+					ChangePanel.changePanel(mf, MyWord2, new MyWord3(mf));
+				
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 추가해주세용~♥");
+				}
 			}
 		});
 		JButton b4 = new JButton("즐겨찾기");
@@ -113,7 +115,12 @@ public class MyWord2 extends JPanel{
 		b4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord2, new MyWord4(mf));
+				try {
+					ChangePanel.changePanel(mf, MyWord2, new MyWord4(mf));
+								
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "즐겨찾기 단어가 없어용~♥");
+				}
 			}
 		});
 		JButton b5 = new JButton("★");
@@ -129,10 +136,9 @@ public class MyWord2 extends JPanel{
 		b5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JButton b4 = (JButton)e.getSource();
-				DefaultTableModel m = (DefaultTableModel)table.getModel();
+				//JButton b4 = (JButton)e.getSource();
+				//DefaultTableModel m = (DefaultTableModel)table.getModel();
 				BufferedWriter bo = null;
-
 				try {
 					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt", true));
 					int row=table.getSelectedRow();//사용자가 선택한 행
@@ -233,9 +239,7 @@ public class MyWord2 extends JPanel{
 		naming.setFont(new Font("고딕", Font.BOLD, 12));
 		this.add(naming);
 		mf.add(this);
-
 	}
-
 }
 
 

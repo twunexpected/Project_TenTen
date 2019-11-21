@@ -93,8 +93,15 @@ public class MyWord4 extends JPanel {
 		b2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord4, new MyWord2(mf));
+				try {
+					ChangePanel.changePanel(mf, MyWord4, new MyWord2(mf));
+
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "비암기 단어가 없어용~♥");
+				}
 			}
+
+
 		});
 		JButton b3 = new JButton("나의단어");
 		b3.setHorizontalAlignment(JLabel.CENTER);
@@ -104,8 +111,15 @@ public class MyWord4 extends JPanel {
 		b3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord4, new MyWord3(mf));
+				try {
+					ChangePanel.changePanel(mf, MyWord4, new MyWord3(mf));
+
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 추가해주세용~♥");
+				}
 			}
+
+
 		});
 		JButton b4 = new JButton("즐겨찾기");
 		b4.setHorizontalAlignment(JLabel.CENTER);
@@ -126,99 +140,31 @@ public class MyWord4 extends JPanel {
 		b5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//int row=table.getSelectedRow();//사용자가 선택한 행
 				model.removeRow(table.getSelectedRow());
-				JOptionPane.showMessageDialog(null, "선택하신 단어가 삭제되었습니다.");
-				
-						BufferedWriter bo = null;
-						//BufferedWriter bo1 = null;
-						try{
-							bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt"));
-							bo.write("");
-							//int row=table.getSelectedRow();//사용자가 선택한 행
-							//int col = table.getSelectedColumn();
-							//Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
-							bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt",true));
-							int row =table.getRowCount();
-							int col = table.getColumnCount();
-							System.out.println(row);
-							System.out.println(col);
-							System.out.println(table.getValueAt(0,1));
-							for(int i=0;i<row;i++) {
-								for(int j=0; j<col;j++) {
+				JOptionPane.showMessageDialog(null, "선택하신 단어가 삭제되었습니다.");		
+				BufferedWriter bo = null;
+				try{
+					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt"));
+					bo.write("");
+					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt",true));
+					int row =table.getRowCount();
+					int col = table.getColumnCount();
+					System.out.println(row);
+					System.out.println(col);
+					System.out.println(table.getValueAt(0,1));
+					for(int i=0;i<row;i++) {
+						for(int j=0; j<col;j++) {
 							bo.write((String) table.getValueAt(i, j)+"/");
-									;
-								}
-							}
-							bo.close();
-					    } catch (Exception ex) { 
-					  
-					 } 
-						//바뀐건지 읽어서 확인해보기
-						/*String s;
-						BufferedReader br= null;
-						try {
-							br = new BufferedReader(new FileReader("즐겨찾기 단어.txt"));
-						} catch (FileNotFoundException e1) {
-
-						} 
-						try {
-							while ((s = br.readLine()) != null) { 
-								System.out.println(s);
-							}
-						} catch (IOException e1) {
-							e1.printStackTrace();
-						}*/
-
-			}
-				});
-			
-				//File f = new File("즐겨찾기.txt");
-				//f.delete();
-			
-			/*	try {
-					bo= new BufferedWriter(new FileWriter("즐겨찾기 단어.txt"));
+							;
+						}
+					}
 					bo.close();
-				} catch (IOException e1) {
-			
-					e1.printStackTrace();
-				}*/
-				/*String dummy = "";
-				try {
-					BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("즐겨찾기 단어.txt")));
-					//BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
-					
-					//1. 삭제하고자 하는 position 이전까지는 이동하며 dummy에 저장
-					String line;
-					for(int i=0; i<position; i++) {
-					    line = br.readLine(); //읽으며 이동
-					    dummy += (line); 
-					}
-					
-					//2. 삭제하고자 하는 데이터는 건너뛰기
-					String delData = br.readLine();
-					Log.d("mstag","삭제되는 데이터 = "+delData);
-					
-					//3. 삭제하고자 하는 position 이후부터 dummy에 저장
-					while((line = br.readLine())!=null) {
-						dummy += (line + "\r\n" ); 
-					}
-					
-					//4. FileWriter를 이용해서 덮어쓰기
-					FileWriter fw = new FileWriter("즐겨찾기 단어.txt");
-					fw.write(dummy);			
-					
-					//bw.close();
-					fw.close();
-					br.close();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-*/
+				} catch (Exception ex) { 
 
-				
-	
+				} 
+			}
+		});
+
 		b1.setBounds(100, 20, 100, 35);
 		b2.setBounds(210, 20, 100, 35);
 		b3.setBounds(100, 65, 100, 35);	

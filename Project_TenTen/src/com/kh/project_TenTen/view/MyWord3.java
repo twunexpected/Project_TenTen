@@ -246,9 +246,10 @@ public class MyWord3 extends JPanel {
 
 		//카피라이터
 		JLabel naming = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
-		naming.setBounds(100, 600, 400, 50);
-		naming.setFont(new Font("고딕", Font.BOLD, 12));
+		naming.setBounds(90, 600, 400, 50);		
+		naming.setFont(new Font("고", Font.BOLD, 13));
+		//this.setLayout(null);
 		this.add(naming);
-		mf.add(this);
+		mf.add(this);   
 	}
 }

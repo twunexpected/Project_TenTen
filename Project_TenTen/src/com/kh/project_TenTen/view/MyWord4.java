@@ -151,9 +151,6 @@ public class MyWord4 extends JPanel {
 					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"즐겨찾기 단어.txt",true));
 					int row =table.getRowCount();
 					int col = table.getColumnCount();
-					System.out.println(row);
-					System.out.println(col);
-					System.out.println(table.getValueAt(0,1));
 					for(int i=0;i<row;i++) {
 						for(int j=0; j<col;j++) {
 							bo.write((String) table.getValueAt(i, j)+"/");
@@ -254,11 +251,11 @@ public class MyWord4 extends JPanel {
 		});
 		//카피라이터
 		JLabel naming = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
-		naming.setBounds(100, 600, 400, 50);
-		//naming.setForeground(new Color(255, 255, 225));
-		naming.setFont(new Font("고딕", Font.BOLD, 12));
+		naming.setBounds(90, 600, 400, 50);		
+		naming.setFont(new Font("고", Font.BOLD, 13));
+		//this.setLayout(null);
 		this.add(naming);
-		mf.add(this);
+		mf.add(this);   
 
 	}
 }

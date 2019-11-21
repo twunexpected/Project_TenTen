@@ -17,27 +17,22 @@ public class Login_TestTitle extends JPanel{
 	private Login_MainFrame mf;
 	private JPanel login_TestTitle;
 	public Login_TestTitle(Login_MainFrame mf) {
-		
 		login_TestTitle = this;
-		
 		
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 
-		
 		//본문
 		JLabel mesege1 = new JLabel("<html> 가입이 완료되었습니다..<br/> 레벨 테스트 주제를 선택하세요. <html/>");
 		mesege1.setBounds(80, 20, 250, 100);
 		mesege1.setFont(new Font("고딕", Font.BOLD, 15));
-
 		
 		//copyRights
 		JLabel copyRights = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		copyRights.setBounds(60, 600, 400, 50);
 		copyRights.setFont(new Font("고딕", Font.BOLD, 13));
-
 		
 		//Circle
 		Image Circle1 = new ImageIcon("Images/테스트주제(요리).PNG").getImage().getScaledInstance(150, 150, 0);

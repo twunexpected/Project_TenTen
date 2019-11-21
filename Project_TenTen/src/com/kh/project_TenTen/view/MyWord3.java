@@ -21,6 +21,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.kh.project_TenTen.model.dao.MemberDao;
+
 
 public class MyWord3 extends JPanel {
 	private Login_MainFrame mf;	
@@ -40,7 +42,7 @@ public class MyWord3 extends JPanel {
 		String[] arr = null; 
 		BufferedReader br=null;
 		try {
-			br = new BufferedReader(new FileReader("단어추가.txt"));
+			br = new BufferedReader(new FileReader(MemberDao.loginMember.getId()+"단어추가.txt"));
 		} catch (FileNotFoundException e1) {
 		} 
 		try {
@@ -138,9 +140,9 @@ public class MyWord3 extends JPanel {
 				BufferedWriter bo = null;
 
 				try{
-					bo = new BufferedWriter(new FileWriter("단어추가.txt"));
+					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"단어추가.txt"));
 					bo.write("");
-					bo = new BufferedWriter(new FileWriter("단어추가.txt",true));
+					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"단어추가.txt",true));
 					int row =table.getRowCount();
 					int col = table.getColumnCount();				
 					for(int i=0;i<row;i++) {
@@ -228,7 +230,7 @@ public class MyWord3 extends JPanel {
 				ChangePanel.changePanel(mf, MyWord3, new Test_Main(mf));
 			}
 		});
-
+ 
 		final JButton btnLeft5 = new JButton("<html>성장<br/>과정</html>");
 		btnLeft5.setBounds(0, 520, 80, 135);
 		btnLeft5.setForeground(new Color(255, 255, 225));

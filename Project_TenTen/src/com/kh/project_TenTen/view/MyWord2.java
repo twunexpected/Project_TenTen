@@ -21,6 +21,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.kh.project_TenTen.model.dao.MemberDao;
+
 
 public class MyWord2 extends JPanel{
 	private Login_MainFrame mf;
@@ -39,8 +41,8 @@ public class MyWord2 extends JPanel{
 		String s; 
 		String[] arr = null; 
 		BufferedReader br=null;
-		try {
-			br = new BufferedReader(new FileReader("비암기 단어.txt"));
+		try { 
+			br = new BufferedReader(new FileReader(MemberDao.loginMember.getId()+"비암기 단어.txt"));
 		} catch (FileNotFoundException e1) {
 		} 
 		try {
@@ -140,7 +142,7 @@ public class MyWord2 extends JPanel{
 				//DefaultTableModel m = (DefaultTableModel)table.getModel();
 				BufferedWriter bo = null;
 				try {
-					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt", true));
+					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"즐겨찾기 단어.txt", true));
 					int row=table.getSelectedRow();//사용자가 선택한 행
 					bo.write(((String) data[row][0])+"/");
 					bo.write(((String) data[row][1])+"/");

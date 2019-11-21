@@ -21,7 +21,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.kh.project_TenTen.model.dao.MemberDao;
 
+ 
 public class MyWord4 extends JPanel {
 	private Login_MainFrame mf;	
 	private JPanel MyWord4;
@@ -39,7 +41,7 @@ public class MyWord4 extends JPanel {
 		String[] arr = null; 
 		BufferedReader br=null;
 		try {
-			br = new BufferedReader(new FileReader("즐겨찾기 단어.txt"));
+			br = new BufferedReader(new FileReader(MemberDao.loginMember.getId()+"즐겨찾기 단어.txt"));
 		} catch (FileNotFoundException e1) {
 
 		} 
@@ -144,9 +146,9 @@ public class MyWord4 extends JPanel {
 				JOptionPane.showMessageDialog(null, "선택하신 단어가 삭제되었습니다.");		
 				BufferedWriter bo = null;
 				try{
-					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt"));
+					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"즐겨찾기 단어.txt"));
 					bo.write("");
-					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt",true));
+					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"즐겨찾기 단어.txt",true));
 					int row =table.getRowCount();
 					int col = table.getColumnCount();
 					System.out.println(row);

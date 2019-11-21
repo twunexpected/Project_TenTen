@@ -42,7 +42,6 @@ public class MyWord3 extends JPanel {
 		try {
 			br = new BufferedReader(new FileReader("단어추가.txt"));
 		} catch (FileNotFoundException e1) {
-
 		} 
 		try {
 			while ((s = br.readLine()) != null) { 

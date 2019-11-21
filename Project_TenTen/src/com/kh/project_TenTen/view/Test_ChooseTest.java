@@ -18,51 +18,44 @@ public class Test_ChooseTest extends JPanel {
 
 	public Test_ChooseTest(Login_MainFrame mf) {
 
-		
 		this.mf = mf;
 		Test_ChooseTest = this;
-
-//		this.setBounds(650, 100, 400, 700);
-//		this.setLayout(null);
 
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 
-		//상단 패널
-		JPanel panelTitle = new JPanel();
-		panelTitle.setBounds(130, 0, 200, 50);
+		//단어 추가 라벨
+		JLabel panelTitle = new JLabel("단어 Test");
+		panelTitle.setHorizontalAlignment(JLabel.CENTER);
+		panelTitle.setForeground(Color.white);
+		panelTitle.setLocation(120, 0);
+		panelTitle.setSize(230, 50);
+		panelTitle.setFont(new Font("고딕",Font.BOLD,20));
+		panelTitle.setOpaque(true);
 		panelTitle.setBackground(new Color(36, 107, 220));
-		this.setLayout(null);
-
-		//상단 박스
-		JLabel lableTitle = new JLabel("단어 Test");
-		lableTitle.setBounds(180, 0, 100, 50);
-		lableTitle.setForeground(new Color(255, 255, 225));
-		lableTitle.setFont(new Font("Serif", Font.BOLD, 24));
-		this.setLayout(null);
 
 		//테스트버튼 3가지 유형 
 		JButton btnTest1 = new JButton("4지선다");
 		btnTest1.setBounds(150, 220, 180, 60);
 		btnTest1.setForeground(new Color(255, 255, 225));
 		btnTest1.setBackground(new Color(36, 107, 220));
-		btnTest1.setFont(new Font("Serif", Font.BOLD, 20));
+		btnTest1.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		JButton btnTest2 = new JButton("O/X 퀴즈");
 		btnTest2.setBounds(150, 300, 180, 60);
 		btnTest2.setForeground(new Color(255, 255, 225));
 		btnTest2.setBackground(new Color(36, 107, 220));
-		btnTest2.setFont(new Font("Serif", Font.BOLD, 20));
+		btnTest2.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		JButton btnTest3 = new JButton("스펠링 맞히기");
 		btnTest3.setBounds(150, 380, 180, 60);
 		btnTest3.setForeground(new Color(255, 255, 225));
 		btnTest3.setBackground(new Color(36, 107, 220));
-		btnTest3.setFont(new Font("Serif", Font.BOLD, 20));
+		btnTest3.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		//좌측 
@@ -91,35 +84,35 @@ public class Test_ChooseTest extends JPanel {
 		btnLeft1.setBounds(0, 0, 80, 120);
 		btnLeft1.setForeground(new Color(255, 255, 225));
 		btnLeft1.setBackground(new Color(36, 107, 220));
-		btnLeft1.setFont(new Font("Serif", Font.BOLD, 20));
+		btnLeft1.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		final JButton btnLeft2 = new JButton("<html>나의<br/>단어</html>");
 		btnLeft2.setBounds(0, 130, 80, 120);
 		btnLeft2.setForeground(new Color(255, 255, 225));
 		btnLeft2.setBackground(new Color(36, 107, 220));
-		btnLeft2.setFont(new Font("Serif", Font.BOLD, 20));
+		btnLeft2.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		final JButton btnLeft3 = new JButton("<html>단어<br/>추가</html>");
 		btnLeft3.setBounds(0, 260, 80, 120);
 		btnLeft3.setForeground(new Color(255, 255, 225));
 		btnLeft3.setBackground(new Color(36, 107, 220));
-		btnLeft3.setFont(new Font("Serif", Font.BOLD, 20));
+		btnLeft3.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		final JButton btnLeft4 = new JButton("<html>단어<br/>TEST</html>");
 		btnLeft4.setBounds(0, 390, 80, 120);
 		btnLeft4.setForeground(new Color(255, 255, 225));
 		btnLeft4.setBackground(new Color(36, 107, 220));
-		btnLeft4.setFont(new Font("Serif", Font.BOLD, 20));
+		btnLeft4.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		final JButton btnLeft5 = new JButton("<html>성장<br/>과정</html>");
 		btnLeft5.setBounds(0, 520, 80, 135);
 		btnLeft5.setForeground(new Color(255, 255, 225));
 		btnLeft5.setBackground(new Color(36, 107, 220));
-		btnLeft5.setFont(new Font("Serif", Font.BOLD, 20));
+		btnLeft5.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		//Copyrightsⓒ  비!뇨내과 All Rights reserved.
@@ -137,14 +130,16 @@ public class Test_ChooseTest extends JPanel {
 		//			}
 		//			
 		//		}
+
+
 		btnTest1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, Test_ChooseTest, new Test_Select4(mf));
 			}
 
-		});		
-		
+		});
+
 
 		btnTest2.addActionListener(new ActionListener() {
 			@Override
@@ -165,8 +160,59 @@ public class Test_ChooseTest extends JPanel {
 
 
 
+
+		btnLeft1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Test_ChooseTest, new MyPage(mf));				
+			}
+
+		});
+
+		btnLeft2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Test_ChooseTest, new MyWord1(mf));
+			}
+
+		});
+		btnLeft3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Test_ChooseTest, new AddWord(mf));
+			}
+
+		});
+
+		btnLeft4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Test_ChooseTest, new Test_Main(mf));
+			}
+
+		});
+
+
+
+		btnLeft5.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, Test_ChooseTest, new SeoungJang(mf));
+			}
+
+		});
+
+
+
+
+
 		this.add(buttomText);
-		
+
 		this.add(panelLeft1);
 		this.add(panelLeft2);
 		this.add(panelLeft3);
@@ -182,7 +228,6 @@ public class Test_ChooseTest extends JPanel {
 		this.add(btnTest2);
 		this.add(btnTest3);
 
-		this.add(lableTitle);
 		this.add(panelTitle);
 		mf.add(this);
 

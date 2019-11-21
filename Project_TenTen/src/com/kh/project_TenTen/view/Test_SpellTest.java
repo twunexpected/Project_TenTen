@@ -20,37 +20,35 @@ public class Test_SpellTest extends JPanel{
 
 	private Login_MainFrame mf;
 	private JPanel Test_SpellTest;
-	
-	
+
+
 	public Test_SpellTest(Login_MainFrame mf2) {
 
 		this.mf = mf2;
 		this.Test_SpellTest = this;
-		
+
 		//배경
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 
 
-		//상단제목 패널 "단어 TEST"
-		JPanel panelTitle = new JPanel();
-		panelTitle.setBounds(100, 0, 200, 50);
+		//단어 추가 라벨
+		JLabel panelTitle = new JLabel("단어 Test");
+		panelTitle.setHorizontalAlignment(JLabel.CENTER);
+		panelTitle.setForeground(Color.white);
+		panelTitle.setLocation(105, 0);
+		panelTitle.setSize(230, 50);
+		panelTitle.setFont(new Font("고딕",Font.BOLD,20));
+		panelTitle.setOpaque(true);
 		panelTitle.setBackground(new Color(36, 107, 220));
-
-		//상단 제목 "단어 TEST"
-		JLabel lbTop = new JLabel("단어 TEST");
-		lbTop.setBounds(150, 0, 200, 50);
-		lbTop.setSize(400, 45);
-		lbTop.setForeground(Color.WHITE);
-		lbTop.setFont(lbTop.getFont().deriveFont(22f));
 
 
 		// TEST 남은 단어 표시
 		// 단어 스펠링 배열 어떻게....??!
 		JTextField tfWord = new JTextField("1");
 		tfWord.setBounds(175,165, 30, 30);
-		tfWord.setFont(new Font("Serif", Font.BOLD, 20));
+		tfWord.setFont(new Font("고딕", Font.BOLD, 20));
 		tfWord.setBackground(new Color(255, 255, 225));
 		tfWord.setFont(tfWord.getFont().deriveFont(16.0f));
 		tfWord.setHorizontalAlignment(JTextField.RIGHT);
@@ -58,7 +56,7 @@ public class Test_SpellTest extends JPanel{
 
 		JLabel lbNumber = new JLabel("/10");
 		lbNumber.setBounds(210, 150, 60, 60);
-		lbNumber.setFont(new Font("Serif", Font.BOLD, 20)); // 굵은 폰트
+		lbNumber.setFont(new Font("고딕", Font.BOLD, 20)); // 굵은 폰트
 		lbNumber.setFont(lbNumber.getFont().deriveFont(16.0f));
 		this.setLayout(null);
 
@@ -66,7 +64,7 @@ public class Test_SpellTest extends JPanel{
 		// TEST 노출단어 표시 -> JtextField 로 변경 !!!!! 
 		JTextField lbVoca = new JTextField("Explain");
 		lbVoca.setBounds(50, 220, 300, 100);
-		lbVoca.setFont(new Font(" ", Font.BOLD, 10)); // 굵은 폰트
+		lbVoca.setFont(new Font("고딕", Font.BOLD, 10)); // 굵은 폰트
 		lbVoca.setFont(lbVoca.getFont().deriveFont(45.0f));
 		lbVoca.setHorizontalAlignment(JTextField.CENTER);
 
@@ -76,7 +74,7 @@ public class Test_SpellTest extends JPanel{
 		buttonNext.setBackground(new Color(36, 107, 220));
 		buttonNext.setFont(buttonNext.getFont().deriveFont(25.0f));
 		buttonNext.setHorizontalAlignment(JTextField.CENTER);
-		
+
 		//정답 입력창
 		JTextField tfAnswer = new JTextField("올바른 스펠링을 입력하세요."); 
 		tfAnswer.setBounds(65, 440, 280, 50);
@@ -87,7 +85,7 @@ public class Test_SpellTest extends JPanel{
 		//Copyrights ⓒ  비!뇨내과 All Rights reserved.
 		JLabel buttomText = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		buttomText.setBounds(60, 600, 400, 50);
-		buttomText.setFont(new Font("Serif", Font.BOLD, 13));
+		buttomText.setFont(new Font("고딕", Font.BOLD, 13));
 		this.setLayout(null);
 
 
@@ -96,12 +94,11 @@ public class Test_SpellTest extends JPanel{
 		this.add(lbVoca);
 		this.add(lbNumber);
 		this.add(tfWord);
-		this.add(lbTop);
 		this.add(panelTitle);
 		this.add(buttonNext);
 		mf2.add(this);
 
-		
+
 		buttonNext.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -109,8 +106,8 @@ public class Test_SpellTest extends JPanel{
 			}
 
 		});
-		
-		
+
+
 
 		//패널에 이벤트 추가
 		//		buttonO.addMouseListener(new MouseAdapter() {

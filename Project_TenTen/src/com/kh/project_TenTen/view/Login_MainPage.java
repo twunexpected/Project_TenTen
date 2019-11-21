@@ -111,7 +111,7 @@ public class Login_MainPage extends JPanel{
 		
 		findIdLab.addMouseListener(new MouseAdapter() {
 			 public void mouseClicked(MouseEvent e) {
-				 ChangePanel.changePanel(mf, mainPage, new Login_FindID(mf));
+				 ChangePanel.changePanel(mf, mainPage, new Login_FindID1(mf));
 			 }
 			
 		});

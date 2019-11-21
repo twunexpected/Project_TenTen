@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -35,8 +36,7 @@ public class MyPage extends JPanel {
 		this.setLayout(null);
 		this.setBackground(new Color(123, 185, 237));
 		mf.add(this);  
-
-
+		
 		//마이페이지중앙상단라벨
 		JPanel Above = new JPanel();
 		Above.setBackground(new Color(36, 107, 220));
@@ -46,7 +46,6 @@ public class MyPage extends JPanel {
 		mp.setBounds(70, 0, 200, 50);
 		mp.setForeground(Color.WHITE);
 		mp.setFont(new Font("고딕",Font.BOLD,20));
-
 
 		Above.add(mp);
 		this.add(Above);
@@ -60,6 +59,80 @@ public class MyPage extends JPanel {
 		logOutBtn.setFont(new Font("고딕", Font.BOLD, 17));
 		this.add(logOutBtn);
 		
+		JButton changePassBtn = new JButton("비밀번호변경");
+		changePassBtn.setForeground(Color.white);
+		changePassBtn.setBackground(new Color(36, 107, 220));
+		changePassBtn.setBounds(200,120,160,40);
+		changePassBtn.setFont(new Font("고딕", Font.BOLD, 17));
+		
+		this.add(changePassBtn);
+		
+		Dialog changePassDlog = new Dialog(mf, "비밀번호 변경 다이얼로그");
+		changePassDlog.setLayout(null);
+		changePassDlog.setBounds(300,500,350,350);
+		changePassDlog.setBackground(new Color(123, 185, 237));
+		
+		changePassBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				changePassDlog.setVisible(true);
+			}
+		});
+		
+		JLabel changePassLab = new JLabel("비밀번호 변경");
+		changePassLab.setBounds(110, 60, 300, 30);
+		changePassLab.setFont(new Font("고딕", Font.BOLD, 20));
+		changePassLab.setForeground(Color.white);
+		changePassDlog.add(changePassLab);
+		
+		JPasswordField changePassTxF = new JPasswordField();
+		changePassTxF.setSize(150, 40);
+		changePassTxF.setLocation(100, 120);
+		changePassDlog.add(changePassTxF);
+		
+		JButton ChangePYesBtn = new JButton("네");
+		ChangePYesBtn.setBounds(75, 200, 90, 30);
+		ChangePYesBtn.setFont(new Font("고딕", Font.BOLD, 17));
+		ChangePYesBtn.setForeground(Color.white);
+		ChangePYesBtn.setBackground(new Color(36, 107, 220));
+		changePassDlog.add(ChangePYesBtn);
+		ChangePYesBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(changePassTxF.getPassword().length >= 1) {
+					MemberDao md = new MemberDao();
+					char[] ch = new char[changePassTxF.getPassword().length];
+					for(int i = 0; i < ch.length; i++) {
+						ch[i] = changePassTxF.getPassword()[i];
+					}
+					md.loginMember.setPassword(ch);
+					JOptionPane.showMessageDialog(null, "비밀번호 변경이 완료되었습니다.");
+					changePassDlog.dispose();
+					System.out.println("변경이완료되었습니다.");
+				}else {
+					JOptionPane.showMessageDialog(null, "변경할 비밀번호를 입력해주세요." );
+				}
+				
+			}
+		});
+
+		JButton ChangePNoBtn = new JButton("아니오");
+		ChangePNoBtn.setBounds(185, 200, 90, 30);
+		ChangePNoBtn.setFont(new Font("고딕", Font.BOLD, 17));
+		ChangePNoBtn.setForeground(Color.white);
+		ChangePNoBtn.setBackground(new Color(36, 107, 220));
+		changePassDlog.add(ChangePNoBtn);
+		ChangePNoBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				changePassDlog.dispose();
+			}
+		});
+		
+//		------------------------------------------------------ 작업해야함
 		
 		//로그아웃 다이얼로그
 		Dialog logOutDlog = new Dialog(mf,"로그아웃 다이얼로그");

@@ -38,7 +38,7 @@ public class Test_gotTenTen extends JPanel{
 		JLabel panelTitle = new JLabel("ÅÙÅÙ È¹µæ");
 		panelTitle.setHorizontalAlignment(JLabel.CENTER);
 		panelTitle.setForeground(Color.white);
-		panelTitle.setLocation(95, 0);
+		panelTitle.setLocation(95, 5);
 		panelTitle.setSize(230, 50);
 		panelTitle.setFont(new Font("°íµñ",Font.BOLD,20));
 		panelTitle.setOpaque(true);
@@ -49,7 +49,7 @@ public class Test_gotTenTen extends JPanel{
 		tentenPoint.setBounds(100, 500, 200, 60);
 		tentenPoint.setBackground(new Color(36, 107, 220));
 		tentenPoint.setFont(new Font("°íµñ",Font.BOLD,22));
-//		tentenPoint.setFont(tentenPoint.getFont().deriveFont(25.0f));
+		//		tentenPoint.setFont(tentenPoint.getFont().deriveFont(25.0f));
 		this.setLayout(null);
 
 		//		JButton buttonNext = new JButton("º¸À¯ ÅÙÅÙ È®ÀÎ");
@@ -67,11 +67,12 @@ public class Test_gotTenTen extends JPanel{
 		testResult.setFont(new Font("°íµñ", Font.BOLD, 20));
 		this.setLayout(null);
 
-		//Copyrights ¨Ï  ºñ!´¢³»°ú All Rights reserved.
-		JLabel buttomText = new JLabel("Copyrights ¨Ï  ºñ!´¢³»°ú All Rights reserved.");
-		buttomText.setBounds(60, 600, 400, 50);
-		buttomText.setFont(new Font("°íµñ", Font.BOLD, 13));
+		//Ä«ÇÇ¶óÀÌÆ®
+		JLabel naming = new JLabel("Copyrights ¨Ï   ºñ!´¢³»°ú All Rights reserved.");
+		naming.setBounds(90, 600, 400, 50);
+		naming.setFont(new Font("°íµñ", Font.BOLD, 13));
 		this.setLayout(null);
+		
 
 
 		tentenPoint.addActionListener(new ActionListener() {
@@ -86,7 +87,7 @@ public class Test_gotTenTen extends JPanel{
 
 		this.add(tentenPoint);
 		this.add(testResult);
-		this.add(buttomText);
+		this.add(naming);
 		this.add(panelTitle);
 		mf.add(this);
 

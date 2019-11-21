@@ -37,7 +37,7 @@ public class Test_SpellTest extends JPanel{
 		JLabel panelTitle = new JLabel("단어 Test");
 		panelTitle.setHorizontalAlignment(JLabel.CENTER);
 		panelTitle.setForeground(Color.white);
-		panelTitle.setLocation(105, 0);
+		panelTitle.setLocation(100, 5);
 		panelTitle.setSize(230, 50);
 		panelTitle.setFont(new Font("고딕",Font.BOLD,20));
 		panelTitle.setOpaque(true);
@@ -64,7 +64,7 @@ public class Test_SpellTest extends JPanel{
 		// TEST 노출단어 표시 -> JtextField 로 변경 !!!!! 
 		JTextField lbVoca = new JTextField("Explain");
 		lbVoca.setBounds(50, 220, 300, 100);
-		lbVoca.setFont(new Font("고딕", Font.BOLD, 10)); // 굵은 폰트
+		lbVoca.setFont(new Font("고딕", Font.BOLD, 10));
 		lbVoca.setFont(lbVoca.getFont().deriveFont(45.0f));
 		lbVoca.setHorizontalAlignment(JTextField.CENTER);
 
@@ -72,7 +72,7 @@ public class Test_SpellTest extends JPanel{
 		JButton buttonNext = new JButton("다음");
 		buttonNext.setBounds(140, 500, 140, 50);
 		buttonNext.setBackground(new Color(36, 107, 220));
-		buttonNext.setFont(buttonNext.getFont().deriveFont(25.0f));
+		lbVoca.setFont(new Font("고딕", Font.BOLD, 22));
 		buttonNext.setHorizontalAlignment(JTextField.CENTER);
 
 		//정답 입력창
@@ -82,15 +82,15 @@ public class Test_SpellTest extends JPanel{
 		tfAnswer.setHorizontalAlignment(JTextField.CENTER);
 
 
-		//Copyrights ⓒ  비!뇨내과 All Rights reserved.
-		JLabel buttomText = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
-		buttomText.setBounds(60, 600, 400, 50);
-		buttomText.setFont(new Font("고딕", Font.BOLD, 13));
+		//카피라이트
+		JLabel naming = new JLabel("Copyrights ⓒ   비!뇨내과 All Rights reserved.");
+		naming.setBounds(90, 600, 400, 50);
+		naming.setFont(new Font("고딕", Font.BOLD, 13));
 		this.setLayout(null);
 
 
 		this.add(tfAnswer);
-		this.add(buttomText);
+		this.add(naming);
 		this.add(lbVoca);
 		this.add(lbNumber);
 		this.add(tfWord);

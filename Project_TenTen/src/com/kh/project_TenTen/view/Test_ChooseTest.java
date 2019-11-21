@@ -30,11 +30,12 @@ public class Test_ChooseTest extends JPanel {
 		JLabel panelTitle = new JLabel("단어 Test");
 		panelTitle.setHorizontalAlignment(JLabel.CENTER);
 		panelTitle.setForeground(Color.white);
-		panelTitle.setLocation(120, 0);
+		panelTitle.setLocation(120, 5);
 		panelTitle.setSize(230, 50);
 		panelTitle.setFont(new Font("고딕",Font.BOLD,20));
 		panelTitle.setOpaque(true);
 		panelTitle.setBackground(new Color(36, 107, 220));
+		
 
 		//테스트버튼 3가지 유형 
 		JButton btnTest1 = new JButton("4지선다");
@@ -115,10 +116,10 @@ public class Test_ChooseTest extends JPanel {
 		btnLeft5.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
-		//Copyrightsⓒ  비!뇨내과 All Rights reserved.
-		JLabel buttomText = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
-		buttomText.setBounds(110, 600, 400, 50);
-		this.setLayout(null);
+		//카피라이트
+		JLabel naming = new JLabel("Copyrights ⓒ   비!뇨내과 All Rights reserved.");
+		naming.setBounds(90, 600, 400, 50);
+		naming.setFont(new Font("고딕", Font.BOLD, 13));
 
 
 
@@ -211,7 +212,7 @@ public class Test_ChooseTest extends JPanel {
 
 
 
-		this.add(buttomText);
+		this.add(naming);
 
 		this.add(panelLeft1);
 		this.add(panelLeft2);

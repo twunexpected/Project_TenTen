@@ -18,7 +18,6 @@ import javax.swing.JTextField;
 
 public class Test_SpellTest extends JPanel{
 
-	
 	private Login_MainFrame mf;
 	private JPanel Test_SpellTest;
 
@@ -132,7 +131,7 @@ public class Test_SpellTest extends JPanel{
 					tfWord.setText(Integer.valueOf(index+1).toString());
 				}catch(Exception e1){
 					if(index >= 10) {
-						ChangePanel.changePanel(mf2, Test_SpellTest, new Test_TestPopup(mf2));
+						ChangePanel.changePanel(mf2, Test_SpellTest, new SeoungJang(mf2));
 					}
 				}
 			}

@@ -24,7 +24,6 @@ public class Test_Main extends JPanel {
 	private Login_MainFrame mf;
 	private JPanel Test_Main;
 
-	
 	WordDao wd = new WordDao();
 	String[] spellStr = null;	//단어 스펠링
 	String[] meanStr = null;	//뜻
@@ -32,7 +31,7 @@ public class Test_Main extends JPanel {
 
 	public static Word[] word = null;
 	
-	//int MainIndex;
+//	static int MainIndex;
 
 	char [] checkAns = null;
 	
@@ -163,10 +162,7 @@ public class Test_Main extends JPanel {
 		
 		
 		
-		//********* To do ********
-		//메인에서 10개 단어 넘기면 버튼클릭 가능하게 아니면 다이얼로그 메시지 경고창 
-		
-		btnCenter.addActionListener(new ActionListener() {//익명
+		btnCenter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(MainPage.MainIndex == 10) {

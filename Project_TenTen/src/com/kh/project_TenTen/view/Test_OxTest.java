@@ -21,11 +21,10 @@ import com.kh.project_TenTen.model.vo.Word;
 
 public class Test_OxTest extends JPanel {
 
-	
 	private Login_MainFrame mf;
 	private JPanel Test_OxTest;
 
-
+	
 
 	WordDao wd = new WordDao();
 	String[] spellStr = null;	//´Ü¾î ½ºÆç¸µ

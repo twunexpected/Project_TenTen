@@ -23,558 +23,558 @@ import com.kh.project_TenTen.controller.MemberController;
 import com.kh.project_TenTen.model.dao.MemberDao;
 
 public class MyPage extends JPanel {
-	
-	private Login_MainFrame mf;
-	private JPanel MyPage;
-	MemberController mc = new MemberController();
-			
-	public MyPage(Login_MainFrame mf) {
-		this.mf = mf;
-		MyPage = this;
-		
-		this.setSize(400, 700);
-		this.setLayout(null);
-		this.setBackground(new Color(123, 185, 237));
-		mf.add(this);  
-		
-		//ï§ë‰ì” ï¿½ëŸ¹ï¿½ì” ï§žï¿½ä»¥ë¬’ë¸°ï¿½ê¸½ï¿½ë–’ï¿½ì”ªè¸°ï¿½
-		JPanel Above = new JPanel();
-		Above.setBackground(new Color(36, 107, 220));
-		Above.setSize(220, 50);
-		Above.setLocation(120, 5);
-		JLabel mp= new JLabel("ë§ˆì´íŽ˜ì´ì§€");
-		mp.setBounds(70, 0, 200, 50);
-		mp.setForeground(Color.WHITE);
-		mp.setFont(new Font("ê³ ë”•",Font.BOLD,20));
+   
+   private Login_MainFrame mf;
+   private JPanel MyPage;
+   MemberController mc = new MemberController();
+         
+   public MyPage(Login_MainFrame mf) {
+      this.mf = mf;
+      MyPage = this;
+      
+      this.setSize(400, 700);
+      this.setLayout(null);
+      this.setBackground(new Color(123, 185, 237));
+      mf.add(this);  
+      
+      //¸¶ÀÌÆäÀÌÁöÁß¾Ó»ó´Ü¶óº§
+      JPanel Above = new JPanel();
+      Above.setBackground(new Color(36, 107, 220));
+      Above.setSize(220, 50);
+      Above.setLocation(120, 5);
+      JLabel mp= new JLabel("¸¶ÀÌÆäÀÌÁö");
+      mp.setBounds(70, 0, 200, 50);
+      mp.setForeground(Color.WHITE);
+      mp.setFont(new Font("°íµñ",Font.BOLD,20));
 
-		Above.add(mp);
-		this.add(Above);
-		
-		//ï¿½ë•³ï¿½ê½•ï¿½ì—«è¹‚ï¿½å¯ƒï¿½ è¸°ê¾ªë“‰ï§â‘¥ë¼‡ ï¿½ë™£ï¿½ê¼¸ add
+      Above.add(mp);
+      this.add(Above);
+      
+      //´Ð³×ÀÓº¯°æ ¹öÆ°¸ð¾ç ÆÐ³Î add
 
-		JButton logOutBtn = new JButton("ë¡œê·¸ì•„ì›ƒ");
-		logOutBtn.setForeground(Color.white);
-		logOutBtn.setBackground(new Color(36, 107, 220));
-		logOutBtn.setBounds(250,70,110,40);
-		logOutBtn.setFont(new Font("ê³ ë”•", Font.BOLD, 17));
-		this.add(logOutBtn);
-		
-		JButton changePassBtn = new JButton("ë¹„ë°€ë²ˆí˜¸ ë³€ê²½");
-		changePassBtn.setForeground(Color.white);
-		changePassBtn.setBackground(new Color(36, 107, 220));
-		changePassBtn.setBounds(200,120,160,40);
-		changePassBtn.setFont(new Font("ê³ ë”•", Font.BOLD, 17));
-		
-		this.add(changePassBtn);
-		
-		Dialog changePassDlog = new Dialog(mf, "é®ê¾¨ï¿½è¸°ëŠìƒ‡ è¹‚ï¿½å¯ƒï¿½ ï¿½ë–Žï¿½ì” ï¿½ë¼¹æ¿¡ì’“ë ‡");
-		changePassDlog.setLayout(null);
-		changePassDlog.setBounds(300,500,350,350);
-		changePassDlog.setBackground(new Color(123, 185, 237));
-		
-		changePassBtn.addActionListener(new ActionListener() {
+      JButton logOutBtn = new JButton("·Î±×¾Æ¿ô");
+      logOutBtn.setForeground(Color.white);
+      logOutBtn.setBackground(new Color(36, 107, 220));
+      logOutBtn.setBounds(250,70,110,40);
+      logOutBtn.setFont(new Font("°íµñ", Font.BOLD, 17));
+      this.add(logOutBtn);
+      
+      JButton changePassBtn = new JButton("ºñ¹Ð¹øÈ£º¯°æ");
+      changePassBtn.setForeground(Color.white);
+      changePassBtn.setBackground(new Color(36, 107, 220));
+      changePassBtn.setBounds(200,120,160,40);
+      changePassBtn.setFont(new Font("°íµñ", Font.BOLD, 17));
+      
+      this.add(changePassBtn);
+      
+      Dialog changePassDlog = new Dialog(mf, "ºñ¹Ð¹øÈ£ º¯°æ ´ÙÀÌ¾ó·Î±×");
+      changePassDlog.setLayout(null);
+      changePassDlog.setBounds(300,500,350,350);
+      changePassDlog.setBackground(new Color(123, 185, 237));
+      
+      changePassBtn.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				changePassDlog.setVisible(true);
-			}
-		});
-		
-		JLabel changePassLab = new JLabel("é®ê¾¨ï¿½è¸°ëŠìƒ‡ è¹‚ï¿½å¯ƒï¿½");
-		changePassLab.setBounds(110, 60, 300, 30);
-		changePassLab.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 20));
-		changePassLab.setForeground(Color.white);
-		changePassDlog.add(changePassLab);
-		
-		JPasswordField changePassTxF = new JPasswordField();
-		changePassTxF.setSize(150, 40);
-		changePassTxF.setLocation(100, 120);
-		changePassDlog.add(changePassTxF);
-		
-		JButton ChangePYesBtn = new JButton("ï¿½ê½•");
-		ChangePYesBtn.setBounds(75, 200, 90, 30);
-		ChangePYesBtn.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		ChangePYesBtn.setForeground(Color.white);
-		ChangePYesBtn.setBackground(new Color(36, 107, 220));
-		changePassDlog.add(ChangePYesBtn);
-		ChangePYesBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(changePassTxF.getPassword().length >= 1) {
-					MemberDao md = new MemberDao();
-					char[] ch = new char[changePassTxF.getPassword().length];
-					for(int i = 0; i < ch.length; i++) {
-						ch[i] = changePassTxF.getPassword()[i];
-					}
-					md.loginMember.setPassword(ch);
-					JOptionPane.showMessageDialog(null, "é®ê¾¨ï¿½è¸°ëŠìƒ‡ è¹‚ï¿½å¯ƒìŽŒì”  ï¿½ì…¿çŒ·ëš®ë¦ºï¿½ë¿€ï¿½ë’¿ï¿½ë•²ï¿½ë–Ž.");
-					changePassDlog.dispose();
-					System.out.println("è¹‚ï¿½å¯ƒìŽŒì” ï¿½ì…¿çŒ·ëš®ë¦ºï¿½ë¿€ï¿½ë’¿ï¿½ë•²ï¿½ë–Ž.");
-				}else {
-					JOptionPane.showMessageDialog(null, "è¹‚ï¿½å¯ƒì€ë¸· é®ê¾¨ï¿½è¸°ëŠìƒ‡ç‘œï¿½ ï¿½ì—¯ï¿½ì °ï¿½ë¹äºŒì‡±ê½­ï¿½ìŠ‚." );
-				}
-				
-			}
-		});
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            changePassDlog.setVisible(true);
+         }
+      });
+      
+      JLabel changePassLab = new JLabel("ºñ¹Ð¹øÈ£ º¯°æ");
+      changePassLab.setBounds(110, 60, 300, 30);
+      changePassLab.setFont(new Font("°íµñ", Font.BOLD, 20));
+      changePassLab.setForeground(Color.white);
+      changePassDlog.add(changePassLab);
+      
+      JPasswordField changePassTxF = new JPasswordField();
+      changePassTxF.setSize(150, 40);
+      changePassTxF.setLocation(100, 120);
+      changePassDlog.add(changePassTxF);
+      
+      JButton ChangePYesBtn = new JButton("³×");
+      ChangePYesBtn.setBounds(75, 200, 90, 30);
+      ChangePYesBtn.setFont(new Font("°íµñ", Font.BOLD, 17));
+      ChangePYesBtn.setForeground(Color.white);
+      ChangePYesBtn.setBackground(new Color(36, 107, 220));
+      changePassDlog.add(ChangePYesBtn);
+      ChangePYesBtn.addActionListener(new ActionListener() {
+         
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            if(changePassTxF.getPassword().length >= 1) {
+               MemberDao md = new MemberDao();
+               char[] ch = new char[changePassTxF.getPassword().length];
+               for(int i = 0; i < ch.length; i++) {
+                  ch[i] = changePassTxF.getPassword()[i];
+               }
+               md.loginMember.setPassword(ch);
+               JOptionPane.showMessageDialog(null, "ºñ¹Ð¹øÈ£ º¯°æÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+               changePassDlog.dispose();
+               System.out.println("º¯°æÀÌ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+            }else {
+               JOptionPane.showMessageDialog(null, "º¯°æÇÒ ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." );
+            }
+            
+         }
+      });
 
-		JButton ChangePNoBtn = new JButton("ï¿½ë¸˜ï¿½ë•²ï¿½ì‚¤");
-		ChangePNoBtn.setBounds(185, 200, 90, 30);
-		ChangePNoBtn.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		ChangePNoBtn.setForeground(Color.white);
-		ChangePNoBtn.setBackground(new Color(36, 107, 220));
-		changePassDlog.add(ChangePNoBtn);
-		ChangePNoBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				changePassDlog.dispose();
-			}
-		});
-		
-//		------------------------------------------------------ ï¿½ì˜‰ï¿½ë¾½ï¿½ë¹ï¿½ë¹žï¿½ë¸¿
-		
-		//æ¿¡ì’“ë ‡ï¿½ë¸˜ï¿½ì ï¿½ë–Žï¿½ì” ï¿½ë¼¹æ¿¡ì’“ë ‡
-		Dialog logOutDlog = new Dialog(mf,"æ¿¡ì’“ë ‡ï¿½ë¸˜ï¿½ì ï¿½ë–Žï¿½ì” ï¿½ë¼¹æ¿¡ì’“ë ‡");
-		logOutDlog.setLayout(null);
-		logOutDlog.setBounds(300,500,300,300);
-		logOutDlog.setBackground(new Color(123, 185, 237));
-		
-		//è¸°ê¾ªë“‰ï¿½ê²¢ç”±ï¿½ï¿½ë–† ï¿½ë–Žï¿½ì” ï¿½ë¼¹æ¿¡ì’“ë ‡ ï¿½ë‚ç•°ï¿½
-		logOutBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				logOutDlog.setVisible(true);
-			}
-		});
-		
-		JLabel logOutMLab = new JLabel("æ¿¡ì’“ë ‡ï¿½ë¸˜ï¿½ì ï¿½ë¸¯ï¿½ë–†å¯ƒì¢Žë’¿ï¿½ë•²æºï¿½?");
-		logOutMLab.setBounds(50, 100, 300, 30);
-		logOutMLab.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		logOutMLab.setForeground(Color.white);
-		logOutDlog.add(logOutMLab);
-		
-		JButton logOutYesBtn = new JButton("ï¿½ê½•");
-		logOutYesBtn.setBounds(55, 200, 90, 30);
-		logOutYesBtn.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		logOutYesBtn.setForeground(Color.white);
-		logOutYesBtn.setBackground(new Color(36, 107, 220));
-		logOutYesBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mc.logoutMember();
-				logOutDlog.dispose();
-				ChangePanel.changePanel(mf, MyPage, new Login_MainPage(mf));
-			}
-		});
+      JButton ChangePNoBtn = new JButton("¾Æ´Ï¿À");
+      ChangePNoBtn.setBounds(185, 200, 90, 30);
+      ChangePNoBtn.setFont(new Font("°íµñ", Font.BOLD, 17));
+      ChangePNoBtn.setForeground(Color.white);
+      ChangePNoBtn.setBackground(new Color(36, 107, 220));
+      changePassDlog.add(ChangePNoBtn);
+      ChangePNoBtn.addActionListener(new ActionListener() {
+         
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            changePassDlog.dispose();
+         }
+      });
+      
+//      ------------------------------------------------------ ÀÛ¾÷ÇØ¾ßÇÔ
+      
+      //·Î±×¾Æ¿ô ´ÙÀÌ¾ó·Î±×
+      Dialog logOutDlog = new Dialog(mf,"·Î±×¾Æ¿ô ´ÙÀÌ¾ó·Î±×");
+      logOutDlog.setLayout(null);
+      logOutDlog.setBounds(300,500,300,300);
+      logOutDlog.setBackground(new Color(123, 185, 237));
+      
+      //¹öÆ°Å¬¸¯½Ã ´ÙÀÌ¾ó·Î±× ³ëÃâ
+      logOutBtn.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            logOutDlog.setVisible(true);
+         }
+      });
+      
+      JLabel logOutMLab = new JLabel("·Î±×¾Æ¿ô ÇÏ½Ã°Ú½À´Ï±î?");
+      logOutMLab.setBounds(50, 100, 300, 30);
+      logOutMLab.setFont(new Font("°íµñ", Font.BOLD, 17));
+      logOutMLab.setForeground(Color.white);
+      logOutDlog.add(logOutMLab);
+      
+      JButton logOutYesBtn = new JButton("³×");
+      logOutYesBtn.setBounds(55, 200, 90, 30);
+      logOutYesBtn.setFont(new Font("°íµñ", Font.BOLD, 17));
+      logOutYesBtn.setForeground(Color.white);
+      logOutYesBtn.setBackground(new Color(36, 107, 220));
+      logOutYesBtn.addActionListener(new ActionListener() {
+         
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            mc.logoutMember();
+            logOutDlog.dispose();
+            ChangePanel.changePanel(mf, MyPage, new Login_MainPage(mf));
+         }
+      });
 
-		JButton logOutNoBtn = new JButton("ï¿½ë¸˜ï¿½ë•²ï¿½ì‚¤");
-		logOutNoBtn.setBounds(165, 200, 90, 30);
-		logOutNoBtn.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		logOutNoBtn.setForeground(Color.white);
-		logOutNoBtn.setBackground(new Color(36, 107, 220));
-		logOutNoBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				logOutDlog.dispose();
-			}
-		});
-		
-		logOutDlog.add(logOutYesBtn);
-		logOutDlog.add(logOutNoBtn);
-		
-		//ï¿½ë¸˜ï¿½ì” ï¿½ëµ’ï¿½ì”ªè¸°ï¿½
-		JLabel ID = new JLabel("ï¿½ë¸˜ï¿½ì” ï¿½ëµ’ :");
-		ID.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		ID.setBackground(new Color(2, 234, 23));
-		ID.setBounds(120, 165, 115, 40);
-		this.add(ID);
+      JButton logOutNoBtn = new JButton("¾Æ´Ï¿À");
+      logOutNoBtn.setBounds(165, 200, 90, 30);
+      logOutNoBtn.setFont(new Font("°íµñ", Font.BOLD, 17));
+      logOutNoBtn.setForeground(Color.white);
+      logOutNoBtn.setBackground(new Color(36, 107, 220));
+      logOutNoBtn.addActionListener(new ActionListener() {
+         
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            logOutDlog.dispose();
+         }
+      });
+      
+      logOutDlog.add(logOutYesBtn);
+      logOutDlog.add(logOutNoBtn);
+      
+      //¾ÆÀÌµð¶óº§
+      JLabel ID = new JLabel("¾ÆÀÌµð :");
+      ID.setFont(new Font("°íµñ",Font.PLAIN,19));
+      ID.setBackground(new Color(2, 234, 23));
+      ID.setBounds(120, 165, 115, 40);
+      this.add(ID);
 
-		//ï¿½ì—¯ï¿½ì °è«›ì†ï¿½ï¿½ë¸˜ï¿½ì” ï¿½ëµ’
-		JLabel userID = new JLabel(MemberDao.loginMember.getId());
-		userID.setBackground(new Color(123,185,237));
-		userID.setBounds(205, 165, 115, 40);
-		userID.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(userID);
+      //ÀÔ·Â¹ÞÀº¾ÆÀÌµð
+      JLabel userID = new JLabel(MemberDao.loginMember.getId());
+      userID.setBackground(new Color(123,185,237));
+      userID.setBounds(205, 165, 115, 40);
+      userID.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(userID);
 
-		//ï¿½ë•³ï¿½ê½•ï¿½ì—«ï¿½ì”ªè¸°ï¿½
-		JLabel nickName = new JLabel("ï¿½ë•³ï¿½ê½•ï¿½ì—« :");
-		nickName.setBounds(120, 207, 115, 40);
-		nickName.setBackground(new Color(123, 185, 237));
-		nickName.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(nickName);
+      //´Ð³×ÀÓ¶óº§
+      JLabel nickName = new JLabel("´Ð³×ÀÓ :");
+      nickName.setBounds(120, 207, 115, 40);
+      nickName.setBackground(new Color(123, 185, 237));
+      nickName.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(nickName);
 
-		//ï¿½ì—¯ï¿½ì °è«›ì†ï¿½ ï¿½ë•³ï¿½ê½•ï¿½ì—«
-		JLabel userNickName = new JLabel(MemberDao.loginMember.getNickname());
-		userNickName.setBackground(new Color(123,185,237));
-		userNickName.setBounds(205, 207, 115, 40);
-		userNickName.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(userNickName);
+      //ÀÔ·Â¹ÞÀº ´Ð³×ÀÓ
+      JLabel userNickName = new JLabel(MemberDao.loginMember.getNickname());
+      userNickName.setBackground(new Color(123,185,237));
+      userNickName.setBounds(205, 207, 115, 40);
+      userNickName.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(userNickName);
 
-		//ï¿½êµ¹ï¿½ì“½ï¿½ì …è¸°ï¿½ : 
-		JLabel myLevel = new JLabel("ï¿½êµ¹ï¿½ì“½ ï¿½ì …è¸°ï¿½ :");
-		myLevel.setBackground(new Color(123, 185, 237));
-		myLevel.setSize(115, 40);
-		myLevel.setLocation(100,255);
-		myLevel.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(myLevel);
+      //³ªÀÇ·¹º§ : 
+      JLabel myLevel = new JLabel("³ªÀÇ ·¹º§ :");
+      myLevel.setBackground(new Color(123, 185, 237));
+      myLevel.setSize(115, 40);
+      myLevel.setLocation(100,255);
+      myLevel.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(myLevel);
 
-		//ï¿½ì‘€ï¿½ï¿½ï¿½ì …è¸°ï¿½
-		JLabel userMyLevel = new JLabel(String.valueOf(MemberDao.loginMember.getLevel()));
-		userMyLevel.setBackground(new Color(123,185,237));
-		userMyLevel.setSize(110, 40);
-		userMyLevel.setLocation(230,255);
-		userMyLevel.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(userMyLevel);
+      //À¯Àú·¹º§
+      JLabel userMyLevel = new JLabel(String.valueOf(MemberDao.loginMember.getLevel()));
+      userMyLevel.setBackground(new Color(123,185,237));
+      userMyLevel.setSize(110, 40);
+      userMyLevel.setLocation(230,255);
+      userMyLevel.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(userMyLevel);
 
-		//////////////////////////
+      //////////////////////////
 
-		//ï¿½ë–’ï¿½ë¼±ï¿½ì …è¸°ï¿½ : 
-		JLabel wLevel = new JLabel("ï¿½ë–’ï¿½ë¼± ï¿½ì …è¸°ï¿½ :");
-		wLevel.setBackground(new Color(123, 185, 237));
-		wLevel.setSize(115, 40);
-		wLevel.setLocation(100,305);
-		wLevel.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(wLevel);
+      //´Ü¾î·¹º§ : 
+      JLabel wLevel = new JLabel("´Ü¾î ·¹º§ :");
+      wLevel.setBackground(new Color(123, 185, 237));
+      wLevel.setSize(115, 40);
+      wLevel.setLocation(100,305);
+      wLevel.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(wLevel);
 
-		//ç¥ï¿½/ä»¥ï¿½/æ€¨ì¢‰íˆ’
-		JLabel userWdLevel = new JLabel(MemberDao.loginMember.getWordLevel());
-		userWdLevel.setBackground(new Color(123,185,237));
-		userWdLevel.setSize(120, 40);
-		userWdLevel.setLocation(220,305);
-		userWdLevel.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(userWdLevel);
+      //ÃÊ/Áß/°í±Þ
+      JLabel userWdLevel = new JLabel(MemberDao.loginMember.getWordLevel());
+      userWdLevel.setBackground(new Color(123,185,237));
+      userWdLevel.setSize(120, 40);
+      userWdLevel.setLocation(220,305);
+      userWdLevel.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(userWdLevel);
 
-		//////////////////////////
+      //////////////////////////
 
-		
-		
-		//è¹‚ëŒì‘€ï¿½ë€—ï¿½ë€—
-		JLabel ttCount = new JLabel("è¹‚ëŒì‘€ ï¿½ë€—ï¿½ë€— :");
-		ttCount.setBackground(new Color(123, 185, 237));
-		ttCount.setSize(115, 40);
-		ttCount.setLocation(100,355);
-		ttCount.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(ttCount);
+      
+      
+      //º¸À¯ÅÙÅÙ
+      JLabel ttCount = new JLabel("º¸À¯ ÅÙÅÙ :");
+      ttCount.setBackground(new Color(123, 185, 237));
+      ttCount.setSize(115, 40);
+      ttCount.setLocation(100,355);
+      ttCount.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(ttCount);
 
-		//ï¿½ì½ï¿½ì˜± ï¿½ë€—ï¿½ë€—åª›ì’–ë‹”
-		JLabel myttNow = new JLabel(String.valueOf(MemberDao.loginMember.getHaveTen()));
-		myttNow.setBackground(new Color(123,185,237));
-		myttNow.setSize(110, 40);
-		myttNow.setLocation(230,355);
-		myttNow.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(myttNow);
+      //ÇöÀç ÅÙÅÙ°³¼ö
+      JLabel myttNow = new JLabel(String.valueOf(MemberDao.loginMember.getHaveTen()));
+      myttNow.setBackground(new Color(123,185,237));
+      myttNow.setSize(110, 40);
+      myttNow.setLocation(230,355);
+      myttNow.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(myttNow);
 
-		//////////////////////////
+      //////////////////////////
 
-		/*//ï¿½ë¸°ï¿½ë’¿ï¿½ë–†ï¿½ì˜‰ï¿½ì”ª : 
-		JLabel ddCount = new JLabel("ï¿½ë¸°ï¿½ë’¿ï¿½ë–†ï¿½ì˜‰ï¿½ì”ª :") ;
-		ddCount.setSize(115, 40);
-		ddCount.setLocation(90,405);
-		ddCount.setBackground(new Color(123, 185, 237));
-		ddCount.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(ddCount);
+      /*//ÇÐ½À½ÃÀÛÀÏ : 
+      JLabel ddCount = new JLabel("ÇÐ½À½ÃÀÛÀÏ :") ;
+      ddCount.setSize(115, 40);
+      ddCount.setLocation(90,405);
+      ddCount.setBackground(new Color(123, 185, 237));
+      ddCount.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(ddCount);
 
-		//ï¿½ë–†ï¿½ì˜‰ï¿½ë¸³ Date
-		JLabel myddNow = new JLabel("yy.mm.dd");
-		myddNow.setBackground(new Color(123,185,237));
-		myddNow.setSize(110, 40);
-		myddNow.setLocation(205,405);
-		myddNow.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,19));
-		this.add(myddNow);*/
+      //½ÃÀÛÇÑ Date
+      JLabel myddNow = new JLabel("yy.mm.dd");
+      myddNow.setBackground(new Color(123,185,237));
+      myddNow.setSize(110, 40);
+      myddNow.setLocation(205,405);
+      myddNow.setFont(new Font("°íµñ",Font.PLAIN,19));
+      this.add(myddNow);*/
 
-		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//ï¿½ë•³ï¿½ê½•ï¿½ì—«è¹‚ï¿½å¯ƒìŽˆì¾­ï¿½ë“‰
-		JButton ncbButton = new JButton("è¹‚ï¿½å¯ƒï¿½") ;
-		ncbButton.setSize(60, 40);
-		ncbButton.setLocation(290,207);
-		ncbButton.setBackground(new Color(36, 107, 220));
-		ncbButton.setForeground(Color.WHITE);
-		ncbButton.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,12));
-		this.add(ncbButton);
-
-
-		//@@@@@@@@@@@@@@@@@@@@@ è¹‚ï¿½å¯ƒìŽˆì¾­ï¿½ë“‰ ï¿½ëŠ»ç‘œì‡±ë–† ï¿½ë™˜ï¿½ë¾½ï§¡ï¿½  @@@@@@@@@@@@@@@@@@@@@@@
-		//ï¿½ë™£ï¿½ê¼¸
-		//ï¿½ë–Žï¿½ì” ï¿½ë¼±æ¿¡ì’“ë ‡
-		Dialog changeNickDlog = new Dialog(mf,"ï¿½ë•³ï¿½ê½•ï¿½ì—« è¹‚ï¿½å¯ƒï¿½");
-		changeNickDlog.setLayout(null);
-		changeNickDlog.setBounds(300,500,400,400);
-		changeNickDlog.setBackground(new Color(123, 185, 237));
-//		changeNickDlog.setResizable(false);
-		
-		//ï¿½ë•³ï¿½ê½•ï¿½ì—«è¹‚ï¿½å¯ƒìŽˆì¾­ï¿½ë“‰ ï¿½ëŠ»ç‘œì‡±ë–† ï¿½ë™˜ï¿½ë¾½ï§¡ìŽˆì‘‰ï¿½ë’— ï¿½ì” è¸°ã…½ë“ƒ
-		ncbButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				changeNickDlog.setVisible(true);
-			}
-		});
-		//ï¿½ë•³ï¿½ê½•ï¿½ì—«è¹‚ï¿½å¯ƒï¿½ è¸°ê¾ªë“‰ï§â‘¥ë¼‡ ï¿½ë™£ï¿½ê¼¸ add
-		JPanel titlePan = new JPanel();
-		titlePan.setBounds(140,70,130,40);
-		titlePan.setBackground(new Color(36, 107, 220));
-		titlePan.setLayout(null);
-		changeNickDlog.add(titlePan);
-		
-		JLabel titleLab = new JLabel("ï¿½ë•³ï¿½ê½•ï¿½ì—«è¹‚ï¿½å¯ƒï¿½");
-		titleLab.setForeground(Color.white);
-		titleLab.setBounds(20,5,100,30);
-		titleLab.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		titlePan.add(titleLab);
-
-		JLabel oldLab = new JLabel("æ¹²ê³—ã€ˆ ï¿½ë•³ï¿½ê½•ï¿½ì—« : ");
-		oldLab.setSize(100, 30);
-		oldLab.setLocation(50, 150);
-		oldLab.setFont(new Font("æ€¨ì¢Šëµ“",Font.BOLD, 15));
-		changeNickDlog.add(oldLab);
-		
-		JLabel oldLab2 = new JLabel(MemberDao.loginMember.getNickname());
-		oldLab2.setSize(150, 30);
-		oldLab2.setLocation(160, 150);
-		oldLab2.setFont(new Font("æ€¨ì¢Šëµ“",Font.BOLD, 15));
-		changeNickDlog.add(oldLab2);
-		
-		JLabel newLab = new JLabel("è¹‚ï¿½å¯ƒì€ë¸· ï¿½ë•³ï¿½ê½•ï¿½ì—« : ");
-		newLab.setSize(130, 30);
-		newLab.setLocation(30, 200);
-		newLab.setFont(new Font("æ€¨ì¢Šëµ“",Font.BOLD, 15));
-		changeNickDlog.add(newLab);
-
-		JTextField newTxF = new JTextField();
-		newTxF.setSize(150, 30);
-		newTxF.setLocation(155, 200);
-		changeNickDlog.add(newTxF);
-		
-		//è¹‚ï¿½å¯ƒìŽŒì…¿çŒ·ëš®ì¾­ï¿½ë“‰
-		JButton finishBtn = new JButton("è¹‚ï¿½å¯ƒìŽŒì…¿çŒ·ï¿½");
-		finishBtn.setSize(100,50);
-		finishBtn.setLocation(90,280);
-		finishBtn.setForeground(Color.WHITE);
-		finishBtn.setBackground(new Color(36, 107, 220));
-		changeNickDlog.add(finishBtn);
-		
-		finishBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				MemberDao.loginMember.setNickname(newTxF.getText());
-				JOptionPane.showMessageDialog(null, "è¹‚ï¿½å¯ƒìŽŒì” ï¿½ì…¿çŒ·ëš®ë¦ºï¿½ë¿€ï¿½ë’¿ï¿½ë•²ï¿½ë–Ž.");
-				changeNickDlog.dispose();
-			}
-		});
-		
-		JButton backBtn = new JButton("ï¿½ë®˜æ¿¡ï¿½");
-		finishBtn.setSize(100,50);
-		finishBtn.setLocation(170,280);
-		finishBtn.setForeground(Color.WHITE);
-		finishBtn.setBackground(new Color(36, 107, 220));
-		changeNickDlog.add(finishBtn);
-		
-		finishBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				changeNickDlog.dispose();
-			}
-		});
+      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+      //´Ð³×ÀÓº¯°æ¹öÆ°
+      
+      JButton ncbButton = new JButton("º¯°æ") ;
+      ncbButton.setSize(60, 40);
+      ncbButton.setLocation(290,207);
+      ncbButton.setBackground(new Color(36, 107, 220));
+      ncbButton.setForeground(Color.WHITE);
+      ncbButton.setFont(new Font("°íµñ",Font.PLAIN,12));
+      this.add(ncbButton);
 
 
-		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+      //@@@@@@@@@@@@@@@@@@@@@ º¯°æ¹öÆ° ´©¸¦½Ã ÆË¾÷Ã¢  @@@@@@@@@@@@@@@@@@@@@@@
+      //ÆÐ³Î
+      //´ÙÀÌ¾î·Î±×
+      Dialog changeNickDlog = new Dialog(mf,"´Ð³×ÀÓ º¯°æ");
+      changeNickDlog.setLayout(null);
+      changeNickDlog.setBounds(300,500,400,400);
+      changeNickDlog.setBackground(new Color(123, 185, 237));
+//      changeNickDlog.setResizable(false);
+      
+      //´Ð³×ÀÓº¯°æ¹öÆ° ´©¸¦½Ã ÆË¾÷Ã¢¶ß´Â ÀÌº¥Æ®
+      ncbButton.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            changeNickDlog.setVisible(true);
+         }
+      });
+      //´Ð³×ÀÓº¯°æ ¹öÆ°¸ð¾ç ÆÐ³Î add
+      JPanel titlePan = new JPanel();
+      titlePan.setBounds(140,70,130,40);
+      titlePan.setBackground(new Color(36, 107, 220));
+      titlePan.setLayout(null);
+      changeNickDlog.add(titlePan);
+      
+      JLabel titleLab = new JLabel("´Ð³×ÀÓº¯°æ");
+      titleLab.setForeground(Color.white);
+      titleLab.setBounds(20,5,100,30);
+      titleLab.setFont(new Font("°íµñ", Font.BOLD, 17));
+      titlePan.add(titleLab);
 
-		//ï¿½ì‰¶ï¿½ìï¿½ê¹‰ï¿½ëˆœè¸°ê¾ªë“‰
-		JButton mdlButton = new JButton("ï¿½ì‰¶ï¿½ìï¿½ê¹‰ï¿½ëˆœ") ;
-		mdlButton.setBackground(new Color(123, 185, 237));
-		mdlButton.setSize(115, 50);
-		mdlButton.setLocation(175,450);
-		mdlButton.setBackground(new Color(36, 107, 220));
-		mdlButton.setForeground(Color.WHITE);
-		mdlButton.setFont(new Font("æ€¨ì¢Šëµ“",Font.PLAIN,18));
-		this.add(mdlButton);
+      JLabel oldLab = new JLabel("±âÁ¸ ´Ð³×ÀÓ : ");
+      oldLab.setSize(100, 30);
+      oldLab.setLocation(50, 150);
+      oldLab.setFont(new Font("°íµñ",Font.BOLD, 15));
+      changeNickDlog.add(oldLab);
+      
+      JLabel oldLab2 = new JLabel(MemberDao.loginMember.getNickname());
+      oldLab2.setSize(150, 30);
+      oldLab2.setLocation(160, 150);
+      oldLab2.setFont(new Font("°íµñ",Font.BOLD, 15));
+      changeNickDlog.add(oldLab2);
+      
+      JLabel newLab = new JLabel("º¯°æÇÒ ´Ð³×ÀÓ : ");
+      newLab.setSize(130, 30);
+      newLab.setLocation(30, 200);
+      newLab.setFont(new Font("°íµñ",Font.BOLD, 15));
+      changeNickDlog.add(newLab);
 
-
-		//ï¿½ê¹‰ï¿½ëˆœï§¡ï¿½ ï¿½ë–Žï¿½ì” ï¿½ë¼±æ¿¡ì’“ë ‡
-
-
-		//ï¿½ì‰¶ï¿½ìï¿½ê¹‰ï¿½ëˆœ ï¿½ë–Žï¿½ì” ï¿½ë¼¹æ¿¡ì’“ë ‡
-		Dialog deleteMemDlog = new Dialog(mf,"ï¿½ì‰¶ï¿½ìï¿½ê¹‰ï¿½ëˆœ");
-		deleteMemDlog.setLayout(null);
-		deleteMemDlog.setBounds(300,500,300,300);
-		deleteMemDlog.setBackground(new Color(123, 185, 237));
-
-		mdlButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				deleteMemDlog.setVisible(true);
-			}
-		});
-
-		JLabel deleteMsgLab = new JLabel("ï¿½ì ™ï§ë¨°ì‰¶ï¿½ìï¿½ê¹‰ï¿½ëˆœ ï¿½ë¸¯ï¿½ë–†å¯ƒì¢Žë’¿ï¿½ë•²æºï¿½?");
-		deleteMsgLab.setBounds(35, 100, 300, 30);
-		deleteMsgLab.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		deleteMsgLab.setForeground(Color.white);
-		deleteMemDlog.add(deleteMsgLab);
-
-		JButton deleteMYesBtn = new JButton("ï¿½ê½•");
-		deleteMYesBtn.setBounds(55, 200, 90, 30);
-		deleteMYesBtn.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		deleteMYesBtn.setForeground(Color.white);
-		deleteMYesBtn.setBackground(new Color(36, 107, 220));
-		
-		deleteMYesBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mc.deleteMember(MemberDao.loginMember);
-				deleteMemDlog.dispose();
-				ChangePanel.changePanel(mf, MyPage, new Login_MainPage(mf));
-			}
-		});
-
-		JButton deleteMNoBtn = new JButton("ï¿½ë¸˜ï¿½ë•²ï¿½ì‚¤");
-		deleteMNoBtn.setBounds(165, 200, 90, 30);
-		deleteMNoBtn.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 17));
-		deleteMNoBtn.setForeground(Color.white);
-		deleteMNoBtn.setBackground(new Color(36, 107, 220));
-		deleteMNoBtn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				deleteMemDlog.dispose();
-			}
-		});
-
-		deleteMemDlog.add(deleteMNoBtn);
-		deleteMemDlog.add(deleteMYesBtn);
-		
-
-		
-		
-
-
-		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-		//ç§»ëŒ„ëµ¾ï¿½ì”ªï¿½ì” ï¿½ë“ƒ
-		JLabel naming = new JLabel("Copyrights ï¿½ë±¬    é®ï¿½!ï¿½ëˆŠï¿½ê¶¡æ€¨ï¿½ All Rights reserved.");
-		naming.setBounds(90, 600, 400, 50);
-		naming.setFont(new Font("æ€¨ì¢Šëµ“", Font.BOLD, 13));
-		this.setLayout(null);
-		this.add(naming);
-
-
-
-		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@		
-
-
-		//é†«ëš¯ë¥« ï¿½ë™£ï¿½ê¼¸
-		final JButton btnLeft1 = new JButton("<html>ï§Žë¶¿ì”¤<br/>ï¿½ì†•ï§Žï¿½</html>");
-		btnLeft1.setBounds(0, 0, 80, 120);
-		btnLeft1.setForeground(new Color(255, 255, 225));
-		btnLeft1.setBackground(new Color(36, 107, 220));
-		btnLeft1.setFont(new Font("æ€¨ì¢Šëµ“",Font.BOLD,20));
-		this.add(btnLeft1);
-		JPanel panelLeft1 = new JPanel();
-		panelLeft1.setBounds(0,120, 80, 10);
-		panelLeft1.setBackground(new Color(255, 255, 255));
-		this.setLayout(null);
-		this.add(panelLeft1);
-
-		final JButton btnLeft2 = new JButton("<html>ï¿½êµ¹ï¿½ì“½<br/>ï¿½ë–’ï¿½ë¼±</html>");
-		btnLeft2.setBounds(0, 130, 80, 120);
-		btnLeft2.setForeground(new Color(255, 255, 225));
-		btnLeft2.setBackground(new Color(36, 107, 220));
-		btnLeft2.setFont(new Font("æ€¨ì¢Šëµ“",Font.BOLD,20));
-		this.add(btnLeft2);
-		JPanel panelLeft2= new JPanel();
-		panelLeft2.setBounds(0, 250, 80, 10);
-		panelLeft2.setBackground(new Color(255, 255, 255));
-		this.add(panelLeft2);
+      JTextField newTxF = new JTextField();
+      newTxF.setSize(150, 30);
+      newTxF.setLocation(155, 200);
+      changeNickDlog.add(newTxF);
+      
+      //º¯°æ¿Ï·á¹öÆ°
+      JButton finishBtn = new JButton("º¯°æ¿Ï·á");
+      finishBtn.setSize(100,50);
+      finishBtn.setLocation(90,280);
+      finishBtn.setForeground(Color.WHITE);
+      finishBtn.setBackground(new Color(36, 107, 220));
+      changeNickDlog.add(finishBtn);
+      
+      finishBtn.addActionListener(new ActionListener() {
+         
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            MemberDao.loginMember.setNickname(newTxF.getText());
+            JOptionPane.showMessageDialog(null, "º¯°æÀÌ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+            changeNickDlog.dispose();
+         }
+      });
+      
+      JButton backBtn = new JButton("µÚ·Î");
+      finishBtn.setSize(100,50);
+      finishBtn.setLocation(170,280);
+      finishBtn.setForeground(Color.WHITE);
+      finishBtn.setBackground(new Color(36, 107, 220));
+      changeNickDlog.add(finishBtn);
+      
+      finishBtn.addActionListener(new ActionListener() {
+         
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            changeNickDlog.dispose();
+         }
+      });
 
 
-		final JButton btnLeft3 = new JButton("<html>ï¿½ë–’ï¿½ë¼±<br/>ç•°ë¶½ï¿½</html>");
-		btnLeft3.setBounds(0, 260, 80, 120);
-		btnLeft3.setForeground(new Color(255, 255, 225));
-		btnLeft3.setBackground(new Color(36, 107, 220));
-		btnLeft3.setFont(new Font("æ€¨ì¢Šëµ“",Font.BOLD,20));
-		this.add(btnLeft3);
-		JPanel panelLeft3 = new JPanel();
-		panelLeft3.setBounds(0, 380, 80, 10);
-		panelLeft3.setBackground(new Color(255, 255, 255));
-		this.add(panelLeft3);
+      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+      //È¸¿øÅ»Åð¹öÆ°
+      JButton mdlButton = new JButton("È¸¿øÅ»Åð") ;
+      mdlButton.setBackground(new Color(123, 185, 237));
+      mdlButton.setSize(115, 50);
+      mdlButton.setLocation(175,450);
+      mdlButton.setBackground(new Color(36, 107, 220));
+      mdlButton.setForeground(Color.WHITE);
+      mdlButton.setFont(new Font("°íµñ",Font.PLAIN,18));
+      this.add(mdlButton);
 
 
-		final JButton btnLeft4 = new JButton("<html>ï¿½ë–’ï¿½ë¼±<br/>TEST</html>");
-		btnLeft4.setBounds(0, 390, 80, 120);
-		btnLeft4.setForeground(new Color(255, 255, 225));
-		btnLeft4.setBackground(new Color(36, 107, 220));
-		btnLeft4.setFont(new Font("æ€¨ì¢Šëµ“",Font.BOLD,20));
-		this.add(btnLeft4);
-		JPanel panelLeft4  = new JPanel();
-		panelLeft4.setBounds(0, 510, 80, 10);
-		panelLeft4.setBackground(new Color(255, 255, 255));
-		this.add(panelLeft4);
+      //Å»ÅðÃ¢ ´ÙÀÌ¾î·Î±×
 
-		final JButton btnLeft5 = new JButton("<html>ï¿½ê½¦ï¿½ì˜£<br/>æ€¨ì‡±ì ™</html>");
-		btnLeft5.setBounds(0, 520, 80, 135);
-		btnLeft5.setForeground(new Color(255, 255, 225));
-		btnLeft5.setBackground(new Color(36, 107, 220));
-		btnLeft5.setFont(new Font("æ€¨ì¢Šëµ“",Font.BOLD,20));
-		this.add(btnLeft5);
-		
-		btnLeft1.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyPage, new MainPage(mf));
-			}
-			
-		});
+      //È¸¿øÅ»Åð ´ÙÀÌ¾ó·Î±×
+      Dialog deleteMemDlog = new Dialog(mf,"È¸¿øÅ»Åð");
+      deleteMemDlog.setLayout(null);
+      deleteMemDlog.setBounds(300,500,300,300);
+      deleteMemDlog.setBackground(new Color(123, 185, 237));
 
-	
-		btnLeft2.addActionListener(new ActionListener() {
+      mdlButton.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            deleteMemDlog.setVisible(true);
+         }
+      });
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyPage, new MyWord1(mf));
-			}
-			
-		});
-		btnLeft3.addActionListener(new ActionListener() {
+      JLabel deleteMsgLab = new JLabel("Á¤¸»È¸¿øÅ»Åð ÇÏ½Ã°Ú½À´Ï±î?");
+      deleteMsgLab.setBounds(35, 100, 300, 30);
+      deleteMsgLab.setFont(new Font("°íµñ", Font.BOLD, 17));
+      deleteMsgLab.setForeground(Color.white);
+      deleteMemDlog.add(deleteMsgLab);
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyPage, new AddWord(mf));
-			}
-			
-		});
-		
-		btnLeft4.addActionListener(new ActionListener() {
+      JButton deleteMYesBtn = new JButton("³×");
+      deleteMYesBtn.setBounds(55, 200, 90, 30);
+      deleteMYesBtn.setFont(new Font("°íµñ", Font.BOLD, 17));
+      deleteMYesBtn.setForeground(Color.white);
+      deleteMYesBtn.setBackground(new Color(36, 107, 220));
+      
+      deleteMYesBtn.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            mc.deleteMember(MemberDao.loginMember);
+            deleteMemDlog.dispose();
+            ChangePanel.changePanel(mf, MyPage, new Login_MainPage(mf));
+         }
+      });
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyPage, new Test_ChooseTest(mf));
-			}
-			
-		});
+      JButton deleteMNoBtn = new JButton("¾Æ´Ï¿À");
+      deleteMNoBtn.setBounds(165, 200, 90, 30);
+      deleteMNoBtn.setFont(new Font("°íµñ", Font.BOLD, 17));
+      deleteMNoBtn.setForeground(Color.white);
+      deleteMNoBtn.setBackground(new Color(36, 107, 220));
+      deleteMNoBtn.addActionListener(new ActionListener() {
 
-		btnLeft5.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            deleteMemDlog.dispose();
+         }
+      });
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyPage, new SeoungJang(mf));
-			}
-			
-		});
-		
+      deleteMemDlog.add(deleteMNoBtn);
+      deleteMemDlog.add(deleteMYesBtn);
+      
 
-	}
+      
+      
+
+
+      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+      //Ä«ÇÇ¶óÀÌÆ®
+      JLabel naming = new JLabel("Copyrights ¨Ï    ºñ!´¢³»°ú All Rights reserved.");
+      naming.setBounds(90, 600, 400, 50);
+      naming.setFont(new Font("°íµñ", Font.BOLD, 13));
+      this.setLayout(null);
+      this.add(naming);
+
+
+
+      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      
+
+
+      //ÁÂÃø ÆÐ³Î
+      final JButton btnLeft1 = new JButton("<html>¸ÞÀÎ<br/>È­¸é</html>");
+      btnLeft1.setBounds(0, 0, 80, 120);
+      btnLeft1.setForeground(new Color(255, 255, 225));
+      btnLeft1.setBackground(new Color(36, 107, 220));
+      btnLeft1.setFont(new Font("°íµñ",Font.BOLD,20));
+      this.add(btnLeft1);
+      JPanel panelLeft1 = new JPanel();
+      panelLeft1.setBounds(0,120, 80, 10);
+      panelLeft1.setBackground(new Color(255, 255, 255));
+      this.setLayout(null);
+      this.add(panelLeft1);
+
+      final JButton btnLeft2 = new JButton("<html>³ªÀÇ<br/>´Ü¾î</html>");
+      btnLeft2.setBounds(0, 130, 80, 120);
+      btnLeft2.setForeground(new Color(255, 255, 225));
+      btnLeft2.setBackground(new Color(36, 107, 220));
+      btnLeft2.setFont(new Font("°íµñ",Font.BOLD,20));
+      this.add(btnLeft2);
+      JPanel panelLeft2= new JPanel();
+      panelLeft2.setBounds(0, 250, 80, 10);
+      panelLeft2.setBackground(new Color(255, 255, 255));
+      this.add(panelLeft2);
+
+
+      final JButton btnLeft3 = new JButton("<html>´Ü¾î<br/>Ãß°¡</html>");
+      btnLeft3.setBounds(0, 260, 80, 120);
+      btnLeft3.setForeground(new Color(255, 255, 225));
+      btnLeft3.setBackground(new Color(36, 107, 220));
+      btnLeft3.setFont(new Font("°íµñ",Font.BOLD,20));
+      this.add(btnLeft3);
+      JPanel panelLeft3 = new JPanel();
+      panelLeft3.setBounds(0, 380, 80, 10);
+      panelLeft3.setBackground(new Color(255, 255, 255));
+      this.add(panelLeft3);
+
+
+      final JButton btnLeft4 = new JButton("<html>´Ü¾î<br/>TEST</html>");
+      btnLeft4.setBounds(0, 390, 80, 120);
+      btnLeft4.setForeground(new Color(255, 255, 225));
+      btnLeft4.setBackground(new Color(36, 107, 220));
+      btnLeft4.setFont(new Font("°íµñ",Font.BOLD,20));
+      this.add(btnLeft4);
+      JPanel panelLeft4  = new JPanel();
+      panelLeft4.setBounds(0, 510, 80, 10);
+      panelLeft4.setBackground(new Color(255, 255, 255));
+      this.add(panelLeft4);
+
+      final JButton btnLeft5 = new JButton("<html>¼ºÀå<br/>°úÁ¤</html>");
+      btnLeft5.setBounds(0, 520, 80, 135);
+      btnLeft5.setForeground(new Color(255, 255, 225));
+      btnLeft5.setBackground(new Color(36, 107, 220));
+      btnLeft5.setFont(new Font("°íµñ",Font.BOLD,20));
+      this.add(btnLeft5);
+      
+      btnLeft1.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            ChangePanel.changePanel(mf, MyPage, new MainPage(mf));
+         }
+         
+      });
+
+   
+      btnLeft2.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            ChangePanel.changePanel(mf, MyPage, new MyWord1(mf));
+         }
+         
+      });
+      btnLeft3.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            ChangePanel.changePanel(mf, MyPage, new AddWord(mf));
+         }
+         
+      });
+      
+      btnLeft4.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            ChangePanel.changePanel(mf, MyPage, new Test_ChooseTest(mf));
+         }
+         
+      });
+
+      btnLeft5.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            ChangePanel.changePanel(mf, MyPage, new SeoungJang(mf));
+         }
+         
+      });
+      
+
+   }
 
 
 
 
 }
-
 
 
 

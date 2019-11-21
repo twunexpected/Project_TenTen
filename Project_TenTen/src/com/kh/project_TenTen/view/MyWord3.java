@@ -42,7 +42,6 @@ public class MyWord3 extends JPanel {
 		try {
 			br = new BufferedReader(new FileReader("단어추가.txt"));
 		} catch (FileNotFoundException e1) {
-
 		} 
 		try {
 			while ((s = br.readLine()) != null) { 
@@ -121,19 +120,37 @@ public class MyWord3 extends JPanel {
 		b5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BufferedWriter bo = null;
-				try {
-					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt", true));
+				
 					//int row=table.getSelectedRow();//사용자가 선택한 행
 					//int col = table.getSelectedColumn();
 					//Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
 					//txt파일에서 저 value값이랑 같으면 지워주고 다시 저장되면 되는데....
 					
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				
 				model.removeRow(table.getSelectedRow());
 				JOptionPane.showMessageDialog(null, "선택하신 단어가 삭제되었습니다.");
+				BufferedWriter bo = null;
+								//BufferedWriter bo1 = null;
+						try{
+							bo = new BufferedWriter(new FileWriter("단어추가.txt"));
+							bo.write("");
+							//int row=table.getSelectedRow();//사용자가 선택한 행
+							//int col = table.getSelectedColumn();
+							//Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
+							bo = new BufferedWriter(new FileWriter("단어추가.txt",true));
+							int row =table.getRowCount();
+							int col = table.getColumnCount();
+							
+							for(int i=0;i<row;i++) {
+								for(int j=0; j<col;j++) {
+							bo.write((String) table.getValueAt(i, j)+"/");
+									;
+								}
+							}
+							bo.close();
+					    } catch (Exception ex) { 
+					  
+					 } 
 			}
 		});
 		

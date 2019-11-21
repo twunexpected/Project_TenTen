@@ -26,68 +26,68 @@ public class Login_FindID extends JPanel{
 		this.mf = mf;
 		login_FindID = this;
 		MemberController mc = new MemberController();
-		//¹é È­¸é
+		//ë°± í™”ë©´
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
 		
-		//¾ÆÀÌµğ Ã£±â
-		Image icon1 = new ImageIcon("Images/¾ÆÀÌµğ Ã£±â.PNG").getImage().getScaledInstance(110, 50, 0);
+		//ì•„ì´ë”” ì°¾ê¸°
+		Image icon1 = new ImageIcon("Images/ì•„ì´ë”” ì°¾ê¸°.PNG").getImage().getScaledInstance(110, 50, 0);
 		JLabel Id1 = new JLabel(new ImageIcon(icon1));
 		Id1.setLocation(140, 50);
 		Id1.setSize(100,100);
 		this.add(Id1);
 	
 		//copyRights
-		JLabel copyRights = new JLabel("Copyrights ¨Ï  ºñ!´¢³»°ú All Rights reserved.");
+		JLabel copyRights = new JLabel("Copyrights â“’  ë¹„!ë‡¨ë‚´ê³¼ All Rights reserved.");
 		copyRights.setBounds(50, 600, 400, 50);
-		copyRights.setFont(new Font("°íµñ", Font.BOLD, 13));
+		copyRights.setFont(new Font("ê³ ë”•", Font.BOLD, 13));
 		
-		//º»¹®
-		JLabel mesege1 = new JLabel("ÀÌ¸ŞÀÏ : ");
+		//ë³¸ë¬¸
+		JLabel mesege1 = new JLabel("ì´ë©”ì¼ : ");
 		mesege1.setBounds(30, 170, 250, 200);
-		mesege1.setFont(new Font("°íµñ", Font.BOLD, 15));
+		mesege1.setFont(new Font("ê³ ë”•", Font.BOLD, 15));
 
-		JLabel mesege2 = new JLabel("<html> ÀÌ¸ŞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä.<br/> ÀÌ¸ŞÀÏ·Î ID°¡ Àü¼ÛµË´Ï´Ù. <html/>");
+		JLabel mesege2 = new JLabel("<html> ì´ë©”ì¼ ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”.<br/> ì´ë©”ì¼ë¡œ IDê°€ ì „ì†¡ë©ë‹ˆë‹¤. <html/>");
 		mesege2.setBounds(95, 90, 250, 200);
-		mesege2.setFont(new Font("°íµñ", Font.BOLD, 15));
+		mesege2.setFont(new Font("ê³ ë”•", Font.BOLD, 15));
 
-		//ÀÌ¸ŞÀÏ ÅØ½ºÆ®Ã¢
+		//ì´ë©”ì¼ í…ìŠ¤íŠ¸ì°½
 		JTextField EmailText = new JTextField();
 		EmailText.setBounds(100, 250, 170, 40);
-		EmailText.setFont(new Font("°íµñ", Font.BOLD, 15));
+		EmailText.setFont(new Font("ê³ ë”•", Font.BOLD, 15));
 		EmailText.setHorizontalAlignment(JTextField.LEFT);
 		
 
-		//ID¹ß¼Û ¹öÆ°
-		JButton btnSend = new JButton("ID¹ß¼Û");
+		//IDë°œì†¡ ë²„íŠ¼
+		JButton btnSend = new JButton("IDë°œì†¡");
 		btnSend.setBounds(280, 250, 85, 40);
 		btnSend.setForeground(new Color(255, 255, 225));
 		btnSend.setBackground(new Color(36, 107, 220));
-		btnSend.setFont(new Font("°íµñ", Font.BOLD, 15));
+		btnSend.setFont(new Font("ê³ ë”•", Font.BOLD, 15));
 		btnSend.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				IdMail mm = new IdMail();
 				if(EmailText.getText().length() > 0 && EmailText.getText().contains("@")) {
-					JOptionPane.showMessageDialog(null, "Àü¼ÛÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(null, "ì „ì†¡ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 					String[]args = {" "};
 					String id = mc.findId(EmailText.getText());
 					mm.getEmailAddress(EmailText.getText(), id);
 					mm.main(args);
 				}else {
-					JOptionPane.showMessageDialog(null, "ÀÌ¸ŞÀÏÀ» È®ÀÎÇØÁÖ¼¼¿ä.");
+					JOptionPane.showMessageDialog(null, "ì´ë©”ì¼ì„ í™•ì¸í•´ì£¼ì„¸ìš”.");
 				}
 			}
 		});
 
-		//µ¹¾Æ°¡±â ¹öÆ°
-		JButton btnBack = new JButton("µ¹¾Æ°¡±â");
+		//ëŒì•„ê°€ê¸° ë²„íŠ¼
+		JButton btnBack = new JButton("ëŒì•„ê°€ê¸°");
 		btnBack.setBounds(130, 330, 110, 50);
 		btnBack.setForeground(new Color(255, 255, 225));
 		btnBack.setBackground(new Color(36, 107, 220));
-		btnBack.setFont(new Font("°íµñ", Font.BOLD, 15));
+		btnBack.setFont(new Font("ê³ ë”•", Font.BOLD, 15));
 		btnBack.addActionListener(new ActionListener() {
 			
 			@Override
@@ -96,7 +96,7 @@ public class Login_FindID extends JPanel{
 			}
 		});
 
-		//¿©·¯°¡Áö
+		//ì—¬ëŸ¬ê°€ì§€
 		this.add(mesege1);
 		this.add(mesege2);
 		this.add(btnBack);

@@ -1,19 +1,19 @@
 package com.kh.project_TenTen.view;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,21 +29,12 @@ public class MyWord4 extends JPanel {
 	public MyWord4(Login_MainFrame mf) {
 		this.mf = mf;
 		MyWord4 = this;
-
-
+		//기본패널
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
 		this.setLayout(null);
-
-		//표올릴 패널
-		JPanel p = new JPanel();
-		p.setSize(250,490);
-		p.setLocation(105, 105);
 		//표
-		String[] headings = new String[] {"반호","단어","뜻"};
-
-
-//관아 여기가 안된다ㅜㅠㅜㅠㅜㅠㅜㅠ 살려줘
+		String[] headings = new String[] {"품사","단어","뜻"};
 		String s; 
 		String[] arr = null; 
 		BufferedReader br=null;
@@ -59,32 +50,29 @@ public class MyWord4 extends JPanel {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-	int ar = arr.length/3;
-	int a =0;
-	
-    data = new String[ar][3];
-    
-	for(int i=0; i<ar; i++) {
-		for(int j =0; j<3;j++) {
-		 data[i][j]=arr[a];
-		 a++;
-		 if(a==	arr.length) {
-			 break ;
+		int ar = arr.length/3;
+		int a =0;
+
+		data = new String[ar][3];
+
+		for(int i=0; i<ar; i++) {
+			for(int j =0; j<3;j++) {
+				data[i][j]=arr[a];
+				a++;
+				if(a==	arr.length) {
+					break ;
 				}
-				
 			}
 		}
-	
-
-	
-	DefaultTableModel model =
-            new DefaultTableModel(data,headings);
-	JTable table = new JTable(model);
-
-		table.setPreferredScrollableViewportSize(new Dimension(230,470));
+		DefaultTableModel model = new DefaultTableModel(data,headings);
+		JTable table = new JTable(model);
 		table.setFillsViewportHeight(true);
-		p.add(new JScrollPane(table));
-		
+		table.setRowHeight(25);
+		table.getColumn("품사").setPreferredWidth(15);
+		table.getTableHeader().setReorderingAllowed(false);
+		JScrollPane scroll = new JScrollPane(table);
+		scroll.setBounds( 105, 105, 250, 490); // x, y, width, height
+		this.add(scroll);
 		//암기 비암기 버튼
 		JButton b1 = new JButton("암기");
 		b1.setHorizontalAlignment(JLabel.CENTER);
@@ -114,11 +102,11 @@ public class MyWord4 extends JPanel {
 		b3.setFont(new Font("고딕",Font.BOLD,15));
 		b3.setBackground(new Color(36, 107, 220));	
 		b3.addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						ChangePanel.changePanel(mf, MyWord4, new MyWord3(mf));
-					}
-				});
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord4, new MyWord3(mf));
+			}
+		});
 		JButton b4 = new JButton("즐겨찾기");
 		b4.setHorizontalAlignment(JLabel.CENTER);
 		b4.setForeground(Color.white);
@@ -129,38 +117,109 @@ public class MyWord4 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, MyWord4, new MyWord4(mf));
 			}
-
 		});
-
 		JButton b5 = new JButton("X");
 		b5.setHorizontalAlignment(JLabel.CENTER);
 		b5.setForeground(Color.yellow);
 		b5.setFont(new Font("고딕",Font.BOLD,30));
 		b5.setBackground(new Color(123, 185, 237));
-	
-		
 		b5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//JButton b5 = (JButton)e.getSource();
-				//DefaultTableModel m = (DefaultTableModel)table.getModel();
-				BufferedWriter bo = null;
 
-				try {
-					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt", true));
-					int row=table.getSelectedRow();//사용자가 선택한 행
-			
-				} catch (IOException e1) {
-
-					e1.printStackTrace();
-				}
-
+				//int row=table.getSelectedRow();//사용자가 선택한 행
 				model.removeRow(table.getSelectedRow());
 				JOptionPane.showMessageDialog(null, "선택하신 단어가 삭제되었습니다.");
-				//ChangePanel.changePanel(mf, MyWord1, new Myword4(mf));
-			}
+				
+						BufferedWriter bo = null;
+						//BufferedWriter bo1 = null;
+						try{
+							bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt"));
+							bo.write("");
+							//int row=table.getSelectedRow();//사용자가 선택한 행
+							//int col = table.getSelectedColumn();
+							//Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
+							bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt",true));
+							int row =table.getRowCount();
+							int col = table.getColumnCount();
+							System.out.println(row);
+							System.out.println(col);
+							System.out.println(table.getValueAt(0,1));
+							for(int i=0;i<row;i++) {
+								for(int j=0; j<col;j++) {
+							bo.write((String) table.getValueAt(i, j)+"/");
+									;
+								}
+							}
+							bo.close();
+					    } catch (Exception ex) { 
+					  
+					 } 
+						//바뀐건지 읽어서 확인해보기
+						/*String s;
+						BufferedReader br= null;
+						try {
+							br = new BufferedReader(new FileReader("즐겨찾기 단어.txt"));
+						} catch (FileNotFoundException e1) {
 
-		});
+						} 
+						try {
+							while ((s = br.readLine()) != null) { 
+								System.out.println(s);
+							}
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}*/
+
+			}
+				});
+			
+				//File f = new File("즐겨찾기.txt");
+				//f.delete();
+			
+			/*	try {
+					bo= new BufferedWriter(new FileWriter("즐겨찾기 단어.txt"));
+					bo.close();
+				} catch (IOException e1) {
+			
+					e1.printStackTrace();
+				}*/
+				/*String dummy = "";
+				try {
+					BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("즐겨찾기 단어.txt")));
+					//BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+					
+					//1. 삭제하고자 하는 position 이전까지는 이동하며 dummy에 저장
+					String line;
+					for(int i=0; i<position; i++) {
+					    line = br.readLine(); //읽으며 이동
+					    dummy += (line); 
+					}
+					
+					//2. 삭제하고자 하는 데이터는 건너뛰기
+					String delData = br.readLine();
+					Log.d("mstag","삭제되는 데이터 = "+delData);
+					
+					//3. 삭제하고자 하는 position 이후부터 dummy에 저장
+					while((line = br.readLine())!=null) {
+						dummy += (line + "\r\n" ); 
+					}
+					
+					//4. FileWriter를 이용해서 덮어쓰기
+					FileWriter fw = new FileWriter("즐겨찾기 단어.txt");
+					fw.write(dummy);			
+					
+					//bw.close();
+					fw.close();
+					br.close();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+*/
+
+				
+	
 		b1.setBounds(100, 20, 100, 35);
 		b2.setBounds(210, 20, 100, 35);
 		b3.setBounds(100, 65, 100, 35);	
@@ -171,7 +230,6 @@ public class MyWord4 extends JPanel {
 		this.add(b3);
 		this.add(b4);
 		this.add(b5);
-		this.add(p);
 		//좌측 고정
 		final JButton btnLeft1 = new JButton("<html>메인<br/>화면</html>");
 		btnLeft1.setBounds(0, 0, 80, 120);
@@ -183,6 +241,12 @@ public class MyWord4 extends JPanel {
 		panelLeft1.setBounds(0,120, 80, 10);
 		panelLeft1.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft1);
+		btnLeft1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord4, new MainPage(mf));
+			}
+		});
 
 		final JButton btnLeft2 = new JButton("<html>나의<br/>단어</html>");
 		btnLeft2.setBounds(0, 130, 80, 120);
@@ -210,7 +274,6 @@ public class MyWord4 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf, MyWord4, new AddWord(mf));
 			}
-
 		});
 
 		final JButton btnLeft4 = new JButton("<html>단어<br/>TEST</html>");
@@ -223,6 +286,12 @@ public class MyWord4 extends JPanel {
 		panelLeft4.setBounds(0, 510, 80, 10);
 		panelLeft4.setBackground(new Color(255, 255, 255));
 		this.add(panelLeft4);
+		btnLeft4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord4, new Test_Main(mf));
+			}
+		});
 
 		final JButton btnLeft5 = new JButton("<html>성장<br/>과정</html>");
 		btnLeft5.setBounds(0, 520, 80, 135);
@@ -230,8 +299,12 @@ public class MyWord4 extends JPanel {
 		btnLeft5.setBackground(new Color(36, 107, 220));
 		btnLeft5.setFont(new Font("고딕", Font.BOLD, 20));
 		this.add(btnLeft5);
-
-
+		btnLeft5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, MyWord4, new SeoungJang(mf));
+			}
+		});
 		//카피라이터
 		JLabel naming = new JLabel("Copyrights ⓒ  비!뇨내과 All Rights reserved.");
 		naming.setBounds(100, 600, 400, 50);
@@ -239,8 +312,6 @@ public class MyWord4 extends JPanel {
 		naming.setFont(new Font("고딕", Font.BOLD, 12));
 		this.add(naming);
 		mf.add(this);
-		//this.setVisible(true);
-		/*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
 
 	}
 }

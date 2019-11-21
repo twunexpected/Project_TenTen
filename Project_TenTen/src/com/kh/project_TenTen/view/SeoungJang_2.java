@@ -225,7 +225,7 @@ public class SeoungJang_2 extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, SeoungJang_2, new Test_ChooseTest(mf));
+				ChangePanel.changePanel(mf, SeoungJang_2, new Test_Main(mf));
 			}
 			
 		});

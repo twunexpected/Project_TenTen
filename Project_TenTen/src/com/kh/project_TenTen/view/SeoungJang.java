@@ -68,14 +68,16 @@ public class SeoungJang extends JPanel{
 
 		// 현재 보유 텐텐 
 		//텐텐 누적된거 여기에 가져와야함.
-		JLabel myttnum = new JLabel(String.valueOf(mb.getHaveTen()).toString());
+		
+		
+		JLabel myttnum = new JLabel(String.valueOf(MemberDao.loginMember.getHaveTen()).toString());	
 		myttnum.setBackground(new Color(123, 185, 237));
 		myttnum.setSize(80, 40);
 		myttnum.setLocation(170, 500);
 		myttnum.setFont(new Font("고딕",Font.PLAIN,15));
 		this.add(myttnum);
 
-
+		
 
 
 
@@ -88,12 +90,12 @@ public class SeoungJang extends JPanel{
 		this.add(getCd);
 
 		// 텐텐 몇개 필요하다는 라벨
-		JLabel needTTNum = new JLabel(" 20");
+		JLabel needTTNum = new JLabel(" 1");
 		needTTNum.setBackground(new Color(123, 185, 237));
 		needTTNum.setSize(80, 40);
 		needTTNum.setLocation(285, 540);
 		needTTNum.setFont(new Font("고딕",Font.PLAIN,15));
-		this.add(needTTNum);
+		this.add(needTTNum); 
 
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -107,7 +109,7 @@ public class SeoungJang extends JPanel{
 		ttChangeB.setForeground(Color.WHITE);
 		this.add(ttChangeB);
 
-		//시연시 보여줄 텐텐개수 추가 버튼
+		//시연시 보여줄 텐텐개수 추가 버튼 //필요없어짐
 		JButton showTen = new JButton("^^");
 		showTen.setSize(47,30);
 		showTen.setLocation(320,585);
@@ -117,23 +119,19 @@ public class SeoungJang extends JPanel{
 		this.add(showTen);
 
 
-		//^^ 버튼 누르면 텐텐개수 30개로 셋팅
+		//^^ 버튼 누르면 텐텐개수 30개로 셋팅 //필요없어짐
 		showTen.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-	
-				MemberDao.loginMember.setHaveTen(30);
-
-				myttnum.setText(String.valueOf(MemberDao.loginMember.getHaveTen()).toString());	
-
+			
+					
+				//MemberDao.loginMember.setHaveTen(30);
+				//myttnum.setText(String.valueOf(MemberDao.loginMember.getaTen()).toString());	
+		
 				}
-				
 			
-	
-			
-
 		});
 
 
@@ -164,37 +162,25 @@ public class SeoungJang extends JPanel{
 		this.add(PanLabel);	
 
 
-
-		//교환버튼 클릭시 이벤트 발생
-
-		/*MemberDao md = new MemberDao();
-		ArrayList list = new ArrayList();
-		list = md.findMember();
-		Member[] m = new Member[list.size()];
-
-		for()
-
-		if(mb.getId().equals("aa11")) {*/
-
-
-		//myttnum.setText(String.valueOf(MemberDao.loginMember.getHaveTen()).toString());	
-
-
 		ttChangeB.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if(MemberDao.loginMember.getHaveTen() == 30 ) {	
+				if(MemberDao.loginMember.getHaveTen() >= 2 ) {	
 
 					rewordImg.setLocation(100,140);
 					goldImg.setVisible(true);
+					
+					
+					
+					//JLabel myttnum = new JLabel(String.valueOf(MemberDao.loginMember.getHaveTen()).toString());
 
-					MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-20);
+					MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-1);
 
 					myttnum.setText(String.valueOf(MemberDao.loginMember.getHaveTen()).toString());
 
-					needTTNum.setText("30");
+					needTTNum.setText("10");
 				}
 
 			

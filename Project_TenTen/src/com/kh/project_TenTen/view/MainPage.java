@@ -728,7 +728,7 @@ public class MainPage extends JPanel {
 					wordText.setText(wordStr[MainIndex]);
 					meanText.setText(meanStr[MainIndex]);
 					countnum.setText(Integer.valueOf(MainIndex+1).toString());
- 
+  
 					BufferedWriter bo = null;
 					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"암기 단어.txt", true));
 					bo.write(kindStr[MainIndex-1]+"/");

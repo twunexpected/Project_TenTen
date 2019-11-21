@@ -720,13 +720,14 @@ public class MainPage extends JPanel {
 
 
 		arm.addActionListener(new ActionListener() {
-
-			@Override
+ 
+			@Override 
 			public void actionPerformed(ActionEvent e) {
 				try { 
 					++MainIndex;
 					wordText.setText(wordStr[MainIndex]);
 					meanText.setText(meanStr[MainIndex]);
+					kindText.setText(meanStr[MainIndex]);
 					countnum.setText(Integer.valueOf(MainIndex+1).toString());
   
 					BufferedWriter bo = null;
@@ -762,6 +763,7 @@ public class MainPage extends JPanel {
 					++MainIndex;
 					wordText.setText(wordStr[MainIndex]);
 					meanText.setText(meanStr[MainIndex]);
+					kindText.setText(meanStr[MainIndex]);
 					countnum.setText(Integer.valueOf(MainIndex+1).toString());
 
 					BufferedWriter bo = null;

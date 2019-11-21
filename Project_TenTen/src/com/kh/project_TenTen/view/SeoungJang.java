@@ -6,14 +6,15 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.kh.project_TenTen.model.dao.MemberDao;
+import com.kh.project_TenTen.model.vo.Member;
 
 
 
@@ -23,6 +24,9 @@ public class SeoungJang extends JPanel{
 	private Login_MainFrame mf;
 	private JPanel SeoungJang;
 	private int num = 0;
+	
+	
+	Member mb = new Member();
 
 	
 	
@@ -64,7 +68,7 @@ public class SeoungJang extends JPanel{
 
 		// 현재 보유 텐텐 
 		//텐텐 누적된거 여기에 가져와야함.
-		JLabel myttnum = new JLabel("   20");
+		JLabel myttnum = new JLabel(String.valueOf(mb.getHaveTen()).toString());
 		myttnum.setBackground(new Color(123, 185, 237));
 		myttnum.setSize(80, 40);
 		myttnum.setLocation(170, 500);
@@ -133,6 +137,10 @@ public class SeoungJang extends JPanel{
 
 		
 		//교환버튼 클릭시 이벤트 발생
+		
+		
+		if(mb.getHaveTen() >= 20) {
+			
 		ttChangeB.addActionListener(new ActionListener() {
 
 			@Override
@@ -141,14 +149,18 @@ public class SeoungJang extends JPanel{
 				
 				rewordImg.setLocation(100,140);
 				goldImg.setVisible(true);
-				myttnum.setText("   10");
-				needTTNum.setText("텐텐 20개");
+				
+				mb.setHaveTen(mb.getHaveTen()-20);
+				
+				myttnum.setText(String.valueOf(mb.getHaveTen()).toString());
+				//needTTNum.setText("텐텐 20개");
 				
 				 
 			}
 
 		});
 
+		}
 		
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.kh.project_TenTen.model.dao.MemberDao;
 import com.kh.project_TenTen.model.vo.Member;
 import com.kh.project_TenTen.view.Login_MainFrame;
+import com.kh.project_TenTen.view.PassMail;
 
 public class MemberController {
 		
@@ -18,6 +19,72 @@ public class MemberController {
 		al.add(m);
 		
 		md.writeMember(al);
+	}
+	
+	public void setUserPass(String id) {
+		ArrayList al = md.findMember();
+		Member[] m = new Member[al.size()];
+		char[] ch = null;
+		
+		for(int i = 0; i < m.length; i++) {
+			m[i] = (Member) al.get(i);
+		}
+		
+		for(int i = 0; i < m.length; i++) {
+			if(m[i].getId().equals(id)) {
+				ch = new char[PassMail.temporaryPass.length];
+				for(int j = 0; j < ch.length; j++) {
+					ch[j] = Character.forDigit(PassMail.temporaryPass[j],10);
+				}
+				m[i].setPassword(ch);
+			}
+		}
+		
+		al.clear();
+		
+		for(int i = 0; i < m.length; i++) {
+			al.add(m[i]);
+		}
+		
+		md.writeMember(al);
+	}
+	
+	public boolean correctEmail(String id, String email) {
+		boolean check = false;
+		
+		ArrayList al = md.findMember();
+		Member[] m = new Member[al.size()];
+		
+		for(int i = 0; i < m.length; i++) {
+			m[i] = (Member) al.get(i);
+		}
+		
+		for(int i = 0; i < m.length; i++) {
+			if(m[i].getId().equals(id) && m[i].getEmail().equals(email)) {
+				check = true;
+			}
+		}
+		
+		return check;
+	}
+	
+	public String findId(String email) {
+		String id = "";
+		ArrayList al = md.findMember();
+		Member[] m = new Member[al.size()];
+		
+		for(int i = 0; i < al.size(); i++) {
+			m[i] = (Member) al.get(i);
+		}
+		
+		for(int i = 0; i < m.length; i++) {
+			if(email.equals(m[i].getEmail())) {
+				id = m[i].getId();
+				break;
+			}
+		}
+		
+		return id;
 	}
 	
 	//아이디 체크

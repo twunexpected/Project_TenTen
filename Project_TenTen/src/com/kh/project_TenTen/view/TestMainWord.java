@@ -4,13 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -22,8 +19,10 @@ public class TestMainWord extends JFrame{
 	String[] wordStr = null;
 	public static Word[] word = null;
 	int index = 0;
+	JFrame tt ;
 	
 	public TestMainWord() {
+		tt = this;
 		
 		this.setSize(1000, 1000);
 		this.setLocation(200, 200);
@@ -71,9 +70,6 @@ public class TestMainWord extends JFrame{
 		jbtn2.setLocation(400, 500);
 		this.add(jbtn2);
 		
-
-		this.add(jbtn1);
-		this.add(jbtn2);
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

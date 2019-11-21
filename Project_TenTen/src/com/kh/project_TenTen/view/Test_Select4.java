@@ -34,7 +34,7 @@ public class Test_Select4 extends JPanel{
 	
 	
 	private Login_MainFrame mf;
-	private JPanel Test_Select4_new1;
+	private JPanel Test_Select4;
 	private String[] strArr;
 
 
@@ -102,14 +102,14 @@ public class Test_Select4 extends JPanel{
 
 
 
-	public Test_Select4_new1(Login_MainFrame mf) {
+	public Test_Select4(Login_MainFrame mf) {
 		wordStr1 = spellTest(0);
 		wordStr2 = meanTest(0);
 
 
 
 		this.mf = mf;
-		Test_Select4_new1 = this;
+		Test_Select4 = this;
 
 
 		this.setSize(400, 700);
@@ -267,9 +267,9 @@ public class Test_Select4 extends JPanel{
 
 
 				if((index + 1) >= 10) {
-					JOptionPane.showMessageDialog(null, "Å×½ºÆ®¸¦ ¿Ï·á");
-
-					ChangePanel.changePanel(mf, Test_Select4_new1, new Test_TestPopup(mf));	
+					JOptionPane.showMessageDialog(null, "<html> Á¤´ä °¹¼ö : " + answer + "°³ <br> ÅÙÅÙ " + answer + "°³¸¦ È¹µæÇÏ¿´½À´Ï´Ù.");
+					ChangePanel.changePanel(mf, Test_Select4, new SeoungJang(mf));
+					
 				}else {
 
 					tfVoca.setText(wordStr1[index]);
@@ -305,10 +305,6 @@ public class Test_Select4 extends JPanel{
 					index++;
 				}
 				
-				/*
-				JOptionPane.showMessageDialog(null, "<html> Á¤´ä °¹¼ö : " + answer + "°³ <br> ÅÙÅÙ " + answer + "°³¸¦ È¹µæÇÏ¿´½À´Ï´Ù.");
-				ChangePanel.changePanel(mf, Test, new SeoungJang(mf));
-				*/
 				
 		
 			}

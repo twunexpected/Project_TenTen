@@ -230,7 +230,7 @@ public class MyWord3 extends JPanel {
 				ChangePanel.changePanel(mf, MyWord3, new Test_Main(mf));
 			}
 		});
-
+ 
 		final JButton btnLeft5 = new JButton("<html>성장<br/>과정</html>");
 		btnLeft5.setBounds(0, 520, 80, 135);
 		btnLeft5.setForeground(new Color(255, 255, 225));

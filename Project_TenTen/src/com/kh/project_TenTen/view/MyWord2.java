@@ -41,7 +41,7 @@ public class MyWord2 extends JPanel{
 		String s; 
 		String[] arr = null; 
 		BufferedReader br=null;
-		try {
+		try { 
 			br = new BufferedReader(new FileReader(MemberDao.loginMember.getId()+"비암기 단어.txt"));
 		} catch (FileNotFoundException e1) {
 		} 

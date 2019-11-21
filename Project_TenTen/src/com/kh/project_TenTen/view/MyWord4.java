@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.kh.project_TenTen.model.dao.MemberDao;
 
-
+ 
 public class MyWord4 extends JPanel {
 	private Login_MainFrame mf;	
 	private JPanel MyWord4;

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.kh.project_TenTen.model.dao.MemberDao;
-
+ 
 public class AddWord extends JPanel{
 	private Login_MainFrame mf;
 	private JPanel addWord;

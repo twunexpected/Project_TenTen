@@ -146,7 +146,7 @@ public class MyWord1 extends JPanel{
 				DefaultTableModel m = (DefaultTableModel)table.getModel();
 				BufferedWriter bo = null;
 				try {
-					bo = new BufferedWriter(new FileWriter("즐겨찾기 단어.txt", true));
+					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"즐겨찾기 단어.txt", true));
 					int row=table.getSelectedRow();//사용자가 선택한 행
 					bo.write(((String) data[row][0])+"/");
 					bo.write(((String) data[row][1])+"/");

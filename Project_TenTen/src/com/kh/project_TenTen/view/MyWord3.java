@@ -29,7 +29,7 @@ public class MyWord3 extends JPanel {
 	public MyWord3(Login_MainFrame mf) {
 		this.mf = mf;
 		MyWord3 = this;
-		
+
 		//기본 패널
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
@@ -93,14 +93,22 @@ public class MyWord3 extends JPanel {
 		b2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord3, new MyWord2(mf));
+				try {
+					ChangePanel.changePanel(mf, MyWord3, new MyWord2(mf));
+
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "비암기 단어가 없어용~♥");
+				}
 			}
+
+
 		});
 		JButton b3 = new JButton("나의단어");
 		b3.setHorizontalAlignment(JLabel.CENTER);
 		b3.setForeground(Color.white);
 		b3.setFont(new Font("고딕",Font.BOLD,15));
 		b3.setBackground(new Color(225, 91, 91));
+
 		JButton b4 = new JButton("즐겨찾기");
 		b4.setHorizontalAlignment(JLabel.CENTER);
 		b4.setForeground(Color.white);
@@ -109,8 +117,13 @@ public class MyWord3 extends JPanel {
 		b4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord3, new MyWord4(mf));
-			}
+				try {
+					ChangePanel.changePanel(mf, MyWord3, new MyWord4(mf));
+
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "즐겨찾기 단어가 없어용~♥");
+				}
+			}		
 		});
 		JButton b5 = new JButton("X");
 		b5.setHorizontalAlignment(JLabel.CENTER);
@@ -120,40 +133,29 @@ public class MyWord3 extends JPanel {
 		b5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-					//int row=table.getSelectedRow();//사용자가 선택한 행
-					//int col = table.getSelectedColumn();
-					//Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
-					//txt파일에서 저 value값이랑 같으면 지워주고 다시 저장되면 되는데....
-					
-				
 				model.removeRow(table.getSelectedRow());
 				JOptionPane.showMessageDialog(null, "선택하신 단어가 삭제되었습니다.");
 				BufferedWriter bo = null;
-								//BufferedWriter bo1 = null;
-						try{
-							bo = new BufferedWriter(new FileWriter("단어추가.txt"));
-							bo.write("");
-							//int row=table.getSelectedRow();//사용자가 선택한 행
-							//int col = table.getSelectedColumn();
-							//Object value = table.getValueAt(row, 0)+"/"+table.getValueAt(row, 1)+"/"+table.getValueAt(row, 2)+"/"+table.getValueAt(row, 3)+"/";
-							bo = new BufferedWriter(new FileWriter("단어추가.txt",true));
-							int row =table.getRowCount();
-							int col = table.getColumnCount();
-							
-							for(int i=0;i<row;i++) {
-								for(int j=0; j<col;j++) {
+
+				try{
+					bo = new BufferedWriter(new FileWriter("단어추가.txt"));
+					bo.write("");
+					bo = new BufferedWriter(new FileWriter("단어추가.txt",true));
+					int row =table.getRowCount();
+					int col = table.getColumnCount();				
+					for(int i=0;i<row;i++) {
+						for(int j=0; j<col;j++) {
 							bo.write((String) table.getValueAt(i, j)+"/");
-									;
-								}
-							}
-							bo.close();
-					    } catch (Exception ex) { 
-					  
-					 } 
+							;
+						}
+					}
+					bo.close();
+				} catch (Exception ex) { 
+
+				} 
 			}
 		});
-		
+
 		b1.setBounds(100, 20, 100, 35);
 		b2.setBounds(210, 20, 100, 35);
 		b3.setBounds(100, 65, 100, 35);	

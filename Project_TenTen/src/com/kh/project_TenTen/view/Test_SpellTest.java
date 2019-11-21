@@ -27,6 +27,8 @@ public class Test_SpellTest extends JPanel{
 		this.mf = mf2;
 		this.Test_SpellTest = this;
 
+		int index = 0;
+		
 		//배경
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
@@ -46,11 +48,12 @@ public class Test_SpellTest extends JPanel{
 
 		// TEST 남은 단어 표시
 		// 단어 스펠링 배열 어떻게....??!
-		JTextField tfWord = new JTextField("1");
+		JTextField tfWord = new JTextField();
 		tfWord.setBounds(175,165, 30, 30);
 		tfWord.setFont(new Font("고딕", Font.BOLD, 20));
 		tfWord.setBackground(new Color(255, 255, 225));
 		tfWord.setFont(tfWord.getFont().deriveFont(16.0f));
+		tfWord.setText(Integer.valueOf(index+1).toString());
 		tfWord.setHorizontalAlignment(JTextField.RIGHT);
 		this.setLayout(null);
 
@@ -72,7 +75,7 @@ public class Test_SpellTest extends JPanel{
 		JButton buttonNext = new JButton("다음");
 		buttonNext.setBounds(140, 500, 140, 50);
 		buttonNext.setBackground(new Color(36, 107, 220));
-		lbVoca.setFont(new Font("고딕", Font.BOLD, 22));
+		lbVoca.setFont(new Font("고딕", Font.BOLD, 24));
 		buttonNext.setHorizontalAlignment(JTextField.CENTER);
 
 		//정답 입력창
@@ -100,9 +103,36 @@ public class Test_SpellTest extends JPanel{
 
 
 		buttonNext.addActionListener(new ActionListener() {
+			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				try {
+//					++index;
+//					lbVoca.setText(spellStr[index]);
+//					lbMeanning.setText(checkStr[index]);
+//					checkAns[index] = 'X';
+//					tfWord.setText(Integer.valueOf(index+1).toString());
+//				}catch(Exception e1){
+//					if(index >= 10) {
+//					//ChangePanel.changePanel(mf, Test_OxTest, new Test_TestPopup);
+//					}
+//				}
+//			}
+//		});
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf2, Test_SpellTest, new Test_TestPopup(mf2));
+				
+				int index = 0; 
+
+				try {
+					++index;
+					tfWord.setText(Integer.valueOf(index+1).toString());
+				}catch(Exception e1){
+					if(index >= 10) {
+						ChangePanel.changePanel(mf2, Test_SpellTest, new Test_TestPopup(mf2));
+					}
+				}
 			}
 
 		});

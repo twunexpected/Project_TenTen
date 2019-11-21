@@ -547,7 +547,7 @@ public class MainPage extends JPanel {
 
 
 
-
+ 
 		btn.addActionListener(new ActionListener() {
 
 			@Override
@@ -557,14 +557,7 @@ public class MainPage extends JPanel {
 
 		});
 
-		btnLeft2.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MainPage, new MyWord1(mf));
-			}
-
-		});
+		
 		btnLeft3.addActionListener(new ActionListener() {
 
 			@Override

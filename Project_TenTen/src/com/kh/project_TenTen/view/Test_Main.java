@@ -51,7 +51,6 @@ public class Test_Main extends JPanel {
 		case "경제" : num = 4; break;
 		case "예술" : num = 5; break;
 		}
-		
 		return num;
 	}
 	

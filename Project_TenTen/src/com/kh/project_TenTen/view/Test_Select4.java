@@ -402,7 +402,6 @@ public class Test_Select4 extends JPanel{
 		this.add(panelTitle);
 		mf.add(this);
 
-
 		//¹öÆ°
 
 

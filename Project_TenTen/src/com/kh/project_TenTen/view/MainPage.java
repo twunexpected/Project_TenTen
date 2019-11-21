@@ -33,7 +33,7 @@ public class MainPage extends JPanel {
 
 	public static Word[] word = null;
 
-	int MainIndex = 0;
+	static int MainIndex = 0;
 
 	private Login_MainFrame mf;
 	private JPanel MainPage;

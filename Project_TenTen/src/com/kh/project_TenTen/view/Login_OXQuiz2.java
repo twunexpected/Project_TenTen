@@ -14,13 +14,21 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class Login_OXQuiz2 extends JPanel {
+	protected static final String[][] String = null;
 	private Login_MainFrame mf;
 	private JPanel login_OXQuiz2;
-	//HashMap hmap = new HashMap();
-	int num = 0;
-	int i = 0;
-	int nii = num++;
-
+	int q1 = 0;
+	int q2 = 0;
+	int q3 = 0;
+	int q4 = 0;
+	int q5 = 0;
+	int q6 = 0;
+	int q7 = 0;
+	int q8 = 0;
+	int q9 = 0;
+	int q10 = 0;
+	String grade;
+	int all;
 
 	public Login_OXQuiz2(Login_MainFrame mf) {
 		this.mf = mf;
@@ -164,7 +172,7 @@ public class Login_OXQuiz2 extends JPanel {
 		btnFinish.setForeground(new Color(255, 255, 225));
 		btnFinish.setBackground(new Color(36, 107, 220));
 		btnFinish.setFont(new Font("고딕", Font.BOLD, 20));
-
+		//------------------------------------------------------------
 		//RadioButton 1~10
 		JRadioButton rb1_o = new JRadioButton();
 		rb1_o.setBounds(260, 180, 20, 15);
@@ -172,130 +180,191 @@ public class Login_OXQuiz2 extends JPanel {
 		rb1_o.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;
+				q1 = 1;
 			}
 		});
 
 		JRadioButton rb1_x = new JRadioButton();
 		rb1_x.setBounds(310, 180, 20, 15);
 		rb1_x.setBackground(new Color(123, 185, 237));
+		rb1_x.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q1 = 0;
+			}
+		});
 		ButtonGroup group1 = new ButtonGroup();
-
+		//------------------------------------------------------------
 		JRadioButton rb2_o = new JRadioButton();
 		rb2_o.setBounds(260, 210, 20, 15);
 		rb2_o.setBackground(new Color(123, 185, 237));
 		rb2_o.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;
+				q2 = 0;
 			}
 		});
 		JRadioButton rb2_x = new JRadioButton();
 		rb2_x.setBounds(310, 210, 20, 15);
 		rb2_x.setBackground(new Color(123, 185, 237));
+		rb2_x.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q2 = 1;
+			}
+		});
 		ButtonGroup group2 = new ButtonGroup();
-
+		//------------------------------------------------------------
 		JRadioButton rb3_o = new JRadioButton();
 		rb3_o.setBounds(260, 240, 20, 15);
 		rb3_o.setBackground(new Color(123, 185, 237));
 		rb3_o.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;	
+				q3 = 0;
 			}
 		});
 		JRadioButton rb3_x = new JRadioButton();
 		rb3_x.setBounds(310, 240, 20, 15);
 		rb3_x.setBackground(new Color(123, 185, 237));
+		rb3_x.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q3 = 1;
+			}
+		});
 		ButtonGroup group3 = new ButtonGroup();
-
+		//------------------------------------------------------------
 		JRadioButton rb4_o = new JRadioButton();
 		rb4_o.setBounds(260, 270, 20, 15);
 		rb4_o.setBackground(new Color(123, 185, 237));
 		rb4_o.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;	   
+				q4 = 1;
 			}
 		});
 		JRadioButton rb4_x = new JRadioButton();
 		rb4_x.setBounds(310, 270, 20, 15);
 		rb4_x.setBackground(new Color(123, 185, 237));
+		rb4_x.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q4 = 0;
+			}
+		});
 		ButtonGroup group4 = new ButtonGroup();
-
+		//------------------------------------------------------------
 		JRadioButton rb5_o = new JRadioButton();
 		rb5_o.setBounds(260, 300, 20, 15);
 		rb5_o.setBackground(new Color(123, 185, 237));
 		rb5_o.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;	    
+				q5 = 1;
 			}
 		});
 		JRadioButton rb5_x = new JRadioButton();
 		rb5_x.setBounds(310, 300, 20, 15);
 		rb5_x.setBackground(new Color(123, 185, 237));
+		rb5_x.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q5 = 0;
+			}
+		});
 		ButtonGroup group5 = new ButtonGroup();
-		num = 1;
-
+		//------------------------------------------------------------
 		JRadioButton rb6_o = new JRadioButton();
 		rb6_o.setBounds(260, 330, 20, 15);
 		rb6_o.setBackground(new Color(123, 185, 237));
-
+		rb6_o.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q6 = 1;
+			}
+		});
 		JRadioButton rb6_x = new JRadioButton();
 		rb6_x.setBounds(310, 330, 20, 15);
 		rb6_x.setBackground(new Color(123, 185, 237));
-		ButtonGroup group6 = new ButtonGroup();
 		rb6_x.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;	        
+				q6 = 0;
 			}
 		});
+		ButtonGroup group6 = new ButtonGroup();
+		//------------------------------------------------------------
 		JRadioButton rb7_o = new JRadioButton();
 		rb7_o.setBounds(260, 360, 20, 15);
 		rb7_o.setBackground(new Color(123, 185, 237));
-
+		rb7_o.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q7 = 0;
+			}
+		});
 		JRadioButton rb7_x = new JRadioButton();
 		rb7_x.setBounds(310, 360, 20, 15);
 		rb7_x.setBackground(new Color(123, 185, 237));
-		ButtonGroup group7 = new ButtonGroup();
 		rb7_x.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;	         
+				q7 = 1;
 			}
 		});
+		ButtonGroup group7 = new ButtonGroup();
+		//------------------------------------------------------------
 		JRadioButton rb8_o = new JRadioButton();
 		rb8_o.setBounds(260, 390, 20, 15);
 		rb8_o.setBackground(new Color(123, 185, 237));
-
+		rb8_o.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q8 = 0;
+			}
+		});
 		JRadioButton rb8_x = new JRadioButton();
 		rb8_x.setBounds(310, 390, 20, 15);
 		rb8_x.setBackground(new Color(123, 185, 237));
-		ButtonGroup group8 = new ButtonGroup();
 		rb8_x.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;	         }
+				q8 = 1;
+			}
 		});
+		ButtonGroup group8 = new ButtonGroup();
+		//------------------------------------------------------------
 		JRadioButton rb9_o = new JRadioButton();
 		rb9_o.setBounds(260, 420, 20, 15);
 		rb9_o.setBackground(new Color(123, 185, 237));
+		rb9_o.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { 
+				q9 = 1;
+			}
+		});
 
 		JRadioButton rb9_x = new JRadioButton();
 		rb9_x.setBounds(310, 420, 20, 15);
 		rb9_x.setBackground(new Color(123, 185, 237));
-		ButtonGroup group9 = new ButtonGroup();
 		rb9_x.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) { 
-				num = 1;	
+				q9 = 0;
 			}
 		});
+		ButtonGroup group9 = new ButtonGroup();
+		//------------------------------------------------------------
 		JRadioButton rb10_o = new JRadioButton();
 		rb10_o.setBounds(260, 450, 20, 15);
 		rb10_o.setBackground(new Color(123, 185, 237));
+		rb10_o.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				q10 = 1;
+			}
+		});
 
 		JRadioButton rb10_x = new JRadioButton();
 		rb10_x.setBounds(310, 450, 20, 15);
@@ -304,9 +373,10 @@ public class Login_OXQuiz2 extends JPanel {
 		rb10_x.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				num = 1;	      
+				q10 = 0;
 			}
 		});
+		//------------------------------------------------------------
 		//ox RadioButton Group 1~10
 		group1.add(rb1_o);
 		group1.add(rb1_x);
@@ -391,14 +461,20 @@ public class Login_OXQuiz2 extends JPanel {
 		this.add(copyRights);
 		mf.add(this);
 
-
-
 		btnFinish.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				nii;
-				JOptionPane.showMessageDialog(null, "점수는 " + nii + "점입니다." + "당신은 초급입니다."); 
+				int all = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10;
+				if(all >= 9 && all <= 10) {
+					grade = "고급";
+				}else if(all >= 5 && all <= 8) {
+					grade = "중급";
+				}else if(all >= 0 && all <= 4) {
+					grade = "초급";
+				}
+				JOptionPane.showMessageDialog(null, "당신 점수는 " + all + "점입니다." + "당신은 "+ grade +"입니다."); 
 			}
 		});
 	}
+
 }

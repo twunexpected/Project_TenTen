@@ -306,21 +306,22 @@ public class MainPage extends JPanel {
 
 		});
 
+		
 		//스포츠버튼 이벤트. 주제선택 재확인 팝업창 실행
-		sports.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+				if(count == 0) {
+					sports.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
 
-				if(count > 0) {
-					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
-				}else {
-					sportsjujaeD.setVisible(true);
+						if(count > 0) {
+							JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+						}else {
+							sportsjujaeD.setVisible(true);
+						}
+					}
+				});
 				}
-
-			}
-		});
-
-
+		
 		
 		
 		////////////////////////////////////////////////////
@@ -404,6 +405,7 @@ public class MainPage extends JPanel {
 		});
 
 		//여행버튼 이벤트. 주제선택 재확인 팝업창 실행
+		if(count == 0) {
 		trip.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -416,7 +418,7 @@ public class MainPage extends JPanel {
 			}
 		});
 		
-		
+		}
 		
 		
 		
@@ -501,6 +503,7 @@ public class MainPage extends JPanel {
 		});
 
 		//회사버튼 이벤트. 주제선택 재확인 팝업창 실행
+		if(count == 0) {
 		business.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -512,7 +515,7 @@ public class MainPage extends JPanel {
 				}
 			}
 		});
-		
+		}
 		
 		
 		
@@ -599,6 +602,7 @@ public class MainPage extends JPanel {
 		});
 
 		//경제버튼 이벤트. 주제선택 재확인 팝업창 실행
+		if(count == 0) {
 		economy.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -611,7 +615,7 @@ public class MainPage extends JPanel {
 
 			}
 		});
-		
+		}
 		
 	////////////////////////////////////////////////////////////////	
 		//예술 버튼
@@ -691,10 +695,11 @@ public class MainPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				ATjujaeD.dispose();
 			}
-
+ 
 		});
-
+ 
 		//예술 버튼 이벤트. 주제선택 재확인 팝업창 실행
+		if(count == 0) {
 		art.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -705,7 +710,7 @@ public class MainPage extends JPanel {
 				}
 			}
 		});
-		
+		}
 
 
 		//////////////////////////////////////////////////////////////////////
@@ -727,7 +732,7 @@ public class MainPage extends JPanel {
 					++MainIndex;
 					wordText.setText(wordStr[MainIndex]);
 					meanText.setText(meanStr[MainIndex]);
-					kindText.setText(meanStr[MainIndex]);
+					kindText.setText(kindStr[MainIndex]);
 					countnum.setText(Integer.valueOf(MainIndex+1).toString());
   
 					BufferedWriter bo = null;

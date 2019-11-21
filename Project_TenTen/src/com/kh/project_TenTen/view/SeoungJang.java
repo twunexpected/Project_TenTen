@@ -23,13 +23,12 @@ public class SeoungJang extends JPanel{
 
 	private Login_MainFrame mf;
 	private JPanel SeoungJang;
-	private int num = 0;
-	
-	
+	//int count = 0;
+	//boolean check = true;
+
 	Member mb = new Member();
 
-	
-	
+
 	public SeoungJang(Login_MainFrame mf) {
 		this.mf = mf;
 		SeoungJang = this;
@@ -74,13 +73,13 @@ public class SeoungJang extends JPanel{
 		myttnum.setLocation(170, 500);
 		myttnum.setFont(new Font("고딕",Font.PLAIN,15));
 		this.add(myttnum);
-		
-		
-		
+
+
+
 
 
 		// 획득조건 :
-		JLabel getCd = new JLabel("획득조건: ");
+		JLabel getCd = new JLabel("획득조건: 텐텐 ");
 		getCd.setBackground(new Color(123, 185, 237));
 		getCd.setSize(80, 40);
 		getCd.setLocation(200, 540);
@@ -88,7 +87,7 @@ public class SeoungJang extends JPanel{
 		this.add(getCd);
 
 		// 텐텐 몇개 필요하다는 라벨
-		JLabel needTTNum = new JLabel("텐텐 10개");
+		JLabel needTTNum = new JLabel(" 20");
 		needTTNum.setBackground(new Color(123, 185, 237));
 		needTTNum.setSize(80, 40);
 		needTTNum.setLocation(285, 540);
@@ -100,14 +99,44 @@ public class SeoungJang extends JPanel{
 
 		// 상장 교환 버튼
 		JButton ttChangeB = new JButton("교환") ;
-		ttChangeB.setSize(60, 40);
-		ttChangeB.setLocation(250,575);
+		ttChangeB.setSize(65, 40);
+		ttChangeB.setLocation(240,575);
 		ttChangeB.setBackground(new Color(36, 107, 220));
 		ttChangeB.setFont(new Font("고딕",Font.BOLD,13));
+		ttChangeB.setForeground(Color.WHITE);
 		this.add(ttChangeB);
 
+		//시연시 보여줄 텐텐개수 추가 버튼
+		JButton showTen = new JButton("^^");
+		showTen.setSize(47,30);
+		showTen.setLocation(320,585);
+		showTen.setBackground(new Color(36, 107, 220));
+		showTen.setFont(new Font("고딕",Font.BOLD,10));
+		showTen.setForeground(Color.WHITE);
+		this.add(showTen);
 
 
+		//^^ 버튼 누르면 텐텐개수 30개로 셋팅
+		showTen.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+	
+				MemberDao.loginMember.setHaveTen(30);
+
+				myttnum.setText(String.valueOf(MemberDao.loginMember.getHaveTen()).toString());	
+
+				}
+				
+			
+	
+			
+
+		});
+
+
+ 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 		//하단 미니상장이미지
@@ -120,12 +149,12 @@ public class SeoungJang extends JPanel{
 		//하단 트로피이미지
 		Image gold = new ImageIcon("images/gold.PNG").getImage().getScaledInstance(70, 90, 0);
 		JLabel goldImg = new JLabel(new ImageIcon(gold));
-		goldImg.setSize(70, 90);
-		goldImg.setLocation(120,530);
+		goldImg.setSize(60, 75);
+		goldImg.setLocation(120,540);
 		goldImg.setVisible(false);
 		this.add(goldImg);
-		
-		
+
+
 		//진열장이미지
 		Image backGround = new ImageIcon("images/Pan.PNG").getImage().getScaledInstance(390, 370, 0);
 		JLabel PanLabel = new JLabel(new ImageIcon(backGround));
@@ -135,33 +164,62 @@ public class SeoungJang extends JPanel{
 
 
 
-		
 		//교환버튼 클릭시 이벤트 발생
-		
-		
-		if(mb.getHaveTen() >= 20) {
-			
+
+		/*MemberDao md = new MemberDao();
+		ArrayList list = new ArrayList();
+		list = md.findMember();
+		Member[] m = new Member[list.size()];
+
+		for()
+
+		if(mb.getId().equals("aa11")) {*/
+
+
+		//myttnum.setText(String.valueOf(MemberDao.loginMember.getHaveTen()).toString());	
+
+
 		ttChangeB.addActionListener(new ActionListener() {
- 
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-	
-				
-				rewordImg.setLocation(100,140);
-				goldImg.setVisible(true);
-				
-				mb.setHaveTen(mb.getHaveTen()-20);
-				
-				myttnum.setText(String.valueOf(mb.getHaveTen()).toString());
-				//needTTNum.setText("텐텐 20개");
-				
-				 
-			}
 
+				if(MemberDao.loginMember.getHaveTen() == 30 ) {	
+
+					rewordImg.setLocation(100,140);
+					goldImg.setVisible(true);
+
+					MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-20);
+
+					myttnum.setText(String.valueOf(MemberDao.loginMember.getHaveTen()).toString());
+
+					needTTNum.setText("30");
+				}
+
+			
+			}
 		});
 
-		}
-		
+
+		//이 아이디로 로그인 안하고 할때
+		/*		if(mb.getHaveTen() >= 20) {	
+
+		ttChangeB.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+
+				rewordImg.setLocation(100,140);
+				goldImg.setVisible(true);
+
+				mb.setHaveTen(mb.getHaveTen()-20);
+
+				myttnum.setText(String.valueOf(mb.getHaveTen()).toString());
+			}
+		});
+		}*/
+
 
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -288,10 +346,10 @@ public class SeoungJang extends JPanel{
 
 
 	}
-	
-/*	public final void initUI() {
-		
-		
+
+	/*	public final void initUI() {
+
+
 		ttChangeB.addActionListener(new ActionListener() {
 
 			@Override
@@ -301,17 +359,17 @@ public class SeoungJang extends JPanel{
 					Image reword2 = new ImageIcon("images/sangjang.PNG").getImage().getScaledInstance(200, 200, 0);
 					JLabel rewordImg2 = new JLabel(new ImageIcon(reword2));
 					rewordImg2.setLocation(20,20);
-					
-					
+
+
 				}
-					
+
 			}
-			
-			
+
+
 		});
-		
-	
-		
+
+
+
 	}*/
 
 }

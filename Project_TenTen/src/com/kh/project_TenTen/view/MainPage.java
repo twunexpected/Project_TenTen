@@ -139,7 +139,7 @@ public class MainPage extends JPanel {
 		////////@@@@@  요리주제 선택시 뜨는 선택 재확인 팝업창 @@@@@/////////
 		Dialog CookjujaeD = new Dialog(mf,"요리 주제선택 재확인");
 		CookjujaeD.setLayout(null);
-		CookjujaeD.setBounds(500,500,400,200);
+		CookjujaeD.setBounds(700,300,400,200);
 		CookjujaeD.setBackground(new Color(123,185,237));
 
 		JLabel CooksbQ = new JLabel("요리 주제를 선택하시겠습니까?");
@@ -193,11 +193,11 @@ public class MainPage extends JPanel {
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
-				}				
+				}			 	
 			}
 
 		});
-
+		// 노 누를시 창 꺼짐
 		CookaswN.addActionListener(new ActionListener() {
 
 			@Override
@@ -212,7 +212,13 @@ public class MainPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				CookjujaeD.setVisible(true);
+
+				if(count > 0) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}else {
+					CookjujaeD.setVisible(true);
+				}
+
 
 			}
 		});
@@ -233,7 +239,7 @@ public class MainPage extends JPanel {
 		////////@@@@@  스포츠 주제 선택시 뜨는 선택 재확인 팝업창 @@@@@/////////
 		Dialog sportsjujaeD = new Dialog(mf,"스포츠 주제선택 재확인");
 		sportsjujaeD.setLayout(null);
-		sportsjujaeD.setBounds(500,500,400,200);
+		sportsjujaeD.setBounds(700,300,400,200);
 		sportsjujaeD.setBackground(new Color(123,185,237));
 
 		JLabel sportssbQ = new JLabel("스포츠 주제를 선택하시겠습니까?");
@@ -243,11 +249,11 @@ public class MainPage extends JPanel {
 		sportsjujaeD.add(sportssbQ);
 
 		JButton sportsaswY = new JButton("네");
-		CookaswY.setBounds(90, 130, 90, 30);
-		CookaswY.setFont(new Font("고딕", Font.BOLD, 17));
-		CookaswY.setForeground(Color.white);
-		CookaswY.setBackground(new Color(36, 107, 220));
-		CookjujaeD.add(CookaswY);
+		sportsaswY.setBounds(90, 130, 90, 30);
+		sportsaswY.setFont(new Font("고딕", Font.BOLD, 17));
+		sportsaswY.setForeground(Color.white);
+		sportsaswY.setBackground(new Color(36, 107, 220));
+		sportsjujaeD.add(sportsaswY);
 
 		JButton sportsaswN = new JButton("아니오");
 		sportsaswN.setBounds(205, 130, 90, 30);
@@ -291,27 +297,34 @@ public class MainPage extends JPanel {
 			}
 
 		});
-
-		CookaswN.addActionListener(new ActionListener() {
+		// no 눌렀을시 창 꺼짐
+		sportsaswN.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				CookjujaeD.dispose();
+				sportsjujaeD.dispose();
 			}
 
 		});
 
-		//요리버튼 이벤트. 주제선택 재확인 팝업창 실행
-		cook.addActionListener(new ActionListener() {
+		//스포츠버튼 이벤트. 주제선택 재확인 팝업창 실행
+		sports.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				CookjujaeD.setVisible(true);
+				if(count > 0) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}else {
+					sportsjujaeD.setVisible(true);
+				}
 
 			}
 		});
 
 
+		
+		
+		////////////////////////////////////////////////////
 		//여행 버튼
 		JButton trip= new JButton("여행");
 		trip.setSize(80, 40);
@@ -320,14 +333,43 @@ public class MainPage extends JPanel {
 		trip.setBackground(new Color(36, 107, 220));
 		this.add(trip);
 
-		//여행버튼 이벤트
-		trip.addActionListener(new ActionListener() {
+////////@@@@@  여행 주제 선택시 뜨는 선택 재확인 팝업창 @@@@@/////////
+		Dialog tripjujaeD = new Dialog(mf,"여행 주제선택 재확인");
+		tripjujaeD.setLayout(null);
+		tripjujaeD.setBounds(700,300,400,200);
+		tripjujaeD.setBackground(new Color(123,185,237));
+
+		JLabel tripsbQ = new JLabel("여행 주제를 선택하시겠습니까?");
+		tripsbQ.setBounds(70, 90, 300, 30);
+		tripsbQ.setFont(new Font("고딕", Font.BOLD, 17));
+		tripsbQ.setForeground(Color.white);
+		tripjujaeD.add(tripsbQ);
+
+		JButton tripaswY = new JButton("네");
+		tripaswY.setBounds(90, 130, 90, 30);
+		tripaswY.setFont(new Font("고딕", Font.BOLD, 17));
+		tripaswY.setForeground(Color.white);
+		tripaswY.setBackground(new Color(36, 107, 220));
+		tripjujaeD.add(tripaswY);
+
+		JButton tripaswN = new JButton("아니오");
+		tripaswN.setBounds(205, 130, 90, 30);
+		tripaswN.setFont(new Font("고딕", Font.BOLD, 17));
+		tripaswN.setForeground(Color.white);
+		tripaswN.setBackground(new Color(36, 107, 220));
+		tripjujaeD.add(tripaswN);
+
+
+
+		//네 주제 선택확고합니다.
+		tripaswY.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				tripjujaeD.dispose();
 				if(count == 0 ) {
-					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
+
 					wordStr = new String[10];
 					meanStr = new String[10];
 					kindStr = new String[10];
@@ -338,18 +380,48 @@ public class MainPage extends JPanel {
 						wordStr[i] = word[i].getSpelling();
 						meanStr[i] = word[i].getMean();
 						kindStr[i] = word[i].getKind();
+
+						wordText.setText(wordStr[MainIndex]);
+						meanText.setText(meanStr[MainIndex]);
+						kindText.setText(kindStr[MainIndex]);
+						countnum.setText(Integer.valueOf(MainIndex+1).toString());
 					}
 
-					wordText.setText(wordStr[MainIndex]);
-					meanText.setText(meanStr[MainIndex]);
-					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}				
+			}
+
+		});
+		// no 눌렀을시 창 꺼짐
+		tripaswN.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tripjujaeD.dispose();
+			}
+
+		});
+
+		//여행버튼 이벤트. 주제선택 재확인 팝업창 실행
+		trip.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if(count > 0) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}else {
+				tripjujaeD.setVisible(true);
 				}
 			}
 		});
-
+		
+		
+		
+		
+		
+////////////////////////////////////////////////////
 		//회사 버튼
 		JButton business= new JButton("회사");
 		business.setSize(80, 40);
@@ -358,14 +430,43 @@ public class MainPage extends JPanel {
 		business.setBackground(new Color(36, 107, 220));
 		this.add(business);
 
-		//비지니스 버튼 이벤트
-		business.addActionListener(new ActionListener() {
+////////@@@@@  회사 주제 선택시 뜨는 선택 재확인 팝업창 @@@@@/////////
+		Dialog BSjujaeD = new Dialog(mf,"회사 주제선택 재확인");
+		BSjujaeD.setLayout(null);
+		BSjujaeD.setBounds(700,300,400,200);
+		BSjujaeD.setBackground(new Color(123,185,237));
+
+		JLabel BSsbQ = new JLabel("회사 주제를 선택하시겠습니까?");
+		BSsbQ.setBounds(70, 90, 300, 30);
+		BSsbQ.setFont(new Font("고딕", Font.BOLD, 17));
+		BSsbQ.setForeground(Color.white);
+		BSjujaeD.add(BSsbQ);
+
+		JButton BSaswY = new JButton("네");
+		BSaswY.setBounds(90, 130, 90, 30);
+		BSaswY.setFont(new Font("고딕", Font.BOLD, 17));
+		BSaswY.setForeground(Color.white);
+		BSaswY.setBackground(new Color(36, 107, 220));
+		BSjujaeD.add(BSaswY);
+
+		JButton BSaswN = new JButton("아니오");
+		BSaswN.setBounds(205, 130, 90, 30);
+		BSaswN.setFont(new Font("고딕", Font.BOLD, 17));
+		BSaswN.setForeground(Color.white);
+		BSaswN.setBackground(new Color(36, 107, 220));
+		BSjujaeD.add(BSaswN);
+
+
+
+		//네 주제 선택확고합니다.
+		BSaswY.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				BSjujaeD.dispose();
 				if(count == 0 ) {
-					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
+
 					wordStr = new String[10];
 					meanStr = new String[10];
 					kindStr = new String[10];
@@ -376,19 +477,49 @@ public class MainPage extends JPanel {
 						wordStr[i] = word[i].getSpelling();
 						meanStr[i] = word[i].getMean();
 						kindStr[i] = word[i].getKind();
+
+						wordText.setText(wordStr[MainIndex]);
+						meanText.setText(meanStr[MainIndex]);
+						kindText.setText(kindStr[MainIndex]);
+						countnum.setText(Integer.valueOf(MainIndex+1).toString());
 					}
 
-
-					wordText.setText(wordStr[MainIndex]);
-					meanText.setText(meanStr[MainIndex]);
-					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}				
+			}
+
+		});
+		// no 눌렀을시 창 꺼짐
+		BSaswN.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BSjujaeD.dispose();
+			}
+
+		});
+
+		//회사버튼 이벤트. 주제선택 재확인 팝업창 실행
+		business.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if(count > 0) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}else {
+				BSjujaeD.setVisible(true);
 				}
 			}
 		});
-
+		
+		
+		
+		
+		
+		
+//////////////////////////////////////////////////////////////////////////
 		//경제 버튼
 		JButton economy = new JButton("경제");
 		economy.setSize(80, 40);
@@ -397,14 +528,43 @@ public class MainPage extends JPanel {
 		economy.setBackground(new Color(36, 107, 220));
 		this.add(economy);
 
-		//경제 버튼 이벤트
-		economy.addActionListener(new ActionListener() {
+////////@@@@@  경제 주제 선택시 뜨는 선택 재확인 팝업창 @@@@@/////////
+		Dialog ECjujaeD = new Dialog(mf,"경제 주제선택 재확인");
+		ECjujaeD.setLayout(null);
+		ECjujaeD.setBounds(700,300,400,200);
+		ECjujaeD.setBackground(new Color(123,185,237));
+
+		JLabel ECsbQ = new JLabel("경제 주제를 선택하시겠습니까?");
+		ECsbQ.setBounds(70, 90, 300, 30);
+		ECsbQ.setFont(new Font("고딕", Font.BOLD, 17));
+		ECsbQ.setForeground(Color.white);
+		ECjujaeD.add(ECsbQ);
+
+		JButton ECaswY = new JButton("네");
+		ECaswY.setBounds(90, 130, 90, 30);
+		ECaswY.setFont(new Font("고딕", Font.BOLD, 17));
+		ECaswY.setForeground(Color.white);
+		ECaswY.setBackground(new Color(36, 107, 220));
+		ECjujaeD.add(ECaswY);
+
+		JButton ECaswN = new JButton("아니오");
+		ECaswN.setBounds(205, 130, 90, 30);
+		ECaswN.setFont(new Font("고딕", Font.BOLD, 17));
+		ECaswN.setForeground(Color.white);
+		ECaswN.setBackground(new Color(36, 107, 220));
+		ECjujaeD.add(ECaswN);
+
+
+
+		//네 주제 선택확고합니다.
+		ECaswY.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if(count ==0) {
-					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
+				ECjujaeD.dispose();
+				if(count == 0 ) {
+
 					wordStr = new String[10];
 					meanStr = new String[10];
 					kindStr = new String[10];
@@ -415,18 +575,46 @@ public class MainPage extends JPanel {
 						wordStr[i] = word[i].getSpelling();
 						meanStr[i] = word[i].getMean();
 						kindStr[i] = word[i].getKind();
+
+						wordText.setText(wordStr[MainIndex]);
+						meanText.setText(meanStr[MainIndex]);
+						kindText.setText(kindStr[MainIndex]);
+						countnum.setText(Integer.valueOf(MainIndex+1).toString());
 					}
 
-					wordText.setText(wordStr[MainIndex]);
-					meanText.setText(meanStr[MainIndex]);
-					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
-				}
+				}				
 			}
+
+		});
+		// no 눌렀을시 창 꺼짐
+		ECaswN.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ECjujaeD.dispose();
+			}
+
 		});
 
+		//경제버튼 이벤트. 주제선택 재확인 팝업창 실행
+		economy.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if(count > 0) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}else {
+				ECjujaeD.setVisible(true);
+				}
+
+			}
+		});
+		
+		
+	////////////////////////////////////////////////////////////////	
 		//예술 버튼
 		JButton art = new JButton("예술");
 		art.setSize(80, 40);
@@ -435,14 +623,44 @@ public class MainPage extends JPanel {
 		art.setBackground(new Color(36, 107, 220));
 		this.add(art);
 
-		//예술 버튼 이벤트
-		art.addActionListener(new ActionListener() {
+////////@@@@@  회사 주제 선택시 뜨는 선택 재확인 팝업창 @@@@@/////////
+		Dialog ATjujaeD = new Dialog(mf,"예술 주제선택 재확인");
+		ATjujaeD.setLayout(null);
+		ATjujaeD.setBounds(700,300,400,200);
+		ATjujaeD.setBackground(new Color(123,185,237));
+
+		JLabel ATsbQ = new JLabel("예술 주제를 선택하시겠습니까?");
+		ATsbQ.setBounds(70, 90, 300, 30);
+		ATsbQ.setFont(new Font("고딕", Font.BOLD, 17));
+		ATsbQ.setForeground(Color.white);
+		ATjujaeD.add(ATsbQ);
+
+		JButton ATaswY = new JButton("네");
+		ATaswY.setBounds(90, 130, 90, 30);
+		ATaswY.setFont(new Font("고딕", Font.BOLD, 17));
+		ATaswY.setForeground(Color.white);
+		ATaswY.setBackground(new Color(36, 107, 220));
+		ATjujaeD.add(ATaswY);
+
+		JButton ATaswN = new JButton("아니오");
+		ATaswN.setBounds(205, 130, 90, 30);
+		ATaswN.setFont(new Font("고딕", Font.BOLD, 17));
+		ATaswN.setForeground(Color.white);
+		ATaswN.setBackground(new Color(36, 107, 220));
+		ATjujaeD.add(ATaswN);
+
+
+
+		//네 주제 선택확고합니다.
+		ATaswY.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if(count == 0) {
-					JOptionPane.showMessageDialog(null, "주제를 변경할 수 없습니다.");
+				ATjujaeD.dispose();
+				
+				if(count == 0 ) {
+
 					wordStr = new String[10];
 					meanStr = new String[10];
 					kindStr = new String[10];
@@ -453,19 +671,42 @@ public class MainPage extends JPanel {
 						wordStr[i] = word[i].getSpelling();
 						meanStr[i] = word[i].getMean();
 						kindStr[i] = word[i].getKind();
+
+						wordText.setText(wordStr[MainIndex]);
+						meanText.setText(meanStr[MainIndex]);
+						kindText.setText(kindStr[MainIndex]);
+						countnum.setText(Integer.valueOf(MainIndex+1).toString());
 					}
 
-					wordText.setText(wordStr[MainIndex]);
-					meanText.setText(meanStr[MainIndex]);
-					kindText.setText(kindStr[MainIndex]);
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}				
+			}
+
+		});
+		// no 눌렀을시 창 꺼짐
+		ATaswN.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ATjujaeD.dispose();
+			}
+
+		});
+
+		//예술 버튼 이벤트. 주제선택 재확인 팝업창 실행
+		art.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(count > 0) {
+					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
+				}else {
+				ATjujaeD.setVisible(true);
 				}
-
-
 			}
 		});
+		
 
 
 		//////////////////////////////////////////////////////////////////////
@@ -695,17 +936,6 @@ public class MainPage extends JPanel {
 	}
 
 
-
-
-
-
 }
-
-
-
-
-
-
-
 
 

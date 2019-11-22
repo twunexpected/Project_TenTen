@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -12,6 +13,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+
+import com.kh.project_TenTen.model.dao.MemberDao;
+import com.kh.project_TenTen.model.vo.Member;
 
 public class Login_OXQuiz1 extends JPanel{
 	private Login_MainFrame mf;
@@ -471,7 +475,34 @@ public class Login_OXQuiz1 extends JPanel{
 				}else if(all >= 0 && all <= 4) {
 					grade = "초급";
 				}
-				JOptionPane.showMessageDialog(null, "당신 점수는 " + all + "점입니다." + "당신은 "+ grade +"입니다."); 
+				JOptionPane.showMessageDialog(null, "당신 점수는 " + all + "점입니다." + "당신은 "+ grade +"입니다.");
+				ArrayList ar = new ArrayList();
+				MemberDao md = new MemberDao();
+				ar = md.findMember();
+				Member[] m = new Member[ar.size()];
+				
+				for(int i = 0; i < m.length; i++) {
+					m[i] = (Member) ar.get(i);
+				}
+				
+				for(int i = 0; i < m.length; i++) {
+					if(Login_TestTitle.id.equals(m[i].getId())) {
+						m[i].setWordLevel(grade);
+						break;
+					}
+				}
+				
+				ar.clear();
+				
+				for(int i = 0; i < m.length; i++) {
+					ar.add(m[i]);
+				}
+				
+				md.writeMember(ar);
+				
+				JOptionPane.showMessageDialog(null, "메인화면으로 이동합니다.");
+				ChangePanel.changePanel(mf, login_OXQuiz1, new Login_MainPage(mf));
+				
 			}
 		});
 	}

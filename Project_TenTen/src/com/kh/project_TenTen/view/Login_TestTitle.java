@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 public class Login_TestTitle extends JPanel{
 	private Login_MainFrame mf;
 	private JPanel login_TestTitle;
+	public static String id;
 	public Login_TestTitle(Login_MainFrame mf) {
 		login_TestTitle = this;
 		 

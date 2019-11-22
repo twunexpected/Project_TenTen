@@ -79,7 +79,7 @@ public class MyWord2 extends JPanel{
 		JButton b1 = new JButton("암기");
 		b1.setHorizontalAlignment(JLabel.CENTER);
 		b1.setForeground(Color.white);
-		b1.setFont(new Font("고딕",Font.BOLD,17));
+		b1.setFont(new Font("고딕",Font.BOLD,16));
 		b1.setBackground(new Color(36, 107, 220));
 		b1.addActionListener(new ActionListener() {
 			@Override
@@ -90,7 +90,7 @@ public class MyWord2 extends JPanel{
 		JButton b2 = new JButton("비암기");
 		b2.setHorizontalAlignment(JLabel.CENTER);
 		b2.setForeground(Color.white);
-		b2.setFont(new Font("고딕",Font.BOLD,15));
+		b2.setFont(new Font("고딕",Font.BOLD,16));
 		b2.setBackground(new Color(225, 91, 91));
 
 		JButton b3 = new JButton("나의단어");
@@ -134,7 +134,7 @@ public class MyWord2 extends JPanel{
 		b2.setBounds(210, 20, 100, 35);
 		b3.setBounds(100, 65, 100, 35);	
 		b4.setBounds(210, 65, 100, 35);	
-		b5.setBounds(310, 20, 70, 80);
+		b5.setBounds(310, 20, 70, 40);
 		b5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -154,11 +154,55 @@ public class MyWord2 extends JPanel{
 				JOptionPane.showMessageDialog(null, "선택하신 단어가 즐겨찾기에 추가되었습니다.");
 			}
 		});
+		JButton b6 = new JButton("√");
+		b6.setHorizontalAlignment(JLabel.CENTER);
+		b6.setForeground(Color.yellow);
+		b6.setFont(new Font("고딕",Font.BOLD,25));
+		b6.setBackground(new Color(123, 185, 237));
+		b6.setBounds(310, 60, 70, 40);
+		b6.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//JButton b4 = (JButton)e.getSource();
+				//DefaultTableModel m = (DefaultTableModel)table.getModel();
+				BufferedWriter bo = null;
+				try {
+					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"암기 단어.txt", true));
+					int row=table.getSelectedRow();//사용자가 선택한 행
+					bo.write(((String) data[row][0])+"/");
+					bo.write(((String) data[row][1])+"/");
+					bo.write(((String) data[row][2])+"/");
+					bo.flush();
+					
+					model.removeRow(table.getSelectedRow());
+
+						
+						bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"비암기 단어.txt"));
+						bo.write("");
+						bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"비암기 단어.txt",true));
+						int row1 =table.getRowCount();
+						int col = table.getColumnCount();				
+						for(int i=0;i<row1;i++) {
+							for(int j=0; j<col;j++) {
+								bo.write((String) table.getValueAt(i, j)+"/");
+								;
+							}
+						}
+						bo.close();
+					} catch (Exception ex) { 
+
+					} 
+				
+				
+				JOptionPane.showMessageDialog(null, "암기목록으로 이동하였습니다.");
+			}
+		});
 		this.add(b1);
 		this.add(b2);
 		this.add(b3);
 		this.add(b4);
 		this.add(b5);
+		this.add(b6);
 		//좌측 고정
 		final JButton btnLeft1 = new JButton("<html>메인<br/>화면</html>");
 		btnLeft1.setBounds(0, 0, 80, 120);

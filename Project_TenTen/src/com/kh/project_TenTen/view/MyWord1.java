@@ -81,13 +81,13 @@ public class MyWord1 extends JPanel{
 		JButton b1 = new JButton("¾Ï±â");
 		b1.setHorizontalAlignment(JLabel.CENTER);
 		b1.setForeground(Color.white);
-		b1.setFont(new Font("°íµñ",Font.BOLD,17));
+		b1.setFont(new Font("°íµñ",Font.BOLD,16));
 		b1.setBackground(new Color(225, 91, 91));
 
 		JButton b2 = new JButton("ºñ¾Ï±â");
 		b2.setHorizontalAlignment(JLabel.CENTER);
 		b2.setForeground(Color.white);
-		b2.setFont(new Font("°íµñ",Font.BOLD,15));
+		b2.setFont(new Font("°íµñ",Font.BOLD,16));
 		b2.setBackground(new Color(36, 107, 220));
 		b2.addActionListener(new ActionListener() {
 			@Override

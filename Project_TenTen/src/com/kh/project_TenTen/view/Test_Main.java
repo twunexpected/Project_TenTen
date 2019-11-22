@@ -160,7 +160,7 @@ public class Test_Main extends JPanel {
 
 		
 		
-		
+		// ********** To do *********
 		btnCenter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -171,6 +171,14 @@ public class Test_Main extends JPanel {
 					
 					JOptionPane.showMessageDialog(null, "먼저 오늘의 단어학습을 완료해주세요.");
 				}
+				
+
+				/*if(){
+					JOptionPane.showMessageDialog(null, "이미 오늘의 Test를 수행하였습니다.");
+				}else {
+					JOptionPane.showMessageDialog(null, "먼저 오늘의 단어학습을 완료해주세요.");
+				}
+				*/
 				
 			}
 		});

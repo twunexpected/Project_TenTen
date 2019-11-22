@@ -46,18 +46,18 @@ public class Test_ChooseTest extends JPanel {
 		this.setLayout(null);
 
 		JButton btnTest2 = new JButton("O/X ÄûÁî");
-		btnTest2.setBounds(150, 300, 180, 60);
+		btnTest2.setBounds(150, 350, 180, 60);
 		btnTest2.setForeground(new Color(255, 255, 225));
 		btnTest2.setBackground(new Color(36, 107, 220));
 		btnTest2.setFont(new Font("°íµñ", Font.BOLD, 20));
 		this.setLayout(null);
 
-		JButton btnTest3 = new JButton("½ºÆç¸µ ¸ÂÈ÷±â");
-		btnTest3.setBounds(150, 380, 180, 60);
-		btnTest3.setForeground(new Color(255, 255, 225));
-		btnTest3.setBackground(new Color(36, 107, 220));
-		btnTest3.setFont(new Font("°íµñ", Font.BOLD, 20));
-		this.setLayout(null);
+//		JButton btnTest3 = new JButton("½ºÆç¸µ ¸ÂÈ÷±â");
+//		btnTest3.setBounds(150, 380, 180, 60);
+//		btnTest3.setForeground(new Color(255, 255, 225));
+//		btnTest3.setBackground(new Color(36, 107, 220));
+//		btnTest3.setFont(new Font("°íµñ", Font.BOLD, 20));
+//		this.setLayout(null);
 
 		//ÁÂÃø 
 		JPanel panelLeft1 = new JPanel();
@@ -140,14 +140,14 @@ public class Test_ChooseTest extends JPanel {
 
 		});		
 
-		btnTest3.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Test_ChooseTest, new Test_SpellTest(mf));
-
-			}
-
-		});		
+//		btnTest3.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				ChangePanel.changePanel(mf, Test_ChooseTest, new Test_SpellTest(mf));
+//
+//			}
+//
+//		});		
 
 
 
@@ -217,7 +217,7 @@ public class Test_ChooseTest extends JPanel {
 
 		this.add(btnTest1);
 		this.add(btnTest2);
-		this.add(btnTest3);
+//		this.add(btnTest3);
 
 		this.add(panelTitle);
 		mf.add(this);

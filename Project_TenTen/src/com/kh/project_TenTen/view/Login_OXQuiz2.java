@@ -14,7 +14,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class Login_OXQuiz2 extends JPanel {
-	protected static final String[][] String = null;
 	private Login_MainFrame mf;
 	private JPanel login_OXQuiz2;
 	int q1 = 0;

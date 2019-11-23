@@ -90,6 +90,7 @@ public class Login_SubPage extends JPanel {
 				if(idCheck) {
 					JOptionPane.showMessageDialog(null, "사용가능한 아이디입니다.");
 					Login_SubPage.this.idCheck = true;
+					idTxF.setEditable(false);
 				}else {
 					JOptionPane.showMessageDialog(null, "중복된 아이디 입니다.");
 					 idTxF.setText("");
@@ -107,11 +108,11 @@ public class Login_SubPage extends JPanel {
 		passChTxF.setLocation(120,240);
 		passChTxF.setSize(140, 30);
 		
-		JLabel passWarnLab = new JLabel("※비밀번호는 8자리 이상 입력하세요.");
+		JLabel passWarnLab = new JLabel("※비밀번호는 8자리 이상이어야합니다.");
 		passWarnLab.setFont(new Font("고딕",Font.BOLD,10));
 		passWarnLab.setForeground(Color.RED);
 		passWarnLab.setSize(400, 100);
-		passWarnLab.setLocation(80,240);
+		passWarnLab.setLocation(120,240);
 		
 		JButton passChBtn = new JButton("비밀번호확인");
 		passChBtn.setSize(100,40);
@@ -125,14 +126,17 @@ public class Login_SubPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				boolean check = true;
-
 				char[] pass1 = new char[passTxF.getPassword().length];
 				char[] pass2 = new char[passChTxF.getPassword().length];
 				
-				for(int i = 0; i < passTxF.getPassword().length; i++) {
-					pass1[i] = passTxF.getPassword()[i];
-					pass2[i] = passChTxF.getPassword()[i];
+				if(pass1.length <= 0) {
+					JOptionPane.showMessageDialog(null, "비밀번호 칸이 공란입니다.");
+					return;
+				}else if(pass2.length <= 0) {
+					JOptionPane.showMessageDialog(null, "비밀번호 확인 칸이 공란입니다.");
+					return;
 				}
+				
 				
 				//비밀번호 확인
 				//pass1 과 pass2가 일치해야함
@@ -140,10 +144,17 @@ public class Login_SubPage extends JPanel {
 				
 				if(pass1.length != pass2.length) {
 					check = false;
+					JOptionPane.showMessageDialog(null, "비밀번호를 다시 확인해주세요");
+					return;
 				}
 				
 				if(pass1.length < 8 && pass2.length < 8) {
 					check = false;
+				}
+
+				for(int i = 0; i < passTxF.getPassword().length; i++) {
+					pass1[i] = passTxF.getPassword()[i];
+					pass2[i] = passChTxF.getPassword()[i];
 				}
 				
 				for(int i = 0; i < pass1.length; i++) {
@@ -156,12 +167,16 @@ public class Login_SubPage extends JPanel {
 				if(check) {
 					JOptionPane.showMessageDialog(null, "비밀번호 인증에 성공하였습니다.");
 					passCheck = true;
+					passTxF.setEditable(false);
+					passChTxF.setEditable(false);
 				}else {
 					JOptionPane.showMessageDialog(null, "비밀번호를 다시 확인해주세요.");
 					passTxF.setText("");
 					passTxF.requestFocus();
 					passChTxF.setText("");
 				}
+				
+				
 			}
 		});
 
@@ -257,6 +272,8 @@ public class Login_SubPage extends JPanel {
 				
 				if(a.equals(emailChTxF.getText())) {
 					JOptionPane.showMessageDialog(null, "인증번호가 일치합니다.");
+					emailTxF.setEditable(false);
+					emailChTxF.setEditable(false);
 					emailACheck = true;
 				}else {
 					JOptionPane.showMessageDialog(null, "인증번호가 일치하지 않습니다.");
@@ -289,9 +306,9 @@ public class Login_SubPage extends JPanel {
 						MemberController mc = new MemberController();
 						ArrayList<Member> list = new ArrayList<Member>();
 						mc.memberSignIn(id, pass, nickName, email, exp);
-						System.out.println("성공적으로 회원 등록이 완료되었습니다.");
-						JOptionPane.showMessageDialog(null, "회원가입성공");
-						ChangePanel.changePanel(mf, login_SubPage, new Login_MainPage(mf));
+						Login_TestTitle.id = idTxF.getText();
+						JOptionPane.showMessageDialog(null, "회원가입에 성공하였습니다. LV 테스트를 진행합니다.");
+						ChangePanel.changePanel(mf, login_SubPage, new Login_TestTitle(mf));
 					}else {
 						JOptionPane.showMessageDialog(null, "빈 칸을 채워주세요.");
 					}

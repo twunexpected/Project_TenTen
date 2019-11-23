@@ -69,7 +69,7 @@ public class MyPage extends JPanel {
       
       Dialog changePassDlog = new Dialog(mf, "비밀번호 변경 다이얼로그");
       changePassDlog.setLayout(null);
-      changePassDlog.setBounds(300,500,350,350);
+      changePassDlog.setBounds(400,500,350,350);
       changePassDlog.setBackground(new Color(123, 185, 237));
       
       changePassBtn.addActionListener(new ActionListener() {
@@ -86,13 +86,32 @@ public class MyPage extends JPanel {
       changePassLab.setForeground(Color.white);
       changePassDlog.add(changePassLab);
       
+      JLabel changePassLab2 = new JLabel("현재 비밀번호 : ");
+      changePassLab2.setBounds(25, 120, 300, 30);
+      changePassLab2.setFont(new Font("고딕", Font.BOLD, 14));
+      changePassLab2.setForeground(Color.black);
+      changePassDlog.add(changePassLab2);
+      
+      JLabel changePassLab3 = new JLabel("변경할 비밀번호 : ");
+      changePassLab3.setBounds(25, 170, 300, 30);
+      changePassLab3.setFont(new Font("고딕", Font.BOLD, 14));
+      changePassLab3.setForeground(Color.black);
+      changePassDlog.add(changePassLab3);
+      
+      //현재비밀번호 텍스트필드
       JPasswordField changePassTxF = new JPasswordField();
       changePassTxF.setSize(150, 40);
-      changePassTxF.setLocation(100, 120);
+      changePassTxF.setLocation(160, 115);
       changePassDlog.add(changePassTxF);
       
-      JButton ChangePYesBtn = new JButton("네");
-      ChangePYesBtn.setBounds(75, 200, 90, 30);
+      //변경할비밀번호 텍스트필드
+      JPasswordField newPassTxF = new JPasswordField();
+      newPassTxF.setSize(150, 40);
+      newPassTxF.setLocation(160, 170);
+      changePassDlog.add(newPassTxF);
+      
+      JButton ChangePYesBtn = new JButton("변경");
+      ChangePYesBtn.setBounds(75, 240, 90, 30);
       ChangePYesBtn.setFont(new Font("고딕", Font.BOLD, 17));
       ChangePYesBtn.setForeground(Color.white);
       ChangePYesBtn.setBackground(new Color(36, 107, 220));
@@ -101,25 +120,70 @@ public class MyPage extends JPanel {
          
          @Override
          public void actionPerformed(ActionEvent e) {
-            if(changePassTxF.getPassword().length >= 1) {
-               MemberDao md = new MemberDao();
-               char[] ch = new char[changePassTxF.getPassword().length];
-               for(int i = 0; i < ch.length; i++) {
-                  ch[i] = changePassTxF.getPassword()[i];
-               }
-               md.loginMember.setPassword(ch);
-               JOptionPane.showMessageDialog(null, "비밀번호 변경이 완료되었습니다.");
-               changePassDlog.dispose();
-               System.out.println("변경이완료되었습니다.");
-            }else {
-               JOptionPane.showMessageDialog(null, "변경할 비밀번호를 입력해주세요." );
-            }
+        	 boolean check = true;
+        	 String msg = " ";
+        	 MemberDao md = new MemberDao();
+        	 char[] nowPass = new char[md.loginMember.getPassword().length];
+        	 //현재비밀번호 == TXF비밀번호
+        	 //새로변경하는 비밀번호 == 비밀번호 규칙
+        	 
+        	 //현재 비밀번호 정보 담기
+        	 for(int i = 0; i < nowPass.length; i++) {
+        		 nowPass[i] = md.loginMember.getPassword()[i];
+        	 }
+        	 
+        	 //비밀번호 8자리이상
+        	 //새로운 Pass필드는 8자리이상입력
+        	 
+        	 if(newPassTxF.getPassword().length <= 8) {
+        		 check = false;
+        		 msg = "비밀번호는 8자리 이상이어야합니다.";
+        		 JOptionPane.showMessageDialog(null, msg);
+        		 return;
+        	 }
+        	 
+        	 //담아줄 변수 선언 1
+        	 //현재 패스워드 검증
+        	 
+        	 char[] chaPass = new char[changePassTxF.getPassword().length];
+        		 
+        	 for(int i = 0; i < chaPass.length; i++) {
+        		 chaPass[i] = changePassTxF.getPassword()[i];
+        	 }
+
+        	 if(chaPass.length != nowPass.length) {
+        		 check = false;
+        		 msg = "현재 비밀번호가 일치하지 않습니다.";
+        		 JOptionPane.showMessageDialog(null, msg);
+        	 }
+        	 
+        	 for(int i = 0; i < chaPass.length; i++) {
+        		 if(chaPass[i] != nowPass[i]) {
+        			 check = false;
+        			 msg = "비밀번호값이 일치하지 않습니다.";
+        			 JOptionPane.showMessageDialog(null, msg);
+        			 return;
+        		 }
+        	 }
+        	 
+        	 char[] newPassArr = new char[newPassTxF.getPassword().length];
+        	 for(int i = 0; i < newPassArr.length; i++) {
+        		 newPassArr[i] = newPassTxF.getPassword()[i];
+        	 }
+        	 
+        	 if(check == true) {
+        		 md.loginMember.setPassword(newPassArr);
+        		 JOptionPane.showMessageDialog(null, "비밀번호가 변경되었습니다.");
+        		 changePassDlog.dispose();
+        	 }else {
+        		 JOptionPane.showMessageDialog(null, "비밀번호를 확인해주세요");
+        	 }
             
          }
       });
 
-      JButton ChangePNoBtn = new JButton("아니오");
-      ChangePNoBtn.setBounds(185, 200, 90, 30);
+      JButton ChangePNoBtn = new JButton("뒤로");
+      ChangePNoBtn.setBounds(185, 240, 90, 30);
       ChangePNoBtn.setFont(new Font("고딕", Font.BOLD, 17));
       ChangePNoBtn.setForeground(Color.white);
       ChangePNoBtn.setBackground(new Color(36, 107, 220));
@@ -352,7 +416,7 @@ public class MyPage extends JPanel {
       //변경완료버튼
       JButton finishBtn = new JButton("변경완료");
       finishBtn.setSize(100,50);
-      finishBtn.setLocation(90,280);
+      finishBtn.setLocation(40,280);
       finishBtn.setForeground(Color.WHITE);
       finishBtn.setBackground(new Color(36, 107, 220));
       changeNickDlog.add(finishBtn);
@@ -361,18 +425,29 @@ public class MyPage extends JPanel {
          
          @Override
          public void actionPerformed(ActionEvent e) {
-            MemberDao.loginMember.setNickname(newTxF.getText());
-            JOptionPane.showMessageDialog(null, "변경이완료되었습니다.");
-            changeNickDlog.dispose();
+        	
+        	if(newTxF.getText().length() <= 0) {
+        		JOptionPane.showMessageDialog(null, "닉네임은 한글자 이상이어야 합니다.");
+        		newTxF.requestFocus();
+        	}else {
+        		if(newTxF.getText().equals(MemberDao.loginMember.getNickname())) {
+        			JOptionPane.showMessageDialog(null, "현재와 동일한 닉네임입니다.");
+        		}else {
+        			MemberDao.loginMember.setNickname(newTxF.getText());
+        			JOptionPane.showMessageDialog(null, "변경이완료되었습니다.");
+        			changeNickDlog.dispose();
+        			ChangePanel.changePanel(mf, MyPage, new MyPage(mf));
+        		}
+        	}
          }
       });
       
       JButton backBtn = new JButton("뒤로");
-      finishBtn.setSize(100,50);
-      finishBtn.setLocation(170,280);
-      finishBtn.setForeground(Color.WHITE);
-      finishBtn.setBackground(new Color(36, 107, 220));
-      changeNickDlog.add(finishBtn);
+      backBtn.setSize(100,50);
+      backBtn.setLocation(170,280);
+      backBtn.setForeground(Color.WHITE);
+      backBtn.setBackground(new Color(36, 107, 220));
+      changeNickDlog.add(backBtn);
       
       finishBtn.addActionListener(new ActionListener() {
          
@@ -412,11 +487,16 @@ public class MyPage extends JPanel {
          }
       });
 
-      JLabel deleteMsgLab = new JLabel("정말회원탈퇴 하시겠습니까?");
+      JLabel deleteMsgLab = new JLabel("현재 비밀번호 입력 : ");
       deleteMsgLab.setBounds(35, 100, 300, 30);
       deleteMsgLab.setFont(new Font("고딕", Font.BOLD, 17));
       deleteMsgLab.setForeground(Color.white);
       deleteMemDlog.add(deleteMsgLab);
+      
+      JPasswordField delPassTxF = new JPasswordField();
+      delPassTxF.setSize(150, 40);
+      delPassTxF.setLocation(80, 140);
+      deleteMemDlog.add(delPassTxF);
 
       JButton deleteMYesBtn = new JButton("네");
       deleteMYesBtn.setBounds(55, 200, 90, 30);
@@ -427,9 +507,44 @@ public class MyPage extends JPanel {
       deleteMYesBtn.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            mc.deleteMember(MemberDao.loginMember);
-            deleteMemDlog.dispose();
-            ChangePanel.changePanel(mf, MyPage, new Login_MainPage(mf));
+        	char[] pass = new char[MemberDao.loginMember.getPassword().length];
+        	boolean check = true;
+        	
+        	if(delPassTxF.getPassword().length <= 0) {
+        		JOptionPane.showMessageDialog(null, "비밀번호가 공란입니다.");
+        		return;
+        	}else {
+        		char[] chPass = new char[delPassTxF.getPassword().length];
+        		if(pass.length != chPass.length) {
+        			JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.");
+        			return;
+        		}else {
+        			for(int i = 0; i < pass.length; i++) {
+        				pass[i] = MemberDao.loginMember.getPassword()[i];
+        			}
+        			
+        			for(int i = 0; i < chPass.length; i++) {
+        				chPass[i] = delPassTxF.getPassword()[i];
+        			}
+        			
+        			for(int i = 0; i < pass.length; i++) {
+        				if(chPass[i] != pass[i]) {
+        					check = false;
+        				}
+        			}
+        		}
+        	}
+        	
+        	if(check) {
+        		JOptionPane.showMessageDialog(null, "회원탈퇴가 완료되었습니다.");
+        		mc.deleteMember(MemberDao.loginMember);
+        		deleteMemDlog.dispose();
+        		ChangePanel.changePanel(mf, MyPage, new Login_MainPage(mf));
+        	}else {
+        		JOptionPane.showMessageDialog(null, "비밀번호를 확인해주세요.");
+        	}
+        	
+        	
          }
       });
 

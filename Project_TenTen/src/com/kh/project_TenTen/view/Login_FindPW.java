@@ -84,6 +84,7 @@ public class Login_FindPW extends JPanel {
 					JOptionPane.showMessageDialog(null, "아이디와 이메일주소가 일치하지 않습니다.");
 				}else {
 					String[]args1 = {" "};
+					JOptionPane.showMessageDialog(null, "임시 비밀번호가 발송되었습니다.");
 					mm.getEmailAddress(EmailText.getText());
 					mm.main(args1);
 					mc.setUserPass(IDText.getText());

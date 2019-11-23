@@ -29,18 +29,15 @@ public class Test_OxTest extends JPanel {
 	
 	String[] spellStr = null;	//단어 스펠링
 	String[] meanStr = null;	//뜻
-	String[] checkStr = null;	//정답 체크
+	static String[] checkStr = null;	//정답 체크
 	
 	public static Word[] word = null;
 
 	char [] checkAns = null;
 	public static int index = 0;
-	int answer = 0;
+	public static int answer = 0;
+	
 
-	
-//	static int nomoreTest = 0;
-	
-	
 	public Word[] objectTest(int num) {
 		ArrayList wordList = wd.readWord(num);
 		Word[] word = new Word[wordList.size()];
@@ -114,7 +111,7 @@ public class Test_OxTest extends JPanel {
 		}
 		
 		
-		// 콘솔창 연습
+/*		// 콘솔창 연습
 		for(int i = 0; i < spellStr.length; i++) {
 			System.out.println(meanStr[i]);
 		}
@@ -126,6 +123,7 @@ public class Test_OxTest extends JPanel {
 		for(int i = 0; i < spellStr.length; i++) {
 			System.out.println(ch[i]);
 		}
+*/
 
 		//배경
 		this.setSize(400, 700);
@@ -294,11 +292,11 @@ public class Test_OxTest extends JPanel {
 					++index;
 					lbVoca.setText(spellStr[index]);
 					lbMeanning.setText(checkStr[index]);
-					checkAns[index-1] = 'O';
-					tfWord.setText(Integer.valueOf(index+1).toString());
+					checkAns[index - 1] = 'O';
+					tfWord.setText(Integer.valueOf(index + 1).toString());
 				}catch(Exception e1){
 					if(index >= 9) {
-						checkAns[index-1] = 'O';
+						checkAns[index - 1] = 'O';
 						for(int i = 0; i < ch.length; i++) {
 							if(ch[i] == checkAns[i]) {
 								answer++;
@@ -306,10 +304,9 @@ public class Test_OxTest extends JPanel {
 							}
 						}
 						MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getExp()+answer);
-						JOptionPane.showMessageDialog(null, "<html> 정답 갯수 : " + answer + "개 <br> 텐텐 " + answer + "개를 획득하였습니다. <br> 오늘의 테스트를 완료하셨습니다. <html>");
-
-//					}else if(index > 10) {
-//						JOptionPane.showMessageDialog(null, "Test를 이미 마치셨습니다.");
+						JOptionPane.showMessageDialog(null, "<html> 정답 갯수 : " + answer + "개 <br> 텐텐 " + answer + "개를 획득하였습니다.<html>");
+						
+						ChangePanel.changePanel(mf, Test_OxTest, new Test_TestPopup(mf));
 					}
 				}
 			}
@@ -325,28 +322,26 @@ public class Test_OxTest extends JPanel {
 					lbVoca.setText(spellStr[index]);
 					lbMeanning.setText(checkStr[index]);
 					checkAns[index - 1] = 'X';
-					tfWord.setText(Integer.valueOf(index+1).toString());
+					tfWord.setText(Integer.valueOf(index + 1).toString());
 				}catch(Exception e1){
-					if(index == 9) {
-						checkAns[index-1] = 'X';
+					if(index >= 9) {
+						checkAns[index - 1] = 'X';
 						for(int i = 0; i < ch.length; i++) {
 							if(ch[i] == checkAns[i]) {
 								answer++;
 
 							}
 						}
-						MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getExp()+answer);
-						JOptionPane.showMessageDialog(null, "<html> 정답 갯수 : " + answer + "개 <br> 텐텐 " + answer + "개를 획득하였습니다. <br> 오늘의 테스트를 완료하셨습니다. <html>");
-
-//					}else if(index >= 10) {
-//						JOptionPane.showMessageDialog(null, "Test를 이미 마치셨습니다.");
+						MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getExp() + answer);
+						JOptionPane.showMessageDialog(null, "<html> 정답 갯수 : " + answer + "개 <br> 텐텐 " + answer + "개를 획득하였습니다.");
+						
+						ChangePanel.changePanel(mf, Test_OxTest, new Test_TestPopup(mf));
 					}
 				}
 
 			}
 		});
 
-		MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getExp()+answer);
 		
 		
 		//좌측 메뉴버튼 5
@@ -358,7 +353,6 @@ public class Test_OxTest extends JPanel {
 			}
 
 		});
-
 		
 			
 		btnLeft2.addActionListener(new ActionListener() {
@@ -373,7 +367,6 @@ public class Test_OxTest extends JPanel {
 			}
 
 		});
-			
 
 		
 		btnLeft3.addActionListener(new ActionListener() {
@@ -389,6 +382,7 @@ public class Test_OxTest extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				ChangePanel.changePanel(mf, Test_OxTest, new Test_Main(mf));
 			}
 
@@ -407,11 +401,12 @@ public class Test_OxTest extends JPanel {
 
 
 		this.setVisible(true);
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 
 	public char[] makeAnswer() {
+		
+		
 		
 		int[]numArr = new int[10];
 
@@ -432,14 +427,5 @@ public class Test_OxTest extends JPanel {
 	}
 
 
-	
-
-
-//	public static void main(String[] args) {
-//
-//		Test_OxTest2 tox = new Test_OxTest2();
-//		tox.Test_OxTest();
-//
-//	}
 
 }

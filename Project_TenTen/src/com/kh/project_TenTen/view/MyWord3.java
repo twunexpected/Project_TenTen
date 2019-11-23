@@ -227,7 +227,11 @@ public class MyWord3 extends JPanel {
 		btnLeft4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, MyWord3, new Test_Main(mf));
+				if(Test_OxTest.index>=10) {
+					ChangePanel.changePanel(mf, MyWord3, new Test_TestPopup(mf));
+				}else {
+					ChangePanel.changePanel(mf, MyWord3, new Test_Main(mf));
+				}
 			}
 		});
  

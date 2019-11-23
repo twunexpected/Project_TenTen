@@ -70,7 +70,7 @@ public class MyWord3 extends JPanel {
 		table.setFillsViewportHeight(true);
 		table.setRowHeight(25);
 		table.getColumn("前荤").setPreferredWidth(20);
-		table.getColumn("林力").setPreferredWidth(20);
+		table.getColumn("林力").setPreferredWidth(35);
 		table.getTableHeader().setReorderingAllowed(false);
 		JScrollPane scroll = new JScrollPane(table);	
 		scroll.setBounds( 105, 105, 250, 490); // x, y, width, height

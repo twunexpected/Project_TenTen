@@ -49,7 +49,7 @@ public class AddWord extends JPanel{
 		lb4.setSize(120, 50);
 		lb4.setFont(new Font("고딕",Font.BOLD,18));
 		this.add(lb4);
-		String[] list = {" 여행", " 스포츠", " 요리"," 비즈니스"," 예술"," 경제"};
+		String[] list = {" 여행", " 스포츠", " 요리","회사 "," 예술"," 경제"};
 		JComboBox mainList = new JComboBox(list);
 		mainList.setSelectedIndex(0);
 		mainList.setLocation(160, 150);

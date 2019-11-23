@@ -201,7 +201,11 @@ public class AddWord extends JPanel{
 		btnLeft5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, addWord, new SeoungJang(mf));
+				if(Test_OxTest.index>=10) {
+					ChangePanel.changePanel(mf, addWord, new Test_TestPopup(mf));
+				}else {
+					ChangePanel.changePanel(mf, addWord, new Test_Main(mf));
+				}
 			}
 
 		});

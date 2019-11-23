@@ -31,13 +31,15 @@ public class Test_Main extends JPanel {
 
 	public static Word[] word = null;
 
-	//	static int MainIndex;
-
 	char [] checkAns = null;
 
 	int index = 0;
-	int answer = 0;
+//	int answer = 0;
 	int count = 0;
+	
+	static String subjectWord = null;
+	
+	public static int answer = 0;
 
 
 	public int returnSubject(String returnSubject) {
@@ -159,8 +161,7 @@ public class Test_Main extends JPanel {
 		this.add(naming);
 
 
-
-		// ********** To do *********
+		//Test시작
 		btnCenter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -169,20 +170,15 @@ public class Test_Main extends JPanel {
 					ChangePanel.changePanel(mf, Test_Main, new Test_ChooseTest(mf));
 				} else {
 
-					JOptionPane.showMessageDialog(null, "먼저 오늘의 단어학습을 완료해주세요.");
+					JOptionPane.showMessageDialog(null, "메인화면에서 오늘의 단어학습을 완료해주세요.");
 				}
-
-
-				/*if(){
-					JOptionPane.showMessageDialog(null, "이미 오늘의 Test를 수행하였습니다.");
-				}else {
-					JOptionPane.showMessageDialog(null, "먼저 오늘의 단어학습을 완료해주세요.");
+				if(Test_OxTest.index >= 10) {
+					JOptionPane.showMessageDialog(null, "일일 테스트를 이미 완료하였습니다.");
 				}
-				 */
-
 			}
 		});
 
+		
 
 
 
@@ -194,7 +190,6 @@ public class Test_Main extends JPanel {
 			}
 
 		});
-
 
 
 		btnLeft2.addActionListener(new ActionListener() {
@@ -211,7 +206,6 @@ public class Test_Main extends JPanel {
 		});
 
 
-
 		btnLeft3.addActionListener(new ActionListener() {
 
 			@Override
@@ -221,15 +215,19 @@ public class Test_Main extends JPanel {
 
 		});
 
+		
 		btnLeft4.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Test_Main, new Test_Main(mf));
+				if(Test_OxTest.index >= 10) {
+					
+					ChangePanel.changePanel(mf, Test_Main, new Test_TestPopup(mf));
+				}else {
+					ChangePanel.changePanel(mf, Test_Main, new Test_Main(mf));
+				}
 			}
-
 		});
-
 
 
 		btnLeft5.addActionListener(new ActionListener() {

@@ -38,7 +38,7 @@ public class Test_ChooseTest extends JPanel {
 		
 
 		//테스트버튼 3가지 유형 
-		JButton btnTest1 = new JButton("4지선다");
+		JButton btnTest1 = new JButton("객관식 문제");
 		btnTest1.setBounds(150, 260, 180, 60);
 		btnTest1.setForeground(new Color(255, 255, 225));
 		btnTest1.setBackground(new Color(36, 107, 220));

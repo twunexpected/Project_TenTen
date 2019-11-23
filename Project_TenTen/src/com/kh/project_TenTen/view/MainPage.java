@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,8 +33,11 @@ public class MainPage extends JPanel {
 	String[] kindStr = null;
 
 	public static Word[] word = null;
+	
+	static String subjectWord = null;
 
 	static int MainIndex = 0; 
+	static int SubStop = 0;  
 
 	private Login_MainFrame mf;
 	private JPanel MainPage;
@@ -83,17 +87,28 @@ public class MainPage extends JPanel {
 		this.mf = mf;
 		MainPage = this;
 
-
+		JLabel ChSub = new JLabel("주제를 선택하세요");
+		ChSub.setSize(250, 90);
+		ChSub.setLocation(105, 250);
+		ChSub.setBackground(new Color(123, 185, 237));
+		ChSub.setFont(new Font("고딕",Font.BOLD,26));
+		ChSub.setHorizontalAlignment(JTextField.CENTER);
+		this.add(ChSub);
+		ChSub.setVisible(true);
+		
+		
 		//단어 텍스
-		JTextField wordText = new JTextField(" ");
+		JLabel wordText = new JLabel(" ");
 		wordText.setSize(250, 90);
 		wordText.setLocation(105, 180);
 		wordText.setBackground(new Color(123, 185, 237));
 		wordText.setFont(new Font("고딕",Font.BOLD,30));
 		wordText.setHorizontalAlignment(JTextField.CENTER);
 
+		
+		
 		//뜻 텍스
-		JTextField meanText = new JTextField(" ");
+		JLabel meanText = new JLabel(" ");
 		meanText.setSize(250, 90);
 		meanText.setLocation(105, 280);
 		meanText.setBackground(new Color(123, 185, 237));
@@ -102,7 +117,7 @@ public class MainPage extends JPanel {
 		this.add(meanText);
 
 		//품사텍스
-		JTextField kindText = new JTextField(" ");
+		JLabel kindText = new JLabel(" ");
 		kindText.setSize(60, 40);
 		kindText.setLocation(195, 375);
 		kindText.setBackground(new Color(123, 185, 237));
@@ -112,7 +127,7 @@ public class MainPage extends JPanel {
 
 
 		//카운 텍스
-		JTextField countnum = new JTextField("");
+		JLabel countnum = new JLabel("");
 		countnum.setBackground(new Color(123, 185, 237));
 		countnum.setSize(60, 50);
 		countnum.setLocation(165, 480);
@@ -170,7 +185,7 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ChSub.setVisible(false);
 				CookjujaeD.dispose();
 				if(count == 0 ) {
 
@@ -178,6 +193,7 @@ public class MainPage extends JPanel {
 					meanStr = new String[10];
 					kindStr = new String[10];
 					word = objectTest(returnSubject("요리"));
+					subjectWord = "요리";
 
 					//스펠링 가져오기
 					for(int i = 0; i < word.length; i++) {
@@ -192,9 +208,11 @@ public class MainPage extends JPanel {
 					}
 
 				}count++;
-				if(count > 1) {
-					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
-				}			 	
+				if(SubStop > 1) {
+					JOptionPane.showMessageDialog(null, "이미 학습하셨습니다.");
+				}
+			
+				
 			}
 
 		});
@@ -209,6 +227,7 @@ public class MainPage extends JPanel {
 		});
 
 		//요리버튼 이벤트. 주제선택 재확인 팝업창 실행
+		if(SubStop == 0) {
 		if(count == 0) {
 		cook.addActionListener(new ActionListener() {
 			@Override
@@ -222,7 +241,7 @@ public class MainPage extends JPanel {
 			}
 		});
 		}
-
+		}
 
 		////////////////////////////////////////////////////////////////////////
 
@@ -268,7 +287,7 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ChSub.setVisible(false);
 				sportsjujaeD.dispose();
 				if(count == 0 ) {
 
@@ -276,6 +295,7 @@ public class MainPage extends JPanel {
 					meanStr = new String[10];
 					kindStr = new String[10];
 					word = objectTest(returnSubject("스포츠"));
+					subjectWord = "스포츠";
 
 					//스펠링 가져오기
 					for(int i = 0; i < word.length; i++) {
@@ -308,7 +328,9 @@ public class MainPage extends JPanel {
 
 		
 		//스포츠버튼 이벤트. 주제선택 재확인 팝업창 실행
-				if(count == 0) {
+		
+		if(SubStop == 0) {		
+		if(count == 0) {
 					sports.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -321,6 +343,7 @@ public class MainPage extends JPanel {
 					}
 				});
 				}
+		}
 		
 		
 		
@@ -366,7 +389,7 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ChSub.setVisible(false);
 				tripjujaeD.dispose();
 				if(count == 0 ) {
 
@@ -374,6 +397,7 @@ public class MainPage extends JPanel {
 					meanStr = new String[10];
 					kindStr = new String[10];
 					word = objectTest(returnSubject("여행"));
+					subjectWord = "여행";
 
 					//스펠링 가져오기
 					for(int i = 0; i < word.length; i++) {
@@ -403,7 +427,7 @@ public class MainPage extends JPanel {
 			}
 
 		});
-
+		if(SubStop == 0) {
 		//여행버튼 이벤트. 주제선택 재확인 팝업창 실행
 		if(count == 0) {
 		trip.addActionListener(new ActionListener() {
@@ -418,6 +442,7 @@ public class MainPage extends JPanel {
 			}
 		});
 		
+		}
 		}
 		
 		
@@ -464,7 +489,7 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ChSub.setVisible(false);
 				BSjujaeD.dispose();
 				if(count == 0 ) {
 
@@ -472,6 +497,7 @@ public class MainPage extends JPanel {
 					meanStr = new String[10];
 					kindStr = new String[10];
 					word = objectTest(returnSubject("회사"));
+					subjectWord = "회사";
 
 					//스펠링 가져오기
 					for(int i = 0; i < word.length; i++) {
@@ -501,7 +527,7 @@ public class MainPage extends JPanel {
 			}
 
 		});
-
+		if(SubStop == 0) {
 		//회사버튼 이벤트. 주제선택 재확인 팝업창 실행
 		if(count == 0) {
 		business.addActionListener(new ActionListener() {
@@ -517,7 +543,7 @@ public class MainPage extends JPanel {
 		});
 		}
 		
-		
+		}
 		
 		
 		
@@ -563,7 +589,7 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ChSub.setVisible(false);
 				ECjujaeD.dispose();
 				if(count == 0 ) {
 
@@ -571,6 +597,7 @@ public class MainPage extends JPanel {
 					meanStr = new String[10];
 					kindStr = new String[10];
 					word = objectTest(returnSubject("경제"));
+					subjectWord = "경제";
 
 					//스펠링 가져오기
 					for(int i = 0; i < word.length; i++) {
@@ -602,21 +629,22 @@ public class MainPage extends JPanel {
 		});
 
 		//경제버튼 이벤트. 주제선택 재확인 팝업창 실행
+		if(SubStop == 0) {
 		if(count == 0) {
 		economy.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if(count > 0) {
+				if(count == 0) {
+					ECjujaeD.setVisible(true);
+				}else if (count >= 1){
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
-				}else {
-				ECjujaeD.setVisible(true);
 				}
 
 			}
 		});
 		}
-		
+		}
 	////////////////////////////////////////////////////////////////	
 		//예술 버튼
 		JButton art = new JButton("예술");
@@ -659,7 +687,7 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ChSub.setVisible(false);
 				ATjujaeD.dispose();
 				
 				if(count == 0 ) {
@@ -668,6 +696,7 @@ public class MainPage extends JPanel {
 					meanStr = new String[10];
 					kindStr = new String[10];
 					word = objectTest(returnSubject("예술"));
+					subjectWord = "예술";
 
 					//스펠링 가져오기
 					for(int i = 0; i < word.length; i++) {
@@ -684,7 +713,11 @@ public class MainPage extends JPanel {
 				}count++;
 				if(count > 1) {
 					JOptionPane.showMessageDialog(null, "이미 주제를 선택하셨습니다.");
-				}				
+				}
+				
+				
+				
+				
 			}
 
 		});
@@ -699,6 +732,7 @@ public class MainPage extends JPanel {
 		});
  
 		//예술 버튼 이벤트. 주제선택 재확인 팝업창 실행
+		if(SubStop == 0) {
 		if(count == 0) {
 		art.addActionListener(new ActionListener() {
 			@Override
@@ -711,7 +745,7 @@ public class MainPage extends JPanel {
 			}
 		});
 		}
-
+		}
 
 		//////////////////////////////////////////////////////////////////////
 		//암기 버튼
@@ -734,7 +768,8 @@ public class MainPage extends JPanel {
 					meanText.setText(meanStr[MainIndex]);
 					kindText.setText(kindStr[MainIndex]);
 					countnum.setText(Integer.valueOf(MainIndex+1).toString());
-  
+					
+					
 					BufferedWriter bo = null;
 					bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"암기 단어.txt", true));
 					bo.write(kindStr[MainIndex-1]+"/");
@@ -745,9 +780,26 @@ public class MainPage extends JPanel {
 
 				}catch(Exception e1){
 					if(MainIndex >= 10) {
+						BufferedWriter bo = null;
+		                  try {
+		                     bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"암기 단어.txt", true));
+		                     bo.write(kindStr[MainIndex-1]+"/");
+		                     bo.write(wordStr[MainIndex-1]+"/");
+		                     bo.write(meanStr[MainIndex-1]+"/");
+		                     bo.flush();
+		                     bo.close();
+		                  } catch (IOException e2) {
+		                     e2.printStackTrace();
+		                  }
+						
 						JOptionPane.showMessageDialog(null, "10 개 단어 학습 완료!");
+						ChSub.setVisible(false);
+						wordText.setVisible(false);
+						meanText.setVisible(false);
+						kindText.setVisible(false);
+						
 					}
-				}
+				}SubStop++;
 
 			}
 		});
@@ -768,7 +820,7 @@ public class MainPage extends JPanel {
 					++MainIndex;
 					wordText.setText(wordStr[MainIndex]);
 					meanText.setText(meanStr[MainIndex]);
-					kindText.setText(meanStr[MainIndex]);
+					kindText.setText(kindStr[MainIndex]);
 					countnum.setText(Integer.valueOf(MainIndex+1).toString());
 
 					BufferedWriter bo = null;
@@ -781,9 +833,28 @@ public class MainPage extends JPanel {
 
 				}catch(Exception e1){
 					if(MainIndex >= 10) {
+						
+						BufferedWriter bo = null;
+		                  try {
+		                     bo = new BufferedWriter(new FileWriter(MemberDao.loginMember.getId()+"비암기 단어.txt", true));
+		                     bo.write(kindStr[MainIndex-1]+"/");
+		                     bo.write(wordStr[MainIndex-1]+"/");
+		                     bo.write(meanStr[MainIndex-1]+"/");
+		                     bo.flush();
+		                     bo.close();
+		                  } catch (IOException e2) {
+		                     // TODO Auto-generated catch block
+		                     e2.printStackTrace();
+		                  }
+						
+						
 						JOptionPane.showMessageDialog(null, "10 개 단어 학습 완료!");
+						ChSub.setVisible(false);
+						wordText.setVisible(false);
+						meanText.setVisible(false);
+						kindText.setVisible(false);
 					}
-				}
+				}SubStop++;
 
 			}
 		});
@@ -803,7 +874,6 @@ public class MainPage extends JPanel {
 		this.add(btn);
 		this.add(arm);
 		this.add(beearm);
-		//this.add(sectionText);
 		this.add(wordText);
 		this.add(countnum);
 

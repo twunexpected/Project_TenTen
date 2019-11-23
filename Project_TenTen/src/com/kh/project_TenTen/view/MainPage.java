@@ -340,9 +340,9 @@ public class MainPage extends JPanel {
 						}else {
 							sportsjujaeD.setVisible(true);
 						}
-					}
+					} 
 				});
-				}
+				} subjectWord = "스포츠";
 		}
 		
 		

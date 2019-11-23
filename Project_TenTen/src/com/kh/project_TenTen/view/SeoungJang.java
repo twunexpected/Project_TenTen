@@ -68,7 +68,7 @@ public class SeoungJang extends JPanel{
 		Gttnum.setLocation(90, 500);
 		Gttnum.setFont(new Font("고딕",Font.PLAIN,17));
 		this.add(Gttnum);
-
+ 
 		// 현재 보유 텐텐 
 		//텐텐 누적된거 여기에 가져와야함.
 
@@ -117,7 +117,7 @@ public class SeoungJang extends JPanel{
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 		//하단 미니상장이미지
-		Image reword = new ImageIcon("images/상장.PNG").getImage().getScaledInstance(50, 70, 0);
+		Image reword = new ImageIcon("images/상장이미지.PNG").getImage().getScaledInstance(50, 70, 0);
 		JLabel rewordImg = new JLabel(new ImageIcon(reword));
 		rewordImg.setSize(50, 75);
 		rewordImg.setLocation(130,540);
@@ -126,7 +126,7 @@ public class SeoungJang extends JPanel{
 
 
 		//하단 등트로피이미지
-		Image Dong = new ImageIcon("images/동트.PNG").getImage().getScaledInstance(70, 90, 0);
+		Image Dong = new ImageIcon("images/동트롯.PNG").getImage().getScaledInstance(70, 90, 0);
 		JLabel DongImg = new JLabel(new ImageIcon(Dong));
 		DongImg.setSize(60, 75);
 		DongImg.setLocation(120,540);
@@ -134,7 +134,7 @@ public class SeoungJang extends JPanel{
 		this.add(DongImg);
 
 		//하단 은트로피이미지
-		Image silver = new ImageIcon("images/은트.PNG").getImage().getScaledInstance(70, 90, 0);
+		Image silver = new ImageIcon("images/은트롯.PNG").getImage().getScaledInstance(70, 90, 0);
 		JLabel silverImg = new JLabel(new ImageIcon(silver));
 		silverImg.setSize(60, 75);
 		silverImg.setLocation(120,540);
@@ -142,7 +142,7 @@ public class SeoungJang extends JPanel{
 		this.add(silverImg);
 
 		//하단 금트로피이미지
-		Image gold = new ImageIcon("images/금트.PNG").getImage().getScaledInstance(70, 90, 0);
+		Image gold = new ImageIcon("images/금트롯.PNG").getImage().getScaledInstance(70, 90, 0);
 		JLabel goldImg = new JLabel(new ImageIcon(gold));
 		goldImg.setSize(60, 75);
 		goldImg.setLocation(120,540);
@@ -170,7 +170,6 @@ public class SeoungJang extends JPanel{
 				if(needTTNum.getText().equals("2개")) {
 					
 					rewordChNum += 1;
-					System.out.println("1 : "+rewordChNum);
 					if(rewordChNum == 1) {
 
 							if(MemberDao.loginMember.getHaveTen()>=2) {
@@ -200,7 +199,6 @@ public class SeoungJang extends JPanel{
 				
 				if(needTTNum.getText().equals("4개")) {
 				rewordChNum += 1;
-				System.out.println("2 : "+rewordChNum);
 				if(rewordChNum ==2) {
 
 						if(MemberDao.loginMember.getHaveTen()>=4) {
@@ -232,7 +230,6 @@ public class SeoungJang extends JPanel{
 			
 				if(needTTNum.getText().equals("6개")) {
 					rewordChNum += 1;
-					System.out.println("3 : "+rewordChNum);
 					if(rewordChNum ==3) {
 					
 							if(MemberDao.loginMember.getHaveTen()>=6) {

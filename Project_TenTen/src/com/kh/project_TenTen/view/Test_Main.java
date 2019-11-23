@@ -30,19 +30,19 @@ public class Test_Main extends JPanel {
 	String[] checkStr = null;	// 정답비교
 
 	public static Word[] word = null;
-	
-//	static int MainIndex;
+
+	//	static int MainIndex;
 
 	char [] checkAns = null;
-	
+
 	int index = 0;
 	int answer = 0;
 	int count = 0;
-	
-	
+
+
 	public int returnSubject(String returnSubject) {
 		int num = 0;
-		
+
 		switch(returnSubject) {
 		case "요리" : break;
 		case "스포츠" : num = 1; break;
@@ -53,17 +53,17 @@ public class Test_Main extends JPanel {
 		}
 		return num;
 	}
-	
-	
-	
-	
+
+
+
+
 	public Test_Main(Login_MainFrame mf) {
 		this.mf = mf;
 		Test_Main = this;
 
-		
 
-		
+
+
 		//백 화면
 		this.setSize(400, 700);
 		this.setBackground(new Color(123, 185, 237));
@@ -158,8 +158,8 @@ public class Test_Main extends JPanel {
 		this.setLayout(null);
 		this.add(naming);
 
-		
-		
+
+
 		// ********** To do *********
 		btnCenter.addActionListener(new ActionListener() {
 			@Override
@@ -168,23 +168,23 @@ public class Test_Main extends JPanel {
 
 					ChangePanel.changePanel(mf, Test_Main, new Test_ChooseTest(mf));
 				} else {
-					
+
 					JOptionPane.showMessageDialog(null, "먼저 오늘의 단어학습을 완료해주세요.");
 				}
-				
+
 
 				/*if(){
 					JOptionPane.showMessageDialog(null, "이미 오늘의 Test를 수행하였습니다.");
 				}else {
 					JOptionPane.showMessageDialog(null, "먼저 오늘의 단어학습을 완료해주세요.");
 				}
-				*/
-				
+				 */
+
 			}
 		});
 
-		
-		
+
+
 
 		btnLeft1.addActionListener(new ActionListener() {
 
@@ -195,8 +195,8 @@ public class Test_Main extends JPanel {
 
 		});
 
-		
-			
+
+
 		btnLeft2.addActionListener(new ActionListener() {
 
 			@Override
@@ -209,9 +209,9 @@ public class Test_Main extends JPanel {
 			}
 
 		});
-			
 
-		
+
+
 		btnLeft3.addActionListener(new ActionListener() {
 
 			@Override

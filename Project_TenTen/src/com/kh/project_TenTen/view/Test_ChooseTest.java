@@ -39,14 +39,14 @@ public class Test_ChooseTest extends JPanel {
 
 		//테스트버튼 3가지 유형 
 		JButton btnTest1 = new JButton("4지선다");
-		btnTest1.setBounds(150, 220, 180, 60);
+		btnTest1.setBounds(150, 260, 180, 60);
 		btnTest1.setForeground(new Color(255, 255, 225));
 		btnTest1.setBackground(new Color(36, 107, 220));
 		btnTest1.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
 		JButton btnTest2 = new JButton("O/X 퀴즈");
-		btnTest2.setBounds(150, 350, 180, 60);
+		btnTest2.setBounds(150, 340, 180, 60);
 		btnTest2.setForeground(new Color(255, 255, 225));
 		btnTest2.setBackground(new Color(36, 107, 220));
 		btnTest2.setFont(new Font("고딕", Font.BOLD, 20));
@@ -79,6 +79,13 @@ public class Test_ChooseTest extends JPanel {
 		panelLeft4.setBounds(0, 510, 80, 10);
 		panelLeft4.setBackground(new Color(255, 255, 255));
 		this.setLayout(null);
+		
+		JLabel labelChoose = new JLabel("Test 유형을 선택해주세요.");
+		labelChoose.setLocation(155, 170);
+		labelChoose.setSize(220, 100);
+		labelChoose.setFont(new Font("고딕", Font.BOLD, 16));
+		this.setLayout(null);
+		
 
 		//좌측  텍스트 박스
 		final JButton btnLeft1 = new JButton("<html>메인<br/>화면</html>");
@@ -140,6 +147,8 @@ public class Test_ChooseTest extends JPanel {
 
 		});		
 
+		
+		
 //		btnTest3.addActionListener(new ActionListener() {
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
@@ -202,6 +211,7 @@ public class Test_ChooseTest extends JPanel {
 
 
 
+		this.add(labelChoose);
 		this.add(naming);
 
 		this.add(panelLeft1);

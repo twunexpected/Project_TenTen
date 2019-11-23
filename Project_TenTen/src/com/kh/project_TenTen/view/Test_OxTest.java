@@ -26,15 +26,19 @@ public class Test_OxTest extends JPanel {
 
 
 	WordDao wd = new WordDao();
+	
 	String[] spellStr = null;	//단어 스펠링
 	String[] meanStr = null;	//뜻
-	String[] checkStr = null;
-
+	String[] checkStr = null;	//정답 체크
+	
 	public static Word[] word = null;
 
 	char [] checkAns = null;
-	int index = 0;
+	public static int index = 0;
 	int answer = 0;
+
+	
+//	static int nomoreTest = 0;
 	
 	
 	public Word[] objectTest(int num) {
@@ -76,12 +80,12 @@ public class Test_OxTest extends JPanel {
 
 		this.mf = mf;
 		this.Test_OxTest = this;
-
-		word = objectTest(returnSubject("요리"));
+			
+		//MainPage 에서 선택한 주제 단어 호출
+		word = objectTest(returnSubject(MainPage.subjectWord));
 
 		spellStr = new String[10];
 		meanStr = new String[10];
-		
 		
 		for(int i = 0; i < word.length; i++) {
 			spellStr[i] = word[i].getSpelling();
@@ -242,6 +246,7 @@ public class Test_OxTest extends JPanel {
 		btnLeft4.setForeground(new Color(255, 255, 225));
 		btnLeft4.setBackground(new Color(36, 107, 220));
 		btnLeft4.setFont(new Font("고딕", Font.BOLD, 20));
+		btnLeft4.setHorizontalAlignment(JTextField.CENTER);
 		this.setLayout(null);
 
 		final JButton btnLeft5 = new JButton("<html>성장<br/>과정</html>");
@@ -289,20 +294,22 @@ public class Test_OxTest extends JPanel {
 					++index;
 					lbVoca.setText(spellStr[index]);
 					lbMeanning.setText(checkStr[index]);
-					checkAns[index] = 'O';
+					checkAns[index-1] = 'O';
 					tfWord.setText(Integer.valueOf(index+1).toString());
 				}catch(Exception e1){
-					if(index >= 10) {
+					if(index >= 9) {
+						checkAns[index-1] = 'O';
 						for(int i = 0; i < ch.length; i++) {
 							if(ch[i] == checkAns[i]) {
 								answer++;
-								
-							
+
 							}
 						}
 						MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getExp()+answer);
-						JOptionPane.showMessageDialog(null, "<html> 정답 갯수 : " + answer + "개 <br> 텐텐 " + answer + "개를 획득하였습니다.");
-						
+						JOptionPane.showMessageDialog(null, "<html> 정답 갯수 : " + answer + "개 <br> 텐텐 " + answer + "개를 획득하였습니다. <br> 오늘의 테스트를 완료하셨습니다. <html>");
+
+//					}else if(index > 10) {
+//						JOptionPane.showMessageDialog(null, "Test를 이미 마치셨습니다.");
 					}
 				}
 			}
@@ -317,21 +324,25 @@ public class Test_OxTest extends JPanel {
 					++index;
 					lbVoca.setText(spellStr[index]);
 					lbMeanning.setText(checkStr[index]);
-					checkAns[index] = 'X';
+					checkAns[index - 1] = 'X';
 					tfWord.setText(Integer.valueOf(index+1).toString());
 				}catch(Exception e1){
-					if(index >= 10) {
+					if(index == 9) {
+						checkAns[index-1] = 'X';
 						for(int i = 0; i < ch.length; i++) {
 							if(ch[i] == checkAns[i]) {
 								answer++;
-								
+
 							}
 						}
 						MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getExp()+answer);
-						JOptionPane.showMessageDialog(null, "<html> 정답 갯수 : " + answer + "개 <br> 텐텐 " + answer + "개를 획득하였습니다.");
-					
+						JOptionPane.showMessageDialog(null, "<html> 정답 갯수 : " + answer + "개 <br> 텐텐 " + answer + "개를 획득하였습니다. <br> 오늘의 테스트를 완료하셨습니다. <html>");
+
+//					}else if(index >= 10) {
+//						JOptionPane.showMessageDialog(null, "Test를 이미 마치셨습니다.");
 					}
 				}
+
 			}
 		});
 

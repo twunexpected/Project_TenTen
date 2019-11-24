@@ -561,9 +561,10 @@ public class Test_Select4 extends JPanel{
 			//실행 마지막에 다시 포커스를 textField로 가져가면서 전체 내용 선택
 			//tf.selectAll();
 			
+			
 			 if (index==0) {
-				 if(change==1) {
-	
+				 if( change== 0) {
+				    	System.out.println(tfsouth1.getText());
 						answer = answer+1;
 						
 						tasouth1.setText("");
@@ -598,7 +599,13 @@ public class Test_Select4 extends JPanel{
 					    tfsouth3.setText(meanStr[num3]);
 					    tfsouth4.setText(meanStr[num4]);
 					    
-				
+					    if(change ==1 ) {
+					    	System.out.println(tfsouth1.getText());
+							answer = answer+1;
+							
+							tasouth1.setText("");
+							tasouth1.requestFocus();
+					 }
 					    
 					    
 					    }else if (num1<num2 && num3>num4) {
@@ -607,7 +614,14 @@ public class Test_Select4 extends JPanel{
 						    tfsouth3.setText(meanStr[num2]);
 						    tfsouth4.setText(meanStr[num3]);
 						    
-						
+						    if(change==2) {
+						    	System.out.println(meanStr[change]);
+								answer = answer+1;
+								
+								tasouth1.setText("");
+								tasouth1.requestFocus();
+						 }
+						    
 						    
 						    
 						    
@@ -617,6 +631,13 @@ public class Test_Select4 extends JPanel{
 						    tfsouth3.setText(meanStr[num1]);
 						    tfsouth4.setText(meanStr[num2]);
 						    
+						    if(change==3) {
+						    	System.out.println(meanStr[change]);
+								answer = answer+1;
+								
+								tasouth1.setText("");
+								tasouth1.requestFocus();
+						 }
 						    
 						 
 						    
@@ -625,6 +646,13 @@ public class Test_Select4 extends JPanel{
 						    tfsouth2.setText(meanStr[num3]);
 						    tfsouth3.setText(meanStr[num4]);
 						    tfsouth4.setText(meanStr[num1]);
+						    if(change==4) {
+						    	System.out.println(tfsouth4.getText());
+								answer = answer+1;
+								
+								tasouth1.setText("");
+								tasouth1.requestFocus();
+						 }
 						    
 						  
 					    }

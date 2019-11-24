@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Test_ChooseTest extends JPanel {
@@ -174,10 +175,16 @@ public class Test_ChooseTest extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, Test_ChooseTest, new MyWord1(mf));
+				try {
+					ChangePanel.changePanel(mf, Test_ChooseTest, new MyWord1(mf));            
+				} catch (NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "단어를 먼저 학습하세요~♥");
+				}
 			}
 
 		});
+		
+		
 		btnLeft3.addActionListener(new ActionListener() {
 
 			@Override

@@ -102,7 +102,7 @@ public class MainPage extends JPanel {
 		wordText.setSize(250, 90);
 		wordText.setLocation(105, 180);
 		wordText.setBackground(new Color(123, 185, 237));
-		wordText.setFont(new Font("고딕",Font.BOLD,30));
+		wordText.setFont(new Font("고딕",Font.BOLD,28));
 		wordText.setHorizontalAlignment(JTextField.CENTER);
 
 		
@@ -988,10 +988,14 @@ public class MainPage extends JPanel {
 		});
 
 		btnLeft4.addActionListener(new ActionListener() {
-
+ 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(Test_OxTest.index >= 10) {
+					ChangePanel.changePanel(mf, MainPage, new Test_TestPopup(mf));
+				}else {
 				ChangePanel.changePanel(mf, MainPage, new Test_Main(mf));
+				}
 			}
 
 		});

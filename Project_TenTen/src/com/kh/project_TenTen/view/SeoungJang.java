@@ -94,7 +94,7 @@ public class SeoungJang extends JPanel{
 		this.add(getCd);
 
 		// 텐텐 몇개 필요하다는 라벨
-		JLabel needTTNum = new JLabel("2개");
+		JLabel needTTNum = new JLabel("1개");
 		needTTNum.setBackground(new Color(123, 185, 237));
 		needTTNum.setSize(110, 40);
 		needTTNum.setLocation(320, 540);
@@ -167,19 +167,19 @@ public class SeoungJang extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(needTTNum.getText().equals("2개")) {
+				if(needTTNum.getText().equals("1개")) {
 					
 					rewordChNum += 1;
 					if(rewordChNum == 1) {
 
-							if(MemberDao.loginMember.getHaveTen()>=2) {
+							if(MemberDao.loginMember.getHaveTen()>=1) {
 							//	if(needTTNum.getText().equals("2개")) {
 									//보유텐텐이 5개 이상이고 보상조건이 5개일때
 									//보유텐텐 5개 삭감하고 보상조건 10개로 증가시켜라
-									MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-2);
+									MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-1);
 									myttnum.setText("  "+String.valueOf(MemberDao.loginMember.getHaveTen()).toString());	
-									needTTNum.setText("4개");
-
+									needTTNum.setText("2개");
+ 
 									rewordImg.setLocation(100,140);
 									DongImg.setVisible(true);
 					//		}
@@ -197,17 +197,17 @@ public class SeoungJang extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				if(needTTNum.getText().equals("4개")) {
+				if(needTTNum.getText().equals("2개")) {
 				rewordChNum += 1;
 				if(rewordChNum ==2) {
 
-						if(MemberDao.loginMember.getHaveTen()>=4) {
+						if(MemberDao.loginMember.getHaveTen()>=2) {
 						//	if(needTTNum.getText().equals("4개")) {
 								//보유텐텐이 10개 이상이고 보상조건이 10개일때
 								//보유텐텐 10개 삭감하고 보상조건 20개로 증가시켜라
-								MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-4);
+								MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-2);
 								myttnum.setText("  "+String.valueOf(MemberDao.loginMember.getHaveTen()).toString());
-								needTTNum.setText("6개");
+								needTTNum.setText("4개");
 
 								DongImg.setLocation(205,140);
 								silverImg.setVisible(true);
@@ -228,15 +228,15 @@ public class SeoungJang extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-				if(needTTNum.getText().equals("6개")) {
+				if(needTTNum.getText().equals("4개")) {
 					rewordChNum += 1;
 					if(rewordChNum ==3) {
 					
-							if(MemberDao.loginMember.getHaveTen()>=6) {
+							if(MemberDao.loginMember.getHaveTen()>=4) {
 							//	if(needTTNum.getText().equals("6개")) {
 									//보유텐텐이 10개 이상이고 보상조건이 20개일때
 									//보유텐텐 10개 삭감하고 보상조건 30개로 증가시켜라
-									MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-6);
+									MemberDao.loginMember.setHaveTen(MemberDao.loginMember.getHaveTen()-4);
 									myttnum.setText("  "+String.valueOf(MemberDao.loginMember.getHaveTen()).toString());
 									needTTNum.setText("8개");
 
@@ -362,14 +362,18 @@ public class SeoungJang extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(Test_OxTest.index >= 10) {
+					ChangePanel.changePanel(mf, SeoungJang, new Test_TestPopup(mf));
+				}else {
 				ChangePanel.changePanel(mf, SeoungJang, new Test_Main(mf));
+				}
 			}
 
 		});
 
 
 
+
 	}
 }
-
 

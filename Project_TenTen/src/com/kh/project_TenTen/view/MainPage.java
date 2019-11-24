@@ -62,6 +62,8 @@ public class MainPage extends JPanel {
 
 
 	public Word[] objectTest(int num) {
+		//WordDao클래스 안, 풀어놓은 주제별 배열이 있는 readWord 라는 메소드를 호출하여
+		//wordList 라는 ArrayList에 담아줌. (주제당 10개)
 		ArrayList wordList = wd.readWord(num);
 		Word[] word = new Word[wordList.size()];
 
@@ -185,14 +187,17 @@ public class MainPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChSub.setVisible(false);
-				CookjujaeD.dispose();
-				if(count == 0 ) {
+				ChSub.setVisible(false); //가운데 "주제를선택하세요" 라벨 사라지게
+				CookjujaeD.dispose(); //해당주제를 선택하시겠습니까? 질문 팝업창 종료
+				if(count == 0 ) { 	  // count 라는 int 변수를 0초기화시켜놓고, 0일때만 학습단어가 불러오게끔.
 
-					wordStr = new String[10];
+					wordStr = new String[10];   // 10개의 영단어, 뜻, 품사를 각각의 배열에 10개의 공간을 생성해서 담음 
 					meanStr = new String[10];
 					kindStr = new String[10];
-					word = objectTest(returnSubject("요리"));
+					
+					// Word[] 클래스 자료형의 배열에 word 변수를 null로 초기화 시킨 뒤,
+					// 
+					word = objectTest(returnSubject("요리")); 
 					subjectWord = "요리";
 
 					//스펠링 가져오기
@@ -753,6 +758,7 @@ public class MainPage extends JPanel {
 		arm.setSize(105, 60);
 		arm.setLocation(105,420);
 		arm.setForeground(Color.WHITE);
+		arm.setFont(new Font("고딕",Font.BOLD,22));
 		arm.setPreferredSize(new Dimension(105, 60));
 		arm.setBackground(new Color(36, 107, 220));
 
@@ -809,6 +815,7 @@ public class MainPage extends JPanel {
 		beearm.setSize(105, 60);
 		beearm.setLocation(240, 420);
 		beearm.setForeground(Color.WHITE);
+		beearm.setFont(new Font("고딕",Font.BOLD,22));
 		beearm.setPreferredSize(new Dimension(105, 60));
 		beearm.setBackground(new Color(36, 107, 220));
 

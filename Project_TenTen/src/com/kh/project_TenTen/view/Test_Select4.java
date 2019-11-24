@@ -41,16 +41,10 @@ public class Test_Select4 extends JPanel{
 	
 /*	String[] strArr1 =null;
 	String[] strArr2 =null;*/
-	
 
 	private Login_MainFrame mf;
-	private JPanel Test_Select4;
-	
-
-	
+	private JPanel Test_Select4;	
 	int change =100; // TextArea값비교값
-
-	
 	public Word[] objectTest(int num) {
 		ArrayList wordList = wd.readWord(num);
 		Word[] word = new Word[wordList.size()];
@@ -59,7 +53,7 @@ public class Test_Select4 extends JPanel{
 		for(int i = 0; i < wordList.size(); i++) {
 			word[i] = (Word) wordList.get(i);
 		}
-		
+		//단어 객체 섞기
 		ArrayList shuffleList = new ArrayList(Arrays.asList(word));
 		Collections.shuffle(shuffleList);
 		
@@ -70,7 +64,7 @@ public class Test_Select4 extends JPanel{
 		return word;
 	}
 	
-	
+	//주제 선택 
 	public int returnSubject(String returnsubject) {
 		int num = 0;
 
@@ -518,13 +512,13 @@ public class Test_Select4 extends JPanel{
 //					JOptionPane.showMessageDialog(null, "1번~4번까지 다시적어주세요");
 //					ChangePanel.changePanel(mf, Test_Select4, new Test_Select4(mf));
 			
+			
 			try {
 				
 				change = Integer.parseInt(tasouth1.getText());
 			}catch(NumberFormatException e1) {
 			}catch (Exception e1) {
 			}
-			
 			//String nobel  =Integer.valueOf(index).toString();
 			
 		/*	if(index >=0 && index <4) {	
@@ -689,6 +683,7 @@ public class Test_Select4 extends JPanel{
 
 			});
 
+			
 			
 			btnLeft3.addActionListener(new ActionListener() {
 

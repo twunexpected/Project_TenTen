@@ -49,12 +49,12 @@ public class AddWord extends JPanel{
 		lb4.setSize(120, 50);
 		lb4.setFont(new Font("고딕",Font.BOLD,18));
 		this.add(lb4);
-		String[] list = {" 여행", " 스포츠", " 요리","회사 "," 예술"," 경제"};
+		String[] list = {" 여행", " 스포츠", " 요리"," 회사 "," 예술"," 경제"};
 		JComboBox mainList = new JComboBox(list);
 		mainList.setSelectedIndex(0);
 		mainList.setLocation(160, 150);
 		mainList.setSize(170, 50);
-		mainList.setFont(new Font("고딕",Font.BOLD,15));
+		mainList.setFont(new Font("배달의민족 주아",Font.BOLD,15));
 		this.add(mainList);
 		//품사
 		JLabel lb5 = new JLabel("품사  ");
@@ -126,7 +126,7 @@ public class AddWord extends JPanel{
 		btnLeft1.setBounds(0, 0, 80, 120);
 		btnLeft1.setForeground(new Color(255, 255, 225));
 		btnLeft1.setBackground(new Color(36, 107, 220));
-		btnLeft1.setFont(new Font("고딕", Font.BOLD, 20));
+		btnLeft1.setFont(new Font("배달의민족 주아", Font.BOLD, 20));
 		this.add(btnLeft1);
 		btnLeft1.addActionListener(new ActionListener() {
 			@Override

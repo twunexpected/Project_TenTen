@@ -569,6 +569,8 @@ public class Test_Select4 extends JPanel{
 						tasouth1.setText("");
 						tasouth1.requestFocus();
 				 }
+					tasouth1.setText("");
+					tasouth1.requestFocus();
 				 index++;
 				 ChangePanel.changePanel(mf, Test_Select4, new Test_Select4(mf));
 			}
@@ -598,18 +600,29 @@ public class Test_Select4 extends JPanel{
 					    tfsouth3.setText(meanStr[num3]);
 					    tfsouth4.setText(meanStr[num4]);
 					    
-				
-					    
-					    
+					    if (change==1) {
+					    answer +=1;
+						tasouth1.setText("");
+						tasouth1.requestFocus();
+						
+					    }
+					    tasouth1.setText("");
+						tasouth1.requestFocus();
+						
 					    }else if (num1<num2 && num3>num4) {
 						    tfsouth1.setText(meanStr[num4]);
 						    tfsouth2.setText(meanStr[num1]);
 						    tfsouth3.setText(meanStr[num2]);
 						    tfsouth4.setText(meanStr[num3]);
 						    
-						
-						    
-						    
+						    if (change==2) {
+							    answer +=1;
+								tasouth1.setText("");
+								tasouth1.requestFocus();
+								
+							    }
+							    tasouth1.setText("");
+								tasouth1.requestFocus();
 						    
 					    }else if (num1>num2 && num3<num4) {
 						    tfsouth1.setText(meanStr[num3]);
@@ -617,7 +630,14 @@ public class Test_Select4 extends JPanel{
 						    tfsouth3.setText(meanStr[num1]);
 						    tfsouth4.setText(meanStr[num2]);
 						    
-						    
+						    if (change==3) {
+							    answer +=1;
+								tasouth1.setText("");
+								tasouth1.requestFocus();
+								
+							    }
+							    tasouth1.setText("");
+								tasouth1.requestFocus();
 						 
 						    
 					    }else {
@@ -626,6 +646,14 @@ public class Test_Select4 extends JPanel{
 						    tfsouth3.setText(meanStr[num4]);
 						    tfsouth4.setText(meanStr[num1]);
 						    
+						    if (change==4) {
+							    answer +=1;
+								tasouth1.setText("");
+								tasouth1.requestFocus();
+								
+							    }
+							    tasouth1.setText("");
+								tasouth1.requestFocus();
 						  
 					    }
 				

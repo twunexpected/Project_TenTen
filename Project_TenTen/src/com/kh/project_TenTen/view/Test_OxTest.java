@@ -109,21 +109,6 @@ public class Test_OxTest extends JPanel {
 				}
 			}
 		}
-		
-		
-/*		// 콘솔창 연습
-		for(int i = 0; i < spellStr.length; i++) {
-			System.out.println(meanStr[i]);
-		}
-
-		for(int i = 0; i < spellStr.length; i++) {
-			System.out.println(checkStr[i]);
-		}
-
-		for(int i = 0; i < spellStr.length; i++) {
-			System.out.println(ch[i]);
-		}
-*/
 
 		//배경
 		this.setSize(400, 700);
@@ -163,7 +148,7 @@ public class Test_OxTest extends JPanel {
 		JLabel lbVoca = new JLabel();
 		lbVoca.setBounds(85, 185, 300, 100);
 		lbVoca.setFont(new Font("고딕", Font.BOLD, 10)); // 굵은 폰트
-		lbVoca.setFont(lbVoca.getFont().deriveFont(45.0f));
+		lbVoca.setFont(lbVoca.getFont().deriveFont(38.0f));
 		lbVoca.setBackground(new Color(123, 185, 237));
 		lbVoca.setText(spellStr[index]);
 		lbVoca.setHorizontalAlignment(JTextField.CENTER);
@@ -185,6 +170,8 @@ public class Test_OxTest extends JPanel {
 		buttonO.setBounds(125, 410, 100, 60);
 		buttonO.setBackground(new Color(36, 107, 220));
 		buttonO.setForeground(Color.WHITE);
+//		buttonO.setOpaque(true);	// 버튼색상 available
+//		buttonO.setBorderPainted(false);	// 버튼색상 available
 		buttonO.setFont(lbNumber.getFont().deriveFont(25.0f));
 		this.setLayout(null);
 
@@ -192,6 +179,8 @@ public class Test_OxTest extends JPanel {
 		buttonX.setBounds(255, 410, 100, 60);
 		buttonX.setBackground(new Color(36, 107, 220));
 		buttonX.setForeground(Color.WHITE);
+//		buttonX.setOpaque(true);	// 버튼색상 available
+//		buttonX.setBorderPainted(false);	// 버튼색상 available
 		buttonX.setFont(lbNumber.getFont().deriveFont(25.0f));
 		this.setLayout(null);
 
@@ -222,6 +211,8 @@ public class Test_OxTest extends JPanel {
 		btnLeft1.setBounds(0, 0, 80, 120);
 		btnLeft1.setForeground(new Color(255, 255, 225));
 		btnLeft1.setBackground(new Color(36, 107, 220));
+//		btnLeft1.setOpaque(true);	// 버튼색상 available
+//		btnLeft1.setBorderPainted(false);	// 버튼색상 available
 		btnLeft1.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
@@ -229,6 +220,8 @@ public class Test_OxTest extends JPanel {
 		btnLeft2.setBounds(0, 130, 80, 120);
 		btnLeft2.setForeground(new Color(255, 255, 225));
 		btnLeft2.setBackground(new Color(36, 107, 220));
+//		btnLeft2.setOpaque(true);	// 버튼색상 available
+//		btnLeft2.setBorderPainted(false);	// 버튼색상 available
 		btnLeft2.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
@@ -236,6 +229,8 @@ public class Test_OxTest extends JPanel {
 		btnLeft3.setBounds(0, 260, 80, 120);
 		btnLeft3.setForeground(new Color(255, 255, 225));
 		btnLeft3.setBackground(new Color(36, 107, 220));
+//		btnLeft3.setOpaque(true);	// 버튼색상 available
+//		btnLeft3.setBorderPainted(false);	// 버튼색상 available
 		btnLeft3.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 
@@ -244,6 +239,8 @@ public class Test_OxTest extends JPanel {
 		btnLeft4.setForeground(new Color(255, 255, 225));
 		btnLeft4.setBackground(new Color(36, 107, 220));
 		btnLeft4.setFont(new Font("고딕", Font.BOLD, 20));
+//		btnLeft4.setOpaque(true);	// 버튼색상 available
+//		btnLeft4.setBorderPainted(false);	// 버튼색상 available
 		btnLeft4.setHorizontalAlignment(JTextField.CENTER);
 		this.setLayout(null);
 
@@ -251,6 +248,8 @@ public class Test_OxTest extends JPanel {
 		btnLeft5.setBounds(0, 520, 80, 135);
 		btnLeft5.setForeground(new Color(255, 255, 225));
 		btnLeft5.setBackground(new Color(36, 107, 220));
+//		btnLeft5.setOpaque(true);	// 버튼색상 available
+//		btnLeft5.setBorderPainted(false);	// 버튼색상 available
 		btnLeft5.setFont(new Font("고딕", Font.BOLD, 20));
 		this.setLayout(null);
 		
@@ -378,14 +377,18 @@ public class Test_OxTest extends JPanel {
 
 		});
 
+		//단어 TEST 버튼
 		btnLeft4.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				ChangePanel.changePanel(mf, Test_OxTest, new Test_Main(mf));
+				if(index >= 10) {
+					
+					ChangePanel.changePanel(mf, Test_OxTest, new Test_TestPopup(mf));
+				}else {
+					ChangePanel.changePanel(mf, Test_OxTest, new Test_Main(mf));
+				}
 			}
-
 		});
 
 
